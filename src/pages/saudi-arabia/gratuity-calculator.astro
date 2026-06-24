@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "How is Saudi Arabia gratuity calculated?", answer: "Saudi EOSB: half month basic salary per year for the first 5 years, then one full month per year after 5 years. Calculated on last drawn basic salary plus housing allowance." },
@@ -30,6 +31,7 @@ const schemas = [buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildWebAp
   <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your Saudi end-of-service benefits using the official labor law formula. Instant browser-based calculations.</p>
   <TrustBadge />
   <div class="mt-6"><GratuityCalculator client:idle country="saudi" currency="SAR" countryName="Saudi Arabia" /></div>
+  <EmbedInstructions calculatorType="gratuity" />
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How Saudi Arabia EOSB is Calculated</h2>
     <p>The Saudi end-of-service benefit is governed by the Saudi Labour Law (Royal Decree No. M/51). The calculation uses the employee's last drawn basic salary plus housing allowance as the base figure. The formula is straightforward but differs from the UAE approach:</p>

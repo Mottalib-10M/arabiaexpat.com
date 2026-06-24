@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "How is Qatar gratuity calculated?", answer: "Qatar mandates a minimum of 3 weeks (21 days) of basic salary per year of service. Employers may offer more generous terms contractually." },
@@ -25,6 +26,7 @@ const schemas = [buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildWebAp
   <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your Qatar end-of-service benefits using the official MADLSA minimum entitlements. All calculations run privately in your browser.</p>
   <TrustBadge />
   <div class="mt-6"><GratuityCalculator client:idle country="qatar" currency="QAR" countryName="Qatar" /></div>
+  <EmbedInstructions calculatorType="gratuity" />
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How Qatar Gratuity Works</h2>
     <p>Qatar Labour Law No. 14 of 2004 (as amended) establishes a minimum gratuity entitlement of 3 weeks (21 days) of basic salary for each completed year of service. Unlike the UAE's tiered system (21 days then 30 days), Qatar applies a uniform 21-day minimum throughout the service period. However, employers may contractually agree to more generous terms.</p>

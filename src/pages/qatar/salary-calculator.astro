@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "Does Qatar have income tax on salaries?", answer: "No. Qatar does not impose personal income tax on employment income. There is also no social security contribution for expatriates. Your gross salary equals your net take-home pay, making Qatar one of the most tax-friendly destinations in the world." },
@@ -44,6 +45,8 @@ const schemas = [
   <div class="mt-6">
     <SalaryCalculator client:idle country="qatar" currency="QAR" countryName="Qatar" />
   </div>
+
+  <EmbedInstructions calculatorType="salary" />
 
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How Qatar Salaries Work in 2026</h2>

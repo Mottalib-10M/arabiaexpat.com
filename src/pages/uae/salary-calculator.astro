@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "Is there income tax on salaries in the UAE?", answer: "No. The UAE does not impose personal income tax on employment income. Your gross salary is your full take-home pay regardless of nationality. The UAE introduced a 9% corporate tax in 2023 for businesses, but this does not affect individual salaries." },
@@ -44,6 +45,8 @@ const schemas = [
   <div class="mt-6">
     <SalaryCalculator client:idle country="uae" currency="AED" countryName="UAE" />
   </div>
+
+  <EmbedInstructions calculatorType="salary" />
 
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How UAE Salaries Work in 2026</h2>

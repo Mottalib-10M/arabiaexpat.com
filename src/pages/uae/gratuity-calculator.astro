@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "How is UAE gratuity calculated in 2026?", answer: "UAE gratuity is calculated based on basic salary only. For the first 5 years: 21 days of basic salary per year. After 5 years: 30 days per year. Maximum cap is 2 years of total salary." },
@@ -45,6 +46,8 @@ const schemas = [
   <div class="mt-6">
     <GratuityCalculator client:idle country="uae" currency="AED" countryName="UAE" />
   </div>
+
+  <EmbedInstructions calculatorType="gratuity" />
 
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How UAE Gratuity is Calculated</h2>

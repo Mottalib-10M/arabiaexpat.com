@@ -1,7 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { calculateSalary, type SalaryCountry, type SalaryResult } from "../../lib/salary-engine";
 import { formatCurrencyDetailed } from "../../lib/format";
-import { updateURL } from "../../lib/url-state";
+import { decodeState, updateURL } from "../../lib/url-state";
+import ShareButtons from "./ShareButtons";
 
 interface Props {
   country: SalaryCountry;
@@ -17,6 +18,16 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
   const [includeTransport, setIncludeTransport] = useState(true);
   const [isNational, setIsNational] = useState(false);
 
+  // Read URL params on mount to pre-fill values
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = decodeState(window.location.search);
+    if (params.salary) setMonthlySalary(params.salary);
+    if (params.housing) setHousingAllowance(params.housing);
+    if (params.transport) setTransportAllowance(params.transport);
+    if (params.national === "1") setIsNational(true);
+  }, []);
+
   const result: SalaryResult | null = useMemo(() => {
     const salary = parseFloat(monthlySalary);
     if (!salary || salary <= 0) return null;
@@ -31,14 +42,22 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
     });
   }, [monthlySalary, housingAllowance, transportAllowance, includeHousing, includeTransport, isNational, country]);
 
-  const handleSave = () => {
-    updateURL({
+  // Update URL whenever inputs change (only if salary is present)
+  useEffect(() => {
+    if (!monthlySalary) return;
+    const params: Record<string, string> = {
       salary: monthlySalary,
-      housing: housingAllowance,
-      transport: transportAllowance,
-      national: isNational ? "1" : "0",
-    });
-  };
+      country,
+    };
+    if (housingAllowance) params.housing = housingAllowance;
+    if (transportAllowance) params.transport = transportAllowance;
+    if (isNational) params.national = "1";
+    updateURL(params);
+  }, [monthlySalary, housingAllowance, transportAllowance, isNational, country]);
+
+  const shareText = result
+    ? `My ${countryName} take-home salary: ${formatCurrencyDetailed(result.netMonthly, currency)}/month (${formatCurrencyDetailed(result.grossMonthly, currency)} gross). Calculate yours:`
+    : "";
 
   return (
     <div className="space-y-6">
@@ -130,13 +149,6 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
             </div>
           )}
         </div>
-
-        <button
-          onClick={handleSave}
-          className="mt-4 w-full sm:w-auto px-8 py-3 bg-gold-600 hover:bg-gold-700 text-white font-semibold rounded-lg transition-colors focus:ring-2 focus:ring-gold-500 focus:ring-offset-2"
-        >
-          Calculate Take-Home Pay
-        </button>
       </div>
 
       {result && (
@@ -221,6 +233,8 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
             {country === "uae" && <p>The UAE has no personal income tax. Social security applies only to UAE/GCC nationals.</p>}
             {country === "saudi" && <p>Saudi Arabia has no personal income tax. GOSI contributions apply to nationals (9.75%) and employers of expats (2%).</p>}
           </div>
+
+          <ShareButtons text={shareText} />
         </div>
       )}
     </div>

@@ -7,6 +7,7 @@ import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import AuthorByline from "../../components/ui/AuthorByline.astro";
 import TrustBadge from "../../components/ui/TrustBadge.astro";
+import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
 
 const faqs = [
   { question: "Does Saudi Arabia have income tax on salaries?", answer: "No. Saudi Arabia does not impose personal income tax on employment income for either nationals or expatriates. However, Saudi nationals are subject to GOSI social insurance contributions, and employers of expatriates must pay a 2% GOSI contribution." },
@@ -44,6 +45,8 @@ const schemas = [
   <div class="mt-6">
     <SalaryCalculator client:idle country="saudi" currency="SAR" countryName="Saudi Arabia" />
   </div>
+
+  <EmbedInstructions calculatorType="salary" />
 
   <div class="prose dark:prose-invert max-w-none mt-12">
     <h2>How Saudi Salaries Work in 2026</h2>

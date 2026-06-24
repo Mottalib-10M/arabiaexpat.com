@@ -1,7 +1,8 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { calculateGratuity, type Country, type ContractType, type TerminationType, type GratuityResult } from "../../lib/gratuity-engine";
 import { formatCurrencyDetailed } from "../../lib/format";
-import { updateURL } from "../../lib/url-state";
+import { decodeState, updateURL } from "../../lib/url-state";
+import ShareButtons from "./ShareButtons";
 
 interface Props {
   country: Country;
@@ -14,6 +15,20 @@ export default function GratuityCalculator({ country, currency, countryName }: P
   const [yearsOfService, setYearsOfService] = useState<string>("");
   const [contractType, setContractType] = useState<ContractType>("limited");
   const [terminationType, setTerminationType] = useState<TerminationType>("employer");
+
+  // Read URL params on mount to pre-fill values
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = decodeState(window.location.search);
+    if (params.salary) setBasicSalary(params.salary);
+    if (params.years) setYearsOfService(params.years);
+    if (params.contract && (params.contract === "limited" || params.contract === "unlimited")) {
+      setContractType(params.contract as ContractType);
+    }
+    if (params.termination && (params.termination === "employer" || params.termination === "resignation")) {
+      setTerminationType(params.termination as TerminationType);
+    }
+  }, []);
 
   const result: GratuityResult | null = useMemo(() => {
     const salary = parseFloat(basicSalary);
@@ -28,14 +43,22 @@ export default function GratuityCalculator({ country, currency, countryName }: P
     });
   }, [basicSalary, yearsOfService, contractType, terminationType, country]);
 
-  const handleCalculate = useCallback(() => {
-    updateURL({
+  // Update URL whenever inputs change (only if salary and years are present)
+  useEffect(() => {
+    if (!basicSalary || !yearsOfService) return;
+    const params: Record<string, string> = {
       salary: basicSalary,
       years: yearsOfService,
-      contract: contractType,
-      termination: terminationType,
-    });
-  }, [basicSalary, yearsOfService, contractType, terminationType]);
+      country,
+    };
+    if (contractType !== "limited") params.contract = contractType;
+    if (terminationType !== "employer") params.termination = terminationType;
+    updateURL(params);
+  }, [basicSalary, yearsOfService, contractType, terminationType, country]);
+
+  const shareText = result
+    ? `My end-of-service gratuity in ${countryName}: ${formatCurrencyDetailed(result.totalGratuity, currency)} for ${yearsOfService} years at ${formatCurrencyDetailed(parseFloat(basicSalary), currency)}/month. Calculate yours:`
+    : "";
 
   const maxBar = result ? Math.max(result.grossGratuity, 1) : 1;
 
@@ -110,13 +133,6 @@ export default function GratuityCalculator({ country, currency, countryName }: P
             </select>
           </div>
         </div>
-
-        <button
-          onClick={handleCalculate}
-          className="mt-4 w-full sm:w-auto px-8 py-3 bg-gold-600 hover:bg-gold-700 text-white font-semibold rounded-lg transition-colors focus:ring-2 focus:ring-gold-500 focus:ring-offset-2"
-        >
-          Calculate Gratuity
-        </button>
       </div>
 
       {result && (
@@ -194,6 +210,8 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               <p key={i}>{note}</p>
             ))}
           </div>
+
+          <ShareButtons text={shareText} />
         </div>
       )}
     </div>
