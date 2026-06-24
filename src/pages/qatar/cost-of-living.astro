@@ -1,12 +1,12 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { qatarCostOfLiving } from "../../data/qatar/cost-of-living";
-import { buildBreadcrumbs } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/qatar/cost-of-living/" }];
 ---
-<GuideLayout title="Qatar Cost of Living 2026: Doha Prices Guide" description="Detailed Qatar cost of living guide for 2026. Rent, food, transport, healthcare, and education prices in Doha with QAR and USD equivalents." canonical="/qatar/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Cost of Living", url: "/qatar/cost-of-living/" }]}>
+<GuideLayout title="Qatar Cost of Living 2026: Rent, Food and Prices in Doha" description="Detailed Qatar cost of living guide for 2026. Rent, groceries, transport, healthcare, and education prices in Doha with QAR and USD equivalents. Budget planning tips." canonical="/qatar/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Qatar Cost of Living 2026: Rent, Food and Prices in Doha", "Detailed Qatar cost of living guide for 2026.", "https://gulfexpathub.com/qatar/cost-of-living/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Cost of Living", url: "/qatar/cost-of-living/" }]}>
 <h1>Qatar Cost of Living in 2026: Doha Price Guide</h1>
 <p>Qatar offers a unique cost-of-living proposition: no income tax, no VAT, and living costs generally lower than Dubai. Doha is the center of all economic activity, and nearly all expatriates live in the capital or its immediate suburbs. Housing is the largest expense, followed by education (for families) and food. This guide provides current 2026 pricing for all major expense categories, helping you budget accurately before and during your Qatar assignment.</p>
 {qatarCostOfLiving.cities.map((city) => (

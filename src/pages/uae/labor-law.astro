@@ -1,6 +1,6 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
-import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
@@ -14,7 +14,7 @@ const faqs = [
 ];
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" }, { name: "Labor Law", url: "https://gulfexpathub.com/uae/labor-law/" }];
 ---
-<GuideLayout title="UAE Labor Law Guide 2026: Employee Rights and Rules" description="Essential UAE labor law guide for 2026. Working hours, leave, termination, gratuity, WPS, and employee rights under Federal Decree-Law No. 33 of 2021." canonical="/uae/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Labor Law", url: "/uae/labor-law/" }]}>
+<GuideLayout title="UAE Labor Law Guide 2026: Employee Rights and Rules" description="Essential UAE labor law guide for 2026. Working hours, leave, termination, gratuity, WPS, and employee rights under Federal Decree-Law No. 33 of 2021." canonical="/uae/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Labor Law Guide 2026: Employee Rights and Rules", "Essential UAE labor law guide for 2026.", "https://gulfexpathub.com/uae/labor-law/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Labor Law", url: "/uae/labor-law/" }]}>
 <h1>UAE Labor Law Essentials 2026</h1>
 <p>The UAE's labor framework is governed by Federal Decree-Law No. 33 of 2021, which replaced the previous 1980 labor law. This comprehensive legislation modernized employment regulations, introduced new work models, strengthened employee protections, and aligned the UAE with international labor standards. Understanding these laws is essential for both employees and employers operating in the UAE.</p>
 <h2>Employment Contracts</h2>

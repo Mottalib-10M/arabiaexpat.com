@@ -53,7 +53,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
               Basic Monthly Salary ({currency})
             </label>
             <input
-              type="number"
+              type="text" inputMode="decimal"
               value={monthlySalary}
               onChange={(e) => setMonthlySalary(e.target.value)}
               placeholder="e.g. 15000"
@@ -75,7 +75,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                 className="rounded text-teal-600 focus:ring-teal-500"
               />
               <input
-                type="number"
+                type="text" inputMode="decimal"
                 value={housingAllowance}
                 onChange={(e) => setHousingAllowance(e.target.value)}
                 placeholder="e.g. 5000"
@@ -99,7 +99,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                 className="rounded text-teal-600 focus:ring-teal-500"
               />
               <input
-                type="number"
+                type="text" inputMode="decimal"
                 value={transportAllowance}
                 onChange={(e) => setTransportAllowance(e.target.value)}
                 placeholder="e.g. 1500"

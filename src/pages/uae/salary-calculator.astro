@@ -1,0 +1,72 @@
+---
+import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
+import SalaryCalculator from "../../components/calculators/SalaryCalculator";
+import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import AuthorByline from "../../components/ui/AuthorByline.astro";
+import TrustBadge from "../../components/ui/TrustBadge.astro";
+
+const faqs = [
+  { question: "Is there income tax on salaries in the UAE?", answer: "No. The UAE does not impose personal income tax on employment income. Your gross salary is your full take-home pay regardless of nationality. The UAE introduced a 9% corporate tax in 2023 for businesses, but this does not affect individual salaries." },
+  { question: "What is GPSSA and does it affect my salary?", answer: "The General Pension and Social Security Authority (GPSSA) manages pension contributions for UAE and GCC nationals only. Employees contribute 5% of basic salary and employers contribute 12.5%. Expatriates are fully exempt from GPSSA contributions." },
+  { question: "What allowances are typically included in a UAE salary package?", answer: "A standard UAE package includes basic salary, housing allowance (often 30-40% of basic salary), transport allowance, annual flight tickets, and health insurance. Some employers also provide education allowances for dependents, phone allowances, and furniture allowances." },
+  { question: "How is the housing allowance structured in the UAE?", answer: "Housing allowance is typically a separate line item from basic salary. It may be paid monthly or annually. In Dubai and Abu Dhabi, housing allowance commonly ranges from AED 4,000 to AED 12,000 per month depending on seniority. Some employers provide accommodation directly instead of a cash allowance." },
+  { question: "Does the UAE have a minimum wage?", answer: "The UAE does not have a universal minimum wage. However, the Ministry of Human Resources and Emiratisation (MoHRE) sets minimum salary thresholds for visa sponsorship and family sponsorship purposes. Workers must earn enough to cover their basic needs as assessed by the ministry." },
+  { question: "What is the Wage Protection System (WPS)?", answer: "The WPS is a mandatory electronic salary transfer system that requires UAE employers to pay wages through authorized banks and exchange houses. It ensures timely salary payments and creates an auditable record. Employers who fail to pay through WPS face penalties including suspension of work permits." },
+  { question: "Are bonuses taxed in the UAE?", answer: "No. Since the UAE has no personal income tax, bonuses, commissions, and all other forms of employment compensation are received tax-free. Performance bonuses typically range from 1 to 3 months of salary depending on the employer and industry." },
+];
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" },
+  { name: "Salary Calculator", url: "https://gulfexpathub.com/uae/salary-calculator/" },
+];
+const schemas = [
+  buildBreadcrumbs(breadcrumbs),
+  buildFAQSchema(faqs),
+  buildWebApplicationSchema("UAE Salary Calculator 2026", "Calculate your UAE take-home pay with housing and transport allowances. Zero income tax for expats, GPSSA breakdown for nationals.", "https://gulfexpathub.com/uae/salary-calculator/"),
+];
+---
+
+<CalculatorLayout
+  title="UAE Salary Calculator 2026: Gross to Net for Expats"
+  description="Calculate your UAE take-home salary for 2026. No income tax for expats, GPSSA pension breakdown for nationals. Free instant tool with housing and transport allowances."
+  canonical="/uae/salary-calculator/"
+  schemas={schemas}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salary Calculator", url: "/uae/salary-calculator/" }]}
+>
+  <AuthorByline />
+  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">UAE Salary Calculator 2026</h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-6">Break down your UAE salary package into base, housing, and transport components. All calculations run privately in your browser.</p>
+  <TrustBadge />
+
+  <div class="mt-6">
+    <SalaryCalculator client:idle country="uae" currency="AED" countryName="UAE" />
+  </div>
+
+  <div class="prose dark:prose-invert max-w-none mt-12">
+    <h2>How UAE Salaries Work in 2026</h2>
+    <p>The UAE remains one of the most financially attractive destinations for expatriate professionals, primarily because there is no personal income tax on employment income. This means your entire gross salary package, including basic salary, housing allowance, transport allowance, and any bonuses, is your actual take-home pay. The only salary deductions that apply are for UAE and GCC nationals under the General Pension and Social Security Authority (GPSSA) scheme, where employees contribute 5% of basic salary and employers contribute 12.5%.</p>
+    <p>A typical UAE employment package is structured with several distinct components. The basic salary usually forms 50-60% of the total package and serves as the basis for end-of-service gratuity calculations. The housing allowance, typically 30-40% of the basic salary, is a separate cash component paid monthly or sometimes annually. Transport allowances generally range from AED 1,000 to AED 3,000 per month. Additional benefits commonly include annual return flights to the home country, comprehensive health insurance (mandatory under UAE law), and sometimes education allowances for employees with children.</p>
+    <p>The Wage Protection System (WPS) ensures that all employers in the UAE pay salaries electronically through approved banks and exchange houses. This system creates transparency and accountability, and MoHRE monitors compliance closely. Employers who fail to pay through WPS or delay salary payments face penalties including suspension of work permits and fines. The WPS applies to all private sector employees and covers the full salary amount including allowances.</p>
+
+    <h2>Understanding GPSSA for Nationals</h2>
+    <p>UAE nationals and GCC citizens working in the UAE are subject to mandatory pension contributions through GPSSA. The employee contributes 5% of their basic salary (referred to as the "contribution salary"), while the employer contributes 12.5%. For Abu Dhabi government employees, the employer contribution is 15%. These contributions fund retirement pensions, disability benefits, and death-in-service benefits. The contribution salary is capped at AED 70,000 per month. Expatriates are entirely exempt from these contributions, which is one of the reasons the UAE is so financially attractive for foreign workers.</p>
+  </div>
+
+  <FAQAccordion faqs={faqs} />
+
+  <SourcesBlock sources={[
+    { name: "UAE MoHRE - Wage Protection System", url: "https://www.mohre.gov.ae/" },
+    { name: "GPSSA - General Pension and Social Security Authority", url: "https://www.gpssa.gov.ae/" },
+  ]} />
+
+  <RelatedLinks links={[
+    { label: "UAE Gratuity Calculator 2026", href: "/uae/gratuity-calculator/" },
+    { label: "UAE Cost of Living 2026", href: "/uae/cost-of-living/" },
+    { label: "UAE Labor Law Guide", href: "/uae/labor-law/" },
+    { label: "UAE Salaries by Profession", href: "/uae/salaries/" },
+    { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" },
+  ]} />
+</CalculatorLayout>

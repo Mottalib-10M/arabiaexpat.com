@@ -1,12 +1,12 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { saudiCostOfLiving } from "../../data/saudi/cost-of-living";
-import { buildBreadcrumbs } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/saudi-arabia/cost-of-living/" }];
 ---
-<GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah" description="Detailed Saudi Arabia cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
+<GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah Prices" description="Detailed Saudi Arabia cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures. Budget tips for expats." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Saudi Cost of Living 2026: Riyadh and Jeddah Prices", "Detailed Saudi Arabia cost of living for 2026.", "https://gulfexpathub.com/saudi-arabia/cost-of-living/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
 <h1>Saudi Arabia Cost of Living 2026: Riyadh and Jeddah</h1>
 <p>Saudi Arabia offers one of the most affordable cost of living environments among Gulf countries, particularly when compared to the UAE. Combined with tax-free salaries, the kingdom provides strong savings potential for expatriate professionals. Riyadh, the capital, has seen cost increases as it becomes a regional business hub, but remains more affordable than Dubai. Jeddah, the Red Sea coastal city, offers slightly lower prices. This guide covers current 2026 expenses across housing, food, transport, healthcare, education, and utilities.</p>
 {saudiCostOfLiving.cities.map((city) => (

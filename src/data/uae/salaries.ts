@@ -105,7 +105,7 @@ export const uaeProfessions: ProfessionSalary[] = [
     mid: { min: 15000, max: 25000 },
     senior: { min: 25000, max: 40000 },
     benefits: ["Housing allowance", "Annual flights", "Health insurance", "Performance bonuses", "End-of-service gratuity"],
-    description: "Marketing managers in the UAE operate in one of the region's most dynamic commercial environments. Dubai's position as a business hub means companies spanning retail, hospitality, real estate, and technology all compete for experienced marketing talent. Digital marketing expertise is particularly valued, with brands investing heavily in social media, influencer partnerships, and data-driven campaign optimization. Marketing managers at multinational corporations and regional headquarters tend to earn at the upper end of the salary range. Knowledge of the Middle Eastern consumer landscape, including cultural sensitivities around advertising content, is a distinct advantage. Performance bonuses tied to campaign ROI can add 15-25% to annual compensation. Bilingual professionals (English plus Arabic) often command premium packages.",
+    description: "Marketing managers in the UAE operate in one of the region's most dynamic commercial environments. Dubai's position as a business hub means companies spanning retail, hospitality, real estate, and technology all compete for experienced marketing talent. Digital marketing expertise is particularly valued, with brands investing heavily in social media, influencer partnerships, and data-driven campaign optimization. Marketing managers at multinational corporations and regional headquarters tend to earn at the upper end of the salary range. Knowledge of the Middle Eastern consumer market, including cultural sensitivities around advertising content, is a distinct advantage. Performance bonuses tied to campaign ROI can add 15-25% to annual compensation. Bilingual professionals (English plus Arabic) often command premium packages.",
     outlook: "Digital advertising spend in the MENA region is growing at 15-20% annually, driving strong demand for experienced marketing professionals.",
   },
   {
@@ -118,7 +118,7 @@ export const uaeProfessions: ProfessionSalary[] = [
     senior: { min: 22000, max: 35000 },
     benefits: ["Housing allowance", "Annual flights", "Health insurance", "Performance bonuses", "End-of-service gratuity"],
     description: "Human resources management in the UAE is shaped by the country's unique labor market dynamics, where expatriates comprise over 80% of the workforce. HR managers must navigate complex visa sponsorship processes, Emiratization requirements, and diverse cultural expectations. The MoHRE regularly updates labor regulations, making compliance expertise essential. HR professionals with experience in the Wage Protection System (WPS), end-of-service benefit calculations, and UAE labor law amendments are highly valued. Strategic HR roles focusing on talent acquisition, employer branding, and organizational development command the highest salaries. CIPD and SHRM certifications enhance employability. The shift toward remote and hybrid work models has added new dimensions to the HR function in UAE organizations.",
-    outlook: "Emiratization targets and evolving labor laws create ongoing demand for experienced HR professionals who understand the regulatory landscape.",
+    outlook: "Emiratization targets and evolving labor laws create ongoing demand for experienced HR professionals who understand the regulatory environment.",
   },
   {
     slug: "project-manager",

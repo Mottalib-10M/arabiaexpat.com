@@ -1,12 +1,12 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { uaeCostOfLiving } from "../../data/uae/cost-of-living";
-import { buildBreadcrumbs } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/uae/cost-of-living/" }];
 ---
-<GuideLayout title="UAE Cost of Living 2026: Dubai and Abu Dhabi Prices" description="Detailed UAE cost of living guide for 2026. Rent, food, transport, healthcare, education, and utility prices in Dubai and Abu Dhabi with AED and USD figures." canonical="/uae/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Cost of Living", url: "/uae/cost-of-living/" }]}>
+<GuideLayout title="UAE Cost of Living 2026: Dubai and Abu Dhabi Prices" description="Detailed UAE cost of living guide for 2026. Rent, food, transport, healthcare, education, and utility prices in Dubai and Abu Dhabi with AED and USD figures." canonical="/uae/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("UAE Cost of Living 2026: Dubai and Abu Dhabi Prices", "Detailed UAE cost of living guide for 2026.", "https://gulfexpathub.com/uae/cost-of-living/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Cost of Living", url: "/uae/cost-of-living/" }]}>
 <h1>UAE Cost of Living in 2026: Dubai and Abu Dhabi</h1>
 <p>Understanding the cost of living in the UAE is essential for evaluating job offers and planning your finances. While the absence of income tax boosts take-home pay, living costs in major UAE cities are comparable to premium Western cities. Dubai is generally more expensive than Abu Dhabi, particularly for housing and entertainment. This guide provides detailed price ranges for housing, food, transport, healthcare, education, and utilities in both cities, based on 2026 market data.</p>
 {uaeCostOfLiving.cities.map((city) => (

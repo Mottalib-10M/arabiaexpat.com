@@ -1,6 +1,6 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
-import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
@@ -13,7 +13,7 @@ const faqs = [
 ];
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" }, { name: "Labor Law", url: "https://gulfexpathub.com/qatar/labor-law/" }];
 ---
-<GuideLayout title="Qatar Labor Law Guide 2026: Employee Rights" description="Essential Qatar labor law guide for 2026. Minimum wage, working hours, leave, termination, and worker protections under reformed labor legislation." canonical="/qatar/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Labor Law", url: "/qatar/labor-law/" }]}>
+<GuideLayout title="Qatar Labor Law Guide 2026: Essential Employee Rights" description="Essential Qatar labor law guide for 2026. Minimum wage QAR 1,000, working hours, leave, termination rules, and worker protections under reformed legislation. Updated for expats." canonical="/qatar/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Qatar Labor Law Guide 2026: Essential Employee Rights", "Essential Qatar labor law guide for 2026.", "https://gulfexpathub.com/qatar/labor-law/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Labor Law", url: "/qatar/labor-law/" }]}>
 <h1>Qatar Labor Law Essentials 2026</h1>
 <p>Qatar's labor law framework, based on Law No. 14 of 2004 and its subsequent amendments, has undergone the most significant reforms in the GCC region. The changes, implemented between 2020 and 2024, include the introduction of a non-discriminatory minimum wage, elimination of the kafala system, abolition of exit permits, and establishment of the Workers' Support and Insurance Fund. These reforms have fundamentally improved worker protections and modernized the employment relationship in Qatar.</p>
 <h2>Minimum Wage</h2>

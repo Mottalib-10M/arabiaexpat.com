@@ -19,8 +19,13 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content="Mottalib Radif" />
 <link rel="canonical" href={fullCanonical} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Search engine verification -->
+<meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE" />
+<meta name="msvalidate.01" content="BING_VERIFICATION_CODE" />
 
 <!-- Preload Inter font -->
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />

@@ -1,11 +1,11 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
-import { buildBreadcrumbs } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar Guide", url: "https://gulfexpathub.com/qatar/guide/" }];
 ---
-<GuideLayout title="Qatar Expat Guide 2026: Living and Working in Doha" description="Complete 2026 guide to life in Qatar. Tax-free salaries, housing, healthcare, education, visas, and cultural tips for expats relocating to Doha." canonical="/qatar/guide/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar Guide", url: "/qatar/guide/" }]}>
+<GuideLayout title="Qatar Expat Guide 2026: Living and Working in Doha" description="Complete 2026 guide to life in Qatar. Tax-free salaries, housing, healthcare, education, visas, and cultural tips for expats relocating to Doha. Updated regularly." canonical="/qatar/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Qatar Expat Guide 2026: Living and Working in Doha", "Complete 2026 guide to life in Qatar for expats.", "https://gulfexpathub.com/qatar/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar Guide", url: "/qatar/guide/" }]}>
 <h1>Complete Qatar Expat Guide 2026</h1>
 <p>Qatar, the small but immensely wealthy Gulf peninsula nation, has emerged as a global destination for expatriate professionals. With the highest GDP per capita in the world, zero personal income tax, and a rapidly modernizing society, Qatar offers compelling opportunities across energy, finance, healthcare, education, and construction sectors. The 2022 FIFA World Cup legacy continues to shape the country, with world-class infrastructure, improved labor protections, and a growing focus on tourism and culture.</p>
 <h2>Why Move to Qatar?</h2>

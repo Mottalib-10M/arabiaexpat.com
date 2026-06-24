@@ -52,7 +52,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               Basic Monthly Salary ({currency})
             </label>
             <input
-              type="number"
+              type="text" inputMode="decimal"
               value={basicSalary}
               onChange={(e) => setBasicSalary(e.target.value)}
               placeholder="e.g. 15000"
@@ -67,7 +67,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               Years of Service
             </label>
             <input
-              type="number"
+              type="text" inputMode="decimal"
               value={yearsOfService}
               onChange={(e) => setYearsOfService(e.target.value)}
               placeholder="e.g. 5"

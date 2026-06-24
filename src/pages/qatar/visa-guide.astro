@@ -1,7 +1,7 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { qatarVisas } from "../../data/qatar/visas";
-import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
@@ -14,7 +14,7 @@ const faqs = [
 ];
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" }, { name: "Visa Guide", url: "https://gulfexpathub.com/qatar/visa-guide/" }];
 ---
-<GuideLayout title="Qatar Visa Guide 2026: Work, Residency, Family" description="Complete Qatar visa guide for 2026. Work visa, permanent residency, and family visa requirements, costs, and processing times explained." canonical="/qatar/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Visa Guide", url: "/qatar/visa-guide/" }]}>
+<GuideLayout title="Qatar Visa Guide 2026: Work, Residency and Family Visas" description="Complete Qatar visa guide for 2026. Work visa, permanent residency, and family sponsorship requirements with costs and processing times. No exit permit needed." canonical="/qatar/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Qatar Visa Guide 2026: Work, Residency and Family Visas", "Complete Qatar visa guide for 2026.", "https://gulfexpathub.com/qatar/visa-guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Visa Guide", url: "/qatar/visa-guide/" }]}>
 <h1>Qatar Visa Guide 2026</h1>
 <p>Qatar's visa system has undergone significant reform, particularly following the labor law changes introduced ahead of and after the 2022 FIFA World Cup. The dismantling of the kafala system, introduction of job mobility, and abolition of exit permits have modernized the framework substantially. This guide covers the main visa categories available to expatriates in Qatar, along with requirements, costs, and practical advice for 2026.</p>
 {qatarVisas.types.map((visa) => (<><h2>{visa.name}</h2><p><strong>Duration:</strong> {visa.duration}</p><p>{visa.process}</p><p><strong>Estimated cost:</strong> {visa.cost}</p><h3>Requirements</h3><ul>{visa.requirements.map((r) => <li>{r}</li>)}</ul></>))}

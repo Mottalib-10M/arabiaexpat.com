@@ -1,14 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE, COUNTRIES } from "../data/site-config";
-import { buildOrganizationSchema } from "../lib/seo";
+import { buildOrganizationSchema, buildWebSiteSchema } from "../lib/seo";
 import TrustBadge from "../components/ui/TrustBadge.astro";
 
-const schemas = [buildOrganizationSchema()];
+const schemas = [buildOrganizationSchema(), buildWebSiteSchema()];
 ---
 
 <Layout
-  title="Gulf Expat Hub 2026: Salaries, Calculators & Guides for UAE, Qatar, Saudi Arabia"
+  title="Gulf Salaries, Gratuity Calculators and Guides 2026"
   description="Compare salaries, calculate gratuity, and plan your move to the UAE, Qatar, or Saudi Arabia. Free 2026 salary data for 20+ professions across 3 Gulf countries."
   canonical="/"
   schemas={schemas}

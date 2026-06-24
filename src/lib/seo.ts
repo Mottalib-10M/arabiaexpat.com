@@ -102,3 +102,41 @@ export function buildWebApplicationSchema(name: string, description: string, url
     },
   };
 }
+
+export function buildWebSiteSchema(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Gulf Expat Hub",
+    url: SITE.url,
+    description: "Salary data, gratuity calculators, visa guides, and cost of living comparisons for expats in the UAE, Qatar, and Saudi Arabia.",
+    inLanguage: "en",
+    publisher: {
+      "@type": "Organization",
+      name: "Gulf Expat Hub",
+      url: SITE.url,
+    },
+  };
+}
+
+export function buildArticleSchema(title: string, description: string, url: string, datePublished: string, dateModified: string): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description: description,
+    url: url,
+    datePublished: datePublished,
+    dateModified: dateModified,
+    author: {
+      "@type": "Person",
+      name: "Mottalib Radif",
+      jobTitle: "MBA INSEAD",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Gulf Expat Hub",
+      url: SITE.url,
+    },
+  };
+}

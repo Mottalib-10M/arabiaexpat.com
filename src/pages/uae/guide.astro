@@ -1,7 +1,7 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { COUNTRIES } from "../../data/site-config";
-import { buildBreadcrumbs } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 
@@ -9,11 +9,11 @@ const c = COUNTRIES.uae;
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE Guide", url: "https://gulfexpathub.com/uae/guide/" }];
 ---
 
-<GuideLayout title="UAE Expat Guide 2026: Working and Living in the Emirates" description="Complete 2026 guide to living and working in the UAE. Visas, salaries, housing, healthcare, education, and culture for expats moving to Dubai and Abu Dhabi." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
+<GuideLayout title="UAE Expat Guide 2026: Working and Living in the Emirates" description="Complete 2026 guide to living and working in the UAE. Visas, salaries, housing, healthcare, education, and culture for expats moving to Dubai and Abu Dhabi." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("UAE Expat Guide 2026: Working and Living in the Emirates", "Complete 2026 guide to living and working in the UAE.", "https://gulfexpathub.com/uae/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
 
 <h1>Complete UAE Expat Guide 2026</h1>
 
-<p>The United Arab Emirates is one of the world's most popular expat destinations, hosting over 8 million foreign residents who make up approximately 88% of the total population. The country offers a unique combination of tax-free income, modern infrastructure, diverse cultural experiences, and a strategic location connecting East and West. Whether you are considering a move to bustling Dubai or the more measured pace of Abu Dhabi, this comprehensive guide covers everything you need to know about life and work in the UAE in 2026.</p>
+<p>The United Arab Emirates is one of the world's most popular expat destinations, hosting over 8 million foreign residents who make up approximately 88% of the total population. The country offers a unique combination of tax-free income, modern infrastructure, diverse cultural experiences, and a strategic location connecting East and West. Whether you are considering a move to bustling Dubai or the more measured pace of Abu Dhabi, this complete guide covers everything you need to know about life and work in the UAE in 2026.</p>
 
 <h2>Why Move to the UAE?</h2>
 <p>The UAE's appeal for expatriates rests on several key pillars. The most immediately compelling is the zero personal income tax environment, which means your entire gross salary becomes your take-home pay. This financial advantage is amplified by employer-provided benefits that typically include housing allowances, annual flights, and health insurance. The country's infrastructure is world-class, with modern transportation networks, cutting-edge healthcare facilities, and international schools serving every major curriculum. The UAE's geographic position makes it an ideal base for business across the Middle East, Africa, South Asia, and beyond. With over 200 nationalities represented, the social fabric is genuinely cosmopolitan.</p>
