@@ -1,0 +1,48 @@
+---
+import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
+import GratuityCalculator from "../../components/calculators/GratuityCalculator";
+import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import AuthorByline from "../../components/ui/AuthorByline.astro";
+import TrustBadge from "../../components/ui/TrustBadge.astro";
+
+const faqs = [
+  { question: "How is Saudi Arabia gratuity calculated?", answer: "Saudi EOSB: half month basic salary per year for the first 5 years, then one full month per year after 5 years. Calculated on last drawn basic salary plus housing allowance." },
+  { question: "Do I get gratuity if I resign from a Saudi employer?", answer: "Resignation entitlements: less than 2 years = nothing; 2-5 years = one-third of gratuity; 5-10 years = two-thirds; over 10 years = full amount." },
+  { question: "What salary component is used for Saudi gratuity?", answer: "Saudi gratuity is calculated on the last basic salary plus housing allowance, unlike UAE which uses basic salary only." },
+  { question: "Is there a maximum cap on Saudi gratuity?", answer: "Saudi labor law does not specify an explicit maximum cap like the UAE's 2-year limit. The calculation is based entirely on the formula." },
+  { question: "When must the employer pay gratuity in Saudi Arabia?", answer: "Saudi labor law requires payment of end-of-service benefits upon termination of employment. There is no specific statutory timeframe, but payment should be made promptly." },
+  { question: "Can I lose gratuity for misconduct in Saudi Arabia?", answer: "Yes. Under Article 80 of Saudi labor law, employees dismissed for cause (gross misconduct) may forfeit gratuity rights." },
+];
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
+  { name: "Gratuity Calculator", url: "https://gulfexpathub.com/saudi-arabia/gratuity-calculator/" },
+];
+const schemas = [buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildWebApplicationSchema("Saudi Arabia Gratuity Calculator 2026", "Calculate your Saudi EOSB using official MHRSD formulas.", "https://gulfexpathub.com/saudi-arabia/gratuity-calculator/")];
+---
+
+<CalculatorLayout title="Saudi Arabia Gratuity Calculator 2026: EOSB" description="Calculate your Saudi end-of-service benefits for 2026. Official MHRSD formula with resignation penalties. Free instant results." canonical="/saudi-arabia/gratuity-calculator/" schemas={schemas} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Gratuity Calculator", url: "/saudi-arabia/gratuity-calculator/" }]}>
+  <AuthorByline />
+  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">Saudi Arabia Gratuity Calculator 2026</h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your Saudi end-of-service benefits using the official labor law formula. Instant browser-based calculations.</p>
+  <TrustBadge />
+  <div class="mt-6"><GratuityCalculator client:idle country="saudi" currency="SAR" countryName="Saudi Arabia" /></div>
+  <div class="prose dark:prose-invert max-w-none mt-12">
+    <h2>How Saudi Arabia EOSB is Calculated</h2>
+    <p>The Saudi end-of-service benefit is governed by the Saudi Labour Law (Royal Decree No. M/51). The calculation uses the employee's last drawn basic salary plus housing allowance as the base figure. The formula is straightforward but differs from the UAE approach:</p>
+    <ul>
+      <li><strong>First 5 years:</strong> Half month salary for each year of service (15 days per year).</li>
+      <li><strong>After 5 years:</strong> One full month salary for each additional year of service (30 days per year).</li>
+    </ul>
+    <p>For example, an employee with SAR 12,000 basic salary (including housing) and 8 years of service: (12,000/2 x 5) + (12,000 x 3) = 30,000 + 36,000 = SAR 66,000 gross gratuity.</p>
+    <p>Resignation penalties apply progressively: employees leaving before 2 years receive nothing, between 2-5 years receive one-third, between 5-10 years receive two-thirds, and after 10 years receive the full amount. These penalties do not apply when the employer initiates the termination (unless for cause).</p>
+    <h2>Key Differences from UAE Gratuity</h2>
+    <p>Saudi gratuity includes housing allowance in the calculation base, while UAE uses basic salary only. Saudi has no explicit cap on total gratuity, whereas UAE limits gratuity to 2 years of total salary. Saudi resignation penalties extend to 10 years for full entitlement, compared to 5 years in the UAE. Understanding these differences is crucial for professionals considering moves between Gulf countries.</p>
+  </div>
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Saudi Labour Law - Royal Decree No. M/51", url: "https://hrsd.gov.sa/" }]} />
+  <RelatedLinks links={[{ label: "Saudi Salary Calculator 2026", href: "/saudi-arabia/salary-calculator/" }, { label: "Saudi Salaries by Profession", href: "/saudi-arabia/salaries/" }, { label: "Saudi Labor Law Guide", href: "/saudi-arabia/labor-law/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "Qatar Gratuity Calculator", href: "/qatar/gratuity-calculator/" }]} />
+</CalculatorLayout>

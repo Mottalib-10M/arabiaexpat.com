@@ -1,0 +1,44 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { COUNTRIES } from "../../data/site-config";
+import { buildBreadcrumbs } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const c = COUNTRIES.uae;
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE Guide", url: "https://gulfexpathub.com/uae/guide/" }];
+---
+
+<GuideLayout title="UAE Expat Guide 2026: Working and Living in the Emirates" description="Complete 2026 guide to living and working in the UAE. Visas, salaries, housing, healthcare, education, and culture for expats moving to Dubai and Abu Dhabi." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
+
+<h1>Complete UAE Expat Guide 2026</h1>
+
+<p>The United Arab Emirates is one of the world's most popular expat destinations, hosting over 8 million foreign residents who make up approximately 88% of the total population. The country offers a unique combination of tax-free income, modern infrastructure, diverse cultural experiences, and a strategic location connecting East and West. Whether you are considering a move to bustling Dubai or the more measured pace of Abu Dhabi, this comprehensive guide covers everything you need to know about life and work in the UAE in 2026.</p>
+
+<h2>Why Move to the UAE?</h2>
+<p>The UAE's appeal for expatriates rests on several key pillars. The most immediately compelling is the zero personal income tax environment, which means your entire gross salary becomes your take-home pay. This financial advantage is amplified by employer-provided benefits that typically include housing allowances, annual flights, and health insurance. The country's infrastructure is world-class, with modern transportation networks, cutting-edge healthcare facilities, and international schools serving every major curriculum. The UAE's geographic position makes it an ideal base for business across the Middle East, Africa, South Asia, and beyond. With over 200 nationalities represented, the social fabric is genuinely cosmopolitan.</p>
+
+<h2>Cost of Living Overview</h2>
+<p>Living costs in the UAE vary significantly by emirate and lifestyle choices. Dubai is generally the most expensive, with Abu Dhabi slightly more affordable. Housing represents the largest expense, typically consuming 30-40% of monthly income. A one-bedroom apartment in Dubai Marina might cost AED 7,000-10,000 per month, while similar accommodation in more suburban areas costs AED 4,000-6,000. Groceries, dining, and entertainment are comparable to major Western cities. The UAE's 5% VAT applies to most goods and services. Utilities (electricity and water through DEWA in Dubai or ADDC in Abu Dhabi) add AED 500-1,200 monthly depending on property size. For a detailed breakdown, see our <a href="/uae/cost-of-living/">UAE Cost of Living guide</a>.</p>
+
+<h2>Working in the UAE</h2>
+<p>The UAE labor market is governed by Federal Decree-Law No. 33 of 2021, which modernized employment regulations. Key provisions include standardized fixed-term contracts, enhanced end-of-service benefits, flexible work arrangements, and stronger anti-discrimination protections. The standard work week is Monday to Friday for most private sector companies, with some organizations working Sunday to Thursday. Maximum working hours are 8 per day or 48 per week, reduced during Ramadan. Annual leave entitlement is 30 calendar days after one year of service. For detailed labor law information, see our <a href="/uae/labor-law/">UAE Labor Law guide</a>.</p>
+
+<h2>Healthcare</h2>
+<p>Healthcare in the UAE is of high quality, with both public and private facilities meeting international standards. Health insurance is mandatory for all residents, and employers must provide coverage as part of the employment package. Dubai Health Authority (DHA) and Department of Health Abu Dhabi (DoH) regulate healthcare in their respective emirates. Major hospital groups include Cleveland Clinic Abu Dhabi, Mediclinic, NMC Healthcare, and Aster DM Healthcare. Emergency treatment is available to everyone regardless of insurance status. Pharmacies are well-stocked and widely available. Specialist care and complex procedures are readily accessible, with many facilities accredited by international bodies like JCI.</p>
+
+<h2>Education</h2>
+<p>The UAE has one of the most diverse international school ecosystems in the world, with over 600 private schools in Dubai alone offering 17 different curricula. British, American, IB, Indian (CBSE/ICSE), and French curricula are the most popular. School fees range from AED 15,000 for budget schools to AED 100,000+ for premium institutions. KHDA in Dubai and ADEK in Abu Dhabi conduct regular inspections and publish school ratings that help parents make informed choices. University options include branch campuses of NYU, Sorbonne, and INSEAD, alongside strong local institutions like the American University of Sharjah.</p>
+
+<h2>Housing and Accommodation</h2>
+<p>Residential options span from studio apartments in urban towers to spacious family villas in gated communities. Rental contracts are typically annual, with payments historically made via post-dated checks (1-4 per year), though monthly payment options are becoming more common. Popular areas for expats include Dubai Marina, JBR, Arabian Ranches, and Mirdif in Dubai, and Saadiyat Island, Al Reem Island, and Khalifa City in Abu Dhabi. The Real Estate Regulatory Agency (RERA) oversees rental regulations and provides a rent index to ensure fair pricing. Security deposits of 5% of annual rent are standard.</p>
+
+<h2>Social Life and Culture</h2>
+<p>The UAE offers a vibrant social scene that blends traditional Arabian hospitality with modern international lifestyles. Dubai is known for its diverse dining scene, entertainment venues, sports events, and year-round festivals. Abu Dhabi offers cultural attractions including the Louvre Abu Dhabi, Yas Island entertainment complex, and the upcoming Guggenheim. The country is tolerant and welcoming, though visitors and residents should respect local customs, particularly during Ramadan and in more traditional settings. Alcohol is available in licensed venues in most emirates. The UAE has made significant social reforms in recent years, including decriminalization of cohabitation and relaxation of personal status laws.</p>
+
+<h2>Getting Around</h2>
+<p>The UAE is primarily a car-oriented country, though public transport options are expanding. Dubai Metro covers major urban corridors and is clean, efficient, and affordable. Abu Dhabi's bus network provides coverage across the city. Ride-hailing services (Uber, Careem) are widely available. Owning a car is common, with petrol prices relatively low by international standards. Driving licenses from many countries can be exchanged directly for UAE licenses. International driving permits are accepted for visitors.</p>
+
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "KHDA Dubai", url: "https://www.khda.gov.ae/" }, { name: "Dubai Health Authority", url: "https://www.dha.gov.ae/" }]} />
+<RelatedLinks links={[{ label: "UAE Salaries 2026", href: "/uae/salaries/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Visa Guide", href: "/uae/visa-guide/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }]} />
+</GuideLayout>

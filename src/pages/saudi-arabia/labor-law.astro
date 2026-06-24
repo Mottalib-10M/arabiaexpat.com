@@ -1,0 +1,35 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+const faqs = [
+  { question: "What are working hours in Saudi Arabia?", answer: "Maximum 8 hours per day or 48 hours per week. During Ramadan: 6 hours per day or 36 hours per week for Muslim employees." },
+  { question: "What is the Nitaqat (Saudization) system?", answer: "Nitaqat assigns companies a color band (Platinum, Green, Yellow, Red) based on their Saudi-to-expat employee ratio. Companies in Red face restrictions on hiring and visa renewals." },
+  { question: "What is GOSI in Saudi Arabia?", answer: "General Organization for Social Insurance. Saudi nationals contribute 9.75%, employers pay 11.75% for nationals and 2% for expatriates." },
+  { question: "What is the notice period in Saudi Arabia?", answer: "Minimum 60 days for monthly-paid employees or 30 days for others, unless the contract specifies more." },
+  { question: "What annual leave do Saudi employees get?", answer: "21 days after 1 year, increasing to 30 days after 5 years. Unused leave can be carried over or compensated." },
+  { question: "Can employers hold my passport in Saudi Arabia?", answer: "No. Saudi law prohibits employers from confiscating passports. Employees must retain possession of their travel documents at all times." },
+];
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Labor Law", url: "https://gulfexpathub.com/saudi-arabia/labor-law/" }];
+---
+<GuideLayout title="Saudi Arabia Labor Law Guide 2026: Employee Rights" description="Essential Saudi labor law guide for 2026. Working hours, leave, termination, GOSI, Saudization, and employee protections under Saudi Labour Law." canonical="/saudi-arabia/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Labor Law", url: "/saudi-arabia/labor-law/" }]}>
+<h1>Saudi Arabia Labor Law Essentials 2026</h1>
+<p>Saudi Arabia's labor framework is governed by the Saudi Labour Law (Royal Decree No. M/51) and its subsequent amendments. The law has been updated significantly in recent years to modernize employment relationships, improve worker protections, and align with Vision 2030 objectives. Key regulatory bodies include the Ministry of Human Resources and Social Development (MHRSD) and the General Organization for Social Insurance (GOSI). Understanding these regulations is critical for expats working in the kingdom.</p>
+<h2>Employment Contracts</h2>
+<p>Saudi labor law requires written employment contracts. Contracts for non-Saudi employees are fixed-term by default. The contract must specify salary, job title, duration, probation period, and other key terms. The Qiwa platform manages electronic contract registration. Probation periods are a maximum of 90 days, extendable to 180 days by written agreement. During probation, either party can terminate with written notice without compensation.</p>
+<h2>Working Hours and Overtime</h2>
+<p>Standard working hours are 8 per day or 48 per week. During Ramadan, hours are reduced to 6 per day or 36 per week for Muslim employees. Overtime is compensated at 150% of the hourly rate (base salary divided by 240). Maximum overtime is not explicitly capped but must be reasonable. Friday is the standard weekly rest day, though some employers grant Thursday-Friday or Friday-Saturday weekends. The weekend was officially changed to Friday-Saturday in 2022.</p>
+<h2>Saudization (Nitaqat)</h2>
+<p>The Nitaqat program is one of the most significant factors affecting expatriate employment in Saudi Arabia. Companies are categorized into color bands based on their Saudization ratio: Platinum (exceeding targets), Green (meeting targets), Yellow (below targets), and Red (significantly below). Companies in the Green and Platinum bands enjoy easier access to visas, work permits, and government services. Red band companies face restrictions including inability to hire new expatriates and limitations on visa renewals. Saudization ratios vary by sector and company size. Some sectors, such as retail sales and certain HR roles, have been fully Saudized.</p>
+<h2>GOSI Contributions</h2>
+<p>GOSI covers pensions, occupational hazards, and unemployment insurance. For Saudi nationals: employee contributes 9.75% of salary, employer contributes 11.75%. For expatriates: only the employer pays 2% for occupational hazard coverage. This 2% does not reduce the expatriate employee's take-home pay. Use our <a href="/saudi-arabia/salary-calculator/">Saudi Salary Calculator</a> to see the exact impact.</p>
+<h2>Leave Entitlements</h2>
+<p>Annual leave is 21 days per year, increasing to 30 days after 5 years. Sick leave is up to 120 days: 30 days full pay, 60 days three-quarter pay, 30 days unpaid. Maternity leave is 10 weeks (70 days). Paternity leave is 3 days. Hajj leave of 10-15 days is available once during employment for Muslim employees with 2+ years of service. National holidays include Eid al-Fitr (4 days), Eid al-Adha (4 days), and Saudi National Day (1 day). Bereavement leave is 5 days for spouse death and 3 days for other immediate family.</p>
+<h2>End of Service</h2>
+<p>End-of-service gratuity is mandatory: half month salary per year for the first 5 years, one full month per year after that. Resignation penalties reduce the amount based on service length. See our <a href="/saudi-arabia/gratuity-calculator/">Saudi Gratuity Calculator</a> for exact calculations.</p>
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "GOSI", url: "https://www.gosi.gov.sa/" }]} />
+<RelatedLinks links={[{ label: "Saudi Gratuity Calculator", href: "/saudi-arabia/gratuity-calculator/" }, { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" }, { label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Saudi Visa Guide", href: "/saudi-arabia/visa-guide/" }]} />
+</GuideLayout>

@@ -1,0 +1,30 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { saudiCostOfLiving } from "../../data/saudi/cost-of-living";
+import { buildBreadcrumbs } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/saudi-arabia/cost-of-living/" }];
+---
+<GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah" description="Detailed Saudi Arabia cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
+<h1>Saudi Arabia Cost of Living 2026: Riyadh and Jeddah</h1>
+<p>Saudi Arabia offers one of the most affordable cost of living environments among Gulf countries, particularly when compared to the UAE. Combined with tax-free salaries, the kingdom provides strong savings potential for expatriate professionals. Riyadh, the capital, has seen cost increases as it becomes a regional business hub, but remains more affordable than Dubai. Jeddah, the Red Sea coastal city, offers slightly lower prices. This guide covers current 2026 expenses across housing, food, transport, healthcare, education, and utilities.</p>
+{saudiCostOfLiving.cities.map((city) => (
+<>
+<h2>{city.name} Cost Breakdown</h2>
+<h3>Housing</h3>
+<div class="not-prose overflow-x-auto mb-4">
+<table class="w-full text-sm"><thead><tr class="bg-teal-600 text-white"><th class="px-3 py-2 text-left rounded-tl-lg">Type</th><th class="px-3 py-2 text-right">Min (SAR)</th><th class="px-3 py-2 text-right">Max (SAR)</th><th class="px-3 py-2 text-right rounded-tr-lg">USD Equiv.</th></tr></thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+<tr><td class="px-3 py-2">Studio</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.studioApartment.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.studioApartment.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.studioApartment.min / 3.75).toLocaleString()}-${Math.round(city.housing.studioApartment.max / 3.75).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">1 Bedroom</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.oneBedroom.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.oneBedroom.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.oneBedroom.min / 3.75).toLocaleString()}-${Math.round(city.housing.oneBedroom.max / 3.75).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">2 Bedroom</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.twoBedroom.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.twoBedroom.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.twoBedroom.min / 3.75).toLocaleString()}-${Math.round(city.housing.twoBedroom.max / 3.75).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">Family Villa</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.familyVilla.min / 3.75).toLocaleString()}-${Math.round(city.housing.familyVilla.max / 3.75).toLocaleString()}</td></tr>
+</tbody></table>
+</div>
+<p>Food: Groceries SAR {city.food.groceriesMonthly.min.toLocaleString()}-{city.food.groceriesMonthly.max.toLocaleString()}/mo. Budget meal SAR {city.food.mealBudgetRestaurant.min}-{city.food.mealBudgetRestaurant.max}. Mid-range SAR {city.food.mealMidRange.min}-{city.food.mealMidRange.max}. Transport: Metro pass SAR {city.transport.metroMonthlyPass.amount || "N/A"} {city.transport.metroMonthlyPass.note || ""}. Petrol SAR {city.transport.gasolinePerLiter.amount}/L. Healthcare: GP SAR {city.healthcare.gpVisit.min}-{city.healthcare.gpVisit.max}. Education: School SAR {city.education.internationalSchool.min.toLocaleString()}-{city.education.internationalSchool.max.toLocaleString()}/yr. Utilities: SAR {city.utilities.monthly.min}-{city.utilities.monthly.max}/mo.</p>
+</>
+))}
+<SourcesBlock sources={[{ name: "Saudi SEC", url: "https://www.se.com.sa/" }]} />
+<RelatedLinks links={[{ label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" }, { label: "Saudi Guide", href: "/saudi-arabia/guide/" }]} />
+</GuideLayout>

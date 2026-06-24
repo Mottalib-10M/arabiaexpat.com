@@ -1,0 +1,39 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { uaeCostOfLiving } from "../../data/uae/cost-of-living";
+import { buildBreadcrumbs } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/uae/cost-of-living/" }];
+---
+<GuideLayout title="UAE Cost of Living 2026: Dubai and Abu Dhabi Prices" description="Detailed UAE cost of living guide for 2026. Rent, food, transport, healthcare, education, and utility prices in Dubai and Abu Dhabi with AED and USD figures." canonical="/uae/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Cost of Living", url: "/uae/cost-of-living/" }]}>
+<h1>UAE Cost of Living in 2026: Dubai and Abu Dhabi</h1>
+<p>Understanding the cost of living in the UAE is essential for evaluating job offers and planning your finances. While the absence of income tax boosts take-home pay, living costs in major UAE cities are comparable to premium Western cities. Dubai is generally more expensive than Abu Dhabi, particularly for housing and entertainment. This guide provides detailed price ranges for housing, food, transport, healthcare, education, and utilities in both cities, based on 2026 market data.</p>
+{uaeCostOfLiving.cities.map((city) => (
+<>
+<h2>{city.name} Cost Breakdown</h2>
+<h3>Housing</h3>
+<div class="not-prose overflow-x-auto mb-4">
+<table class="w-full text-sm"><thead><tr class="bg-teal-600 text-white"><th class="px-3 py-2 text-left rounded-tl-lg">Type</th><th class="px-3 py-2 text-right">Min (AED)</th><th class="px-3 py-2 text-right">Max (AED)</th><th class="px-3 py-2 text-right rounded-tr-lg">USD Equiv.</th></tr></thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+<tr><td class="px-3 py-2">Studio Apartment</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.studioApartment.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.studioApartment.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.studioApartment.min / 3.67).toLocaleString()}-${Math.round(city.housing.studioApartment.max / 3.67).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">1 Bedroom</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.oneBedroom.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.oneBedroom.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.oneBedroom.min / 3.67).toLocaleString()}-${Math.round(city.housing.oneBedroom.max / 3.67).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">2 Bedroom</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.twoBedroom.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.twoBedroom.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.twoBedroom.min / 3.67).toLocaleString()}-${Math.round(city.housing.twoBedroom.max / 3.67).toLocaleString()}</td></tr>
+<tr><td class="px-3 py-2">Family Villa</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.familyVilla.min / 3.67).toLocaleString()}-${Math.round(city.housing.familyVilla.max / 3.67).toLocaleString()}</td></tr>
+</tbody></table>
+</div>
+<h3>Food and Groceries</h3>
+<p>Monthly groceries for a household: AED {city.food.groceriesMonthly.min.toLocaleString()}-{city.food.groceriesMonthly.max.toLocaleString()}. Budget restaurant meal: AED {city.food.mealBudgetRestaurant.min}-{city.food.mealBudgetRestaurant.max}. Mid-range restaurant: AED {city.food.mealMidRange.min}-{city.food.mealMidRange.max}.</p>
+<h3>Transport</h3>
+<p>Metro monthly pass: AED {city.transport.metroMonthlyPass.amount || "N/A"} {city.transport.metroMonthlyPass.note || ""}. Taxi per km: AED {city.transport.taxiPerKm.amount}. Petrol: AED {city.transport.gasolinePerLiter.amount}/liter. Car insurance: AED {city.transport.carInsuranceAnnual.min.toLocaleString()}-{city.transport.carInsuranceAnnual.max.toLocaleString()}/year.</p>
+<h3>Healthcare</h3>
+<p>GP visit: AED {city.healthcare.gpVisit.min}-{city.healthcare.gpVisit.max}. Specialist: AED {city.healthcare.specialistVisit.min}-{city.healthcare.specialistVisit.max}. Annual insurance: AED {city.healthcare.annualInsurance.min.toLocaleString()}-{city.healthcare.annualInsurance.max.toLocaleString()} ({city.healthcare.annualInsurance.note || "employer-provided"}).</p>
+<h3>Education</h3>
+<p>International school: AED {city.education.internationalSchool.min.toLocaleString()}-{city.education.internationalSchool.max.toLocaleString()}/year. Nursery: AED {city.education.nursery.min.toLocaleString()}-{city.education.nursery.max.toLocaleString()}/year.</p>
+<h3>Utilities</h3>
+<p>Electricity and water: AED {city.utilities.monthly.min}-{city.utilities.monthly.max}/month. Internet: AED {city.utilities.internet.min}-{city.utilities.internet.max}. Mobile: AED {city.utilities.mobile.min}-{city.utilities.mobile.max}.</p>
+</>
+))}
+<SourcesBlock sources={[{ name: "DEWA Dubai", url: "https://www.dewa.gov.ae/" }, { name: "RERA Rent Index", url: "https://www.dubailand.gov.ae/" }]} />
+<RelatedLinks links={[{ label: "UAE Salaries 2026", href: "/uae/salaries/" }, { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "UAE Expat Guide", href: "/uae/guide/" }]} />
+</GuideLayout>

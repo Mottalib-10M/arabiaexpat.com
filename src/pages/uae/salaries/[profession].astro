@@ -1,0 +1,116 @@
+---
+import GuideLayout from "../../../layouts/GuideLayout.astro";
+import { uaeProfessions } from "../../../data/uae/salaries";
+import { COUNTRIES } from "../../../data/site-config";
+import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
+import { formatCurrency } from "../../../lib/format";
+import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
+
+export function getStaticPaths() {
+  return uaeProfessions.map((p) => ({
+    params: { profession: p.slug },
+    props: { profession: p },
+  }));
+}
+
+const { profession: p } = Astro.props;
+const c = COUNTRIES.uae;
+
+const relatedProfessions = uaeProfessions
+  .filter((rp) => rp.slug !== p.slug)
+  .slice(0, 5);
+
+const faqs = [
+  { question: `What is the average ${p.title} salary in the UAE in 2026?`, answer: `The average ${p.title} salary in the UAE is approximately ${formatCurrency(p.avgMonthly, "AED")} per month. Entry-level positions start from ${formatCurrency(p.entry.min, "AED")}, while senior professionals can earn up to ${formatCurrency(p.senior.max, "AED")} per month.` },
+  { question: `Is the ${p.title} salary tax-free in the UAE?`, answer: `Yes. The UAE does not impose personal income tax on employment income. Your gross salary as a ${p.title} is your net take-home pay. This makes UAE compensation significantly more valuable than equivalent salaries in taxed jurisdictions.` },
+  { question: `What benefits do ${p.title}s receive in the UAE?`, answer: `Typical benefits for ${p.title}s in the UAE include: ${p.benefits.join(", ")}. The exact package varies by employer, with larger companies and government entities generally offering more comprehensive benefits.` },
+  { question: `How does the ${p.title} salary in the UAE compare to Qatar and Saudi Arabia?`, answer: `UAE salaries for ${p.title}s are generally competitive with or slightly higher than Qatar and Saudi Arabia for most experience levels. However, specific comparisons depend on the employer, sector, and city. All three countries offer tax-free salaries.` },
+  { question: `What qualifications do I need to work as a ${p.title} in the UAE?`, answer: `Requirements vary by employer, but generally include a relevant bachelor's degree, professional certifications or licenses applicable to the field, and at least 2-3 years of experience for mid-level positions. Some professions require UAE-specific licensing or registration.` },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" },
+  { name: "Salaries", url: "https://gulfexpathub.com/uae/salaries/" },
+  { name: p.title, url: `https://gulfexpathub.com/uae/salaries/${p.slug}/` },
+];
+---
+
+<GuideLayout
+  title={`${p.title} Salary in UAE 2026: ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.senior.max, "AED")}`}
+  description={`${p.title} salary in UAE 2026: average ${formatCurrency(p.avgMonthly, "AED")}/month. Entry ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.entry.max, "AED")}, senior ${formatCurrency(p.senior.min, "AED")}-${formatCurrency(p.senior.max, "AED")}. Tax-free.`}
+  canonical={`/uae/salaries/${p.slug}/`}
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salaries", url: "/uae/salaries/" }, { name: p.title, url: `/uae/salaries/${p.slug}/` }]}
+>
+  <h1>{p.title} Salary in the UAE 2026</h1>
+
+  <div class="not-prose mb-8 p-6 bg-teal-50 dark:bg-teal-900/20 rounded-2xl">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+      <div>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Average Monthly</p>
+        <p class="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(p.avgMonthly, "AED")}</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Entry Level</p>
+        <p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "AED")}</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Mid Level</p>
+        <p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.mid.min, "")}-{formatCurrency(p.mid.max, "AED")}</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Senior Level</p>
+        <p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "AED")}</p>
+      </div>
+    </div>
+  </div>
+
+  <p>{p.description}</p>
+
+  <h2>Salary by Experience Level</h2>
+  <div class="not-prose overflow-x-auto mb-6">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="bg-teal-600 text-white">
+          <th class="px-4 py-2 text-left rounded-tl-lg">Experience Level</th>
+          <th class="px-4 py-2 text-right">Min (AED/month)</th>
+          <th class="px-4 py-2 text-right rounded-tr-lg">Max (AED/month)</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+        <tr><td class="px-4 py-2">Entry (0-3 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.max, "")}</td></tr>
+        <tr><td class="px-4 py-2">Mid (3-7 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.max, "")}</td></tr>
+        <tr><td class="px-4 py-2">Senior (7+ years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.max, "")}</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Benefits Breakdown</h2>
+  <p>Typical benefits for {p.title}s in the UAE include:</p>
+  <ul>
+    {p.benefits.map((b) => <li>{b}</li>)}
+  </ul>
+
+  <h2>Career Outlook</h2>
+  <p>{p.outlook}</p>
+
+  <h2>Cost of Living Context</h2>
+  <p>With an average salary of {formatCurrency(p.avgMonthly, "AED")} per month (approximately ${Math.round(p.avgMonthly / 3.6725).toLocaleString()} USD), a {p.title} in the UAE can expect to allocate roughly 30-40% to housing, 15-20% to food and groceries, 10% to transport, and save 20-35% of monthly income. The tax-free environment significantly enhances savings potential compared to equivalent roles in Europe or North America. For detailed cost breakdowns, see our <a href="/uae/cost-of-living/">UAE Cost of Living guide</a>.</p>
+
+  <FAQAccordion faqs={faqs} />
+
+  <SourcesBlock sources={[
+    { name: c.molName, url: c.molUrl },
+  ]} />
+
+  <RelatedLinks
+    title="Related Professions in the UAE"
+    links={relatedProfessions.map((rp) => ({
+      label: `${rp.title} Salary in UAE (${formatCurrency(rp.avgMonthly, "AED")}/mo)`,
+      href: `/uae/salaries/${rp.slug}/`,
+    }))}
+  />
+</GuideLayout>

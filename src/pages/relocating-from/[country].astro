@@ -1,0 +1,98 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { corridors } from "../../data/corridors";
+import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+
+export function getStaticPaths() {
+  return corridors.map((c) => ({
+    params: { country: c.slug },
+    props: { corridor: c },
+  }));
+}
+
+const { corridor } = Astro.props;
+
+const faqs = [
+  { question: `What salary can I expect in the Gulf as a ${corridor.demonym} professional?`, answer: `Gulf salaries for ${corridor.demonym} professionals are typically ${corridor.avgSalaryRange}. Salaries are tax-free in all three Gulf countries (UAE, Qatar, Saudi Arabia), significantly boosting net take-home pay.` },
+  { question: `What documents do I need to relocate from ${corridor.country}?`, answer: `Key documents include: ${corridor.documentsNeeded.slice(0, 4).join(", ")}. Additional documents may be required depending on the destination country and profession.` },
+  { question: `How long does the visa process take from ${corridor.country}?`, answer: `Standard work visa processing takes 2-8 weeks depending on the Gulf country and completeness of documentation. Medical tests and credential attestation should be completed before departure.` },
+  { question: `Is it worth relocating from ${corridor.country} to the Gulf?`, answer: `The financial benefits are significant: tax-free salaries, employer-provided housing and flights, and strong savings potential. ${corridor.costComparison.slice(0, 200)}` },
+  { question: `What is the ${corridor.demonym} community like in the Gulf?`, answer: `The ${corridor.demonym} community is well-established in all Gulf countries. ${corridor.communityResources.slice(0, 3).join(", ")} are among the available community resources.` },
+  { question: `Which Gulf country is best for ${corridor.demonym} expats?`, answer: `Each country has strengths: UAE offers the most cosmopolitan lifestyle and diverse economy; Saudi Arabia has the largest projects and lowest cost of living; Qatar offers a compact, well-funded environment. The best choice depends on your profession, family situation, and lifestyle preferences.` },
+];
+
+const otherCorridors = corridors.filter((c) => c.slug !== corridor.slug).slice(0, 5);
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Relocating From", url: "https://gulfexpathub.com/relocating-from/india/" },
+  { name: corridor.country, url: `https://gulfexpathub.com/relocating-from/${corridor.slug}/` },
+];
+---
+
+<GuideLayout
+  title={`Relocating from ${corridor.country} to Gulf 2026: Complete Guide`}
+  description={`Complete 2026 guide for ${corridor.demonym} professionals moving to UAE, Qatar, or Saudi Arabia. Visa process, salary expectations, documents, and community resources.`}
+  canonical={`/relocating-from/${corridor.slug}/`}
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Relocating From", url: "/relocating-from/india/" }, { name: corridor.country, url: `/relocating-from/${corridor.slug}/` }]}
+>
+  <h1>Relocating from {corridor.country} to the Gulf in 2026</h1>
+
+  <div class="not-prose mb-6 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-2xl">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Popular Destinations</p>
+        <p class="font-medium text-gray-900 dark:text-white">{corridor.popularDestinations.join(", ")}</p>
+      </div>
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Salary Premium</p>
+        <p class="font-medium text-gray-900 dark:text-white">{corridor.avgSalaryRange}</p>
+      </div>
+    </div>
+  </div>
+
+  {corridor.content.split("\n\n").map((paragraph) => (
+    <p>{paragraph}</p>
+  ))}
+
+  <h2>Visa Process from {corridor.country}</h2>
+  <p>{corridor.visaProcess}</p>
+
+  <h2>Documents Required</h2>
+  <ul>
+    {corridor.documentsNeeded.map((doc) => <li>{doc}</li>)}
+  </ul>
+
+  <h2>Cost Comparison</h2>
+  <p>{corridor.costComparison}</p>
+
+  <h2>Cultural Tips for {corridor.demonym} Expats</h2>
+  <ul>
+    {corridor.culturalTips.map((tip) => <li>{tip}</li>)}
+  </ul>
+
+  <h2>Community Resources</h2>
+  <ul>
+    {corridor.communityResources.map((r) => <li>{r}</li>)}
+  </ul>
+
+  <FAQAccordion faqs={faqs} />
+
+  <SourcesBlock sources={[
+    { name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" },
+    { name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" },
+    { name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" },
+  ]} />
+
+  <RelatedLinks
+    title="Other Relocation Guides"
+    links={otherCorridors.map((c) => ({
+      label: `Relocating from ${c.country} to the Gulf`,
+      href: `/relocating-from/${c.slug}/`,
+    }))}
+  />
+</GuideLayout>

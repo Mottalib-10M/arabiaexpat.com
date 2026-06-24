@@ -1,0 +1,16 @@
+{
+  "name": "Gulf Expat Hub",
+  "short_name": "GulfExpat",
+  "description": "Salary data, calculators, and guides for expats in UAE, Qatar, and Saudi Arabia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

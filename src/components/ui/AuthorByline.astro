@@ -1,0 +1,14 @@
+---
+import { SITE } from "../../data/site-config";
+interface Props {
+  date?: string;
+}
+const { date = "June 2026" } = Astro.props;
+---
+
+<div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-6">
+  <img src={SITE.author.image} alt={SITE.author.name} class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700" width="32" height="32" loading="lazy" />
+  <span>By <strong class="text-gray-700 dark:text-gray-300">{SITE.author.name}</strong>, {SITE.author.credentials}</span>
+  <span>&middot;</span>
+  <time>Updated {date}</time>
+</div>

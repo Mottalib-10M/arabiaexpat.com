@@ -1,0 +1,27 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { saudiVisas } from "../../data/saudi/visas";
+import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+const faqs = [
+  { question: "How do I get a work visa for Saudi Arabia?", answer: "Your Saudi employer applies through the Qiwa platform. A visa block number is issued, you enter on a work visa, complete medical testing, and receive your Iqama (residence permit). Total timeline: 4-8 weeks." },
+  { question: "What is an Iqama?", answer: "The Iqama is Saudi Arabia's residence permit card. It serves as your primary ID for banking, healthcare, travel, and government services. It must be renewed before expiry, typically annually or biennially." },
+  { question: "What is Premium Residency in Saudi Arabia?", answer: "Premium Residency is Saudi Arabia's equivalent of a long-term self-sponsored visa. The permanent option costs SAR 800,000 one-time, while the renewable option costs SAR 100,000 annually. It allows property ownership and business investment without a Saudi partner." },
+  { question: "Can I sponsor my family in Saudi Arabia?", answer: "Yes. You need a minimum salary of SAR 4,000/month to sponsor dependents. Family visa processing is done through the Absher platform." },
+  { question: "How long does Saudi visa processing take?", answer: "Standard work visa processing takes 4-8 weeks including medical testing, Iqama issuance, and professional classification. Premium Residency applications may take longer due to financial verification." },
+];
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Visa Guide", url: "https://gulfexpathub.com/saudi-arabia/visa-guide/" }];
+---
+<GuideLayout title="Saudi Arabia Visa Guide 2026: Work, Premium Residency" description="Complete Saudi Arabia visa guide for 2026. Work visa (Iqama), Premium Residency, and visit visa requirements, costs, and processing steps." canonical="/saudi-arabia/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Visa Guide", url: "/saudi-arabia/visa-guide/" }]}>
+<h1>Saudi Arabia Visa Guide 2026</h1>
+<p>Saudi Arabia's visa system has been modernized significantly under Vision 2030, with digital platforms replacing paper-based processes and new visa categories opening the kingdom to a broader range of international professionals, investors, and visitors. The introduction of Premium Residency, e-visas for tourism, and improved labor mobility provisions reflect a more welcoming approach to foreign talent. This guide explains the main visa categories, requirements, and processes for 2026.</p>
+{saudiVisas.types.map((visa) => (<><h2>{visa.name}</h2><p><strong>Duration:</strong> {visa.duration}</p><p>{visa.process}</p><p><strong>Estimated cost:</strong> {visa.cost}</p><h3>Requirements</h3><ul>{visa.requirements.map((r) => <li>{r}</li>)}</ul></>))}
+<h2>General Information</h2>
+<ul>{saudiVisas.generalNotes.map((n) => <li>{n}</li>)}</ul>
+<p>Saudi Arabia's immigration processes are increasingly digital. The Absher platform manages most resident services including visa renewals, exit/re-entry permits, and dependent visa processing. The Qiwa platform handles employment-related services. The Ministry of Foreign Affairs (MOFA) oversees document attestation for foreign credentials. Professional classification through the MHRSD determines work permit eligibility for specific occupations. The e-visa system has simplified tourism access, with over 60 nationalities eligible for electronic visa applications. Overall processing efficiency has improved considerably, with most standard applications completed within stated timeframes.</p>
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Absher", url: "https://www.absher.sa/" }]} />
+<RelatedLinks links={[{ label: "Saudi Expat Guide", href: "/saudi-arabia/guide/" }, { label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Saudi Labor Law", href: "/saudi-arabia/labor-law/" }]} />
+</GuideLayout>

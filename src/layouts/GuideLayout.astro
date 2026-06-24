@@ -1,0 +1,49 @@
+---
+import Layout from "./Layout.astro";
+import { SITE } from "../data/site-config";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  schemas?: object[];
+  breadcrumbs: { name: string; url: string }[];
+  lastUpdated?: string;
+}
+
+const { title, description, canonical, schemas = [], breadcrumbs, lastUpdated = "June 2026" } = Astro.props;
+---
+
+<Layout title={title} description={description} canonical={canonical} schemas={schemas}>
+  <article class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
+        {breadcrumbs.map((crumb, i) => (
+          <li class="flex items-center gap-1.5">
+            {i > 0 && <span>/</span>}
+            {i === breadcrumbs.length - 1 ? (
+              <span class="text-gray-900 dark:text-gray-100 font-medium">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">{crumb.name}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <div class="mb-6 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+      <img src={SITE.author.image} alt={SITE.author.name} class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700" width="32" height="32" />
+      <span>By <strong class="text-gray-700 dark:text-gray-300">{SITE.author.name}</strong>, {SITE.author.credentials}</span>
+      <span>&middot;</span>
+      <time>Updated {lastUpdated}</time>
+    </div>
+
+    <div class="prose prose-lg dark:prose-invert prose-teal max-w-none prose-headings:scroll-mt-20 prose-a:text-teal-600 dark:prose-a:text-teal-400">
+      <slot />
+    </div>
+
+    <div class="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl text-sm text-gray-600 dark:text-gray-400">
+      <p>Official {SITE.year} data &middot; Written by {SITE.author.name}, {SITE.author.credentials} &middot; Last updated {lastUpdated}</p>
+    </div>
+  </article>
+</Layout>

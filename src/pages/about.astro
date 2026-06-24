@@ -1,0 +1,59 @@
+---
+import GuideLayout from "../layouts/GuideLayout.astro";
+import { SITE } from "../data/site-config";
+import { buildPersonSchema, buildOrganizationSchema, buildBreadcrumbs } from "../lib/seo";
+import RelatedLinks from "../components/ui/RelatedLinks.astro";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "About", url: "https://gulfexpathub.com/about/" },
+];
+const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumbs(breadcrumbs)];
+---
+
+<GuideLayout
+  title="About Gulf Expat Hub 2026: Our Team and Methodology"
+  description="Learn about Gulf Expat Hub's research methodology, our commitment to accuracy, and author Mottalib Radif MBA INSEAD."
+  canonical="/about/"
+  schemas={schemas}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]}
+>
+  <h1>About Gulf Expat Hub 2026</h1>
+
+  <p>Gulf Expat Hub is the definitive online resource for professionals planning careers in the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and up-to-date information on salaries, end-of-service benefits, visa processes, labor laws, and cost of living across the Gulf region.</p>
+
+  <h2>Our Mission</h2>
+  <p>We believe that every professional considering a Gulf career deserves access to transparent, reliable information. Our mission is to empower expats with the data and tools they need to make informed decisions about their careers and finances. All our calculators run entirely in your browser, ensuring your financial data stays private.</p>
+
+  <h2>About the Author</h2>
+  <h3>Mottalib Radif, MBA INSEAD</h3>
+  <p>Mottalib Radif holds an MBA from INSEAD, one of the world's leading business schools, and has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.</p>
+  <p>With firsthand experience navigating the Gulf employment landscape, Mottalib combines academic rigor with practical insights to create resources that genuinely help expats. His work has been cited by career consultancies, immigration advisors, and financial planners serving the Gulf expatriate community.</p>
+
+  <h2>Our Methodology</h2>
+  <p>We take accuracy seriously. Our data collection and verification process includes the following steps:</p>
+  <ul>
+    <li><strong>Official government sources:</strong> All legal information, tax rates, and regulatory details are sourced from official government publications, including the UAE Ministry of Human Resources and Emiratisation (MoHRE), Saudi Ministry of Human Resources and Social Development (MHRSD), and Qatar Ministry of Administrative Development, Labour and Social Affairs (MADLSA).</li>
+    <li><strong>Salary data verification:</strong> Our salary ranges are compiled from job posting analysis across major platforms (LinkedIn, Bayt.com, GulfTalent), recruitment agency surveys, and industry reports. We cross-reference multiple sources and update data quarterly.</li>
+    <li><strong>Calculator accuracy:</strong> All financial calculators are built using the exact formulas specified in the relevant country's labor law. We test calculations against known scenarios and official examples published by government entities.</li>
+    <li><strong>Regular updates:</strong> Labor laws, visa regulations, and economic conditions change. We review and update all content at least quarterly to ensure accuracy.</li>
+    <li><strong>Peer review:</strong> Key content, particularly legal and financial information, is reviewed by professionals with relevant expertise in Gulf employment law and finance.</li>
+  </ul>
+
+  <h2>Editorial Independence</h2>
+  <p>Gulf Expat Hub maintains complete editorial independence. Our content is not sponsored by recruitment agencies, employers, or government entities. We provide objective information to help professionals make their own informed decisions. Where we reference specific companies or services, it is for informational purposes only and does not constitute an endorsement.</p>
+
+  <h2>Accuracy Disclaimer</h2>
+  <p>While we strive for accuracy, the information on Gulf Expat Hub is provided for general guidance and educational purposes. It should not be considered as legal, financial, or immigration advice. Laws and regulations change, and individual circumstances vary. We recommend consulting with qualified professionals (lawyers, accountants, immigration consultants) for advice specific to your situation. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
+
+  <h2>Contact</h2>
+  <p>We welcome corrections, suggestions, and feedback. If you notice any inaccuracies or have information that could improve our content, we encourage you to reach out. Maintaining accuracy is our top priority.</p>
+
+  <RelatedLinks links={[
+    { label: "UAE Expat Guide 2026", href: "/uae/guide/" },
+    { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
+    { label: "Qatar Expat Guide 2026", href: "/qatar/guide/" },
+    { label: "Privacy Policy", href: "/privacy-policy/" },
+    { label: "Terms of Use", href: "/terms/" },
+  ]} />
+</GuideLayout>

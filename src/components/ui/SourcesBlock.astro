@@ -1,0 +1,19 @@
+---
+interface Props {
+  sources: { name: string; url: string }[];
+}
+const { sources } = Astro.props;
+---
+
+<aside class="mt-8 p-5 bg-blue-50 dark:bg-blue-900/10 rounded-2xl border border-blue-100 dark:border-blue-900/30">
+  <h3 class="text-sm font-semibold text-blue-900 dark:text-blue-300 mb-2">Official Sources</h3>
+  <ul class="space-y-1">
+    {sources.map((source) => (
+      <li>
+        <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-sm text-blue-700 dark:text-blue-400 hover:underline">
+          {source.name} &nearr;
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>

@@ -1,0 +1,36 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { uaeVisas } from "../../data/uae/visas";
+import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+const faqs = [
+  { question: "What types of work visas are available in the UAE?", answer: "The UAE offers Employment Visas (employer-sponsored), Golden Visas (10-year, self-sponsored for investors and skilled professionals), Green Visas (5-year, self-sponsored for skilled workers), and Freelancer Visas through free zones." },
+  { question: "How long does UAE visa processing take?", answer: "Standard employment visas take 2-4 weeks. Golden Visas can be processed in 1-2 weeks. The process includes medical testing, Emirates ID registration, and visa stamping." },
+  { question: "Can I sponsor my family in the UAE?", answer: "Yes. Employment visa holders can sponsor spouse and children. Minimum salary requirements vary but are generally AED 4,000-10,000 depending on the emirate and accommodation type." },
+  { question: "What is a UAE Golden Visa?", answer: "The Golden Visa is a 10-year renewable residence visa for investors (AED 2M+ property/business), specialized professionals, scientists, outstanding students, and entrepreneurs. It allows self-sponsorship without an employer." },
+  { question: "Do I need a medical test for a UAE visa?", answer: "Yes. All visa applicants must pass a medical fitness test that screens for communicable diseases. Tests are conducted at MOHAP-approved centers." },
+];
+const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" }, { name: "Visa Guide", url: "https://gulfexpathub.com/uae/visa-guide/" }];
+---
+<GuideLayout title="UAE Visa Guide 2026: Employment, Golden, Green Visas" description="Complete UAE visa guide for 2026. Employment, Golden, Green, and Freelancer visa types explained with requirements, costs, and processing times." canonical="/uae/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Visa Guide", url: "/uae/visa-guide/" }]}>
+<h1>UAE Visa Guide 2026</h1>
+<p>The UAE offers one of the most diverse visa systems in the Gulf region, with multiple pathways for professionals, investors, freelancers, and entrepreneurs. The country has progressively liberalized its immigration framework, introducing self-sponsored visa categories that reduce dependence on employer sponsorship. This guide covers the main visa types available to expats in 2026, including requirements, costs, and practical processing steps.</p>
+{uaeVisas.types.map((visa) => (
+  <>
+    <h2>{visa.name}</h2>
+    <p><strong>Duration:</strong> {visa.duration}</p>
+    <p>{visa.process}</p>
+    <p><strong>Estimated cost:</strong> {visa.cost}</p>
+    <h3>Requirements</h3>
+    <ul>{visa.requirements.map((r) => <li>{r}</li>)}</ul>
+  </>
+))}
+<h2>General Information</h2>
+<ul>{uaeVisas.generalNotes.map((n) => <li>{n}</li>)}</ul>
+<p>The UAE immigration system is managed through the Federal Authority for Identity, Citizenship, Customs and Port Security (ICA) and the General Directorate of Residency and Foreigners Affairs (GDRFA). Most processes can be completed online or through approved typing centers. The system is generally efficient, with clear requirements and predictable timelines. Employers typically handle the visa process for employment-based applications, including covering all associated costs as required by law.</p>
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE ICA", url: "https://icp.gov.ae/" }, { name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }]} />
+<RelatedLinks links={[{ label: "UAE Expat Guide", href: "/uae/guide/" }, { label: "UAE Salaries", href: "/uae/salaries/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }, { label: "Relocating from India to Gulf", href: "/relocating-from/india/" }]} />
+</GuideLayout>
