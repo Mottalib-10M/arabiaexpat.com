@@ -1,10 +1,26 @@
 ---
 import { SITE } from "../../data/site-config";
+
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" } = Astro.props;
+const isDark = variant === "dark";
 ---
 
-<div class="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 rounded-full text-sm font-medium">
-  <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+<div class:list={[
+  "inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-medium",
+  isDark
+    ? "bg-teal-500/10 border border-teal-500/20 text-teal-300"
+    : "bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-100 dark:border-teal-800"
+]}>
+  <svg class="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
   </svg>
-  Official {SITE.year} data &middot; 100% browser-calculated &middot; Free
+  <span>Official {SITE.year} data</span>
+  <span class="w-px h-3 bg-current opacity-20"></span>
+  <span>Browser-calculated</span>
+  <span class="w-px h-3 bg-current opacity-20"></span>
+  <span>Free</span>
 </div>

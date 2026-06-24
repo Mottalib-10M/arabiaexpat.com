@@ -1,14 +1,27 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { saudiCostOfLiving } from "../../data/saudi/cost-of-living";
-import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+
+const faqs = [
+  { question: "How much does a single expat need to live in Riyadh in 2026?", answer: "A single expat in Riyadh needs approximately SAR 5,500-9,000 per month. This covers a one-bedroom apartment (SAR 2,500-4,500), groceries (SAR 800-1,200), transport (SAR 400-800), dining out (SAR 500-1,000), utilities (SAR 300-600), and miscellaneous expenses (SAR 300-600). The 15% VAT adds to most purchases but is offset by lower base prices compared to Dubai." },
+  { question: "Is Saudi Arabia cheaper than the UAE for expats?", answer: "Yes, Saudi Arabia is generally 20-30% cheaper than the UAE. Housing in Riyadh costs roughly half of comparable Dubai accommodation. Groceries are 10-15% cheaper. However, Saudi has a 15% VAT versus the UAE's 5%, which partially offsets the savings on some purchases. Overall, the lower rent makes Saudi Arabia the more affordable option for most professionals." },
+  { question: "How much does compound living cost in Saudi Arabia?", answer: "Compound communities for Western expats in Riyadh and Jeddah typically charge SAR 8,000-20,000 per month for family villas. Compounds like Arizona Compound, Al Hamra, and Eid Compound offer swimming pools, gyms, supermarkets, and social facilities within a gated environment. Employer-provided compound accommodation is a common benefit for senior professionals." },
+  { question: "What is the VAT rate in Saudi Arabia and what does it cover?", answer: "Saudi Arabia charges 15% VAT on most goods and services, introduced at 5% in 2018 and raised to 15% in July 2020. VAT applies to groceries, dining, electronics, clothing, and most services. Some categories are zero-rated or exempt, including residential rent (first sale only), certain financial services, and intra-GCC transfers. The 15% rate is the highest in the GCC." },
+  { question: "How much do international schools cost in Saudi Arabia?", answer: "International school fees in Saudi Arabia range from SAR 15,000 to SAR 65,000 per year. Indian curriculum schools charge SAR 12,000-20,000. British and American schools cost SAR 25,000-50,000. Premium schools in Riyadh and Jeddah charge SAR 40,000-65,000. The Eastern Province (Khobar/Dhahran) has strong options linked to the Aramco community." },
+];
+
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Cost of Living", url: "https://gulfexpathub.com/saudi-arabia/cost-of-living/" }];
 ---
-<GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah Prices" description="Detailed Saudi Arabia cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures. Budget tips for expats." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Saudi Cost of Living 2026: Riyadh and Jeddah Prices", "Detailed Saudi Arabia cost of living for 2026.", "https://gulfexpathub.com/saudi-arabia/cost-of-living/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
+<GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah Prices" description="Detailed Saudi cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures. Budget tips." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Saudi Cost of Living 2026: Riyadh and Jeddah Prices", "Detailed Saudi Arabia cost of living for 2026.", "https://gulfexpathub.com/saudi-arabia/cost-of-living/", "2025-01-15", "2026-06-01"), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
 <h1>Saudi Arabia Cost of Living 2026: Riyadh and Jeddah</h1>
 <p>Saudi Arabia offers one of the most affordable cost of living environments among Gulf countries, particularly when compared to the UAE. Combined with tax-free salaries, the kingdom provides strong savings potential for expatriate professionals. Riyadh, the capital, has seen cost increases as it becomes a regional business hub, but remains more affordable than Dubai. Jeddah, the Red Sea coastal city, offers slightly lower prices. This guide covers current 2026 expenses across housing, food, transport, healthcare, education, and utilities.</p>
+
+<p>One factor that affects Saudi living costs is the 15% VAT applied to most goods and services. This is the highest rate in the GCC and adds noticeably to grocery bills, restaurant checks, and retail purchases. On a monthly spend of SAR 4,000 in taxable goods, you pay SAR 600 in VAT. By comparison, the same spending in the UAE would incur only AED 200 at 5%, and Qatar charges no VAT at all. Despite this, the significantly lower base prices for housing and many services in Saudi Arabia still make it the most affordable Gulf country for the majority of expat families. Employer-provided accommodation or housing compounds can further reduce the biggest expense category entirely.</p>
+
 {saudiCostOfLiving.cities.map((city) => (
 <>
 <h2>{city.name} Cost Breakdown</h2>
@@ -22,9 +35,23 @@ const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name:
 <tr><td class="px-3 py-2">Family Villa</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.min.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">{city.housing.familyVilla.max.toLocaleString()}</td><td class="px-3 py-2 text-right tabular-nums">${Math.round(city.housing.familyVilla.min / 3.75).toLocaleString()}-${Math.round(city.housing.familyVilla.max / 3.75).toLocaleString()}</td></tr>
 </tbody></table>
 </div>
-<p>Food: Groceries SAR {city.food.groceriesMonthly.min.toLocaleString()}-{city.food.groceriesMonthly.max.toLocaleString()}/mo. Budget meal SAR {city.food.mealBudgetRestaurant.min}-{city.food.mealBudgetRestaurant.max}. Mid-range SAR {city.food.mealMidRange.min}-{city.food.mealMidRange.max}. Transport: Metro pass SAR {city.transport.metroMonthlyPass.amount || "N/A"} {city.transport.metroMonthlyPass.note || ""}. Petrol SAR {city.transport.gasolinePerLiter.amount}/L. Healthcare: GP SAR {city.healthcare.gpVisit.min}-{city.healthcare.gpVisit.max}. Education: School SAR {city.education.internationalSchool.min.toLocaleString()}-{city.education.internationalSchool.max.toLocaleString()}/yr. Utilities: SAR {city.utilities.monthly.min}-{city.utilities.monthly.max}/mo.</p>
+<h3>Food and Groceries</h3>
+<p>Monthly groceries for a household: SAR {city.food.groceriesMonthly.min.toLocaleString()}-{city.food.groceriesMonthly.max.toLocaleString()}. Budget meal: SAR {city.food.mealBudgetRestaurant.min}-{city.food.mealBudgetRestaurant.max}. Mid-range restaurant: SAR {city.food.mealMidRange.min}-{city.food.mealMidRange.max}. Popular grocery chains include Tamimi Markets, Panda, LuLu, and Carrefour. Locally produced dairy, bread, and poultry are significantly cheaper than imported alternatives. The 15% VAT applies to most food items.</p>
+<h3>Transport</h3>
+<p>Metro monthly pass: SAR {city.transport.metroMonthlyPass.amount || "N/A"} {city.transport.metroMonthlyPass.note || ""}. Petrol: SAR {city.transport.gasolinePerLiter.amount}/liter. Saudi Arabia is a car-dependent country outside of Riyadh's expanding metro system. Petrol remains among the cheapest in the world. Ride-hailing through Uber and Careem is widely used. Car ownership costs are moderate with affordable insurance and no road tolls in most areas.</p>
+<h3>Healthcare</h3>
+<p>GP visit: SAR {city.healthcare.gpVisit.min}-{city.healthcare.gpVisit.max}. Specialist consultation: SAR {city.healthcare.specialistVisit.min}-{city.healthcare.specialistVisit.max}. All employers must provide CCHI-approved health insurance. Major private hospital groups include Dr. Sulaiman Al Habib, Saudi German Hospitals, and Dallah Health. The public MOH hospital network provides additional coverage for emergencies.</p>
+<h3>Education</h3>
+<p>International school fees: SAR {city.education.internationalSchool.min.toLocaleString()}-{city.education.internationalSchool.max.toLocaleString()}/year. Nursery: SAR {city.education.nursery.min.toLocaleString()}-{city.education.nursery.max.toLocaleString()}/year. British, American, and IB curricula are the most popular among expat families.</p>
+<h3>Utilities</h3>
+<p>Saudi Electricity Company (SEC) and water: SAR {city.utilities.monthly.min}-{city.utilities.monthly.max}/month. Internet: SAR {city.utilities.internet.min}-{city.utilities.internet.max}. Mobile: SAR {city.utilities.mobile.min}-{city.utilities.mobile.max}. Utility costs are among the lowest in the GCC due to government subsidies, though summer air conditioning can push electricity bills to the higher end of the range.</p>
 </>
 ))}
+
+<h2>Saving Money in Saudi Arabia</h2>
+<p>Saudi Arabia offers the highest savings potential among Gulf countries thanks to lower base costs. Expats commonly save 30-45% of their income. Key strategies include accepting employer-provided compound housing (eliminating rent entirely for many senior roles), shopping at budget supermarkets and local markets, cooking at home to avoid the 15% VAT premium at restaurants, and using ride-hailing instead of owning a second car. Riyadh's new metro system, expected to expand coverage through 2027, will reduce transport costs further. For families, choosing schools with Indian or Pakistani curricula instead of British or American programs can save SAR 20,000-40,000 per child per year.</p>
+
+<FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Saudi SEC", url: "https://www.se.com.sa/" }]} />
 <RelatedLinks links={[{ label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" }, { label: "Saudi Guide", href: "/saudi-arabia/guide/" }]} />
 </GuideLayout>

@@ -25,7 +25,7 @@ const relatedProfessions = uaeProfessions
 const faqs = [
   { question: `What is the average ${p.title} salary in the UAE in 2026?`, answer: `The average ${p.title} salary in the UAE is approximately ${formatCurrency(p.avgMonthly, "AED")} per month. Entry-level positions start from ${formatCurrency(p.entry.min, "AED")}, while senior professionals can earn up to ${formatCurrency(p.senior.max, "AED")} per month.` },
   { question: `Is the ${p.title} salary tax-free in the UAE?`, answer: `Yes. The UAE does not impose personal income tax on employment income. Your gross salary as a ${p.title} is your net take-home pay. This makes UAE compensation significantly more valuable than equivalent salaries in taxed jurisdictions.` },
-  { question: `What benefits do ${p.title}s receive in the UAE?`, answer: `Typical benefits for ${p.title}s in the UAE include: ${p.benefits.join(", ")}. The exact package varies by employer, with larger companies and government entities generally offering more comprehensive benefits.` },
+  { question: `What benefits do ${p.title}s receive in the UAE?`, answer: `Typical benefits for ${p.title}s in the UAE include: ${p.benefits.join(", ")}. The exact package varies by employer, with larger companies and government entities generally offering more generous benefits.` },
   { question: `How does the ${p.title} salary in the UAE compare to Qatar and Saudi Arabia?`, answer: `UAE salaries for ${p.title}s are generally competitive with or slightly higher than Qatar and Saudi Arabia for most experience levels. However, specific comparisons depend on the employer, sector, and city. All three countries offer tax-free salaries.` },
   { question: `What qualifications do I need to work as a ${p.title} in the UAE?`, answer: `Requirements vary by employer, but generally include a relevant bachelor's degree, professional certifications or licenses applicable to the field, and at least 2-3 years of experience for mid-level positions. Some professions require UAE-specific licensing or registration.` },
 ];
@@ -39,8 +39,8 @@ const breadcrumbs = [
 ---
 
 <GuideLayout
-  title={`${p.title} Salary in UAE 2026: ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.senior.max, "AED")}`}
-  description={`${p.title} salary in UAE 2026: average ${formatCurrency(p.avgMonthly, "AED")}/month. Entry ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.entry.max, "AED")}, senior ${formatCurrency(p.senior.min, "AED")}-${formatCurrency(p.senior.max, "AED")}. Tax-free.`}
+  title={`${p.title} Salary in the UAE 2026: ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.senior.max, "AED")}`}
+  description={`${p.title} salary in UAE 2026: average ${formatCurrency(p.avgMonthly, "AED")}/month tax-free. Entry from ${formatCurrency(p.entry.min, "AED")}, senior up to ${formatCurrency(p.senior.max, "AED")}. Compare benefits, housing, and allowances.`}
   canonical={`/uae/salaries/${p.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salaries", url: "/uae/salaries/" }, { name: p.title, url: `/uae/salaries/${p.slug}/` }]}

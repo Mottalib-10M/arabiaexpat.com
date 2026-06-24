@@ -1,14 +1,35 @@
 ---
 import { SITE } from "../../data/site-config";
+
 interface Props {
   date?: string;
+  readTime?: string;
 }
-const { date = "June 2026" } = Astro.props;
+
+const { date = "June 2026", readTime } = Astro.props;
 ---
 
-<div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-6">
-  <img src={SITE.author.image} alt={SITE.author.name} class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700" width="32" height="32" loading="lazy" />
-  <span>By <strong class="text-gray-700 dark:text-gray-300">{SITE.author.name}</strong>, {SITE.author.credentials}</span>
-  <span>&middot;</span>
-  <time>Updated {date}</time>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6 pb-6 border-b border-gray-200 dark:border-gray-800">
+  <div class="flex items-center gap-2.5">
+    <img
+      src={SITE.author.image}
+      alt={SITE.author.name}
+      class="h-9 w-9 rounded-full bg-gray-200 dark:bg-gray-700 object-cover ring-2 ring-white dark:ring-gray-800"
+      width="36"
+      height="36"
+      loading="lazy"
+    />
+    <div class="leading-tight">
+      <div class="font-semibold text-gray-700 dark:text-gray-300 text-sm">{SITE.author.name}</div>
+      <div class="text-xs text-gray-400 dark:text-gray-500">{SITE.author.credentials}</div>
+    </div>
+  </div>
+  <span class="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
+  <time class="text-xs">Updated {date}</time>
+  {readTime && (
+    <>
+      <span class="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
+      <span class="text-xs">{readTime} read</span>
+    </>
+  )}
 </div>

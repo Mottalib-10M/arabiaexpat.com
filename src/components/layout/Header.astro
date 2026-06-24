@@ -3,35 +3,45 @@ import { mainNav } from "../../data/nav";
 ---
 
 <a href="#main-content" class="skip-to-content">Skip to content</a>
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/80">
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
     <div class="flex h-16 items-center justify-between">
-      <a href="/" class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-xl">
-        <svg class="h-8 w-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="14" fill="currentColor" opacity="0.15"/>
-          <path d="M16 4C9.37 4 4 9.37 4 16s5.37 12 12 12 12-5.37 12-12S22.63 4 16 4zm0 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S6 21.52 6 16 10.48 6 16 6z" fill="currentColor"/>
-          <path d="M12 14h8v2h-8zM12 18h6v2h-6zM14 10h4v2h-4z" fill="currentColor"/>
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 shrink-0 group">
+        <svg class="h-8 w-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#0D9488"/>
+          <text x="16" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="20" fill="white">G</text>
         </svg>
-        Gulf Expat Hub
+        <div class="flex flex-col leading-none">
+          <span class="text-base font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Gulf Expat Hub</span>
+          <span class="text-[10px] text-gray-400 dark:text-gray-500 font-medium tracking-wide">SALARIES &middot; CALCULATORS &middot; GUIDES</span>
+        </div>
       </a>
 
-      <div class="hidden lg:flex items-center gap-1">
+      <!-- Desktop navigation -->
+      <div class="hidden lg:flex items-center gap-0.5">
         {mainNav.map((item) => (
           <div class="relative group">
             <a
               href={item.href}
-              class="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors inline-flex items-center gap-1"
             >
               {item.label}
+              {item.children && (
+                <svg class="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              )}
             </a>
             {item.children && (
               <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-2 min-w-[220px]">
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg shadow-gray-200/50 dark:shadow-black/30 border border-gray-200 dark:border-gray-700 py-1.5 min-w-[240px]">
                   {item.children.map((child) => (
                     <a
                       href={child.href}
-                      class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl transition-colors"
+                      class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                     >
+                      <span class="w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full shrink-0"></span>
                       {child.label}
                     </a>
                   ))}
@@ -42,12 +52,14 @@ import { mainNav } from "../../data/nav";
         ))}
       </div>
 
-      <div class="flex items-center gap-2">
+      <!-- Right side actions -->
+      <div class="flex items-center gap-1.5">
+        <!-- Dark mode toggle -->
         <button
           id="theme-toggle"
           type="button"
           aria-label="Toggle dark mode"
-          class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
           <svg class="h-5 w-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
@@ -56,30 +68,35 @@ import { mainNav } from "../../data/nav";
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
           </svg>
         </button>
+
+        <!-- Mobile menu toggle -->
         <button
           id="mobile-menu-toggle"
           type="button"
           aria-label="Toggle mobile menu"
-          class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+          class="lg:hidden p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="hamburger-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden pb-4">
+    <div id="mobile-menu" class="lg:hidden hidden pb-4 -mx-2">
       {mainNav.map((item) => (
-        <div class="border-t border-gray-100 dark:border-gray-800">
-          <a href={item.href} class="block px-3 py-3 text-sm font-semibold text-gray-800 dark:text-gray-200">
+        <div class="border-t border-gray-100 dark:border-gray-800 first:border-0">
+          <a href={item.href} class="block px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-200 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-900 rounded-lg transition-colors">
             {item.label}
           </a>
           {item.children && (
-            <div class="pl-4 pb-2">
+            <div class="pl-4 pb-2 space-y-0.5">
               {item.children.map((child) => (
-                <a href={child.href} class="block px-3 py-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-teal-600">
+                <a href={child.href} class="block px-4 py-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 rounded-lg transition-colors">
                   {child.label}
                 </a>
               ))}
@@ -97,6 +114,13 @@ import { mainNav } from "../../data/nav";
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
   document.getElementById("mobile-menu-toggle")?.addEventListener("click", function() {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+    const menu = document.getElementById("mobile-menu");
+    const hamburger = document.getElementById("hamburger-icon");
+    const close = document.getElementById("close-icon");
+    if (menu && hamburger && close) {
+      const isHidden = menu.classList.toggle("hidden");
+      hamburger.classList.toggle("hidden", !isHidden);
+      close.classList.toggle("hidden", isHidden);
+    }
   });
 </script>

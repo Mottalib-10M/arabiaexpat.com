@@ -31,7 +31,7 @@ const breadcrumbs = [
 
 <GuideLayout
   title={`${p.title} Salary in Qatar 2026: ${formatCurrency(p.entry.min, "QAR")}-${formatCurrency(p.senior.max, "QAR")}`}
-  description={`${p.title} salary in Qatar 2026: average ${formatCurrency(p.avgMonthly, "QAR")}/month. Tax-free pay with housing, flights, and end-of-service benefits.`}
+  description={`${p.title} salary in Qatar 2026: average ${formatCurrency(p.avgMonthly, "QAR")}/month tax-free. Entry ${formatCurrency(p.entry.min, "QAR")}-${formatCurrency(p.entry.max, "QAR")}, senior ${formatCurrency(p.senior.min, "QAR")}-${formatCurrency(p.senior.max, "QAR")}. Plus housing and flights.`}
   canonical={`/qatar/salaries/${p.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Salaries", url: "/qatar/salaries/" }, { name: p.title, url: `/qatar/salaries/${p.slug}/` }]}

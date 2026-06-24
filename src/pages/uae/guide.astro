@@ -1,15 +1,25 @@
 ---
 import GuideLayout from "../../layouts/GuideLayout.astro";
 import { COUNTRIES } from "../../data/site-config";
-import { buildBreadcrumbs, buildArticleSchema } from "../../lib/seo";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+
+
+const faqs = [
+  { question: "Is the UAE a good place for expats to live in 2026?", answer: "Yes. The UAE ranks among the top expat destinations worldwide. Zero personal income tax, modern infrastructure, safe cities, world-class healthcare, and over 200 nationalities create a cosmopolitan environment. Dubai and Abu Dhabi consistently rank in the top 10 of global expat surveys for quality of life and financial satisfaction." },
+  { question: "What is the average expat salary in the UAE?", answer: "Average expat salaries vary widely by profession. Software engineers earn AED 8,000-40,000/month, doctors AED 20,000-70,000, teachers AED 8,000-18,000, and accountants AED 6,000-25,000. All salaries are tax-free, and packages typically include housing allowance, annual flights, and health insurance on top of the base salary." },
+  { question: "Do I need to speak Arabic to work in the UAE?", answer: "No. English is the primary business language in the UAE. Most workplaces, government services, signage, and daily interactions operate in English. Arabic proficiency is an advantage for certain roles (legal, government relations, media) but is not required for the vast majority of expatriate positions." },
+  { question: "How safe is the UAE for expats and families?", answer: "The UAE is one of the safest countries in the world. Dubai and Abu Dhabi regularly rank in the top 10 globally for personal safety. Crime rates are extremely low, and the police and justice systems are efficient. The country has strict laws against drugs, public intoxication, and harassment that contribute to the safe environment." },
+  { question: "Can I buy property in the UAE as an expat?", answer: "Yes. Expats can buy freehold property in designated areas in Dubai, Abu Dhabi, and other emirates. Popular freehold zones include Dubai Marina, Downtown Dubai, JBR, and Palm Jumeirah. Property ownership can also qualify you for a Golden Visa (AED 2M+ property). Mortgage financing is available from UAE banks with 20-25% down payment for expats." },
+];
 
 const c = COUNTRIES.uae;
 const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "UAE Guide", url: "https://gulfexpathub.com/uae/guide/" }];
 ---
 
-<GuideLayout title="UAE Expat Guide 2026: Working and Living in the Emirates" description="Complete 2026 guide to living and working in the UAE. Visas, salaries, housing, healthcare, education, and culture for expats moving to Dubai and Abu Dhabi." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("UAE Expat Guide 2026: Working and Living in the Emirates", "Complete 2026 guide to living and working in the UAE.", "https://gulfexpathub.com/uae/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
+<GuideLayout title="UAE Expat Guide 2026: Working and Living in the Emirates" description="Complete 2026 guide to living and working in the UAE. Visas, salaries, housing, healthcare, education, and culture for expats moving to Dubai and Abu Dhabi." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Expat Guide 2026: Working and Living in the Emirates", "Complete 2026 guide to living and working in the UAE.", "https://gulfexpathub.com/uae/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
 
 <h1>Complete UAE Expat Guide 2026</h1>
 
@@ -39,6 +49,7 @@ const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name:
 <h2>Getting Around</h2>
 <p>The UAE is primarily a car-oriented country, though public transport options are expanding. Dubai Metro covers major urban corridors and is clean, efficient, and affordable. Abu Dhabi's bus network provides coverage across the city. Ride-hailing services (Uber, Careem) are widely available. Owning a car is common, with petrol prices relatively low by international standards. Driving licenses from many countries can be exchanged directly for UAE licenses. International driving permits are accepted for visitors.</p>
 
+<FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "KHDA Dubai", url: "https://www.khda.gov.ae/" }, { name: "Dubai Health Authority", url: "https://www.dha.gov.ae/" }]} />
 <RelatedLinks links={[{ label: "UAE Salaries 2026", href: "/uae/salaries/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Visa Guide", href: "/uae/visa-guide/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }]} />
 </GuideLayout>
