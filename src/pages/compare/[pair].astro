@@ -1,0 +1,92 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { comparisons } from "../../data/comparisons";
+import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+export function getStaticPaths() {
+  return comparisons.map((c) => ({ params: { pair: c.slug }, props: { comparison: c } }));
+}
+
+const { comparison: c } = Astro.props;
+const schemas = [
+  buildBreadcrumbs(c.breadcrumbs),
+  buildFAQSchema(c.faqs),
+  buildArticleSchema(c.title, c.description, `https://gulfexpathub.com/compare/${c.slug}/`, "2025-06-01", "2026-06-15"),
+];
+---
+
+<GuideLayout
+  title={c.title}
+  description={c.description}
+  canonical={`/compare/${c.slug}/`}
+  schemas={schemas}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Compare", url: `/compare/${c.slug}/` }, { name: `${c.place1} vs ${c.place2}`, url: `/compare/${c.slug}/` }]}
+>
+  <h1>{c.place1} vs {c.place2}: Salary and Cost Comparison 2026</h1>
+
+  <p>This side-by-side comparison covers salaries, tax rules, housing costs, daily expenses, and end-of-service gratuity between {c.place1} and {c.place2}. Use the data below to evaluate which destination fits your career and financial goals as an expat in 2026.</p>
+
+  <h2>Side-by-Side Comparison Table</h2>
+  <div class="not-prose overflow-x-auto mb-8">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="bg-teal-600 text-white">
+          <th class="px-4 py-3 text-left rounded-tl-lg">Category</th>
+          <th class="px-4 py-3 text-center">{c.place1}</th>
+          <th class="px-4 py-3 text-center rounded-tr-lg">{c.place2}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+        <tr class="bg-gray-50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium">Average Expat Salary</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.avgSalary1}</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.avgSalary2}</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium">Income Tax</td>
+          <td class="px-4 py-3 text-center">{c.incomeTax1}</td>
+          <td class="px-4 py-3 text-center">{c.incomeTax2}</td>
+        </tr>
+        <tr class="bg-gray-50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium">VAT Rate</td>
+          <td class="px-4 py-3 text-center">{c.vat1}</td>
+          <td class="px-4 py-3 text-center">{c.vat2}</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium">1-Bed Apartment Rent</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.rent1Bed1}</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.rent1Bed2}</td>
+        </tr>
+        <tr class="bg-gray-50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium">Monthly Groceries</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.groceries1}</td>
+          <td class="px-4 py-3 text-center tabular-nums">{c.groceries2}</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium">Gratuity Formula</td>
+          <td class="px-4 py-3 text-center text-xs">{c.gratuity1}</td>
+          <td class="px-4 py-3 text-center text-xs">{c.gratuity2}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Detailed Analysis</h2>
+  <p>{c.analysis}</p>
+
+  <h2>Which Should You Choose?</h2>
+  <p>The right choice between {c.place1} and {c.place2} depends on your priorities. If maximizing salary is your primary goal, compare specific roles using our salary data and calculators. If saving money matters most, factor in the full cost of living including VAT differences and housing costs. For career growth, consider which location offers the best opportunities in your specific field. And for lifestyle, think about what matters to you outside of work: entertainment, community, climate, and family amenities.</p>
+
+  <FAQAccordion faqs={c.faqs} />
+
+  <SourcesBlock sources={[
+    { name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" },
+    { name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" },
+    { name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" },
+  ]} />
+
+  <RelatedLinks links={c.relatedLinks} />
+</GuideLayout>

@@ -1,0 +1,58 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the average salary in Riyadh for expats?", answer: "The average expat salary in Riyadh is approximately SAR 12,500 per month (USD 3,330). Vision 2030 project roles pay above average: senior project managers earn SAR 25,000-40,000, and tech leads at PIF-backed companies earn SAR 20,000-35,000. All salaries are fully tax-free." },
+  { question: "How much does rent cost in Riyadh in 2026?", answer: "A one-bedroom apartment in a good Riyadh neighborhood like Olaya or Al Malqa costs SAR 2,500-5,000 per month. Family villas in compound communities run SAR 8,000-18,000. DQ (Diplomatic Quarter) compounds command premiums of SAR 12,000-25,000." },
+  { question: "Is Riyadh safe for expat families?", answer: "Yes. Riyadh is very safe with low crime rates. The city has improved dramatically since 2017 with new entertainment, dining, and cultural venues. International schools, modern hospitals, and compound communities provide a comfortable family environment." },
+  { question: "What is Riyadh Season?", answer: "Riyadh Season is an annual entertainment festival running from October to March, featuring concerts, sports events, theme parks, culinary festivals, and cultural exhibitions across multiple zones. It attracts millions of visitors and has transformed the city's entertainment landscape." },
+  { question: "How is public transport in Riyadh?", answer: "The Riyadh Metro is expanding with six lines covering 176 km. Bus services operate across the city. Most expats currently rely on cars, with ride-hailing (Uber, Careem) widely available. The metro will significantly improve commuting options once fully operational." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
+  { name: "Riyadh", url: "https://gulfexpathub.com/saudi-arabia/riyadh/" },
+];
+---
+
+<GuideLayout
+  title="Riyadh Expat Guide 2026: Salary, Cost and Visa Info"
+  description="Complete 2026 guide to living in Riyadh. Vision 2030 salaries, rent prices, Saudization rules, schools, and entertainment for expats in Saudi Arabia."
+  canonical="/saudi-arabia/riyadh/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Riyadh Expat Guide 2026: Salary, Cost and Visa Info", "Complete guide to Riyadh for expats in 2026.", "https://gulfexpathub.com/saudi-arabia/riyadh/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Riyadh", url: "/saudi-arabia/riyadh/" }]}
+>
+  <h1>Riyadh Expat Guide 2026: Salaries, Cost of Living, and Lifestyle</h1>
+
+  <p>Riyadh is the epicenter of Saudi Arabia's Vision 2030 transformation and one of the fastest-growing cities in the world. The capital hosts over 7 million residents and is rapidly evolving from a government-focused city into a global business, entertainment, and technology hub. With tax-free salaries, dramatically lower living costs than Dubai, and career opportunities tied to trillion-dollar mega-projects, Riyadh is increasingly the first choice for ambitious expat professionals seeking impact and financial reward.</p>
+
+  <h2>Riyadh Salary Overview</h2>
+  <p>Riyadh salaries average SAR 12,500 per month, with Vision 2030-linked roles paying significant premiums. PIF (Public Investment Fund) portfolio companies, NEOM project offices in Riyadh, and the growing tech ecosystem offer competitive packages. Software engineers earn SAR 14,000-22,000, with senior roles at companies like STC, Elm, and Tamara reaching SAR 30,000+. Healthcare professionals are well-compensated, with doctors at Ministry of Health hospitals earning SAR 18,000-40,000. Financial services roles in the expanding capital markets sector pay SAR 15,000-30,000. Many employers provide compound housing or housing allowances that effectively add 30-40% to the total package value. The zero income tax environment means gross salary equals take-home pay, with no GOSI deductions for expatriates.</p>
+
+  <h2>Cost of Living in Riyadh</h2>
+  <p>Riyadh offers the best cost-to-salary ratio among major Gulf cities. A one-bedroom apartment in popular areas like Olaya, Al Malqa, or Al Nakheel costs SAR 2,500-5,000 per month, roughly 40-60% less than equivalent Dubai neighborhoods. Compound villas in the Diplomatic Quarter or Riyadh compounds run SAR 10,000-20,000. Groceries cost SAR 800-1,800 per month at Panda, Tamimi Markets, or LuLu. Dining is affordable, with budget meals at SAR 15-30 and mid-range restaurants at SAR 60-150. The 15% VAT applies to most goods and services, which is higher than the UAE's 5%. Utilities through SEC average SAR 300-800 monthly. A single professional can live comfortably on SAR 5,500-8,000 per month, while families should budget SAR 12,000-22,000.</p>
+
+  <h2>Neighborhoods and Housing</h2>
+  <p>Riyadh's compound communities are the traditional expat housing choice, offering self-contained environments with pools, gyms, restaurants, and social facilities. The Diplomatic Quarter is the most prestigious compound area. Al Malqa and Hittin are newer, upscale residential areas. Olaya and Al Tahlia Street form the commercial and social heart with apartment living. KAFD (King Abdullah Financial District) is emerging as a premium mixed-use development. Al Yasmin and Al Narjis offer family-friendly villas at moderate prices. For budget-conscious expats, Al Aqiq and Al Wadi provide good value.</p>
+
+  <h2>Working in Riyadh</h2>
+  <p>Riyadh's job market is driven by government and government-linked entities. Saudi Aramco, PIF, NEOM, and various ministries are major employers. The tech ecosystem is growing rapidly with support from the Communications, Space, and Technology Commission. Financial services are expanding through the Saudi Exchange (Tadawul) and growing capital markets. Saudization (Nitaqat) requires companies to meet minimum quotas of Saudi employees, but specialist international roles remain available in technology, healthcare, engineering, and management. The work week is Sunday to Thursday, though some international companies have shifted to Monday to Friday.</p>
+
+  <h2>Entertainment and Social Life</h2>
+  <p>Riyadh has transformed since 2017 from a relatively quiet capital to a city with a vibrant entertainment scene. Riyadh Season, the annual mega-festival, attracts millions with concerts, sporting events, and cultural exhibitions. Boulevard Riyadh City is a year-round entertainment district. The upcoming Qiddiya project will be the largest entertainment destination in the kingdom. Restaurants and cafes have multiplied, with international chains and independent venues offering diverse cuisines. Sports events including Formula E, boxing, and football regularly visit the city.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Vision 2030", url: "https://www.vision2030.gov.sa/" }]} />
+  <RelatedLinks links={[
+    { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
+    { label: "Riyadh vs Jeddah", href: "/compare/riyadh-vs-jeddah/" },
+    { label: "Dubai vs Riyadh", href: "/compare/dubai-vs-riyadh/" },
+    { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" },
+    { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" },
+  ]} />
+</GuideLayout>

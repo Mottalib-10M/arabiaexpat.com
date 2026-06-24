@@ -1,0 +1,61 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the average expat salary in Dubai in 2026?", answer: "The average expat salary in Dubai is approximately AED 16,500 per month (USD 4,500). Salaries vary widely by profession: software engineers earn AED 16,000-28,000, doctors AED 25,000-55,000, teachers AED 10,000-18,000, and accountants AED 10,000-22,000. All salaries are fully tax-free." },
+  { question: "How much rent should I budget for in Dubai?", answer: "A one-bedroom apartment in a popular area like Dubai Marina or JLT costs AED 6,000-9,000 per month. More affordable areas like JVC and Sports City offer studios from AED 3,500. Family villas in Arabian Ranches or Mirdif range from AED 12,000-25,000. Most employers provide housing allowance." },
+  { question: "Is Dubai safe for expat families?", answer: "Yes. Dubai is one of the safest cities globally, consistently ranking in the top 10 for personal safety. Crime rates are extremely low, police response is efficient, and family-friendly infrastructure is excellent. Schools, parks, hospitals, and entertainment venues cater well to families." },
+  { question: "What visa options are available for Dubai expats?", answer: "Dubai offers employment visas (employer-sponsored), Golden Visa (10-year for high earners and investors), Green Visa (5-year for skilled workers), and Freelancer Visa (through free zones). The Golden Visa requires AED 30,000+ monthly salary with a degree or AED 2M+ property investment." },
+  { question: "How is Dubai's public transport system?", answer: "Dubai Metro covers major corridors with two lines (Red and Green) serving 53 stations. Monthly passes cost AED 350. The tram runs along JBR and Dubai Marina. RTA buses cover wider areas. Ride-hailing (Uber, Careem) is popular. Most expats own cars due to the city's spread." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" },
+  { name: "Dubai", url: "https://gulfexpathub.com/uae/dubai/" },
+];
+---
+
+<GuideLayout
+  title="Dubai Expat Guide 2026: Salaries, Cost and Visa Info"
+  description="Complete 2026 guide to living and working in Dubai. Salary data, rent costs, visa options, schools, healthcare, and lifestyle tips for expats moving to Dubai."
+  canonical="/uae/dubai/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Dubai Expat Guide 2026: Salaries, Cost and Visa Info", "Complete 2026 guide to living and working in Dubai for expats.", "https://gulfexpathub.com/uae/dubai/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Dubai", url: "/uae/dubai/" }]}
+>
+  <h1>Dubai Expat Guide 2026: Salaries, Cost of Living, and Visas</h1>
+
+  <p>Dubai is the most popular city in the Gulf for expatriates, hosting over 3.5 million foreign residents from more than 200 nationalities. The city combines zero income tax, world-class infrastructure, a diverse job market, and a cosmopolitan lifestyle that few cities worldwide can match. Whether you are a software engineer, doctor, teacher, or entrepreneur, this guide covers everything specific to living and working in Dubai in 2026.</p>
+
+  <h2>Dubai Salary Overview</h2>
+  <p>Dubai salaries are among the highest in the Gulf region. The average expat salary is approximately AED 16,500 per month, though this varies dramatically by profession and seniority. Technology roles have seen the strongest growth, with senior software engineers commanding AED 28,000-50,000. Healthcare professionals earn well above global averages: consultants at top hospitals like Mediclinic and Cleveland Clinic Abu Dhabi (with Dubai branches) earn AED 40,000-70,000. The financial services sector, concentrated in DIFC, offers competitive packages with significant bonus structures. Teaching at premium international schools like GEMS or Taaleem pays AED 12,000-20,000 with housing and flights included. Construction and engineering professionals benefit from Dubai's ongoing mega-project pipeline, including Dubai Creek Harbour and various palm island developments.</p>
+
+  <h2>Cost of Living in Dubai</h2>
+  <p>Housing is Dubai's largest expense, typically consuming 30-40% of income. A one-bedroom apartment in Dubai Marina costs AED 7,000-10,000 per month, while areas like JVC, Sports City, and Dubai Silicon Oasis offer more affordable options at AED 4,000-6,000. Family villas in Arabian Ranches, Mirdif, or The Springs range from AED 10,000-20,000. Monthly groceries run AED 1,200-2,500 for a household, with LuLu, Carrefour, and Viva offering the best value. Dining ranges from AED 25 at casual restaurants to AED 200+ at mid-range venues. DEWA (electricity and water) bills average AED 500-1,200 monthly. The 5% VAT applies to most goods and services. Dubai's overall monthly cost for a single professional is AED 8,000-12,000, while families should budget AED 18,000-30,000.</p>
+
+  <h2>Neighborhoods and Housing</h2>
+  <p>Dubai's neighborhoods each have distinct character. Dubai Marina and JBR offer waterfront apartment living with a vibrant social scene. Downtown Dubai centers around the Burj Khalifa and Dubai Mall but commands premium rents. JLT (Jumeirah Lakes Towers) provides a more affordable alternative to Marina with similar amenities. Arabian Ranches and Mirdif are popular with families seeking villa communities. Dubai Hills Estate is a newer development balancing apartments and villas with green spaces. Business Bay suits professionals wanting proximity to DIFC. For budget-conscious expats, International City and Discovery Gardens offer the lowest rents but with fewer amenities.</p>
+
+  <h2>Working in Dubai</h2>
+  <p>Dubai's job market spans free zones and mainland companies. Free zones like DIFC, Dubai Internet City, Dubai Media City, and JAFZA have their own regulations and often streamlined visa processing. The mainland market is regulated by MoHRE. Major employers include Emirates airline, Emaar Properties, DEWA, Dubai Holding, and multinational corporations with regional headquarters. The standard work week is Monday to Friday, with 8-hour days and flexible arrangements increasingly common. Dubai's economy is diversified across trade, tourism, real estate, financial services, technology, and logistics, providing resilience and variety in the job market.</p>
+
+  <h2>Education and Schools</h2>
+  <p>Dubai has over 200 private schools serving expat families. KHDA inspects and rates all Dubai schools. Top-rated schools include Dubai College, GEMS Wellington International, and Jumeirah English Speaking School. The British curriculum is most popular, followed by American, IB, and Indian (CBSE/ICSE). Annual fees range from AED 15,000 for budget schools to AED 100,000+ for premium institutions. Nurseries cost AED 20,000-45,000 per year. Most schools offer admission throughout the year, though September intake is primary.</p>
+
+  <h2>Healthcare in Dubai</h2>
+  <p>Dubai Health Authority (DHA) regulates healthcare, and employer-provided insurance is mandatory. Major hospitals include Mediclinic City Hospital, American Hospital Dubai, Saudi German Hospital, and Aster DM Healthcare. GP visits cost AED 150-400 with insurance copay. Emergency treatment is available regardless of insurance status. Pharmacies are widespread, and many medications available over-the-counter in other countries require prescriptions in Dubai.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "KHDA Dubai", url: "https://www.khda.gov.ae/" }, { name: "DHA", url: "https://www.dha.gov.ae/" }, { name: "Dubai Statistics Center", url: "https://www.dsc.gov.ae/" }]} />
+  <RelatedLinks links={[
+    { label: "UAE Expat Guide 2026", href: "/uae/guide/" },
+    { label: "Dubai vs Abu Dhabi", href: "/compare/dubai-vs-abu-dhabi/" },
+    { label: "Dubai vs Doha", href: "/compare/dubai-vs-doha/" },
+    { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" },
+    { label: "UAE Cost of Living", href: "/uae/cost-of-living/" },
+  ]} />
+</GuideLayout>

@@ -1,0 +1,58 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the average salary in Dammam for expats?", answer: "The average expat salary in the Dammam metropolitan area is approximately SAR 11,200 per month. Saudi Aramco employees in Dhahran earn significantly more: senior engineers SAR 25,000-45,000 with comprehensive benefit packages. Oil and gas roles dominate high-salary positions." },
+  { question: "How much is rent in the Dammam area in 2026?", answer: "A one-bedroom apartment in Dammam or Khobar costs SAR 2,000-4,000 per month. Aramco compound housing in Dhahran is provided free for employees. Family villas outside compounds run SAR 5,000-12,000. The Eastern Province is the most affordable major metropolitan area." },
+  { question: "What is the Dammam-Khobar-Dhahran metro area?", answer: "The three cities form a connected metropolitan area on the Persian Gulf coast. Dammam is the provincial capital, Khobar is the commercial and social hub popular with expats, and Dhahran is home to Saudi Aramco headquarters and KFUPM university. They are connected by highways and function as one urban area." },
+  { question: "Is the Eastern Province good for families?", answer: "Yes. The area is very family-friendly with excellent schools, safe compound communities, beaches, and a relaxed atmosphere. The Aramco community provides extensive amenities. Khobar's Corniche and Half Moon Beach are popular family destinations." },
+  { question: "What industries drive employment in Dammam?", answer: "Oil and gas is dominant, led by Saudi Aramco and its contractors. Petrochemicals, manufacturing, logistics through King Abdulaziz Port, and services supporting the energy sector are major employers. SABIC and other industrial companies operate in Jubail Industrial City nearby." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
+  { name: "Dammam", url: "https://gulfexpathub.com/saudi-arabia/dammam/" },
+];
+---
+
+<GuideLayout
+  title="Dammam Expat Guide 2026: Aramco Salaries and Costs"
+  description="Complete 2026 guide to living in Dammam, Khobar, and Dhahran. Saudi Aramco salaries, rent prices, compound life, and family tips for Eastern Province expats."
+  canonical="/saudi-arabia/dammam/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Dammam Expat Guide 2026: Aramco Salaries and Costs", "Complete guide to Dammam area for expats in 2026.", "https://gulfexpathub.com/saudi-arabia/dammam/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Dammam", url: "/saudi-arabia/dammam/" }]}
+>
+  <h1>Dammam, Khobar and Dhahran Expat Guide 2026</h1>
+
+  <p>The Dammam metropolitan area, encompassing Dammam, Khobar, and Dhahran, is Saudi Arabia's Eastern Province hub and the heartland of the global oil industry. Home to Saudi Aramco's headquarters in Dhahran, this tri-city area attracts thousands of expatriate professionals in energy, engineering, petrochemicals, and related industries. The area offers a unique combination of Aramco compound living, affordable housing, coastal lifestyle, and proximity to Bahrain, making it one of the most comfortable and financially rewarding expat destinations in Saudi Arabia.</p>
+
+  <h2>Salary Overview</h2>
+  <p>Salaries in the Dammam area average SAR 11,200 per month for expatriates, but the range is wide. Saudi Aramco, the world's most valuable company, sets the standard with comprehensive packages. Entry-level Aramco engineers start at SAR 15,000-20,000, mid-level earn SAR 22,000-35,000, and senior professionals earn SAR 35,000-55,000. Aramco packages include free compound housing, international school allowances, medical care, and annual flights, effectively doubling the value of the base salary. Contractor companies serving Aramco (Jacobs, Worley, McDermott) offer competitive but less comprehensive packages at SAR 12,000-30,000. SABIC employees in nearby Jubail earn similar ranges. Healthcare professionals at Johns Hopkins Aramco Healthcare earn well above national averages.</p>
+
+  <h2>Cost of Living</h2>
+  <p>The Eastern Province is the most affordable major metropolitan area in Saudi Arabia. A one-bedroom apartment in Khobar costs SAR 2,000-3,500, while Dammam is slightly cheaper at SAR 1,800-3,000. Non-Aramco families renting villas pay SAR 5,000-12,000 per month. Aramco employees living in company compounds pay nothing for housing. Groceries run SAR 700-1,500 per month at Tamimi, LuLu, or Panda. The 15% VAT applies to all purchases. Dining ranges from SAR 15 at local restaurants to SAR 100 at Khobar's upscale Corniche venues. The Bahrain causeway (25 km from Khobar) provides weekend access to a more liberal social environment. A single professional can live on SAR 4,500-7,000 per month, families on SAR 10,000-18,000.</p>
+
+  <h2>Neighborhoods and Housing</h2>
+  <p>The three cities offer distinct residential characters. Dhahran is dominated by Aramco's residential compound, a self-contained community with American-style amenities including a golf course, pools, schools, and shopping. Khobar is the social hub for non-Aramco expats, with waterfront apartments along the Corniche and family villas in areas like Al Thuqbah and Al Yarmouk. Dammam offers the most affordable housing and is the administrative center with government offices. Half Moon Bay, between Dammam and Al Ahsa, provides beachfront weekend getaway options.</p>
+
+  <h2>Working in the Eastern Province</h2>
+  <p>Employment is heavily concentrated in energy and petrochemicals. Saudi Aramco and its network of contractors are the largest employers by far. SABIC operates major facilities in Jubail Industrial City (90 km north). Ma'aden (mining) and various industrial firms provide additional opportunities. King Fahd University of Petroleum and Minerals (KFUPM) employs academic staff. Healthcare employment through Johns Hopkins Aramco Healthcare and government hospitals is significant. The work week follows the standard Saudi schedule of Sunday to Thursday, though Aramco operates some facilities on different shift patterns.</p>
+
+  <h2>Lifestyle and Recreation</h2>
+  <p>The Eastern Province offers a more relaxed lifestyle than Riyadh. Khobar Corniche is the social hub with restaurants, cafes, and sea views. Half Moon Beach is popular for camping and water sports. The King Fahd Causeway connects to Bahrain (30-minute drive), providing access to restaurants, hotels, and entertainment. Weekend trips to Bahrain are a staple of expat social life. Ithra (King Abdulaziz Center for World Culture) in Dhahran is a world-class cultural center with museums, a cinema, and event spaces. The area has a strong community feel, with sports leagues, social clubs, and expat associations well-established after decades of international presence.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "Saudi Aramco", url: "https://www.aramco.com/" }, { name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }]} />
+  <RelatedLinks links={[
+    { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
+    { label: "Riyadh vs Jeddah", href: "/compare/riyadh-vs-jeddah/" },
+    { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" },
+    { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" },
+    { label: "Saudi Gratuity Calculator", href: "/saudi-arabia/gratuity-calculator/" },
+  ]} />
+</GuideLayout>

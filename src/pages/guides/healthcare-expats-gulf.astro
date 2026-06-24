@@ -1,0 +1,71 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "Is health insurance mandatory for Gulf expats?", answer: "Yes, in all three countries. UAE mandates employer-provided health insurance (regulated by DHA in Dubai and DoH in Abu Dhabi). Saudi Arabia requires employer insurance through CCHI-approved providers. Qatar mandates employer health coverage. Emergency treatment is available regardless of insurance status." },
+  { question: "How much does a doctor visit cost in the Gulf?", answer: "With insurance, copays are typically AED/QAR/SAR 50-150 for GP visits. Without insurance, GP visits cost AED 150-400 in the UAE, QAR 150-350 in Qatar, and SAR 100-300 in Saudi Arabia. Specialist visits are 2-3x more expensive." },
+  { question: "Which Gulf country has the best healthcare?", answer: "All three countries offer high-quality healthcare. The UAE has the most international hospital brands (Cleveland Clinic, Mayo Clinic partnerships). Qatar's Hamad Medical Corporation and Sidra Medicine are world-class. Saudi Arabia is investing heavily in healthcare expansion." },
+  { question: "Can I choose my own doctor in the Gulf?", answer: "Yes, within your insurance network. Most employer plans give you a network of approved hospitals and clinics. Premium plans (Class A/VIP) offer wider networks including private hospitals. You can visit out-of-network providers but will pay higher out-of-pocket costs." },
+  { question: "What about dental and vision care for Gulf expats?", answer: "Basic health insurance usually covers dental emergencies but not routine dental care. Vision coverage varies by plan. Many expats purchase supplemental dental and vision insurance or pay out of pocket. Dental costs are AED 200-500 for checkups, SAR 150-400 in Saudi Arabia." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Guides", url: "https://gulfexpathub.com/guides/" },
+  { name: "Healthcare for Expats", url: "https://gulfexpathub.com/guides/healthcare-expats-gulf/" },
+];
+---
+
+<GuideLayout
+  title="Healthcare for Gulf Expats 2026: Insurance and Costs"
+  description="Guide to healthcare for expats in UAE, Qatar, and Saudi Arabia. Insurance rules, hospital quality, costs, emergency care, and dental coverage compared for 2026."
+  canonical="/guides/healthcare-expats-gulf/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Healthcare for Gulf Expats 2026", "Healthcare guide for Gulf expats.", "https://gulfexpathub.com/guides/healthcare-expats-gulf/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Healthcare for Expats", url: "/guides/healthcare-expats-gulf/" }]}
+>
+  <h1>Healthcare for Expats in the Gulf 2026: Insurance, Costs, and Quality</h1>
+
+  <p>Healthcare is one of the most important considerations for expatriates moving to the Gulf. The good news: all three major Gulf countries mandate employer-provided health insurance and offer high-quality medical facilities. The specifics of coverage, costs, and access vary by country, employer, and insurance tier. This guide covers everything you need to know about healthcare in the UAE, Qatar, and Saudi Arabia as an expatriate in 2026.</p>
+
+  <h2>Healthcare Insurance Requirements</h2>
+  <p>All three Gulf countries require employers to provide health insurance for expatriate employees. In the UAE, this is regulated by DHA (Dubai Health Authority) in Dubai and DoH (Department of Health) in Abu Dhabi. Dubai mandates a minimum plan called the Essential Benefits Plan (EBP), which covers basic medical needs. Many employers provide enhanced plans (Class A or VIP) that offer wider hospital networks and lower copays. In Saudi Arabia, the Council of Cooperative Health Insurance (CCHI) regulates mandatory employer insurance. Plans are classified into categories, with Class A providing the broadest coverage. Saudi regulations require coverage for employees and their registered dependents. Qatar mandates employer-provided health coverage, with Hamad Medical Corporation providing a public healthcare safety net. Premium employer packages in Qatar often provide access to both public and private healthcare networks.</p>
+
+  <h2>Healthcare Costs Comparison</h2>
+  <div class="not-prose overflow-x-auto mb-8">
+    <table class="w-full text-sm">
+      <thead><tr class="bg-teal-600 text-white"><th class="px-4 py-3 text-left rounded-tl-lg">Service</th><th class="px-4 py-3 text-center">UAE</th><th class="px-4 py-3 text-center">Qatar</th><th class="px-4 py-3 text-center rounded-tr-lg">Saudi Arabia</th></tr></thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+        <tr><td class="px-4 py-2.5 font-medium">GP Visit (with insurance)</td><td class="px-4 py-2.5 text-center">AED 50-150 copay</td><td class="px-4 py-2.5 text-center">QAR 50-100 copay</td><td class="px-4 py-2.5 text-center">SAR 50-100 copay</td></tr>
+        <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-4 py-2.5 font-medium">Specialist Visit</td><td class="px-4 py-2.5 text-center">AED 100-300 copay</td><td class="px-4 py-2.5 text-center">QAR 100-250 copay</td><td class="px-4 py-2.5 text-center">SAR 75-200 copay</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Emergency Room</td><td class="px-4 py-2.5 text-center">AED 0-200 copay</td><td class="px-4 py-2.5 text-center">QAR 0-100 copay</td><td class="px-4 py-2.5 text-center">SAR 0-150 copay</td></tr>
+        <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-4 py-2.5 font-medium">Annual Insurance Cost</td><td class="px-4 py-2.5 text-center">AED 3,000-12,000</td><td class="px-4 py-2.5 text-center">QAR 3,000-10,000</td><td class="px-4 py-2.5 text-center">SAR 2,500-10,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Hospital Quality and Options</h2>
+  <p>The UAE has the widest range of international hospital brands in the Gulf. Cleveland Clinic Abu Dhabi, Mediclinic, American Hospital Dubai, and Aster DM Healthcare are among the top providers. Dubai Healthcare City concentrates specialist clinics in a dedicated free zone. Qatar's healthcare is anchored by Hamad Medical Corporation, which operates 12 hospitals and is the primary provider for most residents. Sidra Medicine, specializing in women's and children's health, is a world-class facility affiliated with Weill Cornell Medicine-Qatar. Saudi Arabia has Dr. Sulaiman Al Habib Medical Group, Saudi German Hospitals, King Faisal Specialist Hospital, and Johns Hopkins Aramco Healthcare in the Eastern Province. All three countries have JCI-accredited facilities meeting international quality standards.</p>
+
+  <h2>Emergency and Maternity Care</h2>
+  <p>Emergency treatment is available to all residents regardless of insurance status in all three countries. Public hospitals provide emergency care and will treat patients before verifying insurance. Maternity care is well-covered by standard insurance plans, with most policies covering delivery, prenatal care, and postnatal check-ups. The UAE mandates 60 days maternity leave, Saudi Arabia 70 days, and Qatar varies by employer. Many expat mothers deliver at private hospitals for the choice of obstetrician and facility quality. Delivery costs without insurance range from AED 15,000-40,000 in the UAE, with insurance covering most or all of this.</p>
+
+  <h2>Pharmacy and Medication</h2>
+  <p>Pharmacies are widespread and well-stocked in all three countries. Many medications that are over-the-counter in Western countries require prescriptions in the Gulf, including certain painkillers, allergy medications, and sleep aids. Controlled substances have strict import regulations. Always carry a doctor's letter when bringing personal medication into the Gulf. Pharmacy costs are moderate, with insurance typically covering 80-100% of prescribed medications.</p>
+
+  <h2>Tips for Healthcare in the Gulf</h2>
+  <p>When evaluating job offers, ask specifically about the insurance tier (Class A, B, or C). Request the insurance company name and plan details so you can check the hospital network. Register with a GP near your home for routine care. Keep copies of vaccination records, especially for children enrolling in school. If you have chronic conditions, confirm coverage and access to specialists before accepting a position. Build a relationship with a local pharmacy that can advise on medication availability.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "DHA Dubai", url: "https://www.dha.gov.ae/" }, { name: "Saudi CCHI", url: "https://www.cchi.gov.sa/" }, { name: "Hamad Medical Corporation", url: "https://www.hamad.qa/" }]} />
+  <RelatedLinks links={[
+    { label: "UAE Expat Guide", href: "/uae/guide/" },
+    { label: "Qatar Expat Guide", href: "/qatar/guide/" },
+    { label: "Saudi Arabia Expat Guide", href: "/saudi-arabia/guide/" },
+    { label: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/" },
+    { label: "UAE Cost of Living", href: "/uae/cost-of-living/" },
+  ]} />
+</GuideLayout>

@@ -1,0 +1,58 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the average salary in Jeddah for expats?", answer: "The average expat salary in Jeddah is approximately SAR 11,000 per month. Logistics, hospitality, and healthcare professionals are in high demand. Senior roles in shipping, Red Sea tourism project, and healthcare earn SAR 18,000-35,000. All salaries are tax-free." },
+  { question: "How much is rent in Jeddah in 2026?", answer: "A one-bedroom apartment in central Jeddah costs SAR 2,000-4,500 per month. Waterfront areas along the Corniche command higher rents. Family villas run SAR 6,000-15,000. Jeddah is slightly cheaper than Riyadh for most housing." },
+  { question: "What is the weather like in Jeddah?", answer: "Jeddah has a hot and humid coastal climate year-round. Temperatures range from 25C to 42C. Humidity is consistently high, especially in summer. The city rarely drops below 20C in winter. Air conditioning is essential. The Red Sea moderates extreme heat but adds humidity." },
+  { question: "Is Jeddah more liberal than Riyadh?", answer: "Jeddah has traditionally been Saudi Arabia's most cosmopolitan and socially relaxed city due to its role as a trading port and gateway to Makkah. While both cities have opened significantly since 2017, Jeddah's established international community and coastal culture give it a more relaxed atmosphere." },
+  { question: "What are Jeddah's main industries for expats?", answer: "Jeddah's key industries include logistics and shipping (Jeddah Islamic Port is the region's largest), healthcare, Red Sea tourism development, retail and hospitality, construction, and services related to Hajj and Umrah pilgrimage." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
+  { name: "Jeddah", url: "https://gulfexpathub.com/saudi-arabia/jeddah/" },
+];
+---
+
+<GuideLayout
+  title="Jeddah Expat Guide 2026: Salary, Rent and Lifestyle"
+  description="Complete 2026 guide to living in Jeddah. Salaries, rent costs, Red Sea lifestyle, healthcare, schools, and cultural tips for expats in Saudi Arabia."
+  canonical="/saudi-arabia/jeddah/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Jeddah Expat Guide 2026: Salary, Rent and Lifestyle", "Complete guide to Jeddah for expats in 2026.", "https://gulfexpathub.com/saudi-arabia/jeddah/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Jeddah", url: "/saudi-arabia/jeddah/" }]}
+>
+  <h1>Jeddah Expat Guide 2026: Salaries, Cost of Living, and Lifestyle</h1>
+
+  <p>Jeddah is Saudi Arabia's second-largest city and its most cosmopolitan, with a rich trading history, Red Sea coastline, and a more relaxed social atmosphere than the capital. Known as the gateway to the holy cities of Makkah and Madinah, Jeddah has long hosted a diverse international community. In 2026, the city benefits from Vision 2030 investments in tourism, waterfront development, and cultural heritage, while maintaining its traditional role as Saudi Arabia's commercial and logistics hub.</p>
+
+  <h2>Jeddah Salary Overview</h2>
+  <p>Jeddah salaries average SAR 11,000 per month, making it somewhat lower than Riyadh. The city's strongest sectors include logistics and maritime operations through Jeddah Islamic Port, healthcare at major hospitals like King Faisal Specialist Hospital and Dr. Soliman Fakeeh Hospital, and the growing tourism and hospitality sector driven by Red Sea tourism development. Engineering and project management roles pay SAR 12,000-25,000, while healthcare professionals earn SAR 10,000-35,000 depending on specialty. The retail and F&B sectors, boosted by new mall developments and waterfront dining, employ many international professionals. All salaries are tax-free, and employer packages typically include housing allowance, flights, and health insurance.</p>
+
+  <h2>Cost of Living in Jeddah</h2>
+  <p>Jeddah is slightly cheaper than Riyadh, particularly for housing. A one-bedroom apartment in central areas like Al Rawdah or Al Hamra costs SAR 2,000-4,000. The Corniche and waterfront areas are pricier at SAR 3,500-5,500. Family villas in compound communities run SAR 6,000-15,000. Groceries cost SAR 750-1,600 per month at Danube, LuLu, or Tamimi Markets. Dining ranges from SAR 15 at casual restaurants to SAR 120 at mid-range venues. The 15% VAT applies to all taxable goods. Utilities are subsidized, averaging SAR 250-700 monthly. A single professional can live comfortably on SAR 5,000-7,500, while families should budget SAR 10,000-20,000.</p>
+
+  <h2>Neighborhoods and Housing</h2>
+  <p>Jeddah's residential landscape is diverse. Al Rawdah and Al Hamra offer central apartment living with access to shopping and dining. The Corniche area provides waterfront proximity at premium prices. Al Shati (North Obhur) offers beachside villas and compound living. Compound communities like the Saudi Arabian Parsons compound and various gated communities are popular with Western expat families. Al Andalus and Al Salamah are mid-range family areas. The new Jeddah Tower development area and waterfront projects are creating modern residential options.</p>
+
+  <h2>Working in Jeddah</h2>
+  <p>Jeddah's economy centers on trade, logistics, healthcare, and increasingly tourism. Jeddah Islamic Port handles 65% of Saudi imports, making shipping and logistics the backbone of the local economy. The Red Sea tourism project, about 500 km north, creates opportunities accessible from Jeddah. Healthcare is a major employer with Saudi German Hospitals, International Medical Center, and government hospitals recruiting international staff. The Hajj and Umrah industry supports hospitality, transport, and services sectors. The creative and arts scene is growing, with events and galleries in the historic Al-Balad district.</p>
+
+  <h2>Lifestyle and Culture</h2>
+  <p>Jeddah offers a coastal lifestyle unique in Saudi Arabia. The Corniche provides a waterfront promenade for walking, cycling, and socializing. Red Sea diving and snorkeling are popular weekend activities. Al-Balad, the historic city center and UNESCO World Heritage site, features traditional Hejazi architecture, art galleries, and cafes. The dining scene is excellent and diverse, reflecting Jeddah's multicultural population. Jeddah Season events bring concerts, festivals, and cultural exhibitions. The city's proximity to Makkah (80 km) and Madinah (420 km) adds a spiritual dimension for Muslim residents.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Red Sea Global", url: "https://www.redseaglobal.com/" }]} />
+  <RelatedLinks links={[
+    { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
+    { label: "Riyadh vs Jeddah", href: "/compare/riyadh-vs-jeddah/" },
+    { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" },
+    { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" },
+    { label: "Saudi Visa Guide", href: "/saudi-arabia/visa-guide/" },
+  ]} />
+</GuideLayout>

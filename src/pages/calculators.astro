@@ -1,0 +1,56 @@
+---
+import GuideLayout from "../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema } from "../lib/seo";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Calculators", url: "https://gulfexpathub.com/calculators/" },
+];
+
+const calculators = [
+  { title: "UAE Salary Calculator 2026", href: "/uae/salary-calculator/", description: "Break down your UAE salary into base, housing, and transport. Zero income tax, GPSSA details for nationals.", country: "UAE", type: "Salary" },
+  { title: "UAE Gratuity Calculator 2026", href: "/uae/gratuity-calculator/", description: "Calculate end-of-service gratuity under MoHRE rules. 21 days/year for first 5 years, 30 days after.", country: "UAE", type: "Gratuity" },
+  { title: "Saudi Arabia Salary Calculator 2026", href: "/saudi-arabia/salary-calculator/", description: "Calculate Saudi take-home pay with GOSI breakdown for nationals and expats. Housing and transport splits.", country: "Saudi Arabia", type: "Salary" },
+  { title: "Saudi Arabia Gratuity Calculator 2026", href: "/saudi-arabia/gratuity-calculator/", description: "Calculate EOSB under MHRSD rules. Half month for first 5 years, full month thereafter. Resignation penalties.", country: "Saudi Arabia", type: "Gratuity" },
+  { title: "Qatar Salary Calculator 2026", href: "/qatar/salary-calculator/", description: "Break down your Qatar salary package. Zero tax, zero social contributions for expats. Full take-home analysis.", country: "Qatar", type: "Salary" },
+  { title: "Qatar Gratuity Calculator 2026", href: "/qatar/gratuity-calculator/", description: "Calculate Qatar end-of-service benefits under MADLSA rules. 21 days/year uniform rate. 7-day payment deadline.", country: "Qatar", type: "Gratuity" },
+];
+---
+
+<GuideLayout
+  title="Gulf Expat Calculators 2026: Salary and Gratuity Tools"
+  description="Free salary and gratuity calculators for UAE, Qatar, and Saudi Arabia. Calculate take-home pay, end-of-service benefits, and tax savings for Gulf expats."
+  canonical="/calculators/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Gulf Expat Calculators 2026: Salary and Gratuity Tools", "Free salary and gratuity calculators for Gulf expats.", "https://gulfexpathub.com/calculators/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Calculators", url: "/calculators/" }]}
+>
+  <h1>Gulf Expat Calculators: Salary and Gratuity Tools</h1>
+
+  <p>Gulf Expat Hub provides free, browser-based calculators for salary breakdown and end-of-service gratuity across the UAE, Qatar, and Saudi Arabia. Every calculator uses the exact formulas from official labor law: MoHRE for the UAE, MHRSD for Saudi Arabia, and MADLSA for Qatar. Your data never leaves your device -- all calculations run locally in your browser with zero data collection.</p>
+
+  <h2>All Calculators</h2>
+
+  <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+    {calculators.map((calc) => (
+      <a href={calc.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 px-2 py-0.5 rounded-md">{calc.country}</span>
+          <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-md">{calc.type}</span>
+        </div>
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{calc.title}</h3>
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{calc.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>How Our Calculators Work</h2>
+  <p>Each calculator is built on the specific labor law of the respective country. The UAE salary calculator accounts for the zero income tax environment and breaks down packages into base salary, housing allowance, and transport components. It also shows GPSSA deductions for UAE nationals. The Saudi calculator includes GOSI social insurance calculations for both Saudi nationals (9.75% employee contribution) and expatriates (employer-only 2% contribution). The Qatar calculator reflects the complete absence of any tax or social insurance deductions for all workers.</p>
+
+  <p>Gratuity calculators apply the exact formulas prescribed by each country's labor law. The UAE calculator handles both limited and unlimited contract types, applying the 21-day and 30-day tier system with resignation penalties. The Saudi calculator uses the half-month and full-month tier system, including the basic-plus-housing salary base that Saudi law specifies. The Qatar calculator applies the uniform 21-day formula with graduated resignation penalties based on years of service.</p>
+
+  <h2>Why Use Our Calculators</h2>
+  <p>Understanding your exact compensation is critical when evaluating Gulf job offers. Many expats focus only on the headline salary number without considering the full package structure. Our salary calculators break down each component so you can compare offers accurately. Gratuity calculations help you understand the long-term financial benefit of your Gulf employment. An employee earning AED 15,000 per month who serves 7 years in the UAE is entitled to approximately AED 56,000 in gratuity, a significant sum that should factor into your career planning. Use these tools alongside our cost-of-living guides and salary data to make informed decisions about your Gulf career.</p>
+
+  <h2>Country Comparison</h2>
+  <p>Looking to compare compensation across countries? Our <a href="/compare/uae-vs-saudi-arabia/">UAE vs Saudi Arabia</a>, <a href="/compare/uae-vs-qatar/">UAE vs Qatar</a>, and <a href="/compare/qatar-vs-saudi-arabia/">Qatar vs Saudi Arabia</a> comparison pages provide side-by-side salary, tax, and gratuity analysis. For global salary rankings, visit our <a href="/salaries/">Gulf Salary Comparison</a> page.</p>
+</GuideLayout>

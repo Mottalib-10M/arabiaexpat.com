@@ -1,0 +1,99 @@
+---
+import GuideLayout from "../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema } from "../lib/seo";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://gulfexpathub.com/" },
+  { name: "Guides", url: "https://gulfexpathub.com/guides/" },
+];
+
+const countryGuides = [
+  { title: "UAE Expat Guide 2026", href: "/uae/guide/", description: "Complete guide to working and living in the UAE. Visas, salaries, housing, healthcare, and education." },
+  { title: "Qatar Expat Guide 2026", href: "/qatar/guide/", description: "Living and working in Qatar. Tax-free salaries, housing in Doha, healthcare, and cultural tips." },
+  { title: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/", description: "Vision 2030 opportunities, tax-free salaries, giga-projects, and cultural guide for expats." },
+];
+
+const cityGuides = [
+  { title: "Dubai City Guide", href: "/uae/dubai/", description: "Salaries, rent, neighborhoods, schools, and lifestyle in the UAE's largest city." },
+  { title: "Abu Dhabi City Guide", href: "/uae/abu-dhabi/", description: "ADNOC salaries, cultural attractions, and family-friendly living in the UAE capital." },
+  { title: "Doha City Guide", href: "/qatar/doha/", description: "Qatar's capital: salaries, rent, zero VAT advantage, and community lifestyle." },
+  { title: "Riyadh City Guide", href: "/saudi-arabia/riyadh/", description: "Vision 2030 epicenter: salaries, cost of living, entertainment, and career growth." },
+  { title: "Jeddah City Guide", href: "/saudi-arabia/jeddah/", description: "Red Sea lifestyle, logistics careers, cultural heritage, and coastal living." },
+  { title: "Dammam/Khobar Guide", href: "/saudi-arabia/dammam/", description: "Saudi Aramco heartland: compound living, oil industry salaries, and family life." },
+];
+
+const topicalGuides = [
+  { title: "Tax-Free Countries in the Gulf", href: "/guides/tax-free-countries-gulf/", description: "How UAE, Qatar, and Saudi Arabia compare on income tax, VAT, and social insurance." },
+  { title: "Best Gulf Country for Expats", href: "/guides/best-country-for-expats-gulf/", description: "Ranked comparison of UAE, Qatar, and Saudi Arabia across salary, lifestyle, and career factors." },
+  { title: "Gratuity and End of Service Explained", href: "/guides/gratuity-end-of-service-explained/", description: "How end-of-service benefits work in all three Gulf countries with examples." },
+  { title: "Healthcare for Gulf Expats", href: "/guides/healthcare-expats-gulf/", description: "Insurance requirements, hospital quality, and healthcare costs across the Gulf." },
+  { title: "Banking for Gulf Expats", href: "/guides/banking-expats-gulf/", description: "Opening accounts, transferring money, and managing finances in the UAE, Qatar, and Saudi Arabia." },
+];
+
+const specialtyGuides = [
+  { title: "UAE Visa Guide 2026", href: "/uae/visa-guide/", description: "Employment, Golden, Green, and Freelancer visa types with timelines." },
+  { title: "Qatar Visa Guide 2026", href: "/qatar/visa-guide/", description: "Work visa process, residence permit, and labor reform updates." },
+  { title: "Saudi Arabia Visa Guide 2026", href: "/saudi-arabia/visa-guide/", description: "Iqama process, Premium Residency, and Saudization impact." },
+  { title: "UAE Labor Law 2026", href: "/uae/labor-law/", description: "Working hours, leave, termination rules, and WPS requirements." },
+  { title: "Qatar Labor Law 2026", href: "/qatar/labor-law/", description: "Minimum wage, contract types, and reformed worker protections." },
+  { title: "Saudi Arabia Labor Law 2026", href: "/saudi-arabia/labor-law/", description: "GOSI, Nitaqat, working hours, and end-of-service rules." },
+];
+---
+
+<GuideLayout
+  title="Gulf Expat Guides 2026: UAE, Qatar and Saudi Arabia"
+  description="Browse all Gulf Expat Hub guides for 2026. Country guides, city guides, visa info, labor law, healthcare, banking, and tax guides for UAE, Qatar, Saudi Arabia."
+  canonical="/guides/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Gulf Expat Guides 2026: UAE, Qatar and Saudi Arabia", "Browse all guides for Gulf expats.", "https://gulfexpathub.com/guides/", "2025-06-01", "2026-06-15")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }]}
+>
+  <h1>Gulf Expat Guides: Complete 2026 Resource Library</h1>
+
+  <p>This page is your central hub for all Gulf Expat Hub guides. Whether you are researching a move to the UAE, Qatar, or Saudi Arabia, or looking for specific information on visas, labor law, healthcare, or banking, you will find the right resource below. Every guide is written with 2026 data, sourced from official government publications, and updated regularly to reflect the latest regulations and market conditions.</p>
+
+  <h2>Country Guides</h2>
+  <div class="not-prose grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+    {countryGuides.map((guide) => (
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>City Guides</h2>
+  <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
+    {cityGuides.map((guide) => (
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Topical Guides</h2>
+  <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+    {topicalGuides.map((guide) => (
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Visa and Labor Law Guides</h2>
+  <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
+    {specialtyGuides.map((guide) => (
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Relocation Guides</h2>
+  <p>Planning your move from a specific country? Our <a href="/relocating-from/india/">India</a>, <a href="/relocating-from/uk/">UK</a>, <a href="/relocating-from/usa/">USA</a>, <a href="/relocating-from/pakistan/">Pakistan</a>, <a href="/relocating-from/philippines/">Philippines</a>, and <a href="/relocating-from/south-africa/">South Africa</a> relocation guides cover document requirements, tax implications, and cultural adjustment tips specific to your nationality.</p>
+
+  <h2>Comparison Pages</h2>
+  <p>Not sure which Gulf country is right for you? Our comparison pages put data side by side: <a href="/compare/uae-vs-saudi-arabia/">UAE vs Saudi Arabia</a>, <a href="/compare/uae-vs-qatar/">UAE vs Qatar</a>, <a href="/compare/qatar-vs-saudi-arabia/">Qatar vs Saudi Arabia</a>, <a href="/compare/dubai-vs-abu-dhabi/">Dubai vs Abu Dhabi</a>, and <a href="/compare/dubai-vs-riyadh/">Dubai vs Riyadh</a>. Each page covers salaries, tax, cost of living, and gratuity differences.</p>
+</GuideLayout>
