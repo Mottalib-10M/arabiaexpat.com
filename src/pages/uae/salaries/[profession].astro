@@ -39,8 +39,8 @@ const breadcrumbs = [
 ---
 
 <GuideLayout
-  title={`${p.title} Salary in the UAE 2026: ${formatCurrency(p.entry.min, "AED")}-${formatCurrency(p.senior.max, "AED")}`}
-  description={`${p.title} salary in UAE 2026: average ${formatCurrency(p.avgMonthly, "AED")}/month tax-free. Entry from ${formatCurrency(p.entry.min, "AED")}, senior up to ${formatCurrency(p.senior.max, "AED")}. Compare benefits, housing, and allowances.`}
+  title={`${p.title} Salary in the UAE 2026: Pay Guide`}
+  description={`Explore ${p.title} salary in the UAE for 2026. Average pay is ${formatCurrency(p.avgMonthly, "AED")} per month, tax-free. Covers entry to senior bands, benefits, housing, and career outlook.`}
   canonical={`/uae/salaries/${p.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salaries", url: "/uae/salaries/" }, { name: p.title, url: `/uae/salaries/${p.slug}/` }]}

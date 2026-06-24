@@ -30,8 +30,8 @@ const breadcrumbs = [
 ---
 
 <GuideLayout
-  title={`${p.title} Salary in Saudi Arabia 2026: ${formatCurrency(p.entry.min, "SAR")}-${formatCurrency(p.senior.max, "SAR")}`}
-  description={`${p.title} salary in Saudi Arabia 2026: average ${formatCurrency(p.avgMonthly, "SAR")}/month. Entry ${formatCurrency(p.entry.min, "SAR")}-${formatCurrency(p.entry.max, "SAR")}, senior up to ${formatCurrency(p.senior.max, "SAR")}. Tax-free with housing and EOSB.`}
+  title={`${p.title} Salary in Saudi Arabia 2026`}
+  description={`Explore ${p.title} salary in Saudi Arabia for 2026. Average pay is ${formatCurrency(p.avgMonthly, "SAR")} per month with no income tax. Covers all experience bands, benefits, and career outlook.`}
   canonical={`/saudi-arabia/salaries/${p.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Salaries", url: "/saudi-arabia/salaries/" }, { name: p.title, url: `/saudi-arabia/salaries/${p.slug}/` }]}

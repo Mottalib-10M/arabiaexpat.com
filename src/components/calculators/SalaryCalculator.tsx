@@ -56,6 +56,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
               type="text" inputMode="decimal"
               value={monthlySalary}
               onChange={(e) => setMonthlySalary(e.target.value)}
+              onBlur={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setMonthlySalary(String(v)); }}
               placeholder="e.g. 15000"
               className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500 tabular-nums"
               min="0"
@@ -78,6 +79,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                 type="text" inputMode="decimal"
                 value={housingAllowance}
                 onChange={(e) => setHousingAllowance(e.target.value)}
+                onBlur={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setHousingAllowance(String(v)); }}
                 placeholder="e.g. 5000"
                 disabled={!includeHousing}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500 tabular-nums disabled:opacity-50"
@@ -102,6 +104,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                 type="text" inputMode="decimal"
                 value={transportAllowance}
                 onChange={(e) => setTransportAllowance(e.target.value)}
+                onBlur={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setTransportAllowance(String(v)); }}
                 placeholder="e.g. 1500"
                 disabled={!includeTransport}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500 tabular-nums disabled:opacity-50"

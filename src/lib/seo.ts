@@ -58,6 +58,19 @@ export function buildOrganizationSchema(): object {
     name: SITE.name,
     url: SITE.url,
     description: SITE.description,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE.url}/og-default.png`,
+      width: 1200,
+      height: 630,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "contact@gulfexpathub.com",
+      contactType: "customer support",
+      availableLanguage: "English",
+    },
+    sameAs: [],
     founder: {
       "@type": "Person",
       name: SITE.author.name,
@@ -74,7 +87,13 @@ export function buildPersonSchema(): object {
     name: SITE.author.name,
     jobTitle: SITE.author.role,
     description: SITE.author.bio,
+    url: `${SITE.url}/about/`,
     image: `${SITE.url}${SITE.author.image}`,
+    worksFor: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "INSEAD",
@@ -91,6 +110,7 @@ export function buildWebApplicationSchema(name: string, description: string, url
     url,
     applicationCategory: "FinanceApplication",
     operatingSystem: "Any",
+    inLanguage: "en",
     offers: {
       "@type": "Offer",
       price: "0",
@@ -116,6 +136,14 @@ export function buildWebSiteSchema(): object {
       name: "Gulf Expat Hub",
       url: SITE.url,
     },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE.url}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -128,6 +156,8 @@ export function buildArticleSchema(title: string, description: string, url: stri
     url: url,
     datePublished: datePublished,
     dateModified: dateModified,
+    inLanguage: "en",
+    image: `${SITE.url}/og-default.png`,
     author: {
       "@type": "Person",
       name: "Mottalib Radif",

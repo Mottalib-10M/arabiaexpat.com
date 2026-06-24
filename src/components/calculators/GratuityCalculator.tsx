@@ -55,6 +55,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               type="text" inputMode="decimal"
               value={basicSalary}
               onChange={(e) => setBasicSalary(e.target.value)}
+              onBlur={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setBasicSalary(String(v)); }}
               placeholder="e.g. 15000"
               className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500 tabular-nums"
               min="0"
@@ -70,6 +71,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               type="text" inputMode="decimal"
               value={yearsOfService}
               onChange={(e) => setYearsOfService(e.target.value)}
+              onBlur={(e) => { const v = parseFloat(e.target.value); if (!isNaN(v)) setYearsOfService(String(v)); }}
               placeholder="e.g. 5"
               className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500 tabular-nums"
               min="0"
