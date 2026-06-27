@@ -1,0 +1,81 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "How much do international schools cost in the UAE?", answer: "International school fees in the UAE range from AED 15,000 to AED 110,000 per year depending on the curriculum, school tier, and grade level. Premium British and American curriculum schools at the top tier (GEMS Wellington, Dubai College, Dubai American Academy) charge AED 60,000-110,000 per year. Mid-tier schools range from AED 25,000-50,000, and budget-friendly options from AED 15,000-25,000." },
+  { question: "What is the KHDA and why does its rating matter?", answer: "The Knowledge and Human Development Authority (KHDA) is the regulatory body for private education in Dubai. It inspects and rates all private schools annually on a scale from Weak to Outstanding. Schools rated Good or above are considered strong choices. KHDA inspection reports are publicly available and cover teaching quality, student achievement, leadership, and facilities." },
+  { question: "Which curriculum is best for expat children?", answer: "The best curriculum depends on your family's plans. If you may return to the UK, British curriculum schools ensure continuity. If heading to the US for university, American curriculum is ideal. The IB (International Baccalaureate) is the most globally portable and is recognized by universities worldwide. Indian CBSE and ICSE curricula offer excellent value and are ideal for families planning to return to India." },
+  { question: "When should I apply for school places in Dubai?", answer: "Apply 6-12 months before the academic year begins. The UAE school year starts in September for most British and IB schools, and in August/September for American schools. Indian curriculum schools start in April. Popular schools have waiting lists, so early application is critical. Some top-tier schools require entrance assessments and interviews." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://dubaiexpatguide.com/" },
+  { name: "Guides", url: "https://dubaiexpatguide.com/guides/" },
+  { name: "Schools & Education", url: "https://dubaiexpatguide.com/guides/schools-education/" },
+];
+---
+
+<GuideLayout
+  title="Gulf Schools and Education Guide for Expats in 2026"
+  description="International schools in the UAE, Qatar, and Saudi Arabia for expats in 2026. Covers curricula, fees, KHDA ratings, admissions, and higher education options."
+  canonical="/guides/schools-education/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Expat Schools & Education Guide for the Gulf 2026", "Complete guide to schools and education for Gulf expats.", "https://dubaiexpatguide.com/guides/schools-education/", "2026-01-15", "2026-06-20")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Schools & Education", url: "/guides/schools-education/" }]}
+>
+  <h1>Expat Schools & Education Guide for the Gulf 2026</h1>
+
+  <p>Education is one of the most important considerations for expat families relocating to the Gulf. The UAE, Qatar, and Saudi Arabia each host extensive networks of international schools offering curricula from around the world. This guide covers the school systems, curriculum options, fees, admission processes, regulatory bodies, and higher education landscape across all three countries.</p>
+
+  <h2>UAE Schools</h2>
+
+  <h3>School Landscape</h3>
+  <p>The UAE has the most extensive private education network in the Gulf, with over 600 private schools in Dubai alone and hundreds more in Abu Dhabi and the northern emirates. Private schools serve the expatriate community almost exclusively, as UAE national students typically attend government schools. The sheer variety means families can find schools at every budget level and for nearly every major international curriculum.</p>
+
+  <h3>Available Curricula</h3>
+  <ul>
+    <li><strong>British curriculum (EYFS/National Curriculum/IGCSE/A-Levels):</strong> The most popular option with the largest number of schools. Major operators include GEMS Education, Taaleem, and Aldar Academies. Annual fees range from AED 20,000 to AED 95,000.</li>
+    <li><strong>American curriculum:</strong> Follows US standards with SAT/AP exams. Schools include Dubai American Academy, American School of Dubai, and GEMS American Academy. Fees range from AED 30,000 to AED 110,000.</li>
+    <li><strong>IB (International Baccalaureate):</strong> Offered at many schools as a standalone curriculum or alongside British/American curricula. The IB Diploma is recognized globally and is ideal for families who relocate frequently. Schools include Repton School Dubai, Dubai International Academy, and ISF Academy.</li>
+    <li><strong>Indian curriculum (CBSE/ICSE):</strong> A large number of CBSE and ICSE schools serve the Indian community. These offer the best value for money, with fees ranging from AED 8,000 to AED 25,000. Schools include Our Own English High School, Indian High School, and GEMS Our Own English.</li>
+    <li><strong>French (AEFE), German, Japanese, Korean, Pakistani, and Filipino curricula:</strong> Smaller numbers of schools serve specific communities. The French Lycee, the German International School, and the Japanese School of Dubai each serve their respective communities.</li>
+  </ul>
+
+  <h3>KHDA Ratings (Dubai)</h3>
+  <p>The Knowledge and Human Development Authority (KHDA) inspects all private schools in Dubai annually and publishes detailed inspection reports. Schools are rated on a five-point scale: Outstanding, Very Good, Good, Acceptable, and Weak. The inspection covers student achievement, teaching quality, personal and social development, leadership and management, and overall effectiveness. Reports are freely available on the KHDA website and provide invaluable information for school selection. Schools rated Outstanding or Very Good are in highest demand and often have waiting lists. As of 2026, approximately 25 schools in Dubai hold an Outstanding rating.</p>
+
+  <h3>ADEK (Abu Dhabi)</h3>
+  <p>In Abu Dhabi, the Department of Education and Knowledge (ADEK) regulates private schools. ADEK publishes its own inspection reports, rating schools on a similar scale. Abu Dhabi's school landscape is slightly different from Dubai's, with more emphasis on the Abu Dhabi educational model and higher representation of national curriculum integration into private schools.</p>
+
+  <h3>Fee Structure</h3>
+  <p>UAE school fees are regulated by KHDA in Dubai and ADEK in Abu Dhabi. Fee increases are linked to inflation and school quality ratings, with higher-rated schools allowed larger percentage increases. Fees typically cover tuition only. Additional costs include registration fees (AED 500-2,000, non-refundable), school uniforms (AED 500-1,500), textbooks and materials (AED 1,000-3,000), school transport (AED 3,000-7,000 per year), school lunches (AED 2,500-5,000 per year), and extracurricular activities. Many employers include education allowances in compensation packages, typically covering 1-3 children's school fees at mid-tier to upper-mid-tier schools.</p>
+
+  <h2>Qatar Schools</h2>
+  <p>Qatar has approximately 300 private schools and a growing number of international institutions. The Supreme Education Council oversees private education standards. Popular schools include Doha College (British), American School of Doha, Doha British School, Qatar Academy (IB), and several Indian CBSE schools including DPS and Birla Public School.</p>
+  <p>Fees in Qatar range from QAR 10,000 for Indian curriculum schools to QAR 65,000 for premium international schools. There is no VAT in Qatar, so the published fee is the total cost. School admission in Doha is competitive for the top schools, and early application is recommended. The academic year starts in September for most international schools. Qatar Foundation's Education City hosts branch campuses of international universities, providing a unique higher education pathway for students who complete secondary school in Doha.</p>
+
+  <h2>Saudi Arabia Schools</h2>
+  <p>Saudi Arabia's international school network has expanded significantly under Vision 2030. Riyadh, Jeddah, and the Eastern Province host the majority of international schools. British, American, and IB curricula are the most common, with Indian CBSE schools also well represented. Major schools include the British International School of Riyadh, American International School Riyadh, King Faisal Foundation School, and Dhahran British Grammar School.</p>
+  <p>Fees range from SAR 10,000 for Indian curriculum schools to SAR 75,000 for premium international schools, with 15% VAT applying to school fees. Saudi Arabia has been investing heavily in education infrastructure, and new international school campuses are opening regularly. The school year starts in August or September depending on the curriculum. Compound-based living often comes with proximity to specific schools, so housing and schooling decisions are closely linked.</p>
+
+  <h2>Admission Process</h2>
+  <p>The typical admission process for Gulf international schools involves the following steps:</p>
+  <ol>
+    <li><strong>Research and shortlisting:</strong> Use KHDA/ADEK reports, parent reviews, and school websites to create a shortlist. Visit schools during open days if possible.</li>
+    <li><strong>Application submission:</strong> Most schools accept online applications. Required documents typically include birth certificate, passport copies, previous school reports (2 years minimum), vaccination records, passport-sized photographs, and Emirates ID or visa copy.</li>
+    <li><strong>Assessment and interview:</strong> Many schools require entrance assessments in English, mathematics, and sometimes the student's mother tongue. Some schools also interview parents.</li>
+    <li><strong>Offer and acceptance:</strong> Offers are conditional on documentation and deposit payment. A registration deposit of AED 500-2,000 secures the place.</li>
+    <li><strong>Enrollment and orientation:</strong> Complete enrollment forms, pay the first term's fees, arrange uniforms and transport, and attend orientation sessions before the school year begins.</li>
+  </ol>
+  <p>Timing is critical. For September starts, applications should be submitted by January-March of the same year. Top-tier schools maintain waiting lists, and some families apply during pregnancy for the most competitive schools. Transfer students can sometimes gain mid-year entry if places are available.</p>
+
+  <h2>Higher Education</h2>
+  <p>The Gulf hosts branch campuses of several leading international universities. New York University Abu Dhabi (NYUAD) and Sorbonne University Abu Dhabi are among the most prestigious. Qatar's Education City hosts Georgetown, Northwestern, Weill Cornell Medicine, and Carnegie Mellon branch campuses. Saudi Arabia's King Abdullah University of Science and Technology (KAUST) is a world-class research university. Local universities including UAE University, Khalifa University (UAE), Qatar University, and King Saud University (Saudi) offer high-quality programs, particularly in engineering and business. Many Gulf universities offer generous scholarships and modern campuses with state-of-the-art facilities.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "KHDA Dubai", url: "https://www.khda.gov.ae/" }, { name: "ADEK Abu Dhabi", url: "https://www.adek.gov.ae/" }, { name: "Qatar Supreme Education Council", url: "https://www.edu.gov.qa/" }, { name: "Saudi Ministry of Education", url: "https://moe.gov.sa/" }]} />
+  <RelatedLinks links={[{ label: "UAE Expat Guide", href: "/uae/guide/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "Driving Licence Guide", href: "/guides/driving-licence/" }, { label: "Healthcare Guide", href: "/guides/healthcare-expats-gulf/" }, { label: "Utilities Setup", href: "/guides/utilities-setup/" }]} />
+</GuideLayout>

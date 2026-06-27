@@ -1,7 +1,7 @@
 export const SITE = {
-  name: "Gulf Expat Hub",
-  url: "https://gulfexpathub.com",
-  description: "Your complete guide to working and living in the UAE, Qatar, and Saudi Arabia. Salary data, calculators, visa guides, and relocation resources for expats.",
+  name: "Dubai Expat Guide",
+  url: "https://dubaiexpatguide.com",
+  description: "Your complete guide to living in the Gulf as an expat. Visa guides, daily life, housing, healthcare, schools, utilities, and relocation resources for the UAE, Qatar, and Saudi Arabia.",
   author: {
     name: "Mottalib Radif",
     credentials: "MBA INSEAD",

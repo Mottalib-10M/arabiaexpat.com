@@ -1,81 +1,14 @@
 ---
-import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
-import GratuityCalculator from "../../components/calculators/GratuityCalculator";
-import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import AuthorByline from "../../components/ui/AuthorByline.astro";
-import TrustBadge from "../../components/ui/TrustBadge.astro";
-import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
-
-const faqs = [
-  { question: "How is UAE gratuity calculated in 2026?", answer: "UAE gratuity is calculated based on basic salary only. For the first 5 years: 21 days of basic salary per year. After 5 years: 30 days per year. Maximum cap is 2 years of total salary." },
-  { question: "What is the difference between limited and unlimited contracts?", answer: "Under the 2021 UAE labor law, all new contracts are fixed-term (limited). The unlimited contract type applies only to contracts signed before February 2, 2022. Limited contracts have no resignation penalties for gratuity." },
-  { question: "Do I lose gratuity if I resign in the UAE?", answer: "For unlimited contracts (pre-2022): Less than 1 year = no gratuity; 1-3 years = 1/3 reduction; 3-5 years = 2/3 reduction; 5+ years = full gratuity. For limited contracts: no reduction regardless of resignation." },
-  { question: "Is gratuity calculated on basic salary or total salary?", answer: "Gratuity is calculated on basic salary only. Housing allowance, transport allowance, bonuses, and other components are excluded from the calculation." },
-  { question: "What is the maximum gratuity payout in the UAE?", answer: "The total gratuity amount is capped at the equivalent of 2 years of the employee's total salary (not just basic salary)." },
-  { question: "When is UAE gratuity paid?", answer: "UAE labor law requires employers to pay gratuity within 14 days of the employment contract ending. The Wage Protection System helps enforce timely payments." },
-  { question: "Can I get gratuity if terminated for misconduct?", answer: "Employees terminated under Article 44 (gross misconduct) of the UAE labor law may forfeit their gratuity entitlement partially or fully, depending on the circumstances." },
-  { question: "Does part-time work affect gratuity in the UAE?", answer: "Yes. Part-time workers receive gratuity proportional to their actual working hours compared to a full-time equivalent." },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" },
-  { name: "Gratuity Calculator", url: "https://gulfexpathub.com/uae/gratuity-calculator/" },
-];
-const schemas = [
-  buildBreadcrumbs(breadcrumbs),
-  buildFAQSchema(faqs),
-  buildWebApplicationSchema("UAE Gratuity Calculator 2026", "Calculate your UAE end-of-service gratuity using official MoHRE formulas.", "https://gulfexpathub.com/uae/gratuity-calculator/"),
-];
+const newUrl = 'https://taxfreesalaries.com/uae/gratuity-calculator/';
 ---
-
-<CalculatorLayout
-  title="UAE Gratuity Calculator 2026: End-of-Service Benefits"
-  description="Calculate your UAE end-of-service gratuity for 2026. Official MoHRE formula for limited and unlimited contracts with resignation penalties. Free results."
-  canonical="/uae/gratuity-calculator/"
-  schemas={schemas}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Gratuity Calculator", url: "/uae/gratuity-calculator/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">UAE Gratuity Calculator 2026</h1>
-  <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your end-of-service benefits using the official UAE labor law formula. All calculations are performed in your browser.</p>
-  <TrustBadge />
-
-  <div class="mt-6">
-    <GratuityCalculator client:idle country="uae" currency="AED" countryName="UAE" />
-  </div>
-
-  <EmbedInstructions calculatorType="gratuity" />
-
-  <div class="prose dark:prose-invert max-w-none mt-12">
-    <h2>How UAE Gratuity is Calculated</h2>
-    <p>The UAE end-of-service gratuity (EOSB) is governed by Federal Decree-Law No. 33 of 2021. The calculation is based on the employee's basic salary and length of service. Here is the formula breakdown:</p>
-    <ul>
-      <li><strong>First 5 years of service:</strong> 21 calendar days of basic salary for each year of service.</li>
-      <li><strong>After 5 years:</strong> 30 calendar days of basic salary for each additional year.</li>
-      <li><strong>Maximum cap:</strong> The total gratuity cannot exceed the equivalent of 2 years of the employee's total salary.</li>
-    </ul>
-    <p>For example, an employee with a basic salary of AED 15,000/month and 8 years of service would receive: (21/30 x 15,000 x 5) + (30/30 x 15,000 x 3) = 52,500 + 45,000 = AED 97,500 gross gratuity.</p>
-    <p>The distinction between limited and unlimited contracts primarily affects resignation scenarios. Under the 2021 law, all new contracts are fixed-term (limited). Unlimited contracts from before February 2, 2022 carry resignation penalties: employees who resign within the first year receive nothing, those resigning between 1-3 years receive one-third, between 3-5 years receive two-thirds, and after 5 years receive the full amount.</p>
-
-    <h2>Important Considerations</h2>
-    <p>Gratuity is calculated on basic salary only, excluding all allowances such as housing, transport, phone, and other benefits. Some employment contracts may include gratuity in monthly salary payments under an alternative savings scheme (DEWS for DIFC employees). Always review your specific contract terms. Employees terminated for gross misconduct under Article 44 of the labor law may lose gratuity entitlements. Part-time employees receive proportional gratuity based on actual working hours.</p>
-  </div>
-
-  <FAQAccordion faqs={faqs} />
-
-  <SourcesBlock sources={[
-    { name: "UAE MoHRE - End of Service Benefits", url: "https://www.mohre.gov.ae/" },
-    { name: "UAE Federal Decree-Law No. 33 of 2021", url: "https://www.mohre.gov.ae/" },
-  ]} />
-
-  <RelatedLinks links={[
-    { label: "UAE Salary Calculator 2026", href: "/uae/salary-calculator/" },
-    { label: "UAE Salaries by Profession", href: "/uae/salaries/" },
-    { label: "UAE Labor Law Guide", href: "/uae/labor-law/" },
-    { label: "Saudi Gratuity Calculator", href: "/saudi-arabia/gratuity-calculator/" },
-    { label: "Qatar Gratuity Calculator", href: "/qatar/gratuity-calculator/" }, { label: "Gratuity Explained", href: "/guides/gratuity-end-of-service-explained/" },
-  ]} />
-</CalculatorLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

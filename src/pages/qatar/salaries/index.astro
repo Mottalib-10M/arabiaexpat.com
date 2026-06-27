@@ -1,78 +1,14 @@
 ---
-import CountryLayout from "../../../layouts/CountryLayout.astro";
-import { COUNTRIES } from "../../../data/site-config";
-import { qatarProfessions } from "../../../data/qatar/salaries";
-import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
-import { formatCurrency } from "../../../lib/format";
-import AuthorByline from "../../../components/ui/AuthorByline.astro";
-import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
-
-const faqs = [
-  { question: "Are Qatar salaries tax-free in 2026?", answer: "Yes. Qatar does not impose personal income tax on employment income. Additionally, there are no social security contributions for expatriates. Your gross salary is your full take-home pay." },
-  { question: "What currency are Qatar salaries paid in?", answer: "Salaries in Qatar are paid in Qatari Riyals (QAR), which is pegged to the US Dollar at a rate of approximately 3.64 QAR per USD." },
-  { question: "What is the minimum wage in Qatar?", answer: "Qatar introduced a minimum wage of QAR 1,000 per month in 2021, plus QAR 300 for food and QAR 500 for accommodation if not provided by the employer. This applies to all nationalities." },
-  { question: "How do Qatar salaries compare to the UAE?", answer: "Qatar salaries are generally slightly lower than the UAE for most professions, but the lower cost of living in Doha compared to Dubai can offset this difference. Senior roles in oil and gas and aviation can match or exceed UAE equivalents." },
-  { question: "Are benefits included in Qatar salary packages?", answer: "Yes. Most Qatar employers provide housing allowance, annual flights, health insurance, and end-of-service benefits. Government entities and major corporations like QatarEnergy and Qatar Airways typically offer the most generous packages." },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" },
-  { name: "Salaries", url: "https://gulfexpathub.com/qatar/salaries/" },
-];
+const newUrl = 'https://taxfreesalaries.com/qatar/salaries/';
 ---
-
-<CountryLayout
-  title="Qatar Salaries 2026: Complete Guide to 20 Professions"
-  description="Compare 2026 Qatar salaries for 20 professions. Tax-free pay from QAR 2,200 to QAR 75,000 per month across energy, healthcare, tech, construction, and aviation."
-  canonical="/qatar/salaries/"
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Salaries", url: "/qatar/salaries/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">Qatar Salaries in 2026: Complete Guide to 20 Professions</h1>
-
-  <div class="prose dark:prose-invert max-w-none mb-8">
-    <p>Qatar offers a compelling employment proposition for expatriates, combining tax-free salaries with a high standard of living in a rapidly developing economy. The country's post-World Cup infrastructure legacy, expanding LNG sector, and ongoing smart city investments create diverse career opportunities across professional disciplines.</p>
-    <p>Salaries in Qatar are paid in Qatari Riyals (QAR), pegged to the US Dollar at approximately 3.64 QAR/USD. With no personal income tax and no social security contributions for expatriates, your entire gross salary package represents your take-home pay. Major employers include QatarEnergy, Qatar Airways, Hamad Medical Corporation, and government ministries.</p>
-    <p>The following table presents salary data for 20 professions in Qatar, reflecting 2026 market conditions. Click through to individual profession pages for detailed experience-level breakdowns and benefits analysis.</p>
-    <p>Qatar's salary landscape in 2026 reflects the country's pivot from World Cup construction to long-term economic diversification. The North Field LNG expansion, the largest energy project in Qatar's history, sustains premium compensation for engineers and project managers. Meanwhile, Qatar's National Vision 2030 drives hiring across education, healthcare, and technology, broadening opportunities well beyond the traditional oil-and-gas sector.</p>
-  </div>
-
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="bg-teal-600 text-white">
-          <th class="px-4 py-3 text-left font-semibold rounded-tl-lg">Profession</th>
-          <th class="px-4 py-3 text-right font-semibold">Avg Monthly (QAR)</th>
-          <th class="px-4 py-3 text-right font-semibold">Entry Level</th>
-          <th class="px-4 py-3 text-right font-semibold">Senior Level</th>
-          <th class="px-4 py-3 text-center font-semibold rounded-tr-lg">Details</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-        {qatarProfessions.map((p) => (
-          <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-            <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{p.title}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-700 dark:text-gray-300">{formatCurrency(p.avgMonthly, "QAR")}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "")}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "")}</td>
-            <td class="px-4 py-3 text-center">
-              <a href={`/qatar/salaries/${p.slug}/`} class="text-teal-600 dark:text-teal-400 hover:underline text-sm font-medium">View &rarr;</a>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }]} />
-  <RelatedLinks links={[
-    { label: "Qatar Gratuity Calculator 2026", href: "/qatar/gratuity-calculator/" },
-    { label: "Qatar Salary Calculator 2026", href: "/qatar/salary-calculator/" },
-    { label: "Qatar Cost of Living 2026", href: "/qatar/cost-of-living/" },
-    { label: "Qatar Visa Guide 2026", href: "/qatar/visa-guide/" },
-  ]} />
-</CountryLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

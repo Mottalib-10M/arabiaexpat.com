@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://gulfexpathub.com",
+  site: "https://dubaiexpatguide.com",
   trailingSlash: "always",
   integrations: [
     react(),

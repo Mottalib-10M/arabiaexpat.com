@@ -1,45 +1,14 @@
 ---
-import GuideLayout from "../../layouts/GuideLayout.astro";
-import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/seo";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-const faqs = [
-  { question: "What is the minimum wage in Qatar in 2026?", answer: "QAR 1,000 per month for basic salary, plus QAR 300 for food and QAR 500 for accommodation if not provided by the employer. This applies to all workers regardless of nationality, sector, or job type. Qatar was the first Gulf country to introduce a non-discriminatory minimum wage." },
-  { question: "What are working hours in Qatar?", answer: "Maximum 48 hours per week (8 hours per day, 6 days). During Ramadan, Muslim employees work reduced hours of 36 per week (6 hours per day). Summer heat regulations prohibit outdoor work in direct sunlight between 10 AM and 3:30 PM from June 1 to September 15." },
-  { question: "Can I change employers in Qatar without permission?", answer: "Yes. Since September 2020, workers can change employers without the current employer's consent after serving proper notice as per their contract. No NOC (No Objection Certificate) is required. Workers can submit transfer requests through MADLSA if the employer obstructs the process." },
-  { question: "What is the annual leave entitlement in Qatar?", answer: "Minimum 3 weeks (21 days) after one year of service. After 5 years of continuous service: 4 weeks (28 days). Employees can carry over unused leave or receive cash compensation for untaken days upon termination." },
-  { question: "Do I need an exit permit to leave Qatar?", answer: "No. Exit permits were abolished for most workers in January 2020. You can leave Qatar without employer permission, though you should comply with contractual notice requirements if resigning." },
-  { question: "What protections exist for unpaid wages in Qatar?", answer: "The Wage Protection System (WPS) requires electronic salary payments within 7 days of the due date. MADLSA monitors compliance and penalizes violators. The Workers' Support and Insurance Fund covers unpaid wages when employers fail to pay, providing a safety net that does not exist in most other Gulf countries." },
-];
-const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" }, { name: "Labor Law", url: "https://gulfexpathub.com/qatar/labor-law/" }];
+const newUrl = 'https://taxfreesalaries.com/qatar/employment-contracts/';
 ---
-<GuideLayout title="Qatar Labor Law Guide 2026: Essential Employee Rights" description="Essential Qatar labor law guide for 2026. Minimum wage QAR 1,000, working hours, leave, termination, and worker protections under reformed legislation." canonical="/qatar/labor-law/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Qatar Labor Law Guide 2026: Essential Employee Rights", "Essential Qatar labor law guide for 2026.", "https://gulfexpathub.com/qatar/labor-law/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Labor Law", url: "/qatar/labor-law/" }]}>
-<h1>Qatar Labor Law Essentials 2026</h1>
-<p>Qatar's labor law framework, based on Law No. 14 of 2004 and its subsequent amendments, has undergone the most significant reforms in the GCC region. The changes, implemented between 2020 and 2024, include the introduction of a non-discriminatory minimum wage, elimination of the kafala system, abolition of exit permits, and establishment of the Workers' Support and Insurance Fund. These reforms have fundamentally improved worker protections and modernized the employment relationship in Qatar.</p>
-
-<h2>Minimum Wage</h2>
-<p>Qatar was the first Gulf country to introduce a non-discriminatory minimum wage. Since March 2021, the minimum monthly basic wage is QAR 1,000, with additional minimums of QAR 300 for food and QAR 500 for accommodation if not provided by the employer. This applies to all workers regardless of nationality, sector, or employment type. The minimum wage is reviewed periodically and represents a floor for all employment contracts. Employers who pay below the minimum face fines and potential suspension of operations.</p>
-
-<h2>Working Hours</h2>
-<p>Standard working hours are 48 per week (8 hours per day, 6 days per week). During Ramadan, hours are reduced to 36 per week (6 hours per day) for Muslim employees. Overtime is paid at 125% of the basic hourly rate, with work on rest days and public holidays compensated at 150%. Summer outdoor work restrictions prohibit labor in direct sunlight between 10 AM and 3:30 PM from June 1 to September 15. This heat-stress regulation is actively enforced through workplace inspections. Friday is the standard weekly rest day, and employees are entitled to a one-hour break during the working day that is not counted as part of working hours.</p>
-
-<h2>Leave Entitlements</h2>
-<p>Annual leave is a minimum of 3 weeks (21 days) after one year of service, increasing to 4 weeks (28 days) after 5 years. Sick leave is up to 2 weeks full pay, then 4 weeks half pay per year. Maternity leave is 50 days with full pay. Additional provisions exist for Hajj leave (up to 2 weeks, once during employment), marriage leave (3 days), and bereavement leave (3-7 days depending on the relationship). Public holidays include Eid al-Fitr, Eid al-Adha, Qatar National Day (December 18), and Qatar Sports Day. Unused annual leave must be compensated upon termination of employment.</p>
-
-<h2>Job Mobility and Contract Freedom</h2>
-<p>Workers in Qatar can change employers without the previous employer's permission, provided they serve the notice period specified in their contract. The electronic contract system ensures transparency in employment terms. Workers can register complaints through MADLSA's labor dispute resolution system if employers obstruct the transfer process. This reform eliminated the need for a No Objection Certificate (NOC), which was previously one of the most restrictive elements of the kafala system. Workers on probation can also change employers, though they must serve their notice period and may need to compensate the original employer for recruitment costs if specified in the contract.</p>
-
-<h2>Termination and Notice Periods</h2>
-<p>Either party can terminate the employment contract by serving written notice as specified in the contract (typically 1-2 months). For contracts without a specified notice period, the legal minimum is one month. Employers who terminate without valid grounds must pay compensation in addition to end-of-service gratuity. Valid grounds for immediate termination by the employer include gross misconduct, repeated failure to perform duties despite warnings, and absence without justification for 7 consecutive days or 10 non-consecutive days in a year. Workers terminated for misconduct may forfeit gratuity entitlements.</p>
-
-<h2>End of Service</h2>
-<p>End-of-service gratuity is a minimum of 3 weeks' basic salary per year of service. Employers may offer more generous terms contractually. The gratuity must be paid within 7 days of employment ending, one of the shortest payment deadlines in the Gulf. Resignation penalties reduce the gratuity based on service length: less than 2 years receives nothing, 2-5 years receives one-third, 5-10 years receives two-thirds, and 10+ years receives the full amount. See our <a href="/qatar/gratuity-calculator/">Qatar Gratuity Calculator</a> for detailed calculations.</p>
-
-<h2>Dispute Resolution</h2>
-<p>Labor disputes in Qatar are handled through a structured process. Workers first file complaints through MADLSA, which attempts mediation. If mediation fails, the case is referred to a labor dispute resolution committee, which must issue a decision within 3 weeks. Decisions can be appealed to the Court of Appeal. Throughout the dispute process, the worker's legal status is protected, and employers cannot cancel visas or take retaliatory action. Legal aid is available for workers who cannot afford representation.</p>
-
-<FAQAccordion faqs={faqs} />
-<SourcesBlock sources={[{ name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }]} />
-<RelatedLinks links={[{ label: "Qatar Gratuity Calculator", href: "/qatar/gratuity-calculator/" }, { label: "Qatar Salaries", href: "/qatar/salaries/" }, { label: "Qatar Visa Guide", href: "/qatar/visa-guide/" }, { label: "Gratuity Explained", href: "/guides/gratuity-end-of-service-explained/" }]} />
-</GuideLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

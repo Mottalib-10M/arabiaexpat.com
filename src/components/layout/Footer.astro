@@ -13,18 +13,18 @@ import { footerNav } from "../../data/nav";
         <a href="/" class="inline-flex items-center gap-2.5">
           <svg class="h-7 w-7" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <rect width="32" height="32" rx="8" fill="#0D9488"/>
-            <text x="16" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="20" fill="white">G</text>
+            <text x="16" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="20" fill="white">D</text>
           </svg>
-          <span class="font-bold text-gray-900 dark:text-white">Gulf Expat Hub</span>
+          <span class="font-bold text-gray-900 dark:text-white">Dubai Expat Guide</span>
         </a>
         <p class="mt-3 text-sm text-gray-500 dark:text-gray-400 max-w-xs leading-relaxed">
-          Salary data, gratuity calculators, and relocation guides for expats in the UAE, Qatar, and Saudi Arabia.
+          Your complete guide to living in the Gulf. Visas, daily life, housing, healthcare, and relocation resources for expats in the UAE, Qatar, and Saudi Arabia.
         </p>
         <div class="mt-4 text-xs text-gray-400 dark:text-gray-500">
-          Based on official {SITE.year} labor-law data from MoHRE, MHRSD, and MADLSA.
+          Based on official {SITE.year} data from government sources.
         </div>
         <div class="mt-3">
-          <a href="mailto:contact@gulfexpathub.com" class="text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">contact@gulfexpathub.com</a>
+          <a href="mailto:contact@dubaiexpatguide.com" class="text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">contact@dubaiexpatguide.com</a>
         </div>
       </div>
 
@@ -43,9 +43,9 @@ import { footerNav } from "../../data/nav";
       </div>
 
       <div>
-        <h3 class="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Calculators</h3>
+        <h3 class="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Expat Guides</h3>
         <ul class="space-y-2.5">
-          {footerNav.calculators.map((link) => (
+          {footerNav.guides.map((link) => (
             <li>
               <a href={link.href} class="text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                 {link.label}
@@ -61,6 +61,16 @@ import { footerNav } from "../../data/nav";
           {footerNav.resources.map((link) => (
             <li>
               <a href={link.href} class="text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <h3 class="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 mt-6">Sister Sites</h3>
+        <ul class="space-y-2.5">
+          {footerNav.sisterSites.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors" target="_blank" rel="noopener">
                 {link.label}
               </a>
             </li>
@@ -92,7 +102,7 @@ import { footerNav } from "../../data/nav";
         <div class="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500">
           <span>Official {SITE.year} data</span>
           <span class="w-px h-3 bg-gray-300 dark:bg-gray-700"></span>
-          <span>100% browser-calculated</span>
+          <span>Installation & expat life</span>
           <span class="w-px h-3 bg-gray-300 dark:bg-gray-700"></span>
           <span>Free to use</span>
         </div>

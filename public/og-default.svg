@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0F172A"/>
   <rect x="40" y="40" width="1120" height="550" rx="20" fill="#0D9488" opacity="0.1" stroke="#0D9488" stroke-width="2"/>
-  <text x="600" y="280" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="64" fill="white">Gulf Expat Hub</text>
-  <text x="600" y="350" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="400" font-size="28" fill="#94A3B8">Salaries · Calculators · Guides</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="800" font-size="64" fill="white">Dubai Expat Guide</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="400" font-size="28" fill="#94A3B8">Visas · Daily Life · Guides</text>
   <text x="600" y="410" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500" font-size="24" fill="#0D9488">UAE · Qatar · Saudi Arabia · 2026</text>
 </svg>

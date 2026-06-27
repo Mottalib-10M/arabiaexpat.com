@@ -1,0 +1,106 @@
+---
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "Can I keep my existing phone number when moving to the Gulf?", answer: "You cannot port your international number to a Gulf operator. However, you can keep your foreign SIM active for a transition period to receive verification codes and calls. Many expats maintain their home country number on an eSIM while using a local Gulf SIM as their primary line. Most modern smartphones support dual SIM or eSIM configurations." },
+  { question: "Which UAE mobile provider is better, du or Etisalat?", answer: "Both offer comparable coverage and speeds. Etisalat (e&) historically has slightly better coverage in rural and remote areas. du tends to offer more competitive pricing on postpaid plans and tourist SIMs. Coverage in Dubai and Abu Dhabi city centers is excellent with both providers. Check which provider has better coverage in your specific residential area before committing to a contract." },
+  { question: "Why are VoIP calls blocked in the Gulf?", answer: "The UAE blocks most free VoIP services including WhatsApp calls, FaceTime Audio, and standard Skype calls. Licensed alternatives include BOTIM (AED 50/month through du or Etisalat) and ToTok (free but with data usage). Qatar and Saudi Arabia have progressively relaxed VoIP restrictions, with WhatsApp and other services generally working for voice and video calls in both countries as of 2026." },
+  { question: "How much does mobile data cost in the Gulf?", answer: "Prepaid data costs approximately AED 100-150 for 10-20 GB in the UAE, QAR 100-150 for 15-25 GB in Qatar, and SAR 100-150 for 20-30 GB in Saudi Arabia. Postpaid plans with unlimited data start from AED 200-350 in the UAE, QAR 200-300 in Qatar, and SAR 200-300 in Saudi Arabia. Saudi Arabia generally offers the most data for the money." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://dubaiexpatguide.com/" },
+  { name: "Guides", url: "https://dubaiexpatguide.com/guides/" },
+  { name: "Mobile & Internet", url: "https://dubaiexpatguide.com/guides/telecom-mobile/" },
+];
+---
+
+<GuideLayout
+  title="Gulf Mobile and Internet Plans Guide for Expats 2026"
+  description="Mobile plans and internet setup in the UAE, Qatar, and Saudi Arabia for 2026. du, Etisalat, Ooredoo, STC plans, costs, eSIM options, and home broadband."
+  canonical="/guides/telecom-mobile/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Mobile & Internet Setup for Gulf Expats 2026", "Complete guide to mobile and internet for Gulf expats.", "https://dubaiexpatguide.com/guides/telecom-mobile/", "2026-01-15", "2026-06-20")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Mobile & Internet", url: "/guides/telecom-mobile/" }]}
+>
+  <h1>Mobile & Internet Setup for Gulf Expats 2026</h1>
+
+  <p>Getting connected is one of the first priorities when arriving in the Gulf. Mobile connectivity, internet access, and understanding local telecom regulations (including VoIP restrictions) are essential for daily life. This guide covers the mobile operators, plan types, costs, eSIM options, and home broadband setup across the UAE, Qatar, and Saudi Arabia.</p>
+
+  <h2>UAE Mobile Operators</h2>
+
+  <h3>Etisalat (e&)</h3>
+  <p>Etisalat, now rebranded as e&, is the UAE's original telecommunications provider and the largest by subscriber count. It offers the widest network coverage, including in remote and mountainous areas of the UAE. Etisalat operates on 4G LTE and 5G networks, with 5G coverage expanding across Dubai, Abu Dhabi, and other major areas.</p>
+  <p><strong>Prepaid plans:</strong> Etisalat's Wasel prepaid plans start from AED 55 for 1 GB of data with 50 flex minutes. Mid-range plans at AED 105 offer 8 GB and 150 flex minutes. The premium prepaid plan at AED 210 provides 22 GB and unlimited national minutes. Tourist SIM cards are available at the airport for AED 55-110 with data and limited calling.</p>
+  <p><strong>Postpaid plans:</strong> Monthly postpaid plans range from AED 200 for 10 GB to AED 500 for unlimited data with international calling minutes. Contract lengths are typically 12 or 24 months. A 24-month contract usually includes a discounted or free smartphone. Setting up a postpaid account requires an Emirates ID, passport, and visa page. There is no credit check for most plans, but a security deposit of AED 500-1,000 may apply for new residents.</p>
+
+  <h3>du</h3>
+  <p>du is the UAE's second telecommunications provider, offering competitive pricing and strong coverage in urban areas. du has been gaining market share through aggressive pricing on data-heavy plans and attractive bundle offers.</p>
+  <p><strong>Prepaid plans:</strong> du's prepaid plans start from AED 49 for 1 GB with 30 local minutes. The popular AED 99 plan includes 5 GB and 100 local minutes. Power plans at AED 159-249 offer 15-30 GB with extended validity. du prepaid SIM cards are available at du stores, supermarkets, and authorized retailers.</p>
+  <p><strong>Postpaid plans:</strong> Postpaid plans range from AED 175 for 5 GB to AED 500+ for unlimited data and premium benefits. du's postpaid plans often include entertainment subscriptions (OSN, Shahid VIP) and roaming data. Contract terms are similar to Etisalat. du operates its own retail stores across the UAE and also sells through Carrefour and other retail partners.</p>
+
+  <h3>Virgin Mobile UAE</h3>
+  <p>Virgin Mobile UAE operates as a virtual network on the du infrastructure, offering flexible, app-managed plans with no contracts. Plans start from AED 50 and can be customized monthly. This option suits expats who prefer flexibility without long-term commitments. Everything is managed through the Virgin Mobile app, including plan changes, add-ons, and bill payment.</p>
+
+  <h3>VoIP Restrictions in the UAE</h3>
+  <p>The UAE blocks most free VoIP services, including WhatsApp calls, FaceTime Audio, and standard Skype. This is a significant consideration for expats who rely on internet calling to stay in touch with family abroad. Licensed alternatives include BOTIM (AED 50/month, available through du or Etisalat), which enables voice and video calls over internet. ToTok is a free alternative that has been available intermittently. Standard international calling is available through operator plans, with rates varying by destination. The VoIP restriction does not apply to enterprise-grade solutions, and many companies use Microsoft Teams, Zoom, and Google Meet for business communications without issues.</p>
+
+  <h2>Qatar Mobile Operators</h2>
+
+  <h3>Ooredoo Qatar</h3>
+  <p>Ooredoo is Qatar's original telecom operator and offers the most extensive 5G network in the country. Prepaid SIM cards start from QAR 55 and are available at Hamad International Airport, Ooredoo stores, and authorized retailers. Prepaid data packages range from QAR 50 for 5 GB to QAR 200 for 50 GB. Postpaid plans start from QAR 200 per month for 20 GB and go up to QAR 500 for unlimited data with international minutes. Ooredoo offers eSIM activation for supported devices, which can be set up through the Ooredoo app.</p>
+
+  <h3>Vodafone Qatar</h3>
+  <p>Vodafone entered the Qatar market as the second operator and has grown steadily. Prepaid plans start from QAR 35, and postpaid plans from QAR 175. Vodafone is often competitive on international calling rates, particularly for roaming in GCC countries. Both operators provide 4G and 5G coverage across Doha and major population centers. Coverage in industrial areas and outer reaches of the country is stronger with Ooredoo.</p>
+
+  <h3>VoIP in Qatar</h3>
+  <p>Qatar has been progressively relaxing VoIP restrictions. As of 2026, WhatsApp voice and video calls, FaceTime, and most major VoIP applications work in Qatar without requiring a separate subscription. This is a significant quality-of-life advantage compared to the UAE for expats who frequently call family and friends internationally.</p>
+
+  <h2>Saudi Arabia Mobile Operators</h2>
+
+  <h3>STC (Saudi Telecom Company)</h3>
+  <p>STC is Saudi Arabia's largest telecom operator with the widest network coverage, including in remote areas. STC offers extensive 5G coverage across Riyadh, Jeddah, Dammam, and other major cities. Prepaid SIM cards (Sawa brand) are available from SAR 30 and can be purchased at airports, STC stores, and authorized dealers. Data packages range from SAR 65 for 10 GB to SAR 230 for 100 GB. Postpaid plans (Mofawtar) start from SAR 150 for 10 GB and go up to SAR 460 for unlimited data. STC also offers the MySTC app for plan management, bill payment, and data add-on purchases.</p>
+
+  <h3>Mobily</h3>
+  <p>Mobily is Saudi Arabia's second-largest operator, known for competitive data pricing. Prepaid SIM cards are available from SAR 25. Data packages tend to be slightly cheaper than STC, with options like SAR 55 for 10 GB and SAR 115 for 30 GB. Postpaid plans start from SAR 120. Mobily's network coverage is strong in urban areas but may lag behind STC in very remote locations.</p>
+
+  <h3>Zain Saudi Arabia</h3>
+  <p>Zain is the third operator, offering competitive plans particularly for data-heavy users. Zain's unlimited data postpaid plan starts from SAR 200 per month, making it attractive for heavy users. Zain's prepaid data offerings are also competitive, with frequent promotions. eSIM support is available across all three Saudi operators.</p>
+
+  <h3>VoIP in Saudi Arabia</h3>
+  <p>Saudi Arabia has largely lifted VoIP restrictions. WhatsApp calls, FaceTime, Zoom, and other VoIP services work normally throughout the kingdom. This change, implemented as part of Vision 2030's push to modernize communications infrastructure, makes Saudi Arabia the most open of the three Gulf countries for internet calling as of 2026.</p>
+
+  <h2>eSIM and Dual SIM Setup</h2>
+  <p>Most modern smartphones (iPhone 14 and later, Samsung Galaxy S21 and later, Google Pixel 6 and later) support eSIM technology, which allows you to have two active lines without a physical SIM swap. This is particularly useful for Gulf expats who want to maintain their home country number while using a local Gulf line. All major Gulf operators now support eSIM activation, which can usually be done through the operator's app or website. The eSIM can be set up before arrival if you purchase a plan online, allowing you to have local connectivity the moment you land.</p>
+  <p>A common setup is to use the physical SIM slot for your home country number (on a low-cost retention plan) and the eSIM for your Gulf operator. You can configure which line is used for calls, data, and messaging independently. This eliminates the need to carry two phones, which was common among Gulf expats before eSIM became widely available.</p>
+
+  <h2>Cost Comparison Table</h2>
+  <div class="not-prose overflow-x-auto mb-6">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="bg-teal-600 text-white">
+          <th class="px-4 py-2 text-left rounded-tl-lg">Service</th>
+          <th class="px-4 py-2 text-center">UAE</th>
+          <th class="px-4 py-2 text-center">Qatar</th>
+          <th class="px-4 py-2 text-center rounded-tr-lg">Saudi Arabia</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+        <tr><td class="px-4 py-2">Basic prepaid SIM</td><td class="px-4 py-2 text-center">AED 49-55</td><td class="px-4 py-2 text-center">QAR 35-55</td><td class="px-4 py-2 text-center">SAR 25-30</td></tr>
+        <tr><td class="px-4 py-2">10 GB prepaid data</td><td class="px-4 py-2 text-center">AED 100-120</td><td class="px-4 py-2 text-center">QAR 80-100</td><td class="px-4 py-2 text-center">SAR 55-75</td></tr>
+        <tr><td class="px-4 py-2">Basic postpaid plan</td><td class="px-4 py-2 text-center">AED 175-200/mo</td><td class="px-4 py-2 text-center">QAR 175-200/mo</td><td class="px-4 py-2 text-center">SAR 120-150/mo</td></tr>
+        <tr><td class="px-4 py-2">Unlimited data postpaid</td><td class="px-4 py-2 text-center">AED 350-500/mo</td><td class="px-4 py-2 text-center">QAR 350-500/mo</td><td class="px-4 py-2 text-center">SAR 200-460/mo</td></tr>
+        <tr><td class="px-4 py-2">Home broadband (100 Mbps)</td><td class="px-4 py-2 text-center">AED 299-389/mo</td><td class="px-4 py-2 text-center">QAR 249-329/mo</td><td class="px-4 py-2 text-center">SAR 230-300/mo</td></tr>
+        <tr><td class="px-4 py-2">Free VoIP (WhatsApp calls)</td><td class="px-4 py-2 text-center">Blocked</td><td class="px-4 py-2 text-center">Available</td><td class="px-4 py-2 text-center">Available</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-gray-500">Prices are approximate as of June 2026. VAT (5% UAE, 15% Saudi) applies to all telecom bills. Qatar has no VAT.</p>
+
+  <FAQAccordion faqs={faqs} />
+  <SourcesBlock sources={[{ name: "UAE TDRA", url: "https://tdra.gov.ae/" }, { name: "Etisalat (e&)", url: "https://www.etisalat.ae/" }, { name: "du", url: "https://www.du.ae/" }, { name: "Ooredoo Qatar", url: "https://www.ooredoo.qa/" }, { name: "STC", url: "https://www.stc.com.sa/" }]} />
+  <RelatedLinks links={[{ label: "Utilities Setup Guide", href: "/guides/utilities-setup/" }, { label: "UAE Expat Guide", href: "/uae/guide/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "Driving Licence Guide", href: "/guides/driving-licence/" }, { label: "Schools & Education", href: "/guides/schools-education/" }]} />
+</GuideLayout>

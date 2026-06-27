@@ -66,7 +66,7 @@ export function buildOrganizationSchema(): object {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      email: "contact@gulfexpathub.com",
+      email: "contact@dubaiexpatguide.com",
       contactType: "customer support",
       availableLanguage: "English",
     },
@@ -127,13 +127,13 @@ export function buildWebSiteSchema(): object {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Gulf Expat Hub",
+    name: "Dubai Expat Guide",
     url: SITE.url,
-    description: "Salary data, gratuity calculators, visa guides, and cost of living comparisons for expats in the UAE, Qatar, and Saudi Arabia.",
+    description: "Your complete guide to living in the Gulf. Visas, daily life, housing, healthcare, schools, and relocation resources for expats in the UAE, Qatar, and Saudi Arabia.",
     inLanguage: "en",
     publisher: {
       "@type": "Organization",
-      name: "Gulf Expat Hub",
+      name: "Dubai Expat Guide",
       url: SITE.url,
     },
     potentialAction: {
@@ -165,7 +165,7 @@ export function buildArticleSchema(title: string, description: string, url: stri
     },
     publisher: {
       "@type": "Organization",
-      name: "Gulf Expat Hub",
+      name: "Dubai Expat Guide",
       url: SITE.url,
     },
   };

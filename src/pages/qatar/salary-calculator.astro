@@ -1,75 +1,14 @@
 ---
-import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
-import SalaryCalculator from "../../components/calculators/SalaryCalculator";
-import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import AuthorByline from "../../components/ui/AuthorByline.astro";
-import TrustBadge from "../../components/ui/TrustBadge.astro";
-import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
-
-const faqs = [
-  { question: "Does Qatar have income tax on salaries?", answer: "No. Qatar does not impose personal income tax on employment income. There is also no social security contribution for expatriates. Your gross salary equals your net take-home pay, making Qatar one of the most tax-friendly destinations in the world." },
-  { question: "Are there any salary deductions for expats in Qatar?", answer: "No mandatory deductions apply to expatriate salaries in Qatar. There is no income tax, no social security contribution, and no VAT (as of 2026). The only deductions would be voluntary ones such as company-provided housing or loans." },
-  { question: "What is the minimum wage in Qatar for 2026?", answer: "Qatar's minimum wage is QAR 1,000 per month for basic salary, plus QAR 300 for food and QAR 500 for accommodation if not provided by the employer. This applies to all workers regardless of nationality, making it one of the first non-discriminatory minimum wages in the Gulf." },
-  { question: "What benefits are included in a Qatar salary package?", answer: "Qatar employers typically provide housing allowance, annual return flights, health insurance, and end-of-service gratuity. Government and semi-government entities like QatarEnergy and Qatar Airways often offer the most generous packages including education allowances and furniture allowances." },
-  { question: "How are Qatar salaries paid?", answer: "Qatar requires employers to pay salaries through the Wage Protection System (WPS), which mandates electronic bank transfers. Salaries must be paid within 7 days of the due date. Employers who delay payments face penalties from MADLSA." },
-  { question: "Is the housing allowance separate from basic salary in Qatar?", answer: "Yes. Housing allowance is typically a separate component from basic salary in Qatar. It is commonly 25-40% of the basic salary. Some employers provide company accommodation instead of a cash allowance, particularly for construction and industrial workers." },
-  { question: "Do Qatari nationals pay social security?", answer: "Qatari nationals and other GCC citizens are subject to pension contributions managed by the General Retirement and Social Insurance Authority. However, expatriates are fully exempt from any social contributions in Qatar." },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" },
-  { name: "Salary Calculator", url: "https://gulfexpathub.com/qatar/salary-calculator/" },
-];
-const schemas = [
-  buildBreadcrumbs(breadcrumbs),
-  buildFAQSchema(faqs),
-  buildWebApplicationSchema("Qatar Salary Calculator 2026", "Calculate your Qatar take-home pay. Zero income tax, zero social contributions for expatriates. Full salary breakdown.", "https://gulfexpathub.com/qatar/salary-calculator/"),
-];
+const newUrl = 'https://taxfreesalaries.com/qatar/salary-calculator/';
 ---
-
-<CalculatorLayout
-  title="Qatar Salary Calculator 2026: Take-Home Pay Estimate"
-  description="Calculate your Qatar take-home salary for 2026. No income tax and no social security for expats. Free tool with housing, transport, and package breakdown."
-  canonical="/qatar/salary-calculator/"
-  schemas={schemas}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Salary Calculator", url: "/qatar/salary-calculator/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">Qatar Salary Calculator 2026</h1>
-  <p class="text-gray-600 dark:text-gray-400 mb-6">Estimate your Qatar take-home pay with a full package breakdown. All calculations run privately in your browser.</p>
-  <TrustBadge />
-
-  <div class="mt-6">
-    <SalaryCalculator client:idle country="qatar" currency="QAR" countryName="Qatar" />
-  </div>
-
-  <EmbedInstructions calculatorType="salary" />
-
-  <div class="prose dark:prose-invert max-w-none mt-12">
-    <h2>How Qatar Salaries Work in 2026</h2>
-    <p>Qatar offers one of the simplest salary structures in the Gulf region for expatriate workers. There is no personal income tax, no VAT, and no social security contributions for foreign employees. This means your gross salary is exactly equal to your net take-home pay, with zero mandatory deductions. This tax-free status applies to all forms of employment compensation, including basic salary, allowances, bonuses, and overtime payments.</p>
-    <p>A typical Qatar employment package consists of several components. The basic salary represents the core compensation and is used as the basis for end-of-service gratuity calculations. Housing allowance is usually a separate component, typically ranging from 25% to 40% of the basic salary, though some employers provide company accommodation directly. Transport allowances are common, along with annual return flights to the employee's home country. Health insurance is mandatory and must be provided by the employer. Major employers such as QatarEnergy, Qatar Airways, Hamad Medical Corporation, and government ministries generally offer the most generous benefit packages.</p>
-    <p>Qatar introduced a non-discriminatory minimum wage in March 2021, setting a floor of QAR 1,000 for basic monthly salary, plus QAR 300 for food and QAR 500 for accommodation if not provided by the employer. These minimums apply to all workers regardless of nationality, sector, or employment type, making Qatar the first Gulf country to implement such a policy. The minimum wage is reviewed periodically by MADLSA to ensure it remains appropriate.</p>
-
-    <h2>Salary Payment and Worker Protections</h2>
-    <p>Qatar's Wage Protection System (WPS) requires all employers to transfer salaries electronically through approved financial institutions. Salaries must be paid within 7 days of the due date specified in the employment contract. MADLSA actively monitors compliance, and employers who delay or fail to pay through the WPS face penalties including suspension of operations and fines. The Workers' Support and Insurance Fund provides a safety net for employees whose employers fail to meet their financial obligations, covering unpaid wages, end-of-service benefits, and work injury compensation. These protections were significantly strengthened as part of Qatar's labor reform program implemented between 2020 and 2024.</p>
-  </div>
-
-  <FAQAccordion faqs={faqs} />
-
-  <SourcesBlock sources={[
-    { name: "Qatar MADLSA - Ministry of Labour", url: "https://www.adlsa.gov.qa/" },
-    { name: "Qatar Minimum Wage Law No. 17 of 2020", url: "https://www.adlsa.gov.qa/" },
-  ]} />
-
-  <RelatedLinks links={[
-    { label: "Qatar Gratuity Calculator 2026", href: "/qatar/gratuity-calculator/" },
-    { label: "Qatar Cost of Living 2026", href: "/qatar/cost-of-living/" },
-    { label: "Qatar Labor Law Guide", href: "/qatar/labor-law/" },
-    { label: "Qatar Salaries by Profession", href: "/qatar/salaries/" },
-    { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "All Calculators", href: "/calculators/" }, { label: "Tax-Free Countries", href: "/guides/tax-free-countries-gulf/" },
-  ]} />
-</CalculatorLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

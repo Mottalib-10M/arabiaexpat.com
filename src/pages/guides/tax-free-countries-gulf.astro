@@ -1,81 +1,14 @@
 ---
-import GuideLayout from "../../layouts/GuideLayout.astro";
-import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-
-const faqs = [
-  { question: "Which Gulf countries have zero income tax in 2026?", answer: "The UAE, Qatar, and Saudi Arabia all impose zero personal income tax on employment income. Bahrain, Oman, and Kuwait also have no income tax. Your gross salary is your full take-home pay in all three major Gulf countries." },
-  { question: "Does the UAE have any taxes at all?", answer: "The UAE has a 5% VAT on most goods and services (introduced 2018), a 9% corporate tax on business profits over AED 375,000 (introduced 2023), and excise tax on tobacco, sugary drinks, and energy drinks. There is no personal income tax on salaries." },
-  { question: "Why does Saudi Arabia have 15% VAT while UAE has 5%?", answer: "Saudi Arabia tripled its VAT rate from 5% to 15% in July 2020 to offset the impact of lower oil prices and COVID-19 on government revenues. The UAE maintained its original 5% rate. Qatar has not implemented VAT at all." },
-  { question: "Do I pay tax on investment income in the Gulf?", answer: "No. Capital gains, dividends, interest income, and rental income are not subject to personal income tax in the UAE, Qatar, or Saudi Arabia. This makes the Gulf attractive for building wealth through investments alongside tax-free salary income." },
-  { question: "Will Gulf countries introduce income tax in the future?", answer: "As of 2026, no Gulf country has announced plans to introduce personal income tax. Corporate taxation is the current trend, with the UAE implementing 9% corporate tax in 2023. Oman introduced income tax on high earners in 2025. Other GCC nations may follow corporate tax models rather than personal income tax." },
-];
-
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Guides", url: "https://gulfexpathub.com/guides/" },
-  { name: "Tax-Free Countries", url: "https://gulfexpathub.com/guides/tax-free-countries-gulf/" },
-];
+const newUrl = 'https://taxfreesalaries.com/guides/tax-free-countries-gulf/';
 ---
-
-<GuideLayout
-  title="Tax-Free Gulf Countries 2026: Income Tax and VAT Guide"
-  description="Which Gulf countries are tax-free in 2026? Compare income tax, VAT, and social insurance rules in UAE, Qatar, and Saudi Arabia. Complete expat tax guide."
-  canonical="/guides/tax-free-countries-gulf/"
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Tax-Free Gulf Countries 2026: Income Tax and VAT Guide", "Compare tax rules across Gulf countries.", "https://gulfexpathub.com/guides/tax-free-countries-gulf/", "2025-06-01", "2026-06-15")]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Tax-Free Countries", url: "/guides/tax-free-countries-gulf/" }]}
->
-  <h1>Tax-Free Gulf Countries 2026: Complete Guide to Income Tax and VAT</h1>
-
-  <p>The Gulf region is one of the last remaining zones where professionals can earn entirely tax-free salaries. In 2026, the UAE, Qatar, and Saudi Arabia all maintain zero personal income tax on employment income. However, "tax-free" does not mean "zero tax." VAT rates, social insurance, corporate tax, and other levies vary significantly between countries and affect your overall financial picture. This guide breaks down every tax consideration for Gulf expats.</p>
-
-  <h2>Income Tax Comparison</h2>
-  <div class="not-prose overflow-x-auto mb-8">
-    <table class="w-full text-sm">
-      <thead><tr class="bg-teal-600 text-white"><th class="px-4 py-3 text-left rounded-tl-lg">Tax Type</th><th class="px-4 py-3 text-center">UAE</th><th class="px-4 py-3 text-center">Qatar</th><th class="px-4 py-3 text-center rounded-tr-lg">Saudi Arabia</th></tr></thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-        <tr><td class="px-4 py-2.5 font-medium">Personal Income Tax</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td></tr>
-        <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-4 py-2.5 font-medium">VAT</td><td class="px-4 py-2.5 text-center">5%</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td><td class="px-4 py-2.5 text-center">15%</td></tr>
-        <tr><td class="px-4 py-2.5 font-medium">Corporate Tax</td><td class="px-4 py-2.5 text-center">9%</td><td class="px-4 py-2.5 text-center">10%</td><td class="px-4 py-2.5 text-center">20% (foreign)</td></tr>
-        <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-4 py-2.5 font-medium">Social Insurance (Expat)</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">None</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">None</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">None*</td></tr>
-        <tr><td class="px-4 py-2.5 font-medium">Capital Gains Tax</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td><td class="px-4 py-2.5 text-center text-green-600 font-semibold">0%</td></tr>
-      </tbody>
-    </table>
-    <p class="text-xs text-gray-500 mt-2">*Saudi employer pays 2% GOSI for expats; does not affect take-home pay.</p>
-  </div>
-
-  <h2>How Zero Income Tax Works</h2>
-  <p>In all three Gulf countries, your employment income is completely exempt from personal income tax. This applies to all components: basic salary, housing allowance, transport allowance, bonuses, commissions, and any other employment-related payments. There is no tax filing requirement for employees. This is not a temporary exemption or a special program -- it is the fundamental tax structure of these countries, funded instead by oil revenues, sovereign wealth fund returns, corporate taxes, and VAT collections. For a professional earning the equivalent of USD 80,000 per year, the tax savings compared to working in the UK (approximately USD 22,000 in tax), the US (approximately USD 16,000), or Australia (approximately USD 20,000) are substantial. Over a typical 3-5 year Gulf career, these savings accumulate to six-figure sums.</p>
-
-  <h2>The VAT Factor</h2>
-  <p>While income is tax-free, consumption is not (except in Qatar). The UAE introduced 5% VAT in January 2018, applying it to most goods and services. Essential items like basic food, healthcare, and education receive zero-rate or exempt treatment. Saudi Arabia started with 5% VAT in 2018 but tripled it to 15% in July 2020, making it the highest consumption tax in the GCC. Qatar stands alone as the only major Gulf country with no VAT at all. For a household spending $3,000 per month on VAT-eligible items, the annual VAT burden is $0 in Qatar, $1,800 in the UAE, and $5,400 in Saudi Arabia. This difference should be factored into any cost-of-living comparison between the three countries.</p>
-
-  <h2>Social Insurance and Pension</h2>
-  <p>Social insurance affects nationals differently from expatriates. UAE nationals pay 5% GPSSA from their salary, with employers contributing 12.5%. Saudi nationals pay 9.75% GOSI, with employers matching at 11.75%. Qatar nationals contribute 5% to the Retirement and Pension Authority, with employers adding 10%. Expatriates in all three countries are completely exempt from social insurance contributions. Their take-home pay is not reduced by any mandatory deductions. Instead, expats receive end-of-service gratuity as their retirement benefit, calculated under each country's labor law.</p>
-
-  <h2>Corporate Tax Landscape</h2>
-  <p>For entrepreneurs and business owners, the corporate tax environment varies. The UAE introduced a 9% corporate tax on profits exceeding AED 375,000 in June 2023, with free zone companies potentially qualifying for 0% on qualifying income. Qatar charges 10% corporate tax on locally sourced income of foreign-owned companies. Saudi Arabia charges 20% on foreign-owned company profits, plus 2.5% Zakat on Saudi-owned equity. These rates are relevant for expats considering business ownership alongside employment.</p>
-
-  <h2>Practical Tax Planning for Gulf Expats</h2>
-  <p>While Gulf salaries are tax-free locally, expats must be aware of their home country's tax obligations. US citizens and green card holders are required to file annual federal tax returns regardless of where they live, though the Foreign Earned Income Exclusion (approximately USD 126,500 in 2025) and Foreign Housing Exclusion can offset much of the liability. UK nationals who establish non-resident status are generally exempt from UK income tax on Gulf earnings but must meet HM Revenue and Customs residency tests. Australian citizens may need to demonstrate they are not Australian tax residents by severing ties and establishing permanent residence abroad. Some countries have double-taxation treaties with Gulf states, but since these Gulf nations levy no income tax, the treaties primarily serve to prevent double taxation on investment income or pensions rather than employment income. Consulting a tax professional who specializes in expatriate taxation before relocating is strongly recommended, as the interaction between Gulf tax-free income and your home country's tax rules can be complex and penalties for non-compliance are significant. Indian nationals should be particularly attentive to the new tax residency rules introduced in India, which can deem certain returning expatriates as tax residents if they spend more than 120 days in India and have taxable Indian income exceeding INR 15 lakh. Canadian expats should review their provincial departure obligations, as some provinces require specific notification when establishing tax residency abroad. Maintaining clear records of your Gulf residence dates, employment contracts, and local utility bills strengthens your position when demonstrating foreign tax residency to your home country's tax authority.</p>
-
-  <h2>Home Country Tax Obligations</h2>
-  <p>While Gulf salaries are free from local income tax, many expats overlook their continuing tax obligations in their home country. The rules vary dramatically by nationality and can result in significant unexpected tax bills if not addressed before relocating. US citizens and permanent residents (green card holders) are subject to worldwide taxation regardless of where they live. The Foreign Earned Income Exclusion (FEIE) allows qualifying individuals to exclude approximately USD 126,500 of foreign earned income from US federal tax, and the Foreign Housing Exclusion can cover a portion of housing costs above a base amount. However, income above these thresholds is fully taxable. US expats must also file an annual FBAR (FinCEN 114) if their aggregate foreign bank account balances exceed USD 10,000 at any point during the year, and FATCA reporting requirements apply to specified foreign financial assets exceeding USD 200,000 for single filers abroad. Penalties for non-compliance are severe, reaching USD 10,000 per unreported account for FBAR violations.</p>
-  <p>UK nationals who establish non-resident status under the Statutory Residence Test (SRT) are generally exempt from UK income tax on their Gulf earnings. The key tests involve spending fewer than 16 days in the UK in the tax year (automatic overseas test), or fewer than 46 days with no significant UK ties. However, UK rental income, pension withdrawals, and certain investment income remain taxable in the UK even for non-residents. Australian citizens must demonstrate they have severed their Australian tax residency by giving up their Australian dwelling, ensuring their family relocates, and establishing a permanent home abroad. If the ATO determines you remain an Australian resident for tax purposes, your worldwide income (including Gulf salary) is taxable in Australia. Indian nationals should be aware of updated residency rules that can deem individuals who spend more than 120 days in India (with Indian income exceeding INR 15 lakh) as tax residents, even if they have been living in the Gulf for years.</p>
-
-  <h2>Tax Planning for Returning Expats</h2>
-  <p>Planning your return from the Gulf requires careful tax strategy, as the transition from a tax-free environment back to a taxed jurisdiction can be jarring. The most important step is timing: in many countries, the date you establish tax residency determines when your income becomes taxable. In the UK, returning mid-tax-year can mean you are only taxed on income earned after your return date under split-year treatment, potentially saving thousands of pounds. In Australia, the date you re-establish residency triggers full taxation on worldwide income, so coordinating your return date with the start of a new financial year (1 July) can simplify your tax position. Repatriation of savings accumulated in the Gulf is generally not taxable in most countries (since the principal was already earned tax-free), but interest, dividends, or capital gains generated on those savings after your return are taxable under normal domestic rules.</p>
-  <p>Many returning expats benefit from structuring their finances before departure. This includes making lump-sum pension contributions in your home country during the final year abroad (when your income may be lower and the deduction more valuable), crystallising capital gains on investments while still a non-resident (avoiding capital gains tax in countries like Australia and the UK), and ensuring your end-of-service gratuity payment is received before you re-establish home country tax residency. It is strongly recommended to consult an international tax advisor who specialises in expat repatriation at least 6-12 months before your planned return date. The cost of professional advice (typically USD 500-2,000 for a comprehensive review) is a small fraction of the potential tax savings from proper planning, particularly for expats who have accumulated significant savings during their Gulf tenure.</p>
-
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: "UAE Federal Tax Authority", url: "https://tax.gov.ae/" }, { name: "Saudi ZATCA", url: "https://zatca.gov.sa/" }, { name: "Qatar GTA", url: "https://www.gta.gov.qa/" }]} />
-  <RelatedLinks links={[
-    { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" },
-    { label: "Saudi Salary Calculator", href: "/saudi-arabia/salary-calculator/" },
-    { label: "Qatar Salary Calculator", href: "/qatar/salary-calculator/" },
-    { label: "UAE vs Qatar Cost of Living", href: "/compare/uae-vs-qatar-cost-of-living/" },
-    { label: "Gulf Salary Comparison", href: "/salaries/" },
-  ]} />
-</GuideLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

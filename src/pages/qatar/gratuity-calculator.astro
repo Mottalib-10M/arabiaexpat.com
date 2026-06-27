@@ -1,41 +1,14 @@
 ---
-import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
-import GratuityCalculator from "../../components/calculators/GratuityCalculator";
-import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import AuthorByline from "../../components/ui/AuthorByline.astro";
-import TrustBadge from "../../components/ui/TrustBadge.astro";
-import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
-
-const faqs = [
-  { question: "How is Qatar gratuity calculated?", answer: "Qatar mandates a minimum of 3 weeks (21 days) of basic salary per year of service. Employers may offer more generous terms contractually." },
-  { question: "Do I get gratuity if I resign in Qatar?", answer: "Resignation penalties: less than 2 years = no gratuity; 2-5 years = one-third; 5-10 years = two-thirds; over 10 years = full amount." },
-  { question: "Is Qatar gratuity calculated on basic salary only?", answer: "Yes. The legal minimum is calculated on basic salary, excluding allowances. However, some employers may offer enhanced gratuity on total salary per contract terms." },
-  { question: "When is Qatar gratuity paid?", answer: "Qatar labor law requires gratuity to be paid within 7 days of the employment relationship ending." },
-  { question: "What if my employer does not pay gratuity in Qatar?", answer: "Workers can file complaints through MADLSA. The Workers' Support and Insurance Fund provides a safety net for unpaid end-of-service benefits." },
-];
-const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" }, { name: "Gratuity Calculator", url: "https://gulfexpathub.com/qatar/gratuity-calculator/" }];
-const schemas = [buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildWebApplicationSchema("Qatar Gratuity Calculator 2026", "Calculate your Qatar end-of-service gratuity.", "https://gulfexpathub.com/qatar/gratuity-calculator/")];
+const newUrl = 'https://taxfreesalaries.com/qatar/gratuity-calculator/';
 ---
-
-<CalculatorLayout title="Qatar Gratuity Calculator 2026: Free EOSB Estimate" description="Calculate your Qatar end-of-service gratuity for 2026. Minimum 3 weeks basic salary per year under MADLSA rules. Free calculator with resignation penalties." canonical="/qatar/gratuity-calculator/" schemas={schemas} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Gratuity Calculator", url: "/qatar/gratuity-calculator/" }]}>
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">Qatar Gratuity Calculator 2026</h1>
-  <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your Qatar end-of-service benefits using the official MADLSA minimum entitlements. All calculations run privately in your browser.</p>
-  <TrustBadge />
-  <div class="mt-6"><GratuityCalculator client:idle country="qatar" currency="QAR" countryName="Qatar" /></div>
-  <EmbedInstructions calculatorType="gratuity" />
-  <div class="prose dark:prose-invert max-w-none mt-12">
-    <h2>How Qatar Gratuity Works</h2>
-    <p>Qatar Labour Law No. 14 of 2004 (as amended) establishes a minimum gratuity entitlement of 3 weeks (21 days) of basic salary for each completed year of service. Unlike the UAE's tiered system (21 days then 30 days), Qatar applies a uniform 21-day minimum throughout the service period. However, employers may contractually agree to more generous terms.</p>
-    <p>The calculation uses the daily rate (monthly basic salary divided by 30) multiplied by 21 days, multiplied by the number of years of service. For partial years, the calculation is proportional. Example: an employee earning QAR 12,000 basic salary with 6 years of service would receive: (12,000/30) x 21 x 6 = QAR 50,400.</p>
-    <p>Qatar's Workers' Support and Insurance Fund was established to protect workers' end-of-service benefits in cases where employers fail to pay. This fund represents an important safety net that distinguishes Qatar's labor protection framework in the GCC. The gratuity must be paid within 7 days of employment ending, one of the shortest payment deadlines in the Gulf region.</p>
-    <h2>Resignation and Termination Differences</h2>
-    <p>When the employer terminates the contract (without cause), the employee receives the full gratuity amount. For resignations, a graduated penalty system applies: less than 2 years of service means no gratuity, 2-5 years entitles the employee to one-third, 5-10 years to two-thirds, and over 10 years to the full gratuity amount. These resignation penalties incentivize longer-term employment commitments and align with the labor law's goal of protecting employer investment in training and development.</p>
-  </div>
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }, { name: "Qatar Labour Law No. 14 of 2004", url: "https://www.adlsa.gov.qa/" }]} />
-  <RelatedLinks links={[{ label: "Qatar Salary Calculator 2026", href: "/qatar/salary-calculator/" }, { label: "Qatar Salaries by Profession", href: "/qatar/salaries/" }, { label: "Qatar Labor Law Guide", href: "/qatar/labor-law/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "Saudi Gratuity Calculator", href: "/saudi-arabia/gratuity-calculator/" }, { label: "Gratuity Explained", href: "/guides/gratuity-end-of-service-explained/" }]} />
-</CalculatorLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

@@ -4,19 +4,13 @@ import { SITE, COUNTRIES } from "../data/site-config";
 import { buildOrganizationSchema, buildWebSiteSchema, buildFAQSchema } from "../lib/seo";
 import FAQAccordion from "../components/ui/FAQAccordion.astro";
 
-const countryStats = {
-  uae: { avgSalary: "AED 15,200/mo", topRole: "Software Engineer", topSalary: "AED 28,000/mo", expats: "8.9M" },
-  qatar: { avgSalary: "QAR 12,800/mo", topRole: "Project Manager", topSalary: "QAR 25,500/mo", expats: "2.4M" },
-  saudi: { avgSalary: "SAR 11,500/mo", topRole: "Petroleum Engineer", topSalary: "SAR 32,000/mo", expats: "10.4M" },
-};
-
 const faqs = [
-  { question: "Which Gulf country pays the highest salaries for expats in 2026?", answer: "The UAE, particularly Dubai and Abu Dhabi, pays the highest average salaries across most professions. Software engineers earn AED 8,000-40,000/month, doctors AED 20,000-70,000/month. However, Saudi Arabia offers premium packages for giga-project roles, and Qatar's energy sector matches or exceeds UAE rates for senior positions. All three countries offer zero personal income tax." },
-  { question: "Are Gulf salaries really tax-free in 2026?", answer: "Yes. The UAE, Qatar, and Saudi Arabia impose zero personal income tax on employment income. Your gross salary is your net take-home pay. Saudi nationals pay 9.75% GOSI social insurance, and UAE/GCC nationals pay GPSSA contributions, but expatriates are fully exempt from all salary deductions in every Gulf country." },
-  { question: "How much can I save working in the Gulf?", answer: "Most Gulf expats save 25-40% of their monthly salary after expenses. A mid-level professional earning AED 20,000/month in Dubai can save AED 5,000-8,000 monthly. In Riyadh, where living costs are 20-30% lower, savings rates are even higher. Employer-provided housing and flight allowances further boost savings compared to taxed Western countries." },
-  { question: "What end-of-service benefits do Gulf expats receive?", answer: "All three Gulf countries mandate end-of-service gratuity payments. The UAE pays 21 days basic salary per year for the first 5 years, then 30 days after. Saudi Arabia pays half a month for the first 5 years, then a full month. Qatar pays a minimum of 3 weeks per year. Use our free calculators to estimate your exact entitlement." },
-  { question: "Do I need a job offer before moving to the Gulf?", answer: "For standard employment visas, yes. Your employer sponsors your work visa in all three countries. However, the UAE offers self-sponsored options including the Golden Visa (10-year, for investors and skilled professionals) and Green Visa (5-year, for high earners). Saudi Arabia has Premium Residency, and Qatar offers permanent residency for long-term residents." },
-  { question: "What is the cost of living in Dubai compared to Riyadh and Doha?", answer: "Dubai is the most expensive: a one-bedroom apartment costs AED 7,000-10,000/month. Riyadh is 20-30% cheaper at SAR 2,500-5,000/month. Doha falls in between at QAR 4,500-7,500/month. Groceries, dining, and transport follow similar patterns. Dubai has 5% VAT, Saudi has 15% VAT, and Qatar has no VAT." },
+  { question: "What do I need to know before moving to the Gulf in 2026?", answer: "Before relocating to the UAE, Qatar, or Saudi Arabia, research visa requirements (your employer typically sponsors your work visa), housing options and costs, healthcare and insurance (employer-provided), schooling for children if applicable, and the cultural environment. Each country has different processes for setting up utilities, getting a driving licence, and opening a bank account. Our country guides walk you through each step." },
+  { question: "How do I set up utilities when I arrive in Dubai?", answer: "In Dubai, you register with DEWA (Dubai Electricity and Water Authority) for electricity and water. You need your tenancy contract, passport copy, and Emirates ID. In Abu Dhabi, the equivalent is ADDC. For internet and mobile, du and Etisalat (e&) are the two providers. Most setups can be done online or at service centers within a few days of arrival." },
+  { question: "Which Gulf country is best for expat families?", answer: "The UAE, particularly Dubai, is widely considered the best Gulf country for families due to its extensive international school network (600+ schools), world-class healthcare, safe environment, and abundant recreational options. Qatar offers a compact, family-friendly lifestyle with lower costs. Saudi Arabia is rapidly improving with new entertainment venues and social reforms under Vision 2030." },
+  { question: "Can I drive with my foreign licence in the Gulf?", answer: "Rules vary by country. The UAE allows licence conversion without a driving test for citizens of certain countries (UK, US, Canada, most EU). Others must take lessons and pass a test. Qatar requires a local licence, with conversion available for some nationalities. Saudi Arabia also allows conversion for selected countries. Our driving licence guide covers the full process for each country." },
+  { question: "What are the best international schools in the Gulf?", answer: "Top international schools include GEMS, Taaleem, and Aldar Academies in the UAE; Qatar Academy and Doha College in Qatar; and the British and American international schools across Saudi Arabia. Curricula available include British, American, IB, Indian (CBSE/ICSE), and French. School fees range from AED 15,000 to AED 100,000+ per year depending on the school tier." },
+  { question: "How much does it cost to live in the Gulf as an expat?", answer: "Costs vary significantly. Dubai is the most expensive: one-bedroom apartments cost AED 7,000-10,000/month. Riyadh is 20-30% cheaper. Doha falls in between. Groceries, dining, and transport follow similar patterns. For detailed breakdowns, see our cost-of-living guides for each country." },
 ];
 
 const personSchema = {
@@ -28,15 +22,15 @@ const personSchema = {
     "@type": "EducationalOrganization",
     "name": "INSEAD"
   },
-  "url": "https://gulfexpathub.com/about/"
+  "url": "https://dubaiexpatguide.com/about/"
 };
 
 const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema(faqs), personSchema];
 ---
 
 <Layout
-  title="Gulf Expat Salaries, Gratuity Calculators and Guides 2026"
-  description="Compare tax-free salaries, calculate end-of-service gratuity, and plan your move to the UAE, Qatar, or Saudi Arabia. Free 2026 data for 20+ professions."
+  title="Expat Guide 2026: Living in the UAE, Qatar and Saudi"
+  description="Your complete 2026 guide to expat life in the Gulf. Visas, housing, schools, utilities, driving, and daily life tips for the UAE, Qatar, and Saudi Arabia."
   canonical="/"
   schemas={schemas}
 >
@@ -51,72 +45,57 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-400 text-sm font-medium mb-6">
             <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            Updated June 2026 with official labor-law data
+            Updated June 2026 with official data
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1]">
-            Compare salaries across
-            <span class="text-teal-400"> 20 professions</span> in the Gulf
+            Your complete guide to
+            <span class="text-teal-400"> expat life</span> in the Gulf
           </h1>
 
           <p class="mt-5 text-lg text-gray-400 max-w-xl leading-relaxed">
-            Side-by-side salary data for the UAE, Qatar, and Saudi Arabia. Plus gratuity calculators, visa timelines, and cost-of-living breakdowns -- all free, no sign-up needed.
+            Everything you need to settle in the UAE, Qatar, or Saudi Arabia. Visa processes, housing, schools, driving licences, utilities, mobile plans, healthcare, and daily life -- all free, no sign-up needed.
           </p>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="/uae/salaries/" class="inline-flex items-center justify-center px-6 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-xl transition-colors text-sm">
-              Browse 2026 salary data
+            <a href="/uae/guide/" class="inline-flex items-center justify-center px-6 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-xl transition-colors text-sm">
+              Start with the UAE Guide
               <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
-            <a href="/uae/gratuity-calculator/" class="inline-flex items-center justify-center px-6 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 transition-colors text-sm">
-              Calculate your gratuity
+            <a href="/guides/" class="inline-flex items-center justify-center px-6 py-3.5 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 transition-colors text-sm">
+              Browse all guides
             </a>
           </div>
 
           <div class="mt-8 flex items-center gap-6 text-sm text-gray-500">
             <span class="flex items-center gap-1.5">
               <svg class="h-4 w-4 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
-              Runs in your browser
+              Trusted by thousands of expats
             </span>
             <span class="flex items-center gap-1.5">
               <svg class="h-4 w-4 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/></svg>
-              MoHRE / MHRSD / MADLSA verified
+              Government-sourced information
             </span>
           </div>
         </div>
 
-        <!-- Right column: quick stat cards -->
+        <!-- Right column: quick navigation cards -->
         <div class="hidden lg:block lg:col-span-5 mt-12 lg:mt-0">
           <div class="space-y-3">
-            {Object.entries(countryStats).map(([key, stats]) => {
-              const country = COUNTRIES[key as keyof typeof COUNTRIES];
-              return (
-                <a href={`/${country.slug}/salaries/`} class="block bg-white/[0.04] hover:bg-white/[0.07] border border-white/[0.06] rounded-2xl p-5 transition-colors group">
-                  <div class="flex items-center justify-between mb-3">
-                    <span class="text-sm font-semibold text-white">{country.name}</span>
-                    <span class="text-xs text-gray-500">{stats.expats} expats</span>
-                  </div>
-                  <div class="flex items-end justify-between">
-                    <div>
-                      <div class="text-xs text-gray-500 mb-1">Avg. expat salary</div>
-                      <div class="text-xl font-bold text-teal-400 tabular-nums">{stats.avgSalary}</div>
-                    </div>
-                    <div class="text-right">
-                      <div class="text-xs text-gray-500 mb-1">Top: {stats.topRole}</div>
-                      <div class="text-sm font-semibold text-white tabular-nums">{stats.topSalary}</div>
-                    </div>
-                  </div>
-                  <div class="mt-3 flex gap-1 items-end h-6">
-                    <div class="flex-1 bg-teal-500/20 rounded-sm" style={`height: ${key === 'uae' ? '100' : key === 'qatar' ? '75' : '65'}%`}></div>
-                    <div class="flex-1 bg-teal-500/30 rounded-sm" style={`height: ${key === 'uae' ? '85' : key === 'qatar' ? '90' : '80'}%`}></div>
-                    <div class="flex-1 bg-teal-500/20 rounded-sm" style={`height: ${key === 'uae' ? '70' : key === 'qatar' ? '60' : '100'}%`}></div>
-                    <div class="flex-1 bg-teal-500/40 rounded-sm" style={`height: ${key === 'uae' ? '95' : key === 'qatar' ? '70' : '55'}%`}></div>
-                    <div class="flex-1 bg-teal-500/25 rounded-sm" style={`height: ${key === 'uae' ? '60' : key === 'qatar' ? '85' : '75'}%`}></div>
-                    <div class="flex-1 bg-teal-500/35 rounded-sm" style={`height: ${key === 'uae' ? '80' : key === 'qatar' ? '55' : '90'}%`}></div>
-                  </div>
-                </a>
-              );
-            })}
+            {[
+              { label: "Driving Licence Guide", href: "/guides/driving-licence/", desc: "Get your Gulf driving licence: conversion, tests, costs" },
+              { label: "Utilities Setup", href: "/guides/utilities-setup/", desc: "DEWA, ADDC, Kahramaa -- electricity, water, internet" },
+              { label: "Schools & Education", href: "/guides/schools-education/", desc: "International schools, curricula, fees, and admissions" },
+              { label: "Mobile & Internet", href: "/guides/telecom-mobile/", desc: "du, Etisalat, Ooredoo, STC -- plans, costs, eSIM" },
+            ].map((item) => (
+              <a href={item.href} class="block bg-white/[0.04] hover:bg-white/[0.07] border border-white/[0.06] rounded-2xl p-5 transition-colors group">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-sm font-semibold text-white group-hover:text-teal-400 transition-colors">{item.label}</span>
+                  <svg class="h-4 w-4 text-gray-500 group-hover:text-teal-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </div>
+                <p class="text-xs text-gray-400">{item.desc}</p>
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -128,38 +107,33 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-          Three countries, one comparison
+          Three countries, one complete resource
         </h2>
         <p class="mt-3 text-gray-600 dark:text-gray-400">
-          Each guide covers salaries, end-of-service benefits, visa routes, and monthly living costs -- built from official 2026 government data.
+          Each guide covers visas, housing, healthcare, education, daily life, and practical setup steps -- built from official 2026 government data.
         </p>
       </div>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
         {Object.entries(COUNTRIES).map(([key, c]) => {
-          const stats = countryStats[key as keyof typeof countryStats];
           const highlights = {
-            uae: ["0% income tax for all residents", "Golden Visa for high earners", "MoHRE-regulated contracts"],
-            qatar: ["Tax-free salary packages", "QAR 1,000 minimum wage since 2021", "FIFA-era infrastructure boom"],
-            saudi: ["Vision 2030 driving new sectors", "GOSI social-insurance system", "Fastest-growing expat job market"],
+            uae: ["600+ international schools in Dubai", "Golden Visa for long-term residency", "DEWA and ADDC utility setup guides"],
+            qatar: ["Zero VAT, compact city lifestyle", "World Cup legacy infrastructure", "Kahramaa utilities and QID process"],
+            saudi: ["Vision 2030 social transformation", "Riyadh Metro now operational", "Premium Residency options available"],
           };
+          const expats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
           return (
             <div class="group relative bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-7 hover:border-teal-400 dark:hover:border-teal-600 transition-all hover:shadow-lg">
               <div class="flex items-center gap-3 mb-4">
                 <span class="text-3xl">{c.flag === "AE" ? "\u{1F1E6}\u{1F1EA}" : c.flag === "QA" ? "\u{1F1F6}\u{1F1E6}" : "\u{1F1F8}\u{1F1E6}"}</span>
                 <div>
                   <h3 class="text-lg font-bold text-gray-900 dark:text-white">{c.fullName}</h3>
-                  <span class="text-xs text-gray-500">{c.currency} &middot; {stats.expats} expats</span>
+                  <span class="text-xs text-gray-500">{expats[key as keyof typeof expats]} expats</span>
                 </div>
               </div>
 
-              <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-3 mb-4">
-                <div class="text-xs text-teal-700 dark:text-teal-400 font-medium mb-0.5">Average expat salary</div>
-                <div class="text-lg font-bold text-teal-700 dark:text-teal-300 tabular-nums">{stats.avgSalary}</div>
-              </div>
-
               <ul class="space-y-2 mb-6">
-                {highlights[key]?.map((h: string) => (
+                {highlights[key as keyof typeof highlights]?.map((h: string) => (
                   <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
                     <svg class="h-4 w-4 text-teal-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                     {h}
@@ -167,8 +141,8 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
                 ))}
               </ul>
 
-              <a href={`/${c.slug}/salaries/`} class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
-                Explore {c.name} salaries
+              <a href={`/${c.slug}/guide/`} class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
+                Read the {c.name} guide
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
             </div>
@@ -178,7 +152,7 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
     </div>
   </section>
 
-  <!-- Why the Gulf Section (editorial/SEO content) -->
+  <!-- Why the Gulf Section -->
   <section class="py-16 bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8">
@@ -186,106 +160,36 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
       </h2>
       <div class="prose dark:prose-invert max-w-none">
         <p>The Gulf Cooperation Council countries attract over 30 million expatriate workers, and the numbers continue to grow. The UAE alone hosts 8.9 million foreign residents, representing 88% of its total population. Saudi Arabia's Vision 2030 program has created thousands of new roles across technology, entertainment, tourism, and infrastructure. Qatar's post-World Cup economy is expanding into finance, education, and LNG production at record levels.</p>
-        <p>The financial case for Gulf employment is straightforward. All three countries impose zero personal income tax on salaries. A software engineer earning AED 25,000 per month in Dubai takes home AED 25,000. The same role paying GBP 5,500 in London leaves roughly GBP 3,900 after tax and National Insurance. Over a typical 3-year Gulf contract, the tax savings alone can exceed $80,000. Add employer-provided housing, annual flights, and health insurance, and the total compensation gap widens further.</p>
-        <p>Beyond the financial advantage, Gulf countries offer a unique professional environment. Riyadh's giga-projects (NEOM, The Line, Qiddiya) involve engineering and design challenges that do not exist anywhere else on earth. Dubai's position as a global business hub means exposure to markets spanning Africa, South Asia, and the Middle East. Qatar's concentrated wealth and small population create opportunities for rapid career advancement that might take a decade in more established markets.</p>
-        <p>Living conditions have improved dramatically across the region. Dubai ranks among the world's safest cities. Saudi Arabia has opened cinemas, concert venues, and mixed-gender social spaces. Qatar's World Cup infrastructure left behind world-class stadiums, a metro system, and upgraded road networks. International schools serve every major curriculum, and healthcare facilities meet or exceed Western standards.</p>
+        <p>Beyond financial advantages, Gulf countries offer a unique living environment. Dubai ranks among the world's safest cities. Saudi Arabia has opened cinemas, concert venues, and mixed-gender social spaces. Qatar's World Cup infrastructure left behind world-class stadiums, a metro system, and upgraded road networks. International schools serve every major curriculum, and healthcare facilities meet or exceed Western standards.</p>
+        <p>Setting up your life as a new arrival involves practical steps that differ from country to country: obtaining your residence visa, finding housing, setting up electricity and water, getting a local SIM card, opening a bank account, converting your driving licence, and enrolling children in school. Our guides walk you through each of these steps with up-to-date 2026 information and costs.</p>
       </div>
     </div>
   </section>
 
-  <!-- Calculator Preview Section -->
+  <!-- Expat Life Guides Section -->
   <section class="py-20 bg-white dark:bg-gray-950">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-            Gratuity calculators built on actual labor law
-          </h2>
-          <p class="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-            End-of-service benefits vary by country, contract type, and years worked.
-            These calculators apply the exact formulas from MoHRE (UAE), MHRSD (Saudi Arabia), and MADLSA (Qatar) regulations.
-          </p>
-
-          <div class="mt-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-5">
-            <div class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Example result &middot; UAE unlimited contract</div>
-            <div class="grid grid-cols-3 gap-4 text-sm">
-              <div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Service</div>
-                <div class="font-semibold text-gray-900 dark:text-white">5 years</div>
-              </div>
-              <div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Basic salary</div>
-                <div class="font-semibold text-gray-900 dark:text-white">AED 10,000</div>
-              </div>
-              <div>
-                <div class="text-gray-500 dark:text-gray-400 text-xs">Gratuity owed</div>
-                <div class="font-bold text-teal-600 dark:text-teal-400 text-lg">AED 24,500</div>
-              </div>
-            </div>
-            <div class="mt-3 text-xs text-gray-400 dark:text-gray-500">
-              21 days/year for first 5 years = 105 days x (10,000/30) = AED 35,000 full entitlement, reduced for unlimited contract early resignation
-            </div>
-          </div>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="/uae/gratuity-calculator/" class="inline-flex items-center px-5 py-2.5 bg-teal-600 hover:bg-teal-500 text-white text-sm font-semibold rounded-xl transition-colors">UAE Gratuity Calculator</a>
-            <a href="/saudi-arabia/gratuity-calculator/" class="inline-flex items-center px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 transition-colors">Saudi EOSB Calculator</a>
-            <a href="/qatar/gratuity-calculator/" class="inline-flex items-center px-5 py-2.5 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white text-sm font-semibold rounded-xl border border-gray-200 dark:border-gray-700 transition-colors">Qatar Gratuity Calculator</a>
-          </div>
-        </div>
-
-        <div class="mt-12 lg:mt-0">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { title: "UAE Gratuity", href: "/uae/gratuity-calculator/", desc: "MoHRE formula for limited and unlimited contracts", icon: "calc" },
-              { title: "Saudi EOSB", href: "/saudi-arabia/gratuity-calculator/", desc: "Half-month and full-month tiers per MHRSD", icon: "calc" },
-              { title: "Qatar Gratuity", href: "/qatar/gratuity-calculator/", desc: "MADLSA minimum end-of-service entitlements", icon: "calc" },
-              { title: "UAE Salary Breakdown", href: "/uae/salary-calculator/", desc: "Base, housing, transport. Zero income tax", icon: "salary" },
-              { title: "Saudi Take-Home Pay", href: "/saudi-arabia/salary-calculator/", desc: "GOSI deductions for nationals and expats", icon: "salary" },
-              { title: "Qatar Salary Breakdown", href: "/qatar/salary-calculator/", desc: "Zero-tax, zero-contribution package split", icon: "salary" },
-            ].map((calc) => (
-              <a href={calc.href} class="bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-4 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all group">
-                <div class="flex items-center gap-2 mb-2">
-                  {calc.icon === "calc" ? (
-                    <svg class="h-4 w-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                  ) : (
-                    <svg class="h-4 w-4 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  )}
-                  <h3 class="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{calc.title}</h3>
-                </div>
-                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{calc.desc}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Guides section -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-10">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-            Guides and references
+            Practical guides for Gulf expats
           </h2>
           <p class="mt-2 text-gray-600 dark:text-gray-400">
-            Visa rules, labor law summaries, and cost-of-living data for each country.
+            Step-by-step guides for every part of settling in the Gulf.
           </p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { title: "UAE Visa Guide 2026", href: "/uae/visa-guide/", tag: "Visa", desc: "Employment, Golden, Green, and Freelancer visa types with processing times." },
-          { title: "Saudi Labor Law 2026", href: "/saudi-arabia/labor-law/", tag: "Law", desc: "Working hours, leave entitlements, termination rules, and Saudization quotas." },
-          { title: "Relocating from India", href: "/relocating-from/india/", tag: "Relocation", desc: "Document checklist, tax implications, and salary expectations for Indian professionals." },
+          { title: "Driving Licence Guide 2026", href: "/guides/driving-licence/", tag: "Setup", desc: "Licence conversion, driving schools, costs, and requirements across UAE, Qatar, Saudi." },
+          { title: "Utilities Setup Guide", href: "/guides/utilities-setup/", tag: "Setup", desc: "DEWA, ADDC, Kahramaa, SEC. How to connect electricity, water, and internet." },
+          { title: "Schools & Education 2026", href: "/guides/schools-education/", tag: "Family", desc: "International school systems, curricula, fees, KHDA ratings, and university options." },
+          { title: "Mobile & Internet Guide", href: "/guides/telecom-mobile/", tag: "Setup", desc: "du, Etisalat, Ooredoo, STC. Plans, costs, eSIM, and home broadband options." },
+          { title: "Healthcare for Expats", href: "/guides/healthcare-expats-gulf/", tag: "Health", desc: "Insurance, hospitals, pharmacies, and emergency care across the Gulf." },
+          { title: "Banking for Expats", href: "/guides/banking-expats-gulf/", tag: "Finance", desc: "Opening accounts, remittances, credit cards, and digital banking." },
           { title: "UAE Cost of Living", href: "/uae/cost-of-living/", tag: "Cost", desc: "Rent, groceries, transport, and school fees in Dubai and Abu Dhabi." },
-          { title: "Qatar Expat Guide", href: "/qatar/guide/", tag: "Guide", desc: "Housing, healthcare, banking, and day-to-day life for new arrivals." },
-          { title: "Saudi Salaries 2026", href: "/saudi-arabia/salaries/", tag: "Salary", desc: "Salary ranges for 20 professions from engineering to healthcare." },
-          { title: "Relocating from UK", href: "/relocating-from/uk/", tag: "Relocation", desc: "Tax planning, international schools, and lifestyle comparison for British expats." },
-          { title: "Qatar Labor Law", href: "/qatar/labor-law/", tag: "Law", desc: "Minimum wage, contract types, and worker protection regulations." },
+          { title: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/", tag: "Guide", desc: "UAE vs Qatar vs Saudi Arabia: lifestyle, cost, and opportunity compared." },
         ].map((guide) => (
           <a href={guide.href} class="group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:border-teal-400 dark:hover:border-teal-600 hover:shadow-md transition-all">
             <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 px-2 py-0.5 rounded-md mb-3">{guide.tag}</span>
@@ -293,6 +197,32 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
             <p class="mt-1.5 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.desc}</p>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sister Sites Cross-links -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        More Gulf resources from our network
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-400 dark:hover:border-teal-600 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Salary & Employment Data</h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Compare tax-free salaries across 20+ professions. Gratuity calculators, labor law guides, and salary negotiation tips.</p>
+          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">taxfreesalaries.com</span>
+        </a>
+        <a href="https://thedubaisetup.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-400 dark:hover:border-teal-600 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Business Setup</h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Free zone vs mainland, trade licences, PRO services, and company formation guides for the Gulf.</p>
+          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">thedubaisetup.com</span>
+        </a>
+        <a href="https://uaepriceindex.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-400 dark:hover:border-teal-600 hover:shadow-md transition-all group">
+          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Property Prices</h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Rental and purchase prices across Dubai, Abu Dhabi, Doha, Riyadh, and Jeddah. Area-by-area data.</p>
+          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">uaepriceindex.com</span>
+        </a>
       </div>
     </div>
   </section>
@@ -333,19 +263,19 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
         <div class="lg:col-span-8 mt-10 lg:mt-0">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="text-center sm:text-left">
-              <div class="text-3xl font-bold text-gray-900 dark:text-white tabular-nums">20+</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Professions tracked per country</div>
-              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Engineering, healthcare, finance, IT, and more</div>
+              <div class="text-3xl font-bold text-gray-900 dark:text-white tabular-nums">3</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Gulf countries covered</div>
+              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">UAE, Qatar, and Saudi Arabia</div>
             </div>
             <div class="text-center sm:text-left">
-              <div class="text-3xl font-bold text-gray-900 dark:text-white">3</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Government sources verified</div>
-              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">MoHRE, MHRSD, and MADLSA regulations</div>
+              <div class="text-3xl font-bold text-gray-900 dark:text-white">15+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Practical setup guides</div>
+              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Visas, housing, schools, utilities, and more</div>
             </div>
             <div class="text-center sm:text-left">
-              <div class="text-3xl font-bold text-gray-900 dark:text-white">100%</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Client-side calculations</div>
-              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Your data never leaves your browser</div>
+              <div class="text-3xl font-bold text-gray-900 dark:text-white">2026</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">Updated with latest data</div>
+              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Government sources verified quarterly</div>
             </div>
           </div>
 
@@ -353,10 +283,9 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
             <div class="flex items-start gap-3">
               <svg class="h-5 w-5 text-teal-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
               <div>
-                <div class="text-sm font-semibold text-gray-900 dark:text-white">Based on 2026 official labor-law data</div>
+                <div class="text-sm font-semibold text-gray-900 dark:text-white">Based on official 2026 government data</div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                  Gratuity formulas, salary structures, and visa requirements are sourced directly from UAE MoHRE,
-                  Saudi MHRSD, and Qatar MADLSA published regulations. Last reviewed June 2026.
+                  Visa requirements, utility processes, school ratings, and regulatory information are sourced directly from UAE, Saudi, and Qatar government publications. Last reviewed June 2026.
                 </div>
               </div>
             </div>

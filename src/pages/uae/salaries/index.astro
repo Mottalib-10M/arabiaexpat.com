@@ -1,87 +1,14 @@
 ---
-import CountryLayout from "../../../layouts/CountryLayout.astro";
-import { COUNTRIES } from "../../../data/site-config";
-import { uaeProfessions } from "../../../data/uae/salaries";
-import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
-import { formatCurrency } from "../../../lib/format";
-import AuthorByline from "../../../components/ui/AuthorByline.astro";
-import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
-
-const c = COUNTRIES.uae;
-const faqs = [
-  { question: "Are UAE salaries really tax-free in 2026?", answer: "Yes. The UAE does not impose personal income tax on employment income. Your gross salary is your net take-home pay. UAE and GCC nationals pay social security contributions, but expatriates are fully exempt." },
-  { question: "What is included in a typical UAE salary package?", answer: "A standard UAE employment package includes basic salary, housing allowance (typically 30-40% of basic), transport allowance, annual flight tickets, health insurance, and end-of-service gratuity. Some employers also offer education allowances for dependents." },
-  { question: "How often are salaries paid in the UAE?", answer: "UAE labor law requires employers to pay salaries at least once per month through the Wage Protection System (WPS), which mandates electronic bank transfers to ensure timely payment." },
-  { question: "Do UAE salaries include allowances?", answer: "Salary figures on this page represent total monthly compensation including basic salary. Allowances (housing, transport) are typically separate components that vary by employer and are detailed on individual profession pages." },
-  { question: "How do UAE salaries compare to other Gulf countries?", answer: "UAE salaries, particularly in Dubai and Abu Dhabi, are generally the highest in the GCC for most professions. However, Qatar and Saudi Arabia offer competitive packages for specific sectors like oil and gas, healthcare, and giga-project roles." },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "UAE", url: "https://gulfexpathub.com/uae/guide/" },
-  { name: "Salaries", url: "https://gulfexpathub.com/uae/salaries/" },
-];
+const newUrl = 'https://taxfreesalaries.com/uae/salaries/';
 ---
-
-<CountryLayout
-  title="UAE Salaries 2026: Complete Guide to 20 Top Professions"
-  description="Compare 2026 UAE salaries for 20 professions. Tax-free pay from AED 2,500 to AED 80,000 per month across engineering, healthcare, tech, and finance sectors."
-  canonical="/uae/salaries/"
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salaries", url: "/uae/salaries/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-    UAE Salaries in 2026: Complete Guide to 20 Professions
-  </h1>
-
-  <div class="prose dark:prose-invert max-w-none mb-8">
-    <p>The United Arab Emirates remains one of the world's most attractive destinations for professionals seeking high-paying, tax-free employment. In 2026, the UAE job market continues to thrive across technology, construction, healthcare, finance, and hospitality sectors. Dubai and Abu Dhabi lead as the primary employment hubs, with growing opportunities in Sharjah, Ras Al Khaimah, and other emirates.</p>
-    <p>All salaries in the UAE are paid in UAE Dirhams (AED), pegged to the US Dollar at a fixed rate of 3.6725 AED per USD. The absence of personal income tax means the gross salary figure represents your actual take-home pay, making direct comparisons with taxed jurisdictions particularly favorable for UAE-based professionals.</p>
-    <p>Below you will find detailed salary data for 20 professions, based on market analysis of job postings, recruitment surveys, and industry reports. Each profession links to a detailed page with experience-level breakdowns, benefits analysis, and cost of living context.</p>
-    <p>Salary growth in the UAE has accelerated since 2024, driven by strong demand in AI, fintech, renewable energy, and healthcare. Dubai's position as a global business hub attracts multinational headquarters, while Abu Dhabi's sovereign wealth investments fuel public-sector hiring.</p>
-  </div>
-
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="bg-teal-600 text-white">
-          <th class="px-4 py-3 text-left font-semibold rounded-tl-lg">Profession</th>
-          <th class="px-4 py-3 text-right font-semibold">Avg Monthly (AED)</th>
-          <th class="px-4 py-3 text-right font-semibold">Entry Level</th>
-          <th class="px-4 py-3 text-right font-semibold">Senior Level</th>
-          <th class="px-4 py-3 text-center font-semibold rounded-tr-lg">Details</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-        {uaeProfessions.map((p) => (
-          <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-            <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{p.title}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-700 dark:text-gray-300">{formatCurrency(p.avgMonthly, "AED")}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "")}</td>
-            <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "")}</td>
-            <td class="px-4 py-3 text-center">
-              <a href={`/uae/salaries/${p.slug}/`} class="text-teal-600 dark:text-teal-400 hover:underline text-sm font-medium">View &rarr;</a>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <FAQAccordion faqs={faqs} />
-
-  <SourcesBlock sources={[
-    { name: "UAE Ministry of Human Resources and Emiratisation (MoHRE)", url: "https://www.mohre.gov.ae/" },
-    { name: "UAE Federal Decree-Law No. 33 of 2021", url: "https://www.mohre.gov.ae/" },
-  ]} />
-
-  <RelatedLinks links={[
-    { label: "UAE Gratuity Calculator 2026", href: "/uae/gratuity-calculator/" },
-    { label: "UAE Salary Calculator 2026", href: "/uae/salary-calculator/" },
-    { label: "UAE Cost of Living 2026", href: "/uae/cost-of-living/" },
-    { label: "UAE Visa Guide 2026", href: "/uae/visa-guide/" },
-    { label: "UAE Labor Law Guide", href: "/uae/labor-law/" }, { label: "Gulf Salary Comparison", href: "/salaries/" }, { label: "Dubai City Guide", href: "/uae/dubai/" },
-  ]} />
-</CountryLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

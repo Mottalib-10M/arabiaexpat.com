@@ -1,7 +1,7 @@
 {
-  "name": "Gulf Expat Hub",
-  "short_name": "GulfExpat",
-  "description": "Salary guides, gratuity calculators, and relocation resources for expats in UAE, Qatar, and Saudi Arabia",
+  "name": "Dubai Expat Guide",
+  "short_name": "DubaiExpat",
+  "description": "Your complete guide to living in the Gulf. Visas, daily life, housing, healthcare, and relocation resources for expats.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

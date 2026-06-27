@@ -1,67 +1,24 @@
 ---
-import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { qatarProfessions } from "../../../data/qatar/salaries";
-import { COUNTRIES } from "../../../data/site-config";
-import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
-import { formatCurrency } from "../../../lib/format";
-import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
-import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
 
 export function getStaticPaths() {
-  return qatarProfessions.map((p) => ({ params: { profession: p.slug }, props: { profession: p } }));
+  return qatarProfessions.map((p) => ({
+    params: { profession: p.slug },
+    props: { profession: p },
+  }));
 }
-const { profession: p } = Astro.props;
-const c = COUNTRIES.qatar;
-const related = qatarProfessions.filter((rp) => rp.slug !== p.slug).slice(0, 5);
-const faqs = [
-  { question: `What is the average ${p.title} salary in Qatar in 2026?`, answer: `The average ${p.title} salary in Qatar is approximately ${formatCurrency(p.avgMonthly, "QAR")} per month. Entry-level positions start from ${formatCurrency(p.entry.min, "QAR")}, while senior professionals can earn up to ${formatCurrency(p.senior.max, "QAR")} per month.` },
-  { question: `Is the ${p.title} salary tax-free in Qatar?`, answer: `Yes. Qatar has no personal income tax and no social security contributions for expatriates. Your gross salary is your net take-home pay.` },
-  { question: `What benefits do ${p.title}s get in Qatar?`, answer: `Benefits typically include: ${p.benefits.join(", ")}. Packages vary by employer.` },
-  { question: `How does the Qatar ${p.title} salary compare to UAE?`, answer: `Qatar salaries for ${p.title}s are generally comparable to UAE levels, though some variation exists by employer and sector. The lower cost of living in Doha compared to Dubai can enhance purchasing power.` },
-  { question: `What is the job outlook for ${p.title}s in Qatar?`, answer: p.outlook },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Qatar", url: "https://gulfexpathub.com/qatar/guide/" },
-  { name: "Salaries", url: "https://gulfexpathub.com/qatar/salaries/" },
-  { name: p.title, url: `https://gulfexpathub.com/qatar/salaries/${p.slug}/` },
-];
----
 
-<GuideLayout
-  title={`${p.title} Salary in Qatar 2026: Pay Guide`}
-  description={`Explore ${p.title} salary in Qatar for 2026. Average pay is ${formatCurrency(p.avgMonthly, "QAR")} per month, tax-free. Covers entry to senior bands, benefits, housing, and career outlook.`}
-  canonical={`/qatar/salaries/${p.slug}/`}
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Salaries", url: "/qatar/salaries/" }, { name: p.title, url: `/qatar/salaries/${p.slug}/` }]}
->
-  <h1>{p.title} Salary in Qatar 2026</h1>
-  <div class="not-prose mb-8 p-6 bg-teal-50 dark:bg-teal-900/20 rounded-2xl">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Average Monthly</p><p class="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(p.avgMonthly, "QAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Entry Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "QAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Mid Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.mid.min, "")}-{formatCurrency(p.mid.max, "QAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Senior Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "QAR")}</p></div>
-    </div>
-  </div>
-  <p>{p.description}</p>
-  <h2>Salary by Experience Level</h2>
-  <div class="not-prose overflow-x-auto mb-6">
-    <table class="w-full text-sm"><thead><tr class="bg-teal-600 text-white"><th class="px-4 py-2 text-left rounded-tl-lg">Level</th><th class="px-4 py-2 text-right">Min (QAR)</th><th class="px-4 py-2 text-right rounded-tr-lg">Max (QAR)</th></tr></thead>
-    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-      <tr><td class="px-4 py-2">Entry (0-3 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.max, "")}</td></tr>
-      <tr><td class="px-4 py-2">Mid (3-7 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.max, "")}</td></tr>
-      <tr><td class="px-4 py-2">Senior (7+ years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.max, "")}</td></tr>
-    </tbody></table>
-  </div>
-  <h2>Benefits Breakdown</h2>
-  <ul>{p.benefits.map((b) => <li>{b}</li>)}</ul>
-  <h2>Career Outlook</h2>
-  <p>{p.outlook}</p>
-  <h2>Cost of Living Context</h2>
-  <p>On an average salary of {formatCurrency(p.avgMonthly, "QAR")} per month (approximately ${Math.round(p.avgMonthly / 3.64).toLocaleString()} USD), a {p.title} in Qatar can expect housing to take 30-35% of income, with food at 15%, transport at 10%, and savings potential of 25-35%. Doha's cost of living is generally lower than Dubai for housing, which can enhance net savings. See our <a href="/qatar/cost-of-living/">Qatar Cost of Living guide</a> for detailed breakdowns.</p>
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: c.molName, url: c.molUrl }]} />
-  <RelatedLinks title="Related Qatar Salaries" links={related.map((rp) => ({ label: `${rp.title} Salary (${formatCurrency(rp.avgMonthly, "QAR")}/mo)`, href: `/qatar/salaries/${rp.slug}/` }))} />
-</GuideLayout>
+const { profession: p } = Astro.props;
+const newUrl = `https://taxfreesalaries.com/qatar/salaries/${p.slug}/`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

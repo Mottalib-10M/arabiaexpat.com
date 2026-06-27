@@ -1,64 +1,14 @@
 ---
-import CountryLayout from "../../../layouts/CountryLayout.astro";
-import { saudiProfessions } from "../../../data/saudi/salaries";
-import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
-import { formatCurrency } from "../../../lib/format";
-import AuthorByline from "../../../components/ui/AuthorByline.astro";
-import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
-
-const faqs = [
-  { question: "Are Saudi Arabia salaries tax-free in 2026?", answer: "Yes. Saudi Arabia has no personal income tax. Saudi nationals pay GOSI (social insurance) at 9.75%, while expat employees pay nothing directly (employer pays 2% GOSI for expats)." },
-  { question: "What is GOSI and does it affect expat salaries?", answer: "GOSI (General Organization for Social Insurance) is Saudi Arabia's social security system. Expats do not pay GOSI contributions themselves; only the employer pays 2% for expatriate employees. Saudi nationals pay 9.75% from their salary." },
-  { question: "What is Saudization and how does it affect jobs?", answer: "Saudization (Nitaqat) is a government program requiring companies to employ minimum quotas of Saudi nationals. This can limit some positions for expatriates, though skilled specialist roles remain accessible." },
-  { question: "How are Saudi salaries structured?", answer: "Saudi salaries typically include basic salary, housing allowance (25-35%), transport allowance, and annual flights. End-of-service benefits are mandatory under Saudi labor law." },
-  { question: "What is the cost of living like in Saudi Arabia?", answer: "Saudi Arabia generally has a lower cost of living than the UAE. Riyadh and Jeddah are the main cities, with housing being the largest expense at 25-35% of income for professionals." },
-];
-const breadcrumbs = [{ name: "Home", url: "https://gulfexpathub.com/" }, { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" }, { name: "Salaries", url: "https://gulfexpathub.com/saudi-arabia/salaries/" }];
+const newUrl = 'https://taxfreesalaries.com/saudi-arabia/salaries/';
 ---
-
-<CountryLayout
-  title="Saudi Arabia Salaries 2026: 20 Professions Pay Guide"
-  description="Compare 2026 Saudi salaries for 20 professions. Tax-free pay from SAR 2,000 to SAR 70,000 per month across Vision 2030 giga-projects, energy, and more."
-  canonical="/saudi-arabia/salaries/"
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Salaries", url: "/saudi-arabia/salaries/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">Saudi Arabia Salaries in 2026: Complete Guide</h1>
-  <div class="prose dark:prose-invert max-w-none mb-8">
-    <p>Saudi Arabia's Vision 2030 transformation has created unprecedented employment opportunities across every sector. The kingdom is investing over $1 trillion in giga-projects, digital infrastructure, tourism, and entertainment, driving salary growth and talent demand. With no personal income tax and a cost of living generally lower than the UAE, Saudi Arabia offers compelling financial packages for expatriate professionals.</p>
-    <p>Salaries are paid in Saudi Riyals (SAR), pegged to the USD at 3.75 SAR/USD. While there is no income tax, Saudi nationals contribute 9.75% to GOSI social insurance. Expatriates have no direct salary deductions, though employers pay a 2% GOSI contribution on their behalf. The Saudization program (Nitaqat) influences hiring patterns but does not eliminate opportunities for qualified expats.</p>
-    <p>Vision 2030 giga-projects such as NEOM, The Red Sea, ROSHN, and Qiddiya have created tens of thousands of specialist roles that did not exist five years ago. These mega-developments need architects, civil engineers, hospitality managers, IT professionals, and healthcare providers on a massive scale. As a result, salary packages for in-demand skills have risen 10-15% year over year since 2023, especially in Riyadh, which the government is positioning as a rival to Dubai for corporate headquarters.</p>
-    <p>The kingdom has also loosened visa rules with the Premium Residency program and freelance permits, making it easier for skilled expats to live and work independently. Coupled with a cost of living that remains 20-30% lower than Dubai for housing and daily expenses, Saudi Arabia now offers some of the strongest net-savings potential in the Gulf region.</p>
-  </div>
-  <div class="overflow-x-auto">
-    <table class="w-full text-sm"><thead><tr class="bg-teal-600 text-white">
-      <th class="px-4 py-3 text-left font-semibold rounded-tl-lg">Profession</th>
-      <th class="px-4 py-3 text-right font-semibold">Avg Monthly (SAR)</th>
-      <th class="px-4 py-3 text-right font-semibold">Entry Level</th>
-      <th class="px-4 py-3 text-right font-semibold">Senior Level</th>
-      <th class="px-4 py-3 text-center font-semibold rounded-tr-lg">Details</th>
-    </tr></thead>
-    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-      {saudiProfessions.map((p) => (
-        <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{p.title}</td>
-          <td class="px-4 py-3 text-right tabular-nums">{formatCurrency(p.avgMonthly, "SAR")}</td>
-          <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "")}</td>
-          <td class="px-4 py-3 text-right tabular-nums text-gray-500 dark:text-gray-400">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "")}</td>
-          <td class="px-4 py-3 text-center"><a href={`/saudi-arabia/salaries/${p.slug}/`} class="text-teal-600 dark:text-teal-400 hover:underline text-sm font-medium">View &rarr;</a></td>
-        </tr>
-      ))}
-    </tbody></table>
-  </div>
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }]} />
-  <RelatedLinks links={[
-    { label: "Saudi Gratuity Calculator 2026", href: "/saudi-arabia/gratuity-calculator/" },
-    { label: "Saudi Salary Calculator 2026", href: "/saudi-arabia/salary-calculator/" },
-    { label: "Saudi Cost of Living 2026", href: "/saudi-arabia/cost-of-living/" },
-    { label: "Saudi Visa Guide 2026", href: "/saudi-arabia/visa-guide/" },
-  ]} />
-</CountryLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

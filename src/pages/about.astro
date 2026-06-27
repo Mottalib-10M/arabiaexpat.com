@@ -5,25 +5,25 @@ import { buildPersonSchema, buildOrganizationSchema, buildBreadcrumbs } from "..
 import RelatedLinks from "../components/ui/RelatedLinks.astro";
 
 const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "About", url: "https://gulfexpathub.com/about/" },
+  { name: "Home", url: "https://dubaiexpatguide.com/" },
+  { name: "About", url: "https://dubaiexpatguide.com/about/" },
 ];
 const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumbs(breadcrumbs)];
 ---
 
 <GuideLayout
   title="About Us 2026: Research Methodology and Author Profile"
-  description="Gulf Expat Hub methodology, data accuracy standards, and author Mottalib Radif MBA INSEAD. How we verify salary data and calculator formulas for 2026."
+  description="Dubai Expat Guide methodology, data accuracy standards, and author Mottalib Radif MBA INSEAD. How we verify salary data and calculator formulas for 2026."
   canonical="/about/"
   schemas={schemas}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]}
 >
-  <h1>About Gulf Expat Hub 2026</h1>
+  <h1>About Dubai Expat Guide 2026</h1>
 
-  <p>Gulf Expat Hub is the definitive online resource for professionals planning careers in the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and up-to-date information on salaries, end-of-service benefits, visa processes, labor laws, and cost of living across the Gulf region.</p>
+  <p>Dubai Expat Guide is the definitive online resource for professionals relocating to the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and up-to-date information on visa processes, housing, schools, utilities, driving licences, healthcare, and daily life across the Gulf region. For salary data and employment-specific resources, visit our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>.</p>
 
   <h2>Our Mission</h2>
-  <p>We believe that every professional considering a Gulf career deserves access to transparent, reliable information. Our mission is to help expats with the data and tools they need to make informed decisions about their careers and finances. All our calculators run entirely in your browser, ensuring your financial data stays private.</p>
+  <p>We believe that every professional considering a Gulf career deserves access to transparent, reliable information. Our mission is to help expats with the guides and resources they need to make informed decisions about relocating, settling in, and building a life in the Gulf.</p>
 
   <h2>About the Author</h2>
   <h3>Mottalib Radif, MBA INSEAD</h3>
@@ -41,19 +41,19 @@ const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumb
   </ul>
 
   <h2>Editorial Independence</h2>
-  <p>Gulf Expat Hub maintains complete editorial independence. Our content is not sponsored by recruitment agencies, employers, or government entities. We provide objective information to help professionals make their own informed decisions. Where we reference specific companies or services, it is for informational purposes only and does not constitute an endorsement.</p>
+  <p>Dubai Expat Guide maintains complete editorial independence. Our content is not sponsored by recruitment agencies, employers, or government entities. We provide objective information to help professionals make their own informed decisions. Where we reference specific companies or services, it is for informational purposes only and does not constitute an endorsement.</p>
 
   <h2>Accuracy Disclaimer</h2>
-  <p>While we strive for accuracy, the information on Gulf Expat Hub is provided for general guidance and educational purposes. It should not be considered as legal, financial, or immigration advice. Laws and regulations change, and individual circumstances vary. We recommend consulting with qualified professionals (lawyers, accountants, immigration consultants) for advice specific to your situation. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
+  <p>While we strive for accuracy, the information on Dubai Expat Guide is provided for general guidance and educational purposes. It should not be considered as legal, financial, or immigration advice. Laws and regulations change, and individual circumstances vary. We recommend consulting with qualified professionals (lawyers, accountants, immigration consultants) for advice specific to your situation. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
 
   <h2>Contact</h2>
-  <p>We welcome corrections, suggestions, and feedback. If you notice any inaccuracies or have information that could improve our content, reach out at <a href="mailto:contact@gulfexpathub.com">contact@gulfexpathub.com</a>. Maintaining accuracy is our top priority.</p>
+  <p>We welcome corrections, suggestions, and feedback. If you notice any inaccuracies or have information that could improve our content, reach out at <a href="mailto:contact@dubaiexpatguide.com">contact@dubaiexpatguide.com</a>. Maintaining accuracy is our top priority.</p>
 
   <RelatedLinks links={[
     { label: "UAE Expat Guide 2026", href: "/uae/guide/" },
     { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
     { label: "Qatar Expat Guide 2026", href: "/qatar/guide/" },
     { label: "Privacy Policy", href: "/privacy-policy/" },
-    { label: "Terms of Use", href: "/terms/" }, { label: "All Calculators", href: "/calculators/" }, { label: "All Guides", href: "/guides/" },
+    { label: "Terms of Use", href: "/terms/" }, { label: "All Guides", href: "/guides/" },
   ]} />
 </GuideLayout>

@@ -1,95 +1,14 @@
 ---
-import GuideLayout from "../layouts/GuideLayout.astro";
-import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../lib/seo";
-import FAQAccordion from "../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../components/ui/RelatedLinks.astro";
-
-const faqs = [
-  { question: "Which Gulf country pays the highest salaries in 2026?", answer: "The UAE pays the highest average salaries across most professions, with a 10-25% premium over Qatar and Saudi Arabia. However, Qatar's energy sector and Saudi Arabia's Vision 2030 giga-project roles can match or exceed UAE rates for specialized positions." },
-  { question: "Are Gulf salaries really tax-free?", answer: "Yes. The UAE, Qatar, and Saudi Arabia impose zero personal income tax on employment income. Your gross salary is your net take-home pay. The only deductions are GOSI for Saudi nationals (9.75%) and GPSSA for UAE nationals (5%), but expatriates are fully exempt." },
-  { question: "How do VAT rates affect real income in each country?", answer: "Qatar has no VAT, the UAE charges 5%, and Saudi Arabia charges 15%. On typical monthly spending of $3,000, this means you effectively pay $0, $150, or $450 in consumption tax respectively. Qatar offers the best purchasing power." },
-  { question: "Which profession pays the most in the Gulf?", answer: "Pilots (especially at Emirates and Qatar Airways) earn the highest salaries, averaging AED 45,000/month in the UAE. Doctors, lawyers, and senior project managers also command premium salaries across all three countries." },
-  { question: "Can I negotiate Gulf salary offers?", answer: "Yes. Gulf employers expect negotiation, especially for mid-to-senior roles. Focus on the total package: housing allowance, flights, education allowance, and bonus structure. Research market rates using our profession-specific salary pages before negotiating." },
-];
-
-const salaryData = [
-  { profession: "Software Engineer", uae: "AED 22,000", qatar: "QAR 18,000", saudi: "SAR 18,000", uaeUsd: 5990, qatarUsd: 4945, saudiUsd: 4800 },
-  { profession: "Doctor", uae: "AED 35,000", qatar: "QAR 32,000", saudi: "SAR 30,000", uaeUsd: 9530, qatarUsd: 8791, saudiUsd: 8000 },
-  { profession: "Civil Engineer", uae: "AED 18,000", qatar: "QAR 16,000", saudi: "SAR 15,000", uaeUsd: 4900, qatarUsd: 4396, saudiUsd: 4000 },
-  { profession: "Teacher", uae: "AED 14,000", qatar: "QAR 12,000", saudi: "SAR 11,000", uaeUsd: 3812, qatarUsd: 3297, saudiUsd: 2933 },
-  { profession: "Accountant", uae: "AED 15,000", qatar: "QAR 13,000", saudi: "SAR 12,000", uaeUsd: 4085, qatarUsd: 3571, saudiUsd: 3200 },
-  { profession: "Nurse", uae: "AED 10,000", qatar: "QAR 9,000", saudi: "SAR 8,000", uaeUsd: 2723, qatarUsd: 2473, saudiUsd: 2133 },
-  { profession: "Project Manager", uae: "AED 22,000", qatar: "QAR 19,000", saudi: "SAR 18,000", uaeUsd: 5990, qatarUsd: 5220, saudiUsd: 4800 },
-  { profession: "Marketing Manager", uae: "AED 20,000", qatar: "QAR 17,000", saudi: "SAR 16,000", uaeUsd: 5447, qatarUsd: 4670, saudiUsd: 4267 },
-  { profession: "Lawyer", uae: "AED 25,000", qatar: "QAR 22,000", saudi: "SAR 20,000", uaeUsd: 6807, qatarUsd: 6044, saudiUsd: 5333 },
-  { profession: "Pilot", uae: "AED 45,000", qatar: "QAR 42,000", saudi: "SAR 35,000", uaeUsd: 12252, qatarUsd: 11538, saudiUsd: 9333 },
-];
-
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Salaries", url: "https://gulfexpathub.com/salaries/" },
-];
+const newUrl = 'https://taxfreesalaries.com/salaries/';
 ---
-
-<GuideLayout
-  title="Gulf Salary Comparison 2026: UAE vs Qatar vs Saudi"
-  description="Compare salaries across UAE, Qatar, and Saudi Arabia for 20+ professions in 2026. Tax-free income data with USD equivalents and cost-of-living context."
-  canonical="/salaries/"
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Gulf Salary Comparison 2026: UAE vs Qatar vs Saudi", "Compare salaries across the Gulf.", "https://gulfexpathub.com/salaries/", "2025-06-01", "2026-06-15")]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Salaries", url: "/salaries/" }]}
->
-  <h1>Gulf Salary Comparison 2026: UAE, Qatar, and Saudi Arabia</h1>
-
-  <p>This page provides a cross-country salary comparison for the most common expatriate professions across the UAE, Qatar, and Saudi Arabia. All three countries offer zero personal income tax, but salaries, benefits, and purchasing power differ. The table below shows average monthly salaries in local currency with USD equivalents at current pegged exchange rates. For detailed profession-specific data, visit the individual country salary pages linked below.</p>
-
-  <h2>Average Monthly Salaries by Profession</h2>
-  <div class="not-prose overflow-x-auto mb-8">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="bg-teal-600 text-white">
-          <th class="px-3 py-3 text-left rounded-tl-lg">Profession</th>
-          <th class="px-3 py-3 text-center">UAE</th>
-          <th class="px-3 py-3 text-center">Qatar</th>
-          <th class="px-3 py-3 text-center">Saudi Arabia</th>
-          <th class="px-3 py-3 text-center rounded-tr-lg">Highest (USD)</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-        {salaryData.map((row, i) => (
-          <tr class={i % 2 === 0 ? "bg-gray-50 dark:bg-gray-800/50" : ""}>
-            <td class="px-3 py-2.5 font-medium">{row.profession}</td>
-            <td class="px-3 py-2.5 text-center tabular-nums text-sm">{row.uae}</td>
-            <td class="px-3 py-2.5 text-center tabular-nums text-sm">{row.qatar}</td>
-            <td class="px-3 py-2.5 text-center tabular-nums text-sm">{row.saudi}</td>
-            <td class="px-3 py-2.5 text-center tabular-nums text-sm font-semibold text-teal-600 dark:text-teal-400">${Math.max(row.uaeUsd, row.qatarUsd, row.saudiUsd).toLocaleString()}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Key Salary Insights for 2026</h2>
-  <p>The UAE consistently offers the highest salaries in the Gulf across most professions. Dubai drives the premium, with its larger commercial market and higher cost of living requiring competitive compensation. Qatar's salaries are typically second highest, supported by extraordinary per-capita wealth and a concentrated labor market. Saudi Arabia offers the lowest average salaries but compensates with dramatically lower living costs, particularly for housing, resulting in comparable or better savings potential.</p>
-
-  <p>When evaluating Gulf salary offers, look beyond the headline number. Consider the full package: housing allowance (typically 30-40% of base), transport allowance, annual flights, education allowances, and health insurance. In the UAE, these benefits can add AED 5,000-15,000 per month to the effective package value. Saudi compound housing, provided free by some employers, eliminates the largest single expense entirely. Qatar's zero VAT policy effectively adds 5% to your purchasing power compared to the UAE and 15% compared to Saudi Arabia.</p>
-
-  <p>The gratuity system also materially affects total compensation over a multi-year Gulf career. An employee earning AED 20,000/month who serves 8 years in the UAE accumulates approximately AED 98,000 in gratuity. In Saudi Arabia, the same tenure on an equivalent salary yields approximately SAR 110,000 due to the more generous full-month formula after 5 years. Qatar's uniform 21-day formula produces approximately QAR 89,600 for the same period. Use our <a href="/calculators/">gratuity calculators</a> to model your specific scenario.</p>
-
-  <h2>Country Salary Pages</h2>
-  <p>For detailed salary data across 20+ professions with entry, mid, and senior ranges, visit the individual country pages:</p>
-  <ul>
-    <li><a href="/uae/salaries/">UAE Salaries 2026</a> -- 20 professions in AED with benefits breakdown</li>
-    <li><a href="/qatar/salaries/">Qatar Salaries 2026</a> -- 20 professions in QAR with sector analysis</li>
-    <li><a href="/saudi-arabia/salaries/">Saudi Arabia Salaries 2026</a> -- 20 professions in SAR with Vision 2030 context</li>
-  </ul>
-
-  <FAQAccordion faqs={faqs} />
-
-  <RelatedLinks links={[
-    { label: "UAE vs Saudi Arabia Comparison", href: "/compare/uae-vs-saudi-arabia/" },
-    { label: "UAE vs Qatar Comparison", href: "/compare/uae-vs-qatar/" },
-    { label: "All Calculators", href: "/calculators/" },
-    { label: "All Guides", href: "/guides/" },
-    { label: "Cost of Living Comparison", href: "/compare/uae-vs-qatar-cost-of-living/" },
-  ]} />
-</GuideLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

@@ -1,67 +1,24 @@
 ---
-import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { saudiProfessions } from "../../../data/saudi/salaries";
-import { COUNTRIES } from "../../../data/site-config";
-import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
-import { formatCurrency } from "../../../lib/format";
-import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
-import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
 
 export function getStaticPaths() {
-  return saudiProfessions.map((p) => ({ params: { profession: p.slug }, props: { profession: p } }));
+  return saudiProfessions.map((p) => ({
+    params: { profession: p.slug },
+    props: { profession: p },
+  }));
 }
-const { profession: p } = Astro.props;
-const c = COUNTRIES.saudi;
-const related = saudiProfessions.filter((rp) => rp.slug !== p.slug).slice(0, 5);
-const faqs = [
-  { question: `What is the average ${p.title} salary in Saudi Arabia in 2026?`, answer: `The average ${p.title} salary in Saudi Arabia is approximately ${formatCurrency(p.avgMonthly, "SAR")} per month. Entry-level: ${formatCurrency(p.entry.min, "SAR")}-${formatCurrency(p.entry.max, "SAR")}. Senior: ${formatCurrency(p.senior.min, "SAR")}-${formatCurrency(p.senior.max, "SAR")}.` },
-  { question: `Do ${p.title}s pay tax in Saudi Arabia?`, answer: `No personal income tax applies. Saudi nationals pay GOSI at 9.75%. Expats pay zero direct deductions. Your gross salary is effectively your net take-home pay.` },
-  { question: `What benefits do ${p.title}s receive in Saudi Arabia?`, answer: `Benefits typically include: ${p.benefits.join(", ")}.` },
-  { question: `Does Saudization affect ${p.title} positions?`, answer: `Saudization quotas vary by sector and company size. Specialist ${p.title} roles may be less affected than generalist positions, but companies must meet overall Nitaqat ratios.` },
-  { question: `What is the career outlook for ${p.title}s in Saudi Arabia?`, answer: p.outlook },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
-  { name: "Salaries", url: "https://gulfexpathub.com/saudi-arabia/salaries/" },
-  { name: p.title, url: `https://gulfexpathub.com/saudi-arabia/salaries/${p.slug}/` },
-];
----
 
-<GuideLayout
-  title={`${p.title} Salary in Saudi Arabia 2026`}
-  description={`Explore ${p.title} salary in Saudi Arabia for 2026. Average pay is ${formatCurrency(p.avgMonthly, "SAR")} per month with no income tax. Covers all experience bands, benefits, and career outlook.`}
-  canonical={`/saudi-arabia/salaries/${p.slug}/`}
-  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Salaries", url: "/saudi-arabia/salaries/" }, { name: p.title, url: `/saudi-arabia/salaries/${p.slug}/` }]}
->
-  <h1>{p.title} Salary in Saudi Arabia 2026</h1>
-  <div class="not-prose mb-8 p-6 bg-teal-50 dark:bg-teal-900/20 rounded-2xl">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Average Monthly</p><p class="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(p.avgMonthly, "SAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Entry Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.entry.min, "")}-{formatCurrency(p.entry.max, "SAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Mid Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.mid.min, "")}-{formatCurrency(p.mid.max, "SAR")}</p></div>
-      <div><p class="text-xs text-gray-500 dark:text-gray-400">Senior Level</p><p class="text-lg font-semibold text-gray-900 dark:text-white tabular-nums">{formatCurrency(p.senior.min, "")}-{formatCurrency(p.senior.max, "SAR")}</p></div>
-    </div>
-  </div>
-  <p>{p.description}</p>
-  <h2>Salary by Experience Level</h2>
-  <div class="not-prose overflow-x-auto mb-6">
-    <table class="w-full text-sm"><thead><tr class="bg-teal-600 text-white"><th class="px-4 py-2 text-left rounded-tl-lg">Level</th><th class="px-4 py-2 text-right">Min (SAR)</th><th class="px-4 py-2 text-right rounded-tr-lg">Max (SAR)</th></tr></thead>
-    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-      <tr><td class="px-4 py-2">Entry (0-3 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.entry.max, "")}</td></tr>
-      <tr><td class="px-4 py-2">Mid (3-7 years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.mid.max, "")}</td></tr>
-      <tr><td class="px-4 py-2">Senior (7+ years)</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.min, "")}</td><td class="px-4 py-2 text-right tabular-nums">{formatCurrency(p.senior.max, "")}</td></tr>
-    </tbody></table>
-  </div>
-  <h2>Benefits Breakdown</h2>
-  <ul>{p.benefits.map((b) => <li>{b}</li>)}</ul>
-  <h2>Career Outlook</h2>
-  <p>{p.outlook}</p>
-  <h2>Cost of Living Context</h2>
-  <p>With a salary of {formatCurrency(p.avgMonthly, "SAR")} per month (approximately ${Math.round(p.avgMonthly / 3.75).toLocaleString()} USD), professionals can expect lower living costs than the UAE. Housing in Riyadh and Jeddah takes 25-35% of income, food 15%, and transport 10%, leaving savings potential of 30-40%. See our <a href="/saudi-arabia/cost-of-living/">Saudi Cost of Living guide</a> for details.</p>
-  <FAQAccordion faqs={faqs} />
-  <SourcesBlock sources={[{ name: c.molName, url: c.molUrl }]} />
-  <RelatedLinks title="Related Saudi Salaries" links={related.map((rp) => ({ label: `${rp.title} Salary (${formatCurrency(rp.avgMonthly, "SAR")}/mo)`, href: `/saudi-arabia/salaries/${rp.slug}/` }))} />
-</GuideLayout>
+const { profession: p } = Astro.props;
+const newUrl = `https://taxfreesalaries.com/saudi-arabia/salaries/${p.slug}/`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>

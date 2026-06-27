@@ -1,75 +1,14 @@
 ---
-import CalculatorLayout from "../../layouts/CalculatorLayout.astro";
-import SalaryCalculator from "../../components/calculators/SalaryCalculator";
-import { buildBreadcrumbs, buildFAQSchema, buildWebApplicationSchema } from "../../lib/seo";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import AuthorByline from "../../components/ui/AuthorByline.astro";
-import TrustBadge from "../../components/ui/TrustBadge.astro";
-import EmbedInstructions from "../../components/ui/EmbedInstructions.astro";
-
-const faqs = [
-  { question: "Does Saudi Arabia have income tax on salaries?", answer: "No. Saudi Arabia does not impose personal income tax on employment income for either nationals or expatriates. However, Saudi nationals are subject to GOSI social insurance contributions, and employers of expatriates must pay a 2% GOSI contribution." },
-  { question: "What is GOSI and how does it affect my Saudi salary?", answer: "GOSI (General Organization for Social Insurance) manages social insurance in Saudi Arabia. Saudi nationals contribute 9.75% of their basic salary (pension 9% + SANED unemployment 0.75%), while employers contribute 11.75% (pension 9% + occupational hazards 2% + SANED 0.75%). For expatriates, only the employer pays 2% for occupational hazard insurance." },
-  { question: "What deductions apply to expatriate salaries in Saudi Arabia?", answer: "Expatriate employees have no mandatory salary deductions in Saudi Arabia. There is no income tax and no employee social security contribution. Employers must pay 2% of the expat's salary to GOSI for occupational hazard insurance, but this does not reduce the employee's take-home pay." },
-  { question: "Is the housing allowance mandatory in Saudi Arabia?", answer: "Saudi labor law does not mandate a specific housing allowance percentage. However, it is standard practice for employers to provide a housing allowance, typically 25-30% of the basic salary. Some employers, particularly in the industrial sector, provide company accommodation instead of a cash allowance." },
-  { question: "What is the Saudi minimum wage?", answer: "Saudi Arabia has a minimum wage of SAR 4,000 per month for Saudi nationals in the private sector, introduced as part of the Nitaqat Saudization program. There is no formal minimum wage for expatriate workers, though salary must be sufficient for visa sponsorship requirements." },
-  { question: "How does GOSI contribution work for Saudi nationals?", answer: "Saudi nationals contribute 9.75% of their registered basic salary to GOSI, split into 9% for pension (Annuity Branch) and 0.75% for SANED unemployment insurance. Employers contribute 11.75%, split into 9% pension, 2% occupational hazards, and 0.75% SANED. The contribution is capped at a maximum registrable salary of SAR 45,000 per month." },
-  { question: "Are bonuses and allowances subject to GOSI in Saudi Arabia?", answer: "GOSI contributions for Saudi nationals are calculated on the registered basic salary only, excluding housing allowance, transport allowance, and other benefits. However, the registered salary should reflect the actual basic salary as stated in the employment contract registered with GOSI." },
-];
-const breadcrumbs = [
-  { name: "Home", url: "https://gulfexpathub.com/" },
-  { name: "Saudi Arabia", url: "https://gulfexpathub.com/saudi-arabia/guide/" },
-  { name: "Salary Calculator", url: "https://gulfexpathub.com/saudi-arabia/salary-calculator/" },
-];
-const schemas = [
-  buildBreadcrumbs(breadcrumbs),
-  buildFAQSchema(faqs),
-  buildWebApplicationSchema("Saudi Arabia Salary Calculator 2026", "Calculate your Saudi take-home pay with GOSI deductions for nationals and employer contributions for expats.", "https://gulfexpathub.com/saudi-arabia/salary-calculator/"),
-];
+const newUrl = 'https://taxfreesalaries.com/saudi-arabia/salary-calculator/';
 ---
-
-<CalculatorLayout
-  title="Saudi Arabia Salary Calculator 2026: GOSI Deductions"
-  description="Calculate your Saudi take-home salary for 2026. GOSI deductions at 9.75% for nationals, 2% employer-only contribution for expats. Free instant breakdown."
-  canonical="/saudi-arabia/salary-calculator/"
-  schemas={schemas}
-  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Salary Calculator", url: "/saudi-arabia/salary-calculator/" }]}
->
-  <AuthorByline />
-  <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">Saudi Arabia Salary Calculator 2026</h1>
-  <p class="text-gray-600 dark:text-gray-400 mb-6">Calculate your Saudi take-home pay including GOSI contributions. All calculations run privately in your browser.</p>
-  <TrustBadge />
-
-  <div class="mt-6">
-    <SalaryCalculator client:idle country="saudi" currency="SAR" countryName="Saudi Arabia" />
-  </div>
-
-  <EmbedInstructions calculatorType="salary" />
-
-  <div class="prose dark:prose-invert max-w-none mt-12">
-    <h2>How Saudi Salaries Work in 2026</h2>
-    <p>Saudi Arabia does not impose personal income tax on employment income, making it a financially attractive destination for both nationals and expatriates. However, unlike the UAE and Qatar, Saudi Arabia has a mandatory social insurance system (GOSI) that affects salary calculations differently for nationals and foreign workers. Understanding these GOSI contributions is essential for accurate take-home pay estimates.</p>
-    <p>For Saudi nationals, GOSI contributions are the primary salary deduction. The employee pays 9.75% of their registered basic salary, which covers pension (9%) and SANED unemployment insurance (0.75%). The employer contributes an additional 11.75%, covering pension (9%), occupational hazard insurance (2%), and SANED (0.75%). The maximum salary subject to GOSI contributions is capped at SAR 45,000 per month. For expatriate workers, there is no employee contribution at all. Employers pay only 2% of the expat's salary for occupational hazard insurance, and this cost does not reduce the employee's take-home pay.</p>
-    <p>A typical Saudi employment package includes a basic salary, housing allowance (usually 25-30% of basic), and transport allowance. The housing allowance is particularly important because it is included in end-of-service gratuity calculations under Saudi labor law, unlike the UAE where only basic salary counts. Many employers in the kingdom also provide annual flights, health insurance (mandatory under CCHI regulations), and education assistance for employees with school-age children. Major employers such as Saudi Aramco, SABIC, Saudi Telecom, and Vision 2030 giga-project developers offer premium packages that include additional benefits.</p>
-
-    <h2>GOSI Details for Nationals and Expats</h2>
-    <p>The General Organization for Social Insurance (GOSI) is the body responsible for managing social insurance in Saudi Arabia. For Saudi nationals, GOSI provides retirement pensions, disability benefits, and survivor benefits through the Annuity Branch, plus unemployment support through the SANED program. Registration with GOSI is mandatory for all employees, and contributions must be paid monthly by the employer. Late payments attract penalties. GOSI has an online portal (gosi.gov.sa) where employees can verify their registration, check contribution history, and estimate future pension entitlements. Expatriates should note that while the employer pays the 2% occupational hazard contribution, this provides workplace injury and disability coverage but does not build pension rights.</p>
-  </div>
-
-  <FAQAccordion faqs={faqs} />
-
-  <SourcesBlock sources={[
-    { name: "Saudi MHRSD - Ministry of Human Resources", url: "https://hrsd.gov.sa/" },
-    { name: "GOSI - General Organization for Social Insurance", url: "https://www.gosi.gov.sa/" },
-  ]} />
-
-  <RelatedLinks links={[
-    { label: "Saudi Gratuity Calculator 2026", href: "/saudi-arabia/gratuity-calculator/" },
-    { label: "Saudi Cost of Living 2026", href: "/saudi-arabia/cost-of-living/" },
-    { label: "Saudi Labor Law Guide", href: "/saudi-arabia/labor-law/" },
-    { label: "Saudi Salaries by Profession", href: "/saudi-arabia/salaries/" },
-    { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "All Calculators", href: "/calculators/" }, { label: "Tax-Free Countries", href: "/guides/tax-free-countries-gulf/" },
-  ]} />
-</CalculatorLayout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting</title>
+  <link rel="canonical" href={newUrl} />
+  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
+</html>
