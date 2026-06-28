@@ -1,10 +1,11 @@
 ---
-import GuideLayout from "../../layouts/GuideLayout.astro";
-import { corridors } from "../../data/corridors";
-import { buildBreadcrumbs, buildFAQSchema } from "../../lib/seo";
-import RelatedLinks from "../../components/ui/RelatedLinks.astro";
-import SourcesBlock from "../../components/ui/SourcesBlock.astro";
-import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import GuideLayout from "../../../layouts/GuideLayout.astro";
+import { corridors } from "../../../data/corridors";
+import { destinationCities } from "../../../data/destination-cities";
+import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
+import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
 
 export function getStaticPaths() {
   return corridors.map((c) => ({
@@ -53,6 +54,16 @@ const breadcrumbs = [
         <p class="font-medium text-gray-900 dark:text-white">{corridor.avgSalaryRange}</p>
       </div>
     </div>
+  </div>
+
+  <h2>Choose Your Destination City</h2>
+  <div class="not-prose grid grid-cols-2 sm:grid-cols-3 gap-3 my-6">
+    {destinationCities.map((city) => (
+      <a href={`/relocating-from/${corridor.slug}/to-${city.slug}/`} class="group bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg p-4 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{corridor.country} to {city.name}</h3>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">City-specific guide, costs, and tips</p>
+      </a>
+    ))}
   </div>
 
   {corridor.content.split("\n\n").map((paragraph) => (

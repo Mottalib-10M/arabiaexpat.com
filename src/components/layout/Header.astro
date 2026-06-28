@@ -3,7 +3,7 @@ import { mainNav } from "../../data/nav";
 ---
 
 <a href="#main-content" class="skip-to-content">Skip to content</a>
-<header class="sticky top-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/80">
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800">
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
@@ -35,7 +35,7 @@ import { mainNav } from "../../data/nav";
             </a>
             {item.children && (
               <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg shadow-gray-200/50 dark:shadow-black/30 border border-gray-200 dark:border-gray-700 py-1.5 min-w-[240px]">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg shadow-gray-200/50 dark:shadow-black/30 border border-gray-200 dark:border-gray-700 py-1.5 min-w-[240px]">
                   {item.children.map((child) => (
                     <a
                       href={child.href}

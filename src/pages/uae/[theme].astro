@@ -1,0 +1,56 @@
+---
+import ThematicLayout from "../../layouts/ThematicLayout.astro";
+import { getThematicPagesForCountry, getCrossLinks } from "../../data/thematic-registry";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import SchoolCostEstimator from "../../components/calculators/SchoolCostEstimator";
+import RentEstimator from "../../components/calculators/RentEstimator";
+import TransportCostEstimator from "../../components/calculators/TransportCostEstimator";
+import UtilitiesCostEstimator from "../../components/calculators/UtilitiesCostEstimator";
+
+export function getStaticPaths() {
+  const pages = getThematicPagesForCountry("uae");
+  return pages.map((page) => ({
+    params: { theme: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const crossLinks = getCrossLinks(page);
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "UAE", url: "https://arabiaexpat.com/uae/guide/" },
+  { name: page.title, url: `https://arabiaexpat.com/uae/${page.slug}/` },
+];
+---
+
+<ThematicLayout
+  title={page.title}
+  description={page.description}
+  canonical={`/uae/${page.slug}/`}
+  schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema(page.title, page.description, `https://arabiaexpat.com/uae/${page.slug}/`, "2025-06-01", "2026-06-15"), buildFAQSchema(page.faqs)]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: page.title.replace(/^UAE\s+/i, "").replace(/\s+in the UAE.*$/i, ""), url: `/uae/${page.slug}/` }]}
+  faqs={page.faqs}
+  sources={page.sources}
+  relatedLinks={page.relatedLinks}
+  crossLinks={crossLinks}
+>
+  <Fragment slot="simulator">
+    {page.calculator === "education" && <SchoolCostEstimator client:load countryKey="uae" currency="AED" />}
+    {page.calculator === "housing" && <RentEstimator client:load countryKey="uae" currency="AED" />}
+    {page.calculator === "transport" && <TransportCostEstimator client:load countryKey="uae" currency="AED" />}
+    {page.calculator === "utilities" && <UtilitiesCostEstimator client:load countryKey="uae" currency="AED" />}
+  </Fragment>
+
+  <h1>{page.title}</h1>
+
+  {page.intro.split("\n\n").map((p) => <p>{p}</p>)}
+
+  {page.citySections.map((section) => (
+    <>
+      <h2 id={section.slug}>{section.city}</h2>
+      {section.content.split("\n\n").map((p) => <p>{p}</p>)}
+    </>
+  ))}
+</ThematicLayout>

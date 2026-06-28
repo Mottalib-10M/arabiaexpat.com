@@ -53,7 +53,7 @@ const specialtyGuides = [
   <h2>Country Guides</h2>
   <div class="not-prose grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
     {countryGuides.map((guide) => (
-      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
         <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
       </a>
@@ -63,7 +63,7 @@ const specialtyGuides = [
   <h2>City Guides</h2>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
     {cityGuides.map((guide) => (
-      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
         <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
       </a>
@@ -73,7 +73,7 @@ const specialtyGuides = [
   <h2>Practical Expat Guides</h2>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
     {topicalGuides.map((guide) => (
-      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
         <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
       </a>
@@ -83,7 +83,28 @@ const specialtyGuides = [
   <h2>Visa Guides</h2>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
     {specialtyGuides.map((guide) => (
-      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
+        <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Country-Specific Guides</h2>
+  <p>Deep-dive into specific topics by country, with city-by-city breakdowns and interactive cost estimators.</p>
+  <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
+    {[
+      { title: "UAE Education", href: "/uae/education/", description: "Dubai and Abu Dhabi schools, curricula, fees, and KHDA ratings." },
+      { title: "UAE Housing", href: "/uae/housing/", description: "Rent in Dubai and Abu Dhabi. Ejari, areas, and interactive estimator." },
+      { title: "UAE Healthcare", href: "/uae/healthcare/", description: "DHA, DoH, hospitals, and employer insurance in the UAE." },
+      { title: "Qatar Education", href: "/qatar/education/", description: "Doha schools, Education City, fees, and QNSA accreditation." },
+      { title: "Qatar Housing", href: "/qatar/housing/", description: "Rent in Doha. The Pearl, West Bay, Lusail, and Al Wakrah." },
+      { title: "Qatar Healthcare", href: "/qatar/healthcare/", description: "HMC, Sidra Medicine, and private hospital options in Qatar." },
+      { title: "Saudi Education", href: "/saudi-arabia/education/", description: "Riyadh, Jeddah, Dammam schools, Vision 2030 reforms." },
+      { title: "Saudi Housing", href: "/saudi-arabia/housing/", description: "Compound living, Ejar, and rent across Saudi cities." },
+      { title: "Saudi Healthcare", href: "/saudi-arabia/healthcare/", description: "CCHI insurance, hospitals, and healthcare in Saudi Arabia." },
+    ].map((guide) => (
+      <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
         <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors text-sm">{guide.title}</h3>
         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.description}</p>
       </a>

@@ -68,6 +68,40 @@ export const saudiCostOfLiving = {
         mobile: { min: 75, max: 250, currency: "SAR" },
       },
     },
+    {
+      name: "Dammam",
+      housing: {
+        studioApartment: { min: 1000, max: 2200, currency: "SAR", note: "per month" },
+        oneBedroom: { min: 1800, max: 3500, currency: "SAR", note: "per month, Al Khobar, Dhahran" },
+        twoBedroom: { min: 3000, max: 6000, currency: "SAR", note: "per month" },
+        familyVilla: { min: 6000, max: 15000, currency: "SAR", note: "per month, compound communities" },
+      },
+      food: {
+        groceriesMonthly: { min: 650, max: 1400, currency: "SAR" },
+        mealBudgetRestaurant: { min: 12, max: 28, currency: "SAR" },
+        mealMidRange: { min: 45, max: 120, currency: "SAR" },
+      },
+      transport: {
+        metroMonthlyPass: { amount: 0, currency: "SAR", note: "No metro; car-dependent city" },
+        taxiPerKm: { amount: 2.0, currency: "SAR" },
+        gasolinePerLiter: { amount: 2.18, currency: "SAR" },
+        carInsuranceAnnual: { min: 1200, max: 3000, currency: "SAR" },
+      },
+      healthcare: {
+        gpVisit: { min: 70, max: 220, currency: "SAR" },
+        specialistVisit: { min: 150, max: 450, currency: "SAR" },
+        annualInsurance: { min: 1500, max: 6000, currency: "SAR", note: "employer-mandated" },
+      },
+      education: {
+        internationalSchool: { min: 12000, max: 50000, currency: "SAR", note: "per year" },
+        nursery: { min: 8000, max: 22000, currency: "SAR", note: "per year" },
+      },
+      utilities: {
+        monthly: { min: 200, max: 600, currency: "SAR" },
+        internet: { min: 180, max: 380, currency: "SAR" },
+        mobile: { min: 70, max: 230, currency: "SAR" },
+      },
+    },
   ],
   usdRate: 3.75,
 } as const;

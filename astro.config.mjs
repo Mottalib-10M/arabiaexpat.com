@@ -13,4 +13,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  redirects: {
+    "/uae/visa-guide/": "/uae/visa/",
+    "/qatar/visa-guide/": "/qatar/visa/",
+    "/saudi-arabia/visa-guide/": "/saudi-arabia/visa/",
+  },
 });

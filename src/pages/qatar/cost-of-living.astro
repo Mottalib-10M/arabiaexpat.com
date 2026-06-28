@@ -5,6 +5,7 @@ import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import CostOfLivingSimulator from "../../components/calculators/CostOfLivingSimulator";
 
 const faqs = [
   { question: "How much does a single expat need to live in Doha in 2026?", answer: "A single expat in Doha needs approximately QAR 6,000-10,000 per month. This covers a one-bedroom apartment (QAR 3,500-5,500), groceries (QAR 800-1,200), transport (QAR 400-800), dining out (QAR 600-1,200), utilities (QAR 300-600), and personal expenses (QAR 400-700). Living in premium areas like The Pearl or West Bay pushes costs toward the higher end." },
@@ -18,6 +19,10 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Qatar Cost of Living 2026: Rent, Food and Prices in Doha" description="Detailed Qatar cost of living for 2026. Rent, groceries, transport, healthcare, and education prices in Doha with QAR and USD equivalents. Budget tips." canonical="/qatar/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Qatar Cost of Living 2026: Rent, Food and Prices in Doha", "Detailed Qatar cost of living guide for 2026.", "https://arabiaexpat.com/qatar/cost-of-living/", "2025-01-15", "2026-06-01"), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Cost of Living", url: "/qatar/cost-of-living/" }]}>
 <h1>Qatar Cost of Living in 2026: Doha Price Guide</h1>
+
+<div class="not-prose mb-8">
+<CostOfLivingSimulator client:load defaultCity="doha" />
+</div>
 <p>Qatar offers a unique cost-of-living proposition: no income tax, no VAT, and living costs generally lower than Dubai. Doha is the center of all economic activity, and nearly all expatriates live in the capital or its immediate suburbs. Housing is the largest expense, followed by education (for families) and food. This guide provides current 2026 pricing for all major expense categories, helping you budget accurately before and during your Qatar assignment.</p>
 
 <p>Qatar's absence of VAT is a notable advantage that affects daily spending. Every purchase at a supermarket, restaurant, or shop reflects the sticker price with no added tax. This stands in contrast to the UAE's 5% VAT and Saudi Arabia's 15% VAT. For a household spending QAR 5,000 per month on taxable goods and services, the zero-VAT policy effectively saves QAR 250-750 monthly compared to living in the UAE or Saudi Arabia. Combined with competitive rental markets following the World Cup construction boom, Doha represents one of the best value propositions in the Gulf for budget-conscious professionals.</p>

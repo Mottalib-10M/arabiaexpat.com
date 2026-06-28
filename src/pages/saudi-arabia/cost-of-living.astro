@@ -5,6 +5,7 @@ import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import CostOfLivingSimulator from "../../components/calculators/CostOfLivingSimulator";
 
 const faqs = [
   { question: "How much does a single expat need to live in Riyadh in 2026?", answer: "A single expat in Riyadh needs approximately SAR 5,500-9,000 per month. This covers a one-bedroom apartment (SAR 2,500-4,500), groceries (SAR 800-1,200), transport (SAR 400-800), dining out (SAR 500-1,000), utilities (SAR 300-600), and miscellaneous expenses (SAR 300-600). The 15% VAT adds to most purchases but is offset by lower base prices compared to Dubai." },
@@ -18,6 +19,10 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Saudi Cost of Living 2026: Riyadh and Jeddah Prices" description="Detailed Saudi cost of living for 2026. Rent, food, transport, healthcare, and school fees in Riyadh and Jeddah with SAR and USD figures. Budget tips." canonical="/saudi-arabia/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Saudi Cost of Living 2026: Riyadh and Jeddah Prices", "Detailed Saudi Arabia cost of living for 2026.", "https://arabiaexpat.com/saudi-arabia/cost-of-living/", "2025-01-15", "2026-06-01"), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Cost of Living", url: "/saudi-arabia/cost-of-living/" }]}>
 <h1>Saudi Arabia Cost of Living 2026: Riyadh and Jeddah</h1>
+
+<div class="not-prose mb-8">
+<CostOfLivingSimulator client:load defaultCity="riyadh" />
+</div>
 <p>Saudi Arabia offers one of the most affordable cost of living environments among Gulf countries, particularly when compared to the UAE. Combined with tax-free salaries, the kingdom provides strong savings potential for expatriate professionals. Riyadh, the capital, has seen cost increases as it becomes a regional business hub, but remains more affordable than Dubai. Jeddah, the Red Sea coastal city, offers slightly lower prices. This guide covers current 2026 expenses across housing, food, transport, healthcare, education, and utilities.</p>
 
 <p>One factor that affects Saudi living costs is the 15% VAT applied to most goods and services. This is the highest rate in the GCC and adds noticeably to grocery bills, restaurant checks, and retail purchases. On a monthly spend of SAR 4,000 in taxable goods, you pay SAR 600 in VAT. By comparison, the same spending in the UAE would incur only AED 200 at 5%, and Qatar charges no VAT at all. Despite this, the significantly lower base prices for housing and many services in Saudi Arabia still make it the most affordable Gulf country for the majority of expat families. Employer-provided accommodation or housing compounds can further reduce the biggest expense category entirely.</p>

@@ -1,0 +1,141 @@
+---
+import GuideLayout from "../../../layouts/GuideLayout.astro";
+import { corridors } from "../../../data/corridors";
+import { destinationCities } from "../../../data/destination-cities";
+import { COUNTRIES } from "../../../data/site-config";
+import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
+import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
+import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
+import CostOfLivingSimulator from "../../../components/calculators/CostOfLivingSimulator";
+
+export function getStaticPaths() {
+  const paths: { params: { country: string; city: string }; props: any }[] = [];
+  for (const corridor of corridors) {
+    for (const city of destinationCities) {
+      paths.push({
+        params: { country: corridor.slug, city: city.slug },
+        props: { corridor, city },
+      });
+    }
+  }
+  return paths;
+}
+
+const { corridor, city } = Astro.props;
+const countryConfig = COUNTRIES[city.countryKey];
+
+// Map corridor slugs to origin-costs slugs for simulator pre-fill
+const originMapping: Record<string, string> = {
+  india: "mumbai",
+  pakistan: "karachi",
+  philippines: "manila",
+  egypt: "cairo",
+  bangladesh: "dhaka",
+  uk: "london",
+  usa: "new-york",
+  france: "paris",
+};
+
+const originCitySlug = originMapping[corridor.slug] || "";
+
+const faqs = [
+  { question: `What salary can a ${corridor.demonym} professional expect in ${city.name}?`, answer: `${corridor.demonym} professionals moving to ${city.name} can expect salaries ${corridor.avgSalaryRange}. Salaries in ${countryConfig.name} are tax-free for expats, significantly boosting net take-home pay compared to ${corridor.country}.` },
+  { question: `What is the cost of living in ${city.name} compared to ${corridor.country}?`, answer: `Living costs in ${city.name} are generally higher than most cities in ${corridor.country}, particularly for housing. However, the tax-free salary environment means net savings potential is typically much higher. Use the cost simulator above for a personalized comparison.` },
+  { question: `How do I get a work visa for ${city.name} from ${corridor.country}?`, answer: `${corridor.visaProcess.slice(0, 300)}` },
+  { question: `Is there a ${corridor.demonym} community in ${city.name}?`, answer: `Yes, the ${corridor.demonym} community in ${city.name} is well-established. ${corridor.communityResources.slice(0, 3).join(", ")} are among the available resources. Community organizations, cultural events, and social groups help newcomers settle in.` },
+  { question: `What documents do I need to move from ${corridor.country} to ${city.name}?`, answer: `Key documents include: ${corridor.documentsNeeded.slice(0, 5).join(", ")}. The specific requirements may vary depending on your profession and visa type.` },
+];
+
+const otherCities = destinationCities.filter((c) => c.slug !== city.slug);
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: `From ${corridor.country}`, url: `https://arabiaexpat.com/relocating-from/${corridor.slug}/` },
+  { name: `To ${city.name}`, url: `https://arabiaexpat.com/relocating-from/${corridor.slug}/to-${city.slug}/` },
+];
+---
+
+<GuideLayout
+  title={`${corridor.country} to ${city.name} 2026: Relocation Guide`}
+  description={`Complete 2026 guide for ${corridor.demonym} professionals moving to ${city.name}, ${countryConfig.name}. Salary expectations, cost of living comparison, visa process, and community resources.`}
+  canonical={`/relocating-from/${corridor.slug}/to-${city.slug}/`}
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: `From ${corridor.country}`, url: `/relocating-from/${corridor.slug}/` }, { name: `To ${city.name}`, url: `/relocating-from/${corridor.slug}/to-${city.slug}/` }]}
+>
+  <h1>Relocating from {corridor.country} to {city.name} in 2026</h1>
+
+  <div class="not-prose mb-6 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Destination</p>
+        <p class="font-medium text-gray-900 dark:text-white">{city.name}, {countryConfig.name}</p>
+      </div>
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Currency</p>
+        <p class="font-medium text-gray-900 dark:text-white">{city.currency}</p>
+      </div>
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Salary Premium</p>
+        <p class="font-medium text-gray-900 dark:text-white">{corridor.avgSalaryRange}</p>
+      </div>
+      <div>
+        <p class="text-gray-500 dark:text-gray-400">Community</p>
+        <p class="font-medium text-gray-900 dark:text-white">Well-established</p>
+      </div>
+    </div>
+  </div>
+
+  <p>Moving from {corridor.country} to {city.name} is one of the most popular relocation corridors for {corridor.demonym} professionals. {city.name} offers tax-free salaries, a well-established {corridor.demonym} community, and career opportunities that typically provide a {corridor.avgSalaryRange} salary premium over equivalent roles in {corridor.country}.</p>
+
+  <p>This city-specific guide covers what you need to know about living in {city.name} as a {corridor.demonym} expat, including realistic cost comparisons, neighborhood recommendations, and practical setup steps.</p>
+
+  <h2>Cost of Living: {corridor.country} vs {city.name}</h2>
+
+  <div class="not-prose mb-6">
+    <CostOfLivingSimulator client:load defaultCity={city.slug} defaultOrigin={originCitySlug} />
+  </div>
+
+  <p>Use the simulator above to compare your expected monthly costs in {city.name} with your current city in {corridor.country}. Housing is typically the largest expense, followed by education (for families) and food. The tax-free salary environment means that even with higher living costs, net savings potential is usually significantly better than in {corridor.country}.</p>
+
+  <h2>Visa Process for {corridor.demonym} Nationals</h2>
+  <p>{corridor.visaProcess}</p>
+
+  <h2>Documents Required</h2>
+  <ul>
+    {corridor.documentsNeeded.map((doc) => <li>{doc}</li>)}
+  </ul>
+
+  <h2>Living in {city.name}: What to Expect</h2>
+  <p>{corridor.costComparison}</p>
+
+  <h2>Cultural Tips for {corridor.demonym} Expats in {city.name}</h2>
+  <ul>
+    {corridor.culturalTips.slice(0, 5).map((tip) => <li>{tip}</li>)}
+  </ul>
+
+  <h2>{corridor.demonym} Community Resources in {city.name}</h2>
+  <ul>
+    {corridor.communityResources.map((r) => <li>{r}</li>)}
+  </ul>
+
+  <FAQAccordion faqs={faqs} />
+
+  <SourcesBlock sources={[
+    { name: `${countryConfig.molName}`, url: countryConfig.molUrl },
+    { name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" },
+    { name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" },
+    { name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" },
+  ]} />
+
+  <RelatedLinks
+    title={`Other ${corridor.demonym} Destinations`}
+    links={[
+      ...otherCities.map((c) => ({
+        label: `${corridor.country} to ${c.name}`,
+        href: `/relocating-from/${corridor.slug}/to-${c.slug}/`,
+      })),
+      { label: `${corridor.country} to Gulf Overview`, href: `/relocating-from/${corridor.slug}/` },
+    ]}
+  />
+</GuideLayout>
