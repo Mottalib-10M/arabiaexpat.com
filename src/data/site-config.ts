@@ -5,7 +5,7 @@ export const SITE = {
   author: {
     name: "Mottalib Radif",
     credentials: "MBA INSEAD",
-    role: "Founder & Lead Researcher",
+    role: "Founder & Enthusiast",
     image: "/team/mottalib-radif.jpg",
     bio: "Mottalib Radif holds an MBA from INSEAD and has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.",
   },
