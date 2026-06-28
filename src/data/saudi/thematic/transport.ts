@@ -13,7 +13,7 @@ export const saudiTransport: ThematicPageData = {
 
 The historic decision to allow women to drive in June 2018 significantly expanded transport options for all residents. Ride-hailing services, particularly Uber and Careem (a regional platform acquired by Uber), have become essential parts of daily transport in Saudi cities. These apps offer convenient, affordable, and air-conditioned travel and are widely used by expats who do not own a car.
 
-Fuel prices in Saudi Arabia remain among the lowest in the world, though gradual subsidy reforms have brought prices closer to market rates. As of 2024, petrol costs approximately SAR 2.18 per litre for 91-octane fuel. Owning and operating a car is affordable compared to most countries, and many expats choose to purchase or lease a vehicle. Driving licences from many countries can be converted to a Saudi licence, though the process varies by nationality. Expats should be aware of Saudi traffic laws, including strict speed limits, seatbelt requirements, and the demerit-point system managed by Moroor (the traffic police).`,
+Fuel prices in Saudi Arabia remain among the lowest in the world, though gradual subsidy reforms have brought prices closer to market rates. As of 2024, petrol costs approximately SAR 2.18 (~€0.52) per litre for 91-octane fuel. Owning and operating a car is affordable compared to most countries, and many expats choose to purchase or lease a vehicle. Driving licences from many countries can be converted to a Saudi licence, though the process varies by nationality. Expats should be aware of Saudi traffic laws, including strict speed limits, seatbelt requirements, and the demerit-point system managed by Moroor (the traffic police).`,
   citySections: [
     {
       city: "Riyadh",
@@ -24,14 +24,14 @@ In addition to the metro, SAPTCO (Saudi Public Transport Company) operates an ex
 
 For many expats, private cars remain the primary mode of transport in Riyadh. The city's road network is extensive, with major arteries including King Fahd Road, Makkah Road, and the Northern Ring Road handling heavy traffic volumes. Rush-hour congestion is significant, particularly along the north-south corridors, so planning commute times is important. Parking is generally available and often free, though premium areas in Al Olaya and the DQ may have paid parking.
 
-Ride-hailing via Uber and Careem is extremely popular in Riyadh and often more convenient than navigating traffic and parking. A typical cross-city trip costs SAR 25 to SAR 60. Traditional metered taxis are also available, though ride-hailing apps are generally preferred for their reliability and cashless payment. For longer intercity travel, Riyadh is well-connected by road to Jeddah (approximately 950 km), Dammam (approximately 400 km), and other cities, with SAPTCO operating intercity bus services and the Saudi Railway Company (SAR) running trains on the Riyadh-Dammam line.`,
+Ride-hailing via Uber and Careem is extremely popular in Riyadh and often more convenient than navigating traffic and parking. A typical cross-city trip costs SAR 25 to SAR 60 (~€6-14). Traditional metered taxis are also available, though ride-hailing apps are generally preferred for their reliability and cashless payment. For longer intercity travel, Riyadh is well-connected by road to Jeddah (approximately 950 km), Dammam (approximately 400 km), and other cities, with SAPTCO operating intercity bus services and the Saudi Railway Company (SAR) running trains on the Riyadh-Dammam line.`,
     },
     {
       city: "Jeddah",
       slug: "jeddah",
       content: `Jeddah does not yet have a metro system, though plans for a mass transit network have been discussed for years. The city relies primarily on private cars, taxis, and ride-hailing services for daily transport. Jeddah's road network is extensive but often congested, particularly along the main coastal highway (Corniche Road) and the commercial corridors in the city centre.
 
-The Haramain High-Speed Railway is a significant transport asset for Jeddah residents. This 450 km/h train connects Jeddah (via King Abdulaziz International Airport station) with Makkah, Madinah, and King Abdullah Economic City (KAEC). The journey from Jeddah to Makkah takes approximately 30 minutes, and Jeddah to Madinah takes around two hours. Tickets can be booked online and range from SAR 50 to SAR 300 depending on class and distance.
+The Haramain High-Speed Railway is a significant transport asset for Jeddah residents. This 450 km/h train connects Jeddah (via King Abdulaziz International Airport station) with Makkah, Madinah, and King Abdullah Economic City (KAEC). The journey from Jeddah to Makkah takes approximately 30 minutes, and Jeddah to Madinah takes around two hours. Tickets can be booked online and range from SAR 50 to SAR 300 (~€12-72) depending on class and distance.
 
 SAPTCO operates limited public bus services within Jeddah, primarily serving routes between the city centre, the airport, and major residential districts. However, coverage is not comprehensive, and most expats rely on personal vehicles or ride-hailing. Uber and Careem are widely available and commonly used, with fares comparable to Riyadh.
 
@@ -58,7 +58,7 @@ Uber and Careem operate in the Dammam-Khobar-Dhahran area, though availability m
     {
       question: "How much does fuel cost in Saudi Arabia?",
       answer:
-        "Fuel prices are set by the government and reviewed quarterly. As of 2024, 91-octane petrol costs approximately SAR 2.18 per litre and 95-octane is about SAR 2.33 per litre. Diesel costs approximately SAR 0.52 per litre. These prices are significantly lower than most countries, making car ownership very affordable.",
+        "Fuel prices are set by the government and reviewed quarterly. As of 2024, 91-octane petrol costs approximately SAR 2.18 (~€0.52) per litre and 95-octane is about SAR 2.33 (~€0.56) per litre. Diesel costs approximately SAR 0.52 (~€0.12) per litre. These prices are significantly lower than most countries, making car ownership very affordable.",
     },
     {
       question: "Is the Riyadh Metro operational and how does it work?",

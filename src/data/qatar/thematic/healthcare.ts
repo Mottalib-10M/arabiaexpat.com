@@ -24,7 +24,7 @@ Sidra Medicine, located near Education City, is a state-of-the-art women's and c
 
 In the private sector, Al Ahli Hospital in the Bin Mahmoud area is one of Doha's longest-established private hospitals, offering general medicine, surgery, obstetrics, and dental care. It is popular with expats for its central location and multilingual staff. Aster DM Healthcare operates clinics and a hospital in Doha, providing primary care, diagnostics, and specialist consultations at competitive prices. Al Emadi Hospital in Al Hilal is another well-regarded private facility with a 24-hour emergency department, orthopaedic surgery, and in-vitro fertilisation (IVF) services.
 
-For day-to-day primary care, the PHCC runs over 25 health centres across Doha and its suburbs. Each centre serves a specific catchment area and provides general consultations, vaccinations, chronic disease management, dental care, and wellness screenings. Expats must register with the PHCC health centre closest to their residence and obtain a health card, which costs around QAR 100 per year for adults and is free for children under 10 and adults over 60.
+For day-to-day primary care, the PHCC runs over 25 health centres across Doha and its suburbs. Each centre serves a specific catchment area and provides general consultations, vaccinations, chronic disease management, dental care, and wellness screenings. Expats must register with the PHCC health centre closest to their residence and obtain a health card, which costs around QAR 100 (~€25) per year for adults and is free for children under 10 and adults over 60.
 
 Pharmacies are widely available throughout Doha, with chains like Al Aziziya Pharmacy, Kulud Pharmacy, and QPharm operating extended hours. Many medications that require a prescription in Western countries are available over the counter in Qatar, though controlled substances and certain psychiatric medications require a valid prescription and, in some cases, prior approval from the Ministry of Public Health.
 
@@ -40,7 +40,7 @@ Expats should also be aware that Qatar requires certain vaccinations for school 
     {
       question: "How do I get a Qatar Health Card?",
       answer:
-        "To obtain a Qatar Health Card, visit your nearest PHCC health centre with your QID (Qatar ID), passport, and a passport-size photo. The annual fee is approximately QAR 100 for adults. Children under 10 and adults over 60 are exempt from fees. The health card allows you to access subsidised consultations and treatments at PHCC centres and HMC hospitals. Registration can also be initiated online through the PHCC website or the Nar'aakom app.",
+        "To obtain a Qatar Health Card, visit your nearest PHCC health centre with your QID (Qatar ID), passport, and a passport-size photo. The annual fee is approximately QAR 100 (~€25) for adults. Children under 10 and adults over 60 are exempt from fees. The health card allows you to access subsidised consultations and treatments at PHCC centres and HMC hospitals. Registration can also be initiated online through the PHCC website or the Nar'aakom app.",
     },
     {
       question: "Can I choose which hospital to go to in Qatar?",
@@ -50,7 +50,7 @@ Expats should also be aware that Qatar requires certain vaccinations for school 
     {
       question: "What is the quality of dental care in Qatar?",
       answer:
-        "Dental care in Qatar is generally of a high standard. PHCC health centres offer basic dental services including check-ups, fillings, and extractions at subsidised rates. Private dental clinics across Doha provide cosmetic dentistry, orthodontics, implants, and root canal treatments. Costs at private clinics range from QAR 150-300 for a routine check-up to QAR 2,000-5,000 for more complex procedures. Many expat insurance plans include dental coverage with annual caps.",
+        "Dental care in Qatar is generally of a high standard. PHCC health centres offer basic dental services including check-ups, fillings, and extractions at subsidised rates. Private dental clinics across Doha provide cosmetic dentistry, orthodontics, implants, and root canal treatments. Costs at private clinics range from QAR 150-300 (~€38-75) for a routine check-up to QAR 2,000-5,000 (~€500-1,250) for more complex procedures. Many expat insurance plans include dental coverage with annual caps.",
     },
     {
       question: "How does emergency care work in Qatar?",

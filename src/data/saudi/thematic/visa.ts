@@ -58,7 +58,7 @@ The proximity to Bahrain via the King Fahd Causeway creates additional visa cons
     {
       question: "What is the Premium Residency program?",
       answer:
-        "Premium Residency is a long-term residency option that does not require employer sponsorship. Holders can own property, start businesses, sponsor family members, and move freely between employers. There are two types: permanent residency (one-time fee of SAR 800,000) and renewable residency (annual fee of SAR 100,000). Eligibility is based on financial means, professional qualifications, and other criteria assessed by the Premium Residency Center.",
+        "Premium Residency is a long-term residency option that does not require employer sponsorship. Holders can own property, start businesses, sponsor family members, and move freely between employers. There are two types: permanent residency (one-time fee of SAR 800,000 / ~€192,000) and renewable residency (annual fee of SAR 100,000 / ~€24,000). Eligibility is based on financial means, professional qualifications, and other criteria assessed by the Premium Residency Center.",
     },
     {
       question: "What is Saudization (Nitaqat) and how does it affect expats?",
@@ -73,7 +73,7 @@ The proximity to Bahrain via the King Fahd Causeway creates additional visa cons
     {
       question: "How do I get a tourist or visit visa for Saudi Arabia?",
       answer:
-        "Saudi Arabia offers an e-visa for tourists from over 60 eligible countries. The e-visa can be obtained online through the Visit Saudi portal and allows multiple entries for tourism, Umrah (outside Hajj season), events, and family visits for up to 90 days per visit over a one-year validity period. The fee is approximately SAR 535 (including insurance). Citizens of non-eligible countries can apply for a visit visa through Saudi embassies or consulates.",
+        "Saudi Arabia offers an e-visa for tourists from over 60 eligible countries. The e-visa can be obtained online through the Visit Saudi portal and allows multiple entries for tourism, Umrah (outside Hajj season), events, and family visits for up to 90 days per visit over a one-year validity period. The fee is approximately SAR 535 (~€128, including insurance). Citizens of non-eligible countries can apply for a visit visa through Saudi embassies or consulates.",
     },
   ],
   sources: [

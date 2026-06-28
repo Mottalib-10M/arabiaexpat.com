@@ -18,7 +18,7 @@ Qatar is home to both conventional and Islamic (Sharia-compliant) banks. Islamic
     {
       city: "Doha",
       slug: "doha",
-      content: `Doha is the financial capital of Qatar, and all major banks have their headquarters and primary branch networks in the city. Qatar National Bank (QNB) is the dominant player, with over 60 branches and ATMs across Doha. QNB offers expat-friendly current accounts, savings accounts, credit cards, personal loans, and car financing. Opening a QNB account requires a valid QID, passport, employment contract or salary certificate, and an NOC from your employer. The minimum salary requirement for a standard current account is typically QAR 3,000-5,000 per month.
+      content: `Doha is the financial capital of Qatar, and all major banks have their headquarters and primary branch networks in the city. Qatar National Bank (QNB) is the dominant player, with over 60 branches and ATMs across Doha. QNB offers expat-friendly current accounts, savings accounts, credit cards, personal loans, and car financing. Opening a QNB account requires a valid QID, passport, employment contract or salary certificate, and an NOC from your employer. The minimum salary requirement for a standard current account is typically QAR 3,000-5,000 (~€750-1,250) per month.
 
 Commercial Bank of Qatar (CBQ) is the second-largest conventional bank and is popular among expats for its digital banking platform and customer service. CBQ offers a range of credit cards with air miles, cashback, and travel insurance benefits. Its Combi Savings Account is a popular choice for expats wanting to save in multiple currencies. Branches are concentrated in West Bay, Al Sadd, and The Pearl.
 
@@ -28,7 +28,7 @@ Doha Bank, despite its name, operates across Qatar but has a significant presenc
 
 Masraf Al Rayan is the second-largest Islamic bank in Qatar and has grown rapidly in recent years. It offers personal finance products, credit cards, and investment accounts that comply with Sharia principles. The bank is known for its Visa Infinite card, which comes with premium travel and lifestyle benefits. Masraf Al Rayan operates branches in major Doha areas including Lusail, West Bay, and Al Gharrafa.
 
-For international money transfers, expats in Doha can use traditional bank wire transfers, dedicated remittance services, or digital platforms. Exchange houses like Al Dar, Al Jazeera, and Gulf Exchange operate in most malls and commercial areas. Digital services like Wise (formerly TransferWise) and Western Union's online platform are also used, though fees and exchange rate margins vary. Bank wire transfers from QNB or CBQ typically cost QAR 40-75 per transaction for international transfers. Most expats also use their bank's mobile app for local transfers, bill payments, and account management.`,
+For international money transfers, expats in Doha can use traditional bank wire transfers, dedicated remittance services, or digital platforms. Exchange houses like Al Dar, Al Jazeera, and Gulf Exchange operate in most malls and commercial areas. Digital services like Wise (formerly TransferWise) and Western Union's online platform are also used, though fees and exchange rate margins vary. Bank wire transfers from QNB or CBQ typically cost QAR 40-75 (~€10-19) per transaction for international transfers. Most expats also use their bank's mobile app for local transfers, bill payments, and account management.`,
     },
   ],
   faqs: [
@@ -51,12 +51,12 @@ For international money transfers, expats in Doha can use traditional bank wire 
     {
       question: "Can I get a credit card as an expat in Qatar?",
       answer:
-        "Yes, most Qatari banks offer credit cards to expats with a valid QID and a minimum monthly salary (usually QAR 5,000-10,000 for basic cards, QAR 15,000-20,000 for premium cards). Credit limits are typically set at 2-3 times your monthly salary. Popular cards offer air miles (QNB, CBQ), cashback (Doha Bank), or lifestyle rewards (Masraf Al Rayan). Annual fees range from QAR 0 for basic cards to QAR 1,500 for premium metal cards. Always check the interest rate on outstanding balances, which can range from 2-3.5% per month.",
+        "Yes, most Qatari banks offer credit cards to expats with a valid QID and a minimum monthly salary (usually QAR 5,000-10,000 / ~€1,250-2,500 for basic cards, QAR 15,000-20,000 / ~€3,750-5,000 for premium cards). Credit limits are typically set at 2-3 times your monthly salary. Popular cards offer air miles (QNB, CBQ), cashback (Doha Bank), or lifestyle rewards (Masraf Al Rayan). Annual fees range from QAR 0 (~€0) for basic cards to QAR 1,500 (~€375) for premium metal cards. Always check the interest rate on outstanding balances, which can range from 2-3.5% per month.",
     },
     {
       question: "How can I send money abroad from Qatar?",
       answer:
-        "Expats can send money abroad through bank wire transfers (QAR 40-75 per transaction), exchange houses (Al Dar, Gulf Exchange, Al Jazeera Exchange), or digital platforms like Wise and Western Union. Bank transfers offer the best rates for large amounts but are slower (2-5 business days). Exchange houses offer same-day or next-day transfers with competitive rates for popular corridors like India, Philippines, Egypt, and Pakistan. Always compare the total cost including both the fee and the exchange rate margin.",
+        "Expats can send money abroad through bank wire transfers (QAR 40-75 / ~€10-19 per transaction), exchange houses (Al Dar, Gulf Exchange, Al Jazeera Exchange), or digital platforms like Wise and Western Union. Bank transfers offer the best rates for large amounts but are slower (2-5 business days). Exchange houses offer same-day or next-day transfers with competitive rates for popular corridors like India, Philippines, Egypt, and Pakistan. Always compare the total cost including both the fee and the exchange rate margin.",
     },
   ],
   sources: [

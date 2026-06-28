@@ -24,11 +24,11 @@ The Qatar Financial Centre (QFC) is a significant free zone located in West Bay 
 
 The Qatar Science & Technology Park (QSTP), located in Education City, is another free zone designed to attract technology companies, startups, and research organisations. QSTP offers similar benefits to the QFC, including full foreign ownership and tax advantages. Companies in QSTP benefit from proximity to the universities in Education City and access to research collaboration opportunities. QSTP employees also receive visas through a dedicated process.
 
-Qatar's labour reforms, introduced primarily between 2020 and 2022, have fundamentally changed the employment landscape. The abolition of the exit permit requirement means workers no longer need employer permission to leave the country. The introduction of a non-discriminatory minimum wage of QAR 1,000 per month (plus QAR 500 for food and QAR 300 for housing if not provided by the employer) applies to all workers regardless of nationality. Workers can now change employers after a probationary period without needing a No Objection Certificate (NOC) from their current employer, though they must serve the notice period specified in their contract.
+Qatar's labour reforms, introduced primarily between 2020 and 2022, have fundamentally changed the employment landscape. The abolition of the exit permit requirement means workers no longer need employer permission to leave the country. The introduction of a non-discriminatory minimum wage of QAR 1,000 (~€250) per month (plus QAR 500 / ~€125 for food and QAR 300 / ~€75 for housing if not provided by the employer) applies to all workers regardless of nationality. Workers can now change employers after a probationary period without needing a No Objection Certificate (NOC) from their current employer, though they must serve the notice period specified in their contract.
 
 The kafala system reforms have also impacted how disputes are resolved. Labour courts and dispute resolution committees have been established to handle employment conflicts, including non-payment of wages, contract violations, and wrongful termination. The Ministry of Labour operates a hotline (in multiple languages) and an online complaint portal for workers to report violations. These mechanisms have improved protections significantly, though challenges remain, particularly for lower-wage workers.
 
-For family and dependent visas, the sponsoring expat must meet a minimum salary threshold (currently QAR 10,000 per month or QAR 7,000 with employer-provided accommodation) to bring a spouse and children to Qatar. The application is submitted through the Ministry of Interior, and dependants receive their own QIDs linked to the sponsor. Dependent spouses can obtain work permits independently, and children can attend school on their dependent QID.`,
+For family and dependent visas, the sponsoring expat must meet a minimum salary threshold (currently QAR 10,000 / ~€2,500 per month or QAR 7,000 / ~€1,750 with employer-provided accommodation) to bring a spouse and children to Qatar. The application is submitted through the Ministry of Interior, and dependants receive their own QIDs linked to the sponsor. Dependent spouses can obtain work permits independently, and children can attend school on their dependent QID.`,
     },
   ],
   faqs: [
@@ -45,18 +45,18 @@ For family and dependent visas, the sponsoring expat must meet a minimum salary 
     {
       question: "What is the minimum wage in Qatar?",
       answer:
-        "Qatar introduced a non-discriminatory minimum wage in March 2021, set at QAR 1,000 per month (approximately USD 275). In addition, employers must provide food and housing or pay allowances of QAR 500 for food and QAR 300 for accommodation if these are not provided in kind. This brings the effective minimum compensation to QAR 1,800 per month. The minimum wage applies to all workers regardless of nationality or sector, making it the first non-discriminatory minimum wage in the Gulf region.",
+        "Qatar introduced a non-discriminatory minimum wage in March 2021, set at QAR 1,000 (~€250) per month (approximately USD 275). In addition, employers must provide food and housing or pay allowances of QAR 500 (~€125) for food and QAR 300 (~€75) for accommodation if these are not provided in kind. This brings the effective minimum compensation to QAR 1,800 (~€450) per month. The minimum wage applies to all workers regardless of nationality or sector, making it the first non-discriminatory minimum wage in the Gulf region.",
     },
     {
       question: "How can I get permanent residency in Qatar?",
       answer:
-        "Qatar's Permanent Residency Card is available to limited categories of residents under Law No. 10 of 2018. Eligible groups include children of Qatari mothers married to non-Qatari fathers, individuals who have rendered distinguished service to Qatar (as determined by the Interior Minister), and foreign property investors who have invested at least QAR 3,650,000 in Qatar real estate. Permanent residents enjoy access to public healthcare and education, property ownership rights, and priority in commercial activities. The card does not confer citizenship or voting rights.",
+        "Qatar's Permanent Residency Card is available to limited categories of residents under Law No. 10 of 2018. Eligible groups include children of Qatari mothers married to non-Qatari fathers, individuals who have rendered distinguished service to Qatar (as determined by the Interior Minister), and foreign property investors who have invested at least QAR 3,650,000 (~€912,500) in Qatar real estate. Permanent residents enjoy access to public healthcare and education, property ownership rights, and priority in commercial activities. The card does not confer citizenship or voting rights.",
     },
     {
       question:
         "What salary do I need to sponsor my family to live in Qatar?",
       answer:
-        "To sponsor your spouse and children for dependent visas in Qatar, you need a minimum monthly salary of QAR 10,000 (approximately USD 2,750). If your employer provides accommodation, the threshold is reduced to QAR 7,000 per month. You must also have a valid QID and a suitable residence for your family. The sponsoring process involves submitting an application to the Ministry of Interior with your employment contract, salary certificate, tenancy agreement, and family documents (marriage certificate and children's birth certificates, all attested).",
+        "To sponsor your spouse and children for dependent visas in Qatar, you need a minimum monthly salary of QAR 10,000 (~€2,500) (approximately USD 2,750). If your employer provides accommodation, the threshold is reduced to QAR 7,000 (~€1,750) per month. You must also have a valid QID and a suitable residence for your family. The sponsoring process involves submitting an application to the Ministry of Interior with your employment contract, salary certificate, tenancy agreement, and family documents (marriage certificate and children's birth certificates, all attested).",
     },
   ],
   sources: [

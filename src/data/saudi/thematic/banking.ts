@@ -73,7 +73,7 @@ The proximity to Bahrain via the King Fahd Causeway creates a unique banking dyn
     {
       question: "Can I get a credit card as an expat in Saudi Arabia?",
       answer:
-        "Yes, most Saudi banks offer credit cards to expats with a valid Iqama and a minimum salary (typically SAR 5,000 to SAR 10,000 per month depending on the bank and card tier). Cards are issued under Sharia-compliant structures. Visa and Mastercard are universally accepted, and American Express is available at some banks. Credit card approval typically requires three to six months of salary history with your Saudi bank.",
+        "Yes, most Saudi banks offer credit cards to expats with a valid Iqama and a minimum salary (typically SAR 5,000 to SAR 10,000 (~€1,200-2,400) per month depending on the bank and card tier). Cards are issued under Sharia-compliant structures. Visa and Mastercard are universally accepted, and American Express is available at some banks. Credit card approval typically requires three to six months of salary history with your Saudi bank.",
     },
   ],
   sources: [
