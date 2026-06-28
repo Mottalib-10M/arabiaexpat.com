@@ -85,5 +85,5 @@ Abu Dhabi has also invested in preventive health. The DoH runs population health
     { label: "Healthcare in Qatar", href: "/qatar/healthcare/" },
     { label: "Healthcare in Saudi Arabia", href: "/saudi-arabia/healthcare/" },
   ],
-  calculator: null,
+  calculator: "healthcare",
 };

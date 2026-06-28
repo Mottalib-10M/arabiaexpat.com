@@ -84,5 +84,5 @@ For international calling, both operators offer competitive IDD (international d
       href: "/saudi-arabia/telecom/",
     },
   ],
-  calculator: null,
+  calculator: "telecom",
 };

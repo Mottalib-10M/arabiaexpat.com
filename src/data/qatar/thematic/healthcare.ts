@@ -84,5 +84,5 @@ Expats should also be aware that Qatar requires certain vaccinations for school 
       href: "/saudi-arabia/healthcare/",
     },
   ],
-  calculator: null,
+  calculator: "healthcare",
 };

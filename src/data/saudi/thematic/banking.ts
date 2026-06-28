@@ -98,5 +98,5 @@ The proximity to Bahrain via the King Fahd Causeway creates a unique banking dyn
     { label: "Banking in Qatar", href: "/qatar/banking/" },
     { label: "Visa Guide for Saudi Arabia", href: "/saudi-arabia/visa/" },
   ],
-  calculator: null,
+  calculator: "banking",
 };

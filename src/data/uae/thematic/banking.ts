@@ -84,5 +84,5 @@ Other banks with a strong presence in Abu Dhabi include National Bank of Fujaira
     { label: "Banking in Qatar", href: "/qatar/banking/" },
     { label: "Banking in Saudi Arabia", href: "/saudi-arabia/banking/" },
   ],
-  calculator: null,
+  calculator: "banking",
 };

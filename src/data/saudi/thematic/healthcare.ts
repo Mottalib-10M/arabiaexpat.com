@@ -107,5 +107,5 @@ Expats in the Eastern Province should ensure their insurance plan covers the spe
       href: "/saudi-arabia/education/",
     },
   ],
-  calculator: null,
+  calculator: "healthcare",
 };

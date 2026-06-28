@@ -6,6 +6,10 @@ import SchoolCostEstimator from "../../components/calculators/SchoolCostEstimato
 import RentEstimator from "../../components/calculators/RentEstimator";
 import TransportCostEstimator from "../../components/calculators/TransportCostEstimator";
 import UtilitiesCostEstimator from "../../components/calculators/UtilitiesCostEstimator";
+import HealthcareCostEstimator from "../../components/calculators/HealthcareCostEstimator";
+import TelecomCostEstimator from "../../components/calculators/TelecomCostEstimator";
+import VisaCostEstimator from "../../components/calculators/VisaCostEstimator";
+import BankingCostEstimator from "../../components/calculators/BankingCostEstimator";
 
 export function getStaticPaths() {
   const pages = getThematicPagesForCountry("saudi-arabia");
@@ -41,6 +45,10 @@ const breadcrumbs = [
     {page.calculator === "housing" && <RentEstimator client:load countryKey="saudi" currency="SAR" />}
     {page.calculator === "transport" && <TransportCostEstimator client:load countryKey="saudi" currency="SAR" />}
     {page.calculator === "utilities" && <UtilitiesCostEstimator client:load countryKey="saudi" currency="SAR" />}
+    {page.calculator === "healthcare" && <HealthcareCostEstimator client:load countryKey="saudi" currency="SAR" />}
+    {page.calculator === "telecom" && <TelecomCostEstimator client:load countryKey="saudi" currency="SAR" />}
+    {page.calculator === "visa" && <VisaCostEstimator client:load countryKey="saudi" currency="SAR" />}
+    {page.calculator === "banking" && <BankingCostEstimator client:load countryKey="saudi" currency="SAR" />}
   </Fragment>
 
   <h1>{page.title}</h1>

@@ -101,5 +101,5 @@ ISP customer service in the Eastern Province is accessible through operator stor
       href: "/saudi-arabia/utilities/",
     },
   ],
-  calculator: null,
+  calculator: "telecom",
 };

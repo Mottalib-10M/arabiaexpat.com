@@ -85,5 +85,5 @@ Abu Dhabi's government entities and free zones generally use e& as their primary
     { label: "Telecom in Qatar", href: "/qatar/telecom/" },
     { label: "Telecom in Saudi Arabia", href: "/saudi-arabia/telecom/" },
   ],
-  calculator: null,
+  calculator: "telecom",
 };

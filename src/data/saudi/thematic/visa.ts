@@ -105,5 +105,5 @@ The proximity to Bahrain via the King Fahd Causeway creates additional visa cons
       href: "/saudi-arabia/banking/",
     },
   ],
-  calculator: null,
+  calculator: "visa",
 };

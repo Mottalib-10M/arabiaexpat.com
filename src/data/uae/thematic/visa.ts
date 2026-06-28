@@ -89,5 +89,5 @@ Abu Dhabi's visa processing is managed by the Federal Authority for Identity, Ci
     { label: "Visa in Qatar", href: "/qatar/visa/" },
     { label: "Visa in Saudi Arabia", href: "/saudi-arabia/visa/" },
   ],
-  calculator: null,
+  calculator: "visa",
 };

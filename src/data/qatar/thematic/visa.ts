@@ -85,5 +85,5 @@ For family and dependent visas, the sponsoring expat must meet a minimum salary 
       href: "/saudi-arabia/visa/",
     },
   ],
-  calculator: null,
+  calculator: "visa",
 };

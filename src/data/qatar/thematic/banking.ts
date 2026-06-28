@@ -78,5 +78,5 @@ For international money transfers, expats in Doha can use traditional bank wire 
     { label: "Banking in the UAE", href: "/uae/banking/" },
     { label: "Banking in Saudi Arabia", href: "/saudi-arabia/banking/" },
   ],
-  calculator: null,
+  calculator: "banking",
 };
