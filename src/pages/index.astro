@@ -26,6 +26,13 @@ const personSchema = {
 };
 
 const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema(faqs), personSchema];
+
+const countrySummaries = {
+  uae: "600+ international schools, Golden Visa residency, DEWA/ADDC utility setup. The most established expat destination in the region.",
+  qatar: "Zero VAT, compact city lifestyle, World Cup legacy infrastructure. Kahramaa utilities and QID process.",
+  saudi: "Vision 2030 transformation, Premium Residency options, Riyadh Metro now operational. Fastest-growing expat market.",
+};
+const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
 ---
 
 <Layout
@@ -34,206 +41,185 @@ const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), buildFAQSchema
   canonical="/"
   schemas={schemas}
 >
-  <!-- Hero -->
-  <section class="bg-gray-950 text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-        <div class="lg:col-span-7">
-          <h1 class="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.1]">
-            Your complete guide to expat life in the Gulf
-          </h1>
+  <!-- Masthead -->
+  <div class="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+      <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight max-w-3xl">
+        Your complete guide to expat life in the Gulf
+      </h1>
+      <p class="mt-3 text-gray-500 dark:text-gray-400 max-w-2xl">
+        Visa processes, housing, schools, driving licences, utilities, and daily life in the UAE, Qatar, and Saudi Arabia. Updated June 2026.
+      </p>
+    </div>
+  </div>
 
-          <p class="mt-5 text-lg text-gray-400 max-w-xl leading-relaxed">
-            Visa processes, housing, schools, driving licences, utilities, and daily life in the UAE, Qatar, and Saudi Arabia.
-          </p>
+  <!-- Main content: newspaper-style 2/3 + 1/3 -->
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-12">
 
-          <div class="mt-8">
-            <a href="/uae/guide/" class="inline-flex items-center justify-center px-6 py-3 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-lg transition-colors text-sm">
-              Start with the UAE Guide
-              <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
+      <!-- Left column: main content -->
+      <div class="lg:col-span-2">
+        <!-- Country guides -->
+        <section>
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Country Guides</h2>
+          <div class="divide-y divide-gray-200 dark:divide-gray-800">
+            {Object.entries(COUNTRIES).map(([key, c]) => (
+                <article class="py-4">
+                  <a href={`/${c.slug}/guide/`} class="group">
+                    <div class="flex items-baseline gap-3">
+                      <span class="text-xl">{c.flag === "AE" ? "\u{1F1E6}\u{1F1EA}" : c.flag === "QA" ? "\u{1F1F6}\u{1F1E6}" : "\u{1F1F8}\u{1F1E6}"}</span>
+                      <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+                        {c.fullName}
+                        <span class="text-sm font-normal text-gray-400 ml-2">{countryExpats[key as keyof typeof countryExpats]} expats</span>
+                      </h3>
+                    </div>
+                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400 leading-relaxed ml-9">{countrySummaries[key as keyof typeof countrySummaries]}</p>
+                  </a>
+                </article>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <!-- Right column: quick navigation cards -->
-        <div class="hidden lg:block lg:col-span-5 mt-12 lg:mt-0">
-          <div class="space-y-3">
+        <!-- Practical guides -->
+        <section class="mt-10">
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Practical Guides</h2>
+          <div class="divide-y divide-gray-200 dark:divide-gray-800">
             {[
-              { label: "Driving Licence Guide", href: "/guides/driving-licence/", desc: "Get your Gulf driving licence: conversion, tests, costs" },
-              { label: "Utilities Setup", href: "/guides/utilities-setup/", desc: "DEWA, ADDC, Kahramaa -- electricity, water, internet" },
-              { label: "Schools & Education", href: "/guides/schools-education/", desc: "International schools, curricula, fees, and admissions" },
-              { label: "Mobile & Internet", href: "/guides/telecom-mobile/", desc: "du, Etisalat, Ooredoo, STC -- plans, costs, eSIM" },
-            ].map((item) => (
-              <a href={item.href} class="block bg-gray-900 border border-gray-800 rounded-lg p-5 transition-colors hover:border-gray-600 group">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-sm font-semibold text-white">{item.label}</span>
-                  <svg class="h-4 w-4 text-gray-500 group-hover:text-gray-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </div>
-                <p class="text-xs text-gray-400">{item.desc}</p>
+              { title: "Driving Licence Guide 2026", href: "/guides/driving-licence/", desc: "Licence conversion, driving schools, costs, and requirements across UAE, Qatar, Saudi." },
+              { title: "Utilities Setup Guide", href: "/guides/utilities-setup/", desc: "DEWA, ADDC, Kahramaa, SEC. How to connect electricity, water, and internet." },
+              { title: "Schools & Education 2026", href: "/guides/schools-education/", desc: "International school systems, curricula, fees, KHDA ratings, and university options." },
+              { title: "Mobile & Internet Guide", href: "/guides/telecom-mobile/", desc: "du, Etisalat, Ooredoo, STC. Plans, costs, eSIM, and home broadband options." },
+              { title: "Healthcare for Expats", href: "/guides/healthcare-expats-gulf/", desc: "Insurance, hospitals, pharmacies, and emergency care across the Gulf." },
+              { title: "Banking for Expats", href: "/guides/banking-expats-gulf/", desc: "Opening accounts, remittances, credit cards, and digital banking." },
+            ].map((guide) => (
+              <a href={guide.href} class="block py-3 group">
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">{guide.title}</h3>
+                <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{guide.desc}</p>
               </a>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- Country Cards -->
-  <section class="py-16 bg-white dark:bg-gray-950">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-          Three countries, one complete resource
-        </h2>
-        <p class="mt-3 text-gray-600 dark:text-gray-400">
-          Each guide covers visas, housing, healthcare, education, daily life, and practical setup steps.
-        </p>
-      </div>
-
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {Object.entries(COUNTRIES).map(([key, c]) => {
-          const highlights = {
-            uae: ["600+ international schools in Dubai", "Golden Visa for long-term residency", "DEWA and ADDC utility setup guides"],
-            qatar: ["Zero VAT, compact city lifestyle", "World Cup legacy infrastructure", "Kahramaa utilities and QID process"],
-            saudi: ["Vision 2030 social transformation", "Riyadh Metro now operational", "Premium Residency options available"],
-          };
-          const expats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
-          return (
-            <div class="group relative bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 hover:border-teal-600 dark:hover:border-teal-600 transition-colors">
-              <div class="flex items-center gap-3 mb-4">
-                <span class="text-3xl">{c.flag === "AE" ? "\u{1F1E6}\u{1F1EA}" : c.flag === "QA" ? "\u{1F1F6}\u{1F1E6}" : "\u{1F1F8}\u{1F1E6}"}</span>
-                <div>
-                  <h3 class="text-lg font-bold text-gray-900 dark:text-white">{c.fullName}</h3>
-                  <span class="text-xs text-gray-500">{expats[key as keyof typeof expats]} expats</span>
-                </div>
-              </div>
-
-              <ul class="space-y-2 mb-6">
-                {highlights[key as keyof typeof highlights]?.map((h: string) => (
-                  <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                    <svg class="h-4 w-4 text-teal-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                    {h}
-                  </li>
-                ))}
-              </ul>
-
-              <a href={`/${c.slug}/guide/`} class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
-                Read the {c.name} guide
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <!-- Cost of living & comparisons -->
+        <section class="mt-10">
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Cost of Living & Data</h2>
+          <div class="divide-y divide-gray-200 dark:divide-gray-800">
+            {[
+              { title: "UAE Cost of Living", href: "/uae/cost-of-living/", desc: "Interactive simulator: rent, groceries, transport, and school fees in Dubai and Abu Dhabi." },
+              { title: "Qatar Cost of Living", href: "/qatar/cost-of-living/", desc: "Monthly costs in Doha with comparison tool for 15 origin cities." },
+              { title: "Saudi Arabia Cost of Living", href: "/saudi-arabia/cost-of-living/", desc: "Costs in Riyadh, Jeddah, and Dammam with interactive estimator." },
+              { title: "UAE Housing Guide", href: "/uae/housing/", desc: "Rent estimator, neighborhoods, Ejari registration, and rental tips." },
+              { title: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/", desc: "UAE vs Qatar vs Saudi Arabia: lifestyle, cost, and opportunity compared." },
+            ].map((guide) => (
+              <a href={guide.href} class="block py-3 group">
+                <h3 class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">{guide.title}</h3>
+                <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{guide.desc}</p>
               </a>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+            ))}
+          </div>
+        </section>
 
-  <!-- Why the Gulf Section -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-        Why professionals choose the Gulf in 2026
-      </h2>
-      <div class="prose dark:prose-invert max-w-none">
-        <p>The Gulf Cooperation Council countries attract over 30 million expatriate workers, and the numbers continue to grow. The UAE alone hosts 8.9 million foreign residents, representing 88% of its total population. Saudi Arabia's Vision 2030 program has created thousands of new roles across technology, entertainment, tourism, and infrastructure. Qatar's post-World Cup economy is expanding into finance, education, and LNG production at record levels.</p>
-        <p>Beyond financial advantages, Gulf countries offer a unique living environment. Dubai ranks among the world's safest cities. Saudi Arabia has opened cinemas, concert venues, and mixed-gender social spaces. Qatar's World Cup infrastructure left behind world-class stadiums, a metro system, and upgraded road networks. International schools serve every major curriculum, and healthcare facilities meet or exceed Western standards.</p>
-        <p>Setting up your life as a new arrival involves practical steps that differ from country to country: obtaining your residence visa, finding housing, setting up electricity and water, getting a local SIM card, opening a bank account, converting your driving licence, and enrolling children in school. Our guides walk you through each of these steps with up-to-date 2026 information and costs.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Expat Life Guides Section -->
-  <section class="py-16 bg-white dark:bg-gray-950">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-8">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-          Practical guides for Gulf expats
-        </h2>
-        <p class="mt-2 text-gray-600 dark:text-gray-400">
-          Step-by-step guides for every part of settling in the Gulf.
-        </p>
+        <!-- Why the Gulf - editorial prose -->
+        <section class="mt-10">
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Why the Gulf in 2026</h2>
+          <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
+            <p>The Gulf Cooperation Council countries attract over 30 million expatriate workers. The UAE alone hosts 8.9 million foreign residents — 88% of its total population. Saudi Arabia's Vision 2030 program has created thousands of new roles across technology, entertainment, tourism, and infrastructure. Qatar's post-World Cup economy is expanding into finance, education, and LNG production.</p>
+            <p>Setting up your life involves practical steps that differ from country to country: obtaining your residence visa, finding housing, connecting electricity and water, getting a local SIM card, opening a bank account, converting your driving licence, and enrolling children in school. Our guides walk through each step with current 2026 data.</p>
+          </div>
+        </section>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
-        {[
-          { title: "Driving Licence Guide 2026", href: "/guides/driving-licence/", desc: "Licence conversion, driving schools, costs, and requirements across UAE, Qatar, Saudi." },
-          { title: "Utilities Setup Guide", href: "/guides/utilities-setup/", desc: "DEWA, ADDC, Kahramaa, SEC. How to connect electricity, water, and internet." },
-          { title: "Schools & Education 2026", href: "/guides/schools-education/", desc: "International school systems, curricula, fees, KHDA ratings, and university options." },
-          { title: "Mobile & Internet Guide", href: "/guides/telecom-mobile/", desc: "du, Etisalat, Ooredoo, STC. Plans, costs, eSIM, and home broadband options." },
-          { title: "Healthcare for Expats", href: "/guides/healthcare-expats-gulf/", desc: "Insurance, hospitals, pharmacies, and emergency care across the Gulf." },
-          { title: "Banking for Expats", href: "/guides/banking-expats-gulf/", desc: "Opening accounts, remittances, credit cards, and digital banking." },
-          { title: "UAE Cost of Living", href: "/uae/cost-of-living/", desc: "Rent, groceries, transport, and school fees in Dubai and Abu Dhabi." },
-          { title: "UAE Education Guide", href: "/uae/education/", desc: "Schools in Dubai and Abu Dhabi: curricula, fees, KHDA ratings, admissions." },
-          { title: "UAE Housing Guide", href: "/uae/housing/", desc: "Rent estimator, neighborhoods, Ejari registration, and rental tips." },
-          { title: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/", desc: "UAE vs Qatar vs Saudi Arabia: lifestyle, cost, and opportunity compared." },
-        ].map((guide) => (
-          <a href={guide.href} class="group flex items-start gap-3 py-3 border-b border-gray-100 dark:border-gray-800 hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
-            <svg class="h-4 w-4 text-gray-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 mt-0.5 shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      <!-- Right column: sidebar -->
+      <aside class="mt-10 lg:mt-0">
+        <!-- Calculators -->
+        <div class="mb-8">
+          <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider pb-2 border-b border-gray-200 dark:border-gray-800 mb-3">Tools & Calculators</h3>
+          <ul class="space-y-2">
+            {[
+              { label: "Cost of Living Simulator", href: "/uae/cost-of-living/" },
+              { label: "Salary Calculator", href: "/uae/salary-calculator/" },
+              { label: "Gratuity Calculator", href: "/uae/gratuity-calculator/" },
+              { label: "UAE Education Guide", href: "/uae/education/" },
+              { label: "All Calculators", href: "/calculators/" },
+            ].map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Relocating from -->
+        <div class="mb-8">
+          <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider pb-2 border-b border-gray-200 dark:border-gray-800 mb-3">Relocating From</h3>
+          <ul class="space-y-2">
+            {[
+              { label: "India → Gulf", href: "/relocating-from/india/" },
+              { label: "Pakistan → Gulf", href: "/relocating-from/pakistan/" },
+              { label: "UK → Gulf", href: "/relocating-from/uk/" },
+              { label: "USA → Gulf", href: "/relocating-from/usa/" },
+              { label: "France → Gulf", href: "/relocating-from/france/" },
+              { label: "Philippines → Gulf", href: "/relocating-from/philippines/" },
+              { label: "Egypt → Gulf", href: "/relocating-from/egypt/" },
+            ].map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Sister sites -->
+        <div class="mb-8">
+          <h3 class="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider pb-2 border-b border-gray-200 dark:border-gray-800 mb-3">From Our Network</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener" class="group">
+                <span class="block text-sm font-medium text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">Salary & Employment Data</span>
+                <span class="text-xs text-gray-400">taxfreesalaries.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://thedubaisetup.com/" target="_blank" rel="noopener" class="group">
+                <span class="block text-sm font-medium text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">Business Setup Guides</span>
+                <span class="text-xs text-gray-400">thedubaisetup.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://uaepriceindex.com/" target="_blank" rel="noopener" class="group">
+                <span class="block text-sm font-medium text-gray-900 dark:text-white group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">Property Prices</span>
+                <span class="text-xs text-gray-400">uaepriceindex.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- About -->
+        <div class="border border-gray-200 dark:border-gray-800 rounded p-4">
+          <div class="flex items-center gap-3 mb-2">
+            <img
+              src={SITE.author.image}
+              alt={SITE.author.name}
+              class="h-10 w-10 rounded bg-gray-200 dark:bg-gray-700 object-cover"
+              width="40"
+              height="40"
+            />
             <div>
-              <h3 class="font-semibold text-gray-900 dark:text-white text-sm group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{guide.title}</h3>
-              <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{guide.desc}</p>
+              <div class="text-sm font-bold text-gray-900 dark:text-white">{SITE.author.name}</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">{SITE.author.credentials}</div>
             </div>
-          </a>
-        ))}
-      </div>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{SITE.author.bio}</p>
+          <a href="/about/" class="mt-2 inline-block text-xs text-gray-500 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">About & methodology &rarr;</a>
+        </div>
+      </aside>
     </div>
-  </section>
+  </div>
 
-  <!-- Sister Sites Cross-links -->
-  <section class="py-16 bg-gray-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-        More Gulf resources from our network
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-600 dark:hover:border-teal-600 transition-colors group">
-          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Salary & Employment Data</h3>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Compare tax-free salaries across 20+ professions. Gratuity calculators, labor law guides, and salary negotiation tips.</p>
-          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">taxfreesalaries.com</span>
-        </a>
-        <a href="https://thedubaisetup.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-600 dark:hover:border-teal-600 transition-colors group">
-          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Business Setup</h3>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Free zone vs mainland, trade licences, PRO services, and company formation guides for the Gulf.</p>
-          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">thedubaisetup.com</span>
-        </a>
-        <a href="https://uaepriceindex.com/" target="_blank" rel="noopener" class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:border-teal-600 dark:hover:border-teal-600 transition-colors group">
-          <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Property Prices</h3>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Rental and purchase prices across Dubai, Abu Dhabi, Doha, Riyadh, and Jeddah. Area-by-area data.</p>
-          <span class="mt-3 inline-block text-xs text-teal-600 dark:text-teal-400 font-medium">uaepriceindex.com</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-16 bg-white dark:bg-gray-950">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+  <!-- FAQ -->
+  <div class="border-t border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
       <FAQAccordion faqs={faqs} />
     </div>
-  </section>
-
-  <!-- Author / methodology section -->
-  <section class="py-12 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-start gap-4">
-        <img
-          src={SITE.author.image}
-          alt={SITE.author.name}
-          class="h-12 w-12 rounded-lg bg-gray-200 dark:bg-gray-700 object-cover"
-          width="48"
-          height="48"
-        />
-        <div>
-          <div class="font-bold text-gray-900 dark:text-white">{SITE.author.name}</div>
-          <div class="text-sm text-gray-500 dark:text-gray-400">{SITE.author.credentials} &middot; {SITE.author.role}</div>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-            {SITE.author.bio}
-          </p>
-          <a href="/about/" class="mt-2 inline-block text-sm font-medium text-teal-600 dark:text-teal-400 hover:underline">
-            About our methodology
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 </Layout>
