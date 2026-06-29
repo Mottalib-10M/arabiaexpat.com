@@ -64,19 +64,19 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
           <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Country Guides</h2>
           <div class="divide-y divide-gray-200 dark:divide-gray-800">
             {Object.entries(COUNTRIES).map(([key, c]) => (
-                <article class="py-4">
-                  <a href={`/${c.slug}/guide/`} class="group flex items-start justify-between gap-4">
+                <article>
+                  <a href={`/${c.slug}/guide/`} class="group flex items-start justify-between gap-4 py-4 px-3 -mx-3 rounded hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
                     <div>
                       <div class="flex items-baseline gap-3">
                         <span class="text-xl">{c.flag === "AE" ? "\u{1F1E6}\u{1F1EA}" : c.flag === "QA" ? "\u{1F1F6}\u{1F1E6}" : "\u{1F1F8}\u{1F1E6}"}</span>
-                        <h3 class="text-lg font-bold text-teal-700 dark:text-teal-400 group-hover:underline transition-colors">
+                        <h3 class="text-lg font-bold text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 group-hover:decoration-teal-500 transition-colors">
                           {c.fullName}
-                          <span class="text-sm font-normal text-gray-400 ml-2 no-underline">{countryExpats[key as keyof typeof countryExpats]} expats</span>
                         </h3>
+                        <span class="text-sm text-gray-400">{countryExpats[key as keyof typeof countryExpats]} expats</span>
                       </div>
                       <p class="mt-1 text-sm text-gray-600 dark:text-gray-400 leading-relaxed ml-9">{countrySummaries[key as keyof typeof countrySummaries]}</p>
                     </div>
-                    <svg class="h-5 w-5 text-gray-300 dark:text-gray-600 group-hover:text-teal-600 transition-colors shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <svg class="h-5 w-5 text-gray-400 dark:text-gray-500 group-hover:text-teal-600 transition-colors shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                   </a>
                 </article>
             ))}
@@ -95,12 +95,12 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
               { title: "Healthcare for Expats", href: "/guides/healthcare-expats-gulf/", desc: "Insurance, hospitals, pharmacies, and emergency care across the Gulf." },
               { title: "Banking for Expats", href: "/guides/banking-expats-gulf/", desc: "Opening accounts, remittances, credit cards, and digital banking." },
             ].map((guide) => (
-              <a href={guide.href} class="flex items-center justify-between py-3 group gap-4">
+              <a href={guide.href} class="flex items-center justify-between py-3 px-3 -mx-3 rounded group gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
                 <div>
-                  <h3 class="text-sm font-semibold text-teal-700 dark:text-teal-400 group-hover:underline transition-colors">{guide.title}</h3>
+                  <h3 class="text-sm font-semibold text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 group-hover:decoration-teal-500 transition-colors">{guide.title}</h3>
                   <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{guide.desc}</p>
                 </div>
-                <svg class="h-4 w-4 text-gray-300 dark:text-gray-600 group-hover:text-teal-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <svg class="h-4 w-4 text-gray-400 dark:text-gray-500 group-hover:text-teal-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
             ))}
           </div>
@@ -117,12 +117,12 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
               { title: "UAE Housing Guide", href: "/uae/housing/", desc: "Rent estimator, neighborhoods, Ejari registration, and rental tips." },
               { title: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/", desc: "UAE vs Qatar vs Saudi Arabia: lifestyle, cost, and opportunity compared." },
             ].map((guide) => (
-              <a href={guide.href} class="flex items-center justify-between py-3 group gap-4">
+              <a href={guide.href} class="flex items-center justify-between py-3 px-3 -mx-3 rounded group gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
                 <div>
-                  <h3 class="text-sm font-semibold text-teal-700 dark:text-teal-400 group-hover:underline transition-colors">{guide.title}</h3>
+                  <h3 class="text-sm font-semibold text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 group-hover:decoration-teal-500 transition-colors">{guide.title}</h3>
                   <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{guide.desc}</p>
                 </div>
-                <svg class="h-4 w-4 text-gray-300 dark:text-gray-600 group-hover:text-teal-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <svg class="h-4 w-4 text-gray-400 dark:text-gray-500 group-hover:text-teal-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </a>
             ))}
           </div>
@@ -152,7 +152,7 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
               { label: "All Calculators", href: "/calculators/" },
             ].map((link) => (
               <li>
-                <a href={link.href} class="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">{link.label}</a>
+                <a href={link.href} class="text-sm text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 hover:decoration-teal-500 transition-colors">{link.label}</a>
               </li>
             ))}
           </ul>
@@ -172,7 +172,7 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
               { label: "Egypt → Gulf", href: "/relocating-from/egypt/" },
             ].map((link) => (
               <li>
-                <a href={link.href} class="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-700 dark:hover:text-teal-400 transition-colors">{link.label}</a>
+                <a href={link.href} class="text-sm text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 hover:decoration-teal-500 transition-colors">{link.label}</a>
               </li>
             ))}
           </ul>
