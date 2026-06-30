@@ -4,7 +4,7 @@ export const uaeCostOfLiving = {
       name: "Dubai",
       housing: {
         studioApartment: { min: 3500, max: 6000, currency: "AED", note: "per month, areas like JVC, Sports City" },
-        oneBedroom: { min: 5000, max: 9000, currency: "AED", note: "per month, Marina, JLT, Downtown" },
+        oneBedroom: { min: 4500, max: 10000, currency: "AED", note: "per month, Marina, JLT, Downtown" },
         twoBedroom: { min: 7000, max: 14000, currency: "AED", note: "per month, varies widely by area" },
         familyVilla: { min: 12000, max: 30000, currency: "AED", note: "per month, compound communities" },
       },
@@ -25,8 +25,8 @@ export const uaeCostOfLiving = {
         annualInsurance: { min: 3000, max: 12000, currency: "AED", note: "employer-mandated" },
       },
       education: {
-        internationalSchool: { min: 25000, max: 80000, currency: "AED", note: "per year" },
-        nursery: { min: 20000, max: 45000, currency: "AED", note: "per year" },
+        internationalSchool: { min: 15000, max: 95000, currency: "AED", note: "per year, CBSE from 15k, premium British/American up to 95k+" },
+        nursery: { min: 15000, max: 45000, currency: "AED", note: "per year" },
       },
       utilities: {
         monthly: { min: 500, max: 1200, currency: "AED", note: "DEWA (electricity + water)" },

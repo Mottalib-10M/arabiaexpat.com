@@ -4,8 +4,8 @@ export const qatarCostOfLiving = {
       name: "Doha",
       housing: {
         studioApartment: { min: 3000, max: 5000, currency: "QAR", note: "per month, Al Sadd, Bin Mahmoud" },
-        oneBedroom: { min: 4500, max: 7500, currency: "QAR", note: "per month, The Pearl, West Bay" },
-        twoBedroom: { min: 6000, max: 11000, currency: "QAR", note: "per month, varies by area" },
+        oneBedroom: { min: 4500, max: 9000, currency: "QAR", note: "per month, The Pearl, West Bay" },
+        twoBedroom: { min: 6000, max: 13000, currency: "QAR", note: "per month, varies by area" },
         familyVilla: { min: 10000, max: 22000, currency: "QAR", note: "per month, compound communities" },
       },
       food: {
