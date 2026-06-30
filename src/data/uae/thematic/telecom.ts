@@ -6,9 +6,9 @@ export const uaeTelecom: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Mobile & Internet in the UAE: Plans, Providers & Prices for Expats",
+  title: "UAE Mobile & Internet 2026 — du vs Etisalat Prices",
   description:
-    "Guide to mobile phone plans, home internet, and telecom providers in the UAE. Covers du and Etisalat (e&) plans, eSIM options, and broadband for expats in Dubai and Abu Dhabi.",
+    "Compare du and Etisalat postpaid, prepaid and home broadband plans. Data from AED 100/10 GB. 5G coverage, eSIM setup, VoIP apps like BOTIM and VPN restrictions.",
   intro: `The UAE's telecommunications market is served by two main providers: Etisalat (rebranded as e& in 2022) and du (operated by Emirates Integrated Telecommunications Company). Both offer mobile, fixed-line, home broadband, and TV services, and both have extensive 5G networks covering virtually all urban areas. Unlike many countries with multiple MVNOs (mobile virtual network operators), the UAE market is effectively a duopoly, though competition between the two providers keeps prices relatively competitive by regional standards.
 
 Mobile plans fall into two categories: prepaid (pay-as-you-go) and postpaid (monthly contract). Prepaid SIMs are easy to obtain — you can buy one from any provider store, supermarket, or even vending machines at the airport, with activation requiring only a passport or Emirates ID. Prepaid plans start from around AED 50/month (~€12.50/month) for basic data and calling packages. Postpaid plans, which require an Emirates ID and sometimes a salary certificate, offer better value for regular users, with unlimited local calls and generous data allowances starting from AED 100–150/month (~€25–37.50/month). Both providers support eSIM technology, allowing you to activate a plan digitally without visiting a store — particularly convenient for new arrivals.

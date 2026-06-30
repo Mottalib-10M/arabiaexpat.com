@@ -6,9 +6,9 @@ export const saudiVisa: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Visa Types in Saudi Arabia: Iqama, Work Permits & Expat Guide",
+  title: "Saudi Visa Types 2026 — Iqama, Premium Residency & Work",
   description:
-    "Complete guide to Saudi Arabia visa types for expats, covering work visas, Iqama residency permits, Premium Residency, Saudization (Nitaqat), visit visas, and the e-visa system.",
+    "Saudi work visa via Qiwa in 4-8 weeks. Iqama explained. Premium Residency from SAR 100,000/yr. Nitaqat impact, e-visa and family sponsorship rules all covered.",
   intro: `Saudi Arabia's visa and residency system has undergone significant modernisation in recent years, though it remains one of the more structured immigration frameworks in the Gulf region. The traditional sponsorship (kafala) system ties an expat's residency to their employer, who acts as the legal sponsor. However, recent reforms, including the introduction of Premium Residency and labour mobility initiatives, have begun to loosen these restrictions and give expats greater flexibility.
 
 The Iqama (residency permit) is the cornerstone document for all expats living and working in Saudi Arabia. It serves as your official identification, is required for virtually every government and private-sector interaction, and must be renewed annually. The Iqama is issued by the General Directorate of Passports (Jawazat) and is linked to your employer/sponsor. Losing your Iqama or allowing it to expire can result in fines and legal complications, so keeping it current is essential.

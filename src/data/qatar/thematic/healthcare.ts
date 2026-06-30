@@ -6,9 +6,9 @@ export const qatarHealthcare: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Healthcare in Qatar: Hospitals, Insurance & Expat Health Guide",
+  title: "Qatar Healthcare 2026 — HMC, Sidra & Insurance Guide",
   description:
-    "Everything expats need to know about healthcare in Qatar. Covers Hamad Medical Corporation (HMC), private hospitals, employer-provided insurance, PHCC primary care, and health card registration.",
+    "Hamad Medical runs 12 hospitals. Sidra Medicine for women and children. Mandatory employer insurance, GP costs QAR 100-300 and QCHP registration explained.",
   intro: `Qatar's healthcare system consistently ranks among the best in the Middle East. The country spends a significant portion of its GDP on health infrastructure, and the results are visible in modern hospitals, well-trained medical staff, and short waiting times compared to many Western countries. The system is built around two pillars: the public sector managed by Hamad Medical Corporation (HMC) and the Primary Health Care Corporation (PHCC), and a growing private sector of clinics and hospitals.
 
 For expats, access to public healthcare requires a Qatar Health Card, which can be obtained through the PHCC for a nominal annual fee. The card entitles holders to subsidised treatment at PHCC health centres and HMC hospitals. However, most expats rely on employer-provided private health insurance, which is strongly encouraged and covers treatment at private hospitals and clinics. Qatar's labour law requires employers to provide adequate medical coverage for their employees, and many packages extend this to dependants.
@@ -28,7 +28,13 @@ For day-to-day primary care, the PHCC runs over 25 health centres across Doha an
 
 Pharmacies are widely available throughout Doha, with chains like Al Aziziya Pharmacy, Kulud Pharmacy, and QPharm operating extended hours. Many medications that require a prescription in Western countries are available over the counter in Qatar, though controlled substances and certain psychiatric medications require a valid prescription and, in some cases, prior approval from the Ministry of Public Health.
 
-Expats should also be aware that Qatar requires certain vaccinations for school enrolment and residency processing. The Ministry of Public Health publishes an immunisation schedule aligned with WHO recommendations. For emergency care, dialling 999 connects to Hamad Medical Corporation's ambulance service, which provides free emergency transport to the nearest HMC facility.`,
+Expats should also be aware that Qatar requires certain vaccinations for school enrolment and residency processing. The Ministry of Public Health publishes an immunisation schedule aligned with WHO recommendations. For emergency care, dialling 999 connects to Hamad Medical Corporation's ambulance service, which provides free emergency transport to the nearest HMC facility.
+
+Mental health services have expanded in Qatar, with HMC operating a dedicated mental health service and several private clinics offering counselling, psychiatric care, and therapy. Expatriate adjustment issues, stress, and family separation are common reasons for seeking support. The Qatar Red Crescent and various community organisations also offer wellbeing programmes.
+
+For maternity care, Qatar offers several options. Sidra Medicine is the premier facility for obstetric care, providing comprehensive prenatal, delivery, and postnatal services with modern birthing suites and NICU facilities. HMC's Women's Hospital (previously known as the Women's Hospital) offers maternity services within the public system. Private hospitals including Al Ahli and Al Emadi also provide obstetric packages ranging from QAR 8,000-20,000 (~€2,000-5,000) for standard deliveries. Prenatal care typically begins at 8-10 weeks and includes regular check-ups, ultrasound scans, and blood tests covered by most insurance policies.
+
+Optical care is readily available through chains like Magrabi and Grand Optics, with eye examinations costing QAR 100-200 (~€25-50). Prescription glasses start from QAR 200 (~€50) and contact lenses are available at competitive prices. Laser eye surgery (LASIK) is offered at several clinics for QAR 5,000-10,000 (~€1,250-2,500) per eye.`,
     },
   ],
   faqs: [

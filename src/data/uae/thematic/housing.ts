@@ -6,9 +6,9 @@ export const uaeHousing: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Housing & Rent in the UAE: An Expat Guide to Finding a Home",
+  title: "UAE Rent Guide 2026 — Prices, Areas & Ejari Process",
   description:
-    "Complete guide to renting and buying property in the UAE as an expat. Covers areas, prices, Ejari, Tawtheeq, RERA regulations, and tips for Dubai and Abu Dhabi.",
+    "Dubai 1-bed from AED 4,000/month, Abu Dhabi from AED 3,500. Rent estimator tool. Ejari and Tawtheeq registration, RERA rules, security deposits and best areas.",
   intro: `Finding the right home is one of the most important — and often most stressful — parts of relocating to the UAE. The rental market is large and varied, offering everything from shared studio apartments for under AED 30,000 (~€7,500) per year to luxury villas on the Palm Jumeirah exceeding AED 1,000,000 (~€250,000) annually. Most expats rent rather than buy, though freehold ownership is available to foreign nationals in designated areas in both Dubai and Abu Dhabi. Understanding the local rental process, including the legal framework, payment norms, and neighbourhood differences, is essential for making a good decision.
 
 Rental payments in the UAE traditionally follow a unique system: landlords typically require payment via post-dated cheques — often one to four cheques covering the full year's rent. While the market has gradually shifted toward more cheques (making payments more manageable), some landlords still insist on a single cheque for the full annual amount, which can be a shock for newcomers. In addition to rent, tenants should budget for a security deposit (usually 5% of annual rent for unfurnished apartments and 10% for furnished), a real-estate agent commission (typically 5% of annual rent), and connection fees for utilities (DEWA in Dubai, ADDC in Abu Dhabi). Maintenance of the property is generally the landlord's responsibility for structural issues, while tenants handle minor repairs.

@@ -6,9 +6,9 @@ export const qatarEducation: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Schools & Education in Qatar: Fees, Curricula & Admissions Guide",
+  title: "Qatar Schools 2026 — Fees, Education City & Admissions",
   description:
-    "Complete guide to education in Qatar for expat families. Compare international school fees, curricula (British, American, IB, Indian), university options in Education City, and the QNSA accreditation system.",
+    "Doha school fees QAR 20,000-65,000/year. British, American and IB curricula. Education City hosts Georgetown and Northwestern. QNSA ratings and admissions.",
   intro: `Qatar has invested heavily in building a world-class education ecosystem. The country is home to Education City, a 12-square-kilometre campus in Doha that hosts branch campuses of elite international universities including Georgetown University, Northwestern University, Carnegie Mellon University, Texas A&M, Virginia Commonwealth University, and Weill Cornell Medicine. For expat families, this means children can pursue globally recognised degrees without leaving the Gulf.
 
 The K-12 landscape is equally robust. Qatar's Ministry of Education and Higher Education (MOEHE) oversees public schools that follow the national Arabic-medium curriculum, while dozens of private international schools offer British, American, IB, Indian (CBSE/ICSE), French, Filipino, and other curricula. The Qatar National School Accreditation (QNSA) framework, administered by the Evaluation Institute, ensures private schools meet rigorous quality benchmarks. Schools must renew accreditation every four years, and parents can check a school's QNSA status on the MOEHE website.

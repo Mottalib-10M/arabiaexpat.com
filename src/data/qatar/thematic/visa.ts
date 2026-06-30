@@ -6,9 +6,9 @@ export const qatarVisa: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Visa Types: Work Permits, Residency & QID Guide for Expats",
+  title: "Qatar Visa Types 2026 — Work Permit, QID & Residency",
   description:
-    "Complete guide to Qatar visa types for expats. Covers work visas, residence permits, QID registration, permanent residency cards, free zones (QFC, QSTP), kafala reforms, and labour law changes.",
+    "Qatar work visa in 2-6 weeks. QID registration, permanent residency path, QFC and QSTP free zones. Kafala abolished, no exit permit. Full 2026 process guide.",
   intro: `Qatar's visa and immigration system has undergone significant reforms in recent years, making it more flexible and worker-friendly. The country has moved away from the traditional kafala (sponsorship) system, introducing labour mobility provisions that allow workers to change jobs without employer consent after completing a probationary period. These reforms, coupled with the introduction of a non-discriminatory minimum wage and permanent residency options, have positioned Qatar as a more attractive destination for skilled professionals.
 
 The primary visa types for expats include the work visa and residence permit (combined as the Qatar ID or QID), business visas, family/dependent visas, and tourist visas. The work visa process begins with a job offer from a Qatari employer, who submits an application to the Ministry of Labour. Once approved, the worker enters Qatar on a temporary entry permit and completes medical examinations, biometric registration, and fingerprinting to receive the QID. The QID is the most important document for expats, serving as identification, proof of residency, and authorisation to work.

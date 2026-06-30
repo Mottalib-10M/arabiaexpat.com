@@ -6,9 +6,9 @@ export const qatarTelecom: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Mobile & Internet in Qatar: Plans, Providers & Broadband Guide",
+  title: "Qatar Mobile & Internet 2026 — Ooredoo vs Vodafone",
   description:
-    "Guide to mobile phones and internet in Qatar. Compare Ooredoo and Vodafone Qatar plans, SIM card registration, eSIM, 5G coverage, home broadband options, fibre speeds, and VoIP restrictions.",
+    "Compare Ooredoo and Vodafone postpaid and prepaid plans. Data from QAR 100/15 GB. 5G and fibre broadband speeds, eSIM setup, SIM registration and VoIP access.",
   intro: `Qatar's telecommunications market is served by two operators: Ooredoo, the incumbent national carrier, and Vodafone Qatar, which entered the market in 2009. Both providers offer comprehensive mobile, broadband, and enterprise services, and competition between them has driven prices down and quality up over the past decade. Qatar has one of the highest internet penetration rates in the world, and both 4G LTE and 5G networks cover virtually all populated areas.
 
 Mobile plans in Qatar come in prepaid and postpaid varieties. Prepaid SIM cards can be purchased from operator stores, authorised resellers, and even airport kiosks upon arrival. Registration requires a valid passport or QID. Postpaid plans offer better value for regular users and typically bundle generous data allowances, local calling minutes, and international calling credit. Monthly postpaid plans range from QAR 75 (~€19) for basic packages with 5-10 GB of data to QAR 500 (~€125) or more for premium unlimited plans with international roaming. Both Ooredoo and Vodafone Qatar support eSIM, which allows dual-SIM functionality on compatible devices.

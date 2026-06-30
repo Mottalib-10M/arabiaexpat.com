@@ -6,9 +6,9 @@ export const saudiUtilities: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Utilities in Saudi Arabia: Electricity, Water & Expat Guide",
+  title: "Saudi Utilities 2026 — SEC & NWC Bills, Setup & Costs",
   description:
-    "Everything expats need to know about utilities in Saudi Arabia, including SEC electricity tariffs, NWC water costs, government subsidies, smart meters, and city-specific information for Riyadh, Jeddah, and Dammam.",
+    "SEC electricity and NWC water bills SAR 300-800/month. Government subsidies, tariff tiers, connection process, smart meters and rates for Riyadh and Jeddah.",
   intro: `Utilities in Saudi Arabia are provided by government-linked companies and remain relatively affordable compared to Western countries, though subsidy reforms have gradually increased costs in recent years. The Saudi Electricity Company (SEC) is the sole provider of electrical power across the Kingdom, while the National Water Company (NWC) handles water supply and wastewater services in major cities. Gas for cooking is typically supplied via bottled LPG cylinders from distributors such as Saudi Gas and Naygas.
 
 Electricity tariffs in Saudi Arabia are structured on a tiered consumption basis, with higher usage attracting higher per-unit rates. The residential tariff starts at SAR 0.18 (~€0.04) per kWh for consumption up to 6,000 kWh per month and increases to SAR 0.30 (~€0.07) per kWh for consumption above that threshold. Given Saudi Arabia's extreme summer temperatures (regularly exceeding 45C in inland cities), air conditioning accounts for a significant portion of household electricity consumption, and summer electricity bills can be substantially higher than winter bills.

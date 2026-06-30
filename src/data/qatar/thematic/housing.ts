@@ -6,9 +6,9 @@ export const qatarHousing: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Housing & Rent in Qatar: Areas, Prices & Rental Guide for Expats",
+  title: "Qatar Rent Guide 2026 — Doha Prices, Areas & Leases",
   description:
-    "Find the best areas to live in Qatar as an expat. Compare rental prices across Doha neighbourhoods including The Pearl, West Bay, Lusail, and Al Sadd. Understand rental law, Baladiya registration, and lease agreements.",
+    "Doha 1-bed from QAR 3,500/month. The Pearl, West Bay, Lusail and Al Sadd compared. Rent estimator tool, Baladiya registration, lease terms and compound options.",
   intro: `Qatar's rental market offers expats a wide range of housing options, from luxury waterfront apartments on The Pearl to affordable family villas in suburban communities like Al Wakrah. There is no property tax in Qatar, which keeps the overall cost of living slightly more manageable, though rents in premium areas remain among the highest in the Gulf. Most expats rent rather than buy, as freehold property ownership for non-Qataris is restricted to designated areas such as The Pearl, Lusail, and West Bay Lagoon.
 
 Qatar's rental market is governed by Law No. 4 of 2008, which establishes the rights and obligations of landlords and tenants. Key protections include a prohibition on eviction without cause during a valid lease term, a requirement that landlords maintain the property in habitable condition, and a cap on rent increases in certain circumstances. All rental contracts must be registered with the municipality (Baladiya) to be legally enforceable, and this registration is also required when applying for or renewing a residence permit (QID).

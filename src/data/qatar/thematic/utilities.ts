@@ -6,9 +6,9 @@ export const qatarUtilities: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Utilities in Qatar: Electricity, Water & Kahramaa Guide for Expats",
+  title: "Qatar Utilities 2026 — Kahramaa Bills, Setup & Costs",
   description:
-    "Guide to utilities in Qatar for expats. Covers Kahramaa electricity and water services, tariff rates, connection process, summer AC costs, smart meters, and the fact that Qatar has no VAT on utilities.",
+    "Kahramaa bills QAR 300-800/month with zero VAT. Connection process, tariff tiers, summer AC cost spikes, smart meters and water rates for expats explained.",
   intro: `Utilities in Qatar are managed by Kahramaa, the Qatar General Electricity and Water Corporation, which is the sole provider of electricity and water services across the country. Kahramaa handles generation, transmission, and distribution of both services, as well as metering, billing, and customer service. One significant advantage for residents of Qatar is that there is no Value Added Tax (VAT) on utilities, as Qatar has not yet implemented a VAT system, keeping costs lower than in some neighbouring countries.
 
 Electricity in Qatar is generated primarily from natural gas, and the grid is highly reliable with rare power outages. Water is produced through desalination plants and is safe for domestic use, though most expats prefer to drink bottled or filtered water due to taste preferences. Qatar's electricity tariffs are structured in tiers based on consumption, with higher per-unit rates for larger consumers. Water tariffs follow a similar tiered structure. The government subsidises utility costs for Qatari nationals, while expat residents pay the standard commercial or residential rate, which is still affordable by international standards.

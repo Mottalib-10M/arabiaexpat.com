@@ -6,9 +6,9 @@ export const qatarTransport: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Transport in Qatar: Metro, Buses, Taxis & Driving Guide",
+  title: "Qatar Transport 2026 — Doha Metro, Taxis & Driving",
   description:
-    "Navigate Qatar's transport system with this expat guide. Covers the Doha Metro (Red, Green, Gold lines), Karwa buses and taxis, Uber, Lusail Tram, car ownership, fuel prices, and driving licence conversion.",
+    "Doha Metro pass QAR 100/month on 3 lines. Karwa taxis, Uber, Lusail Tram and car costs. Fuel QAR 1.80/litre. Licence conversion from 40+ approved countries.",
   intro: `Qatar's transport infrastructure has been transformed in the past decade, with the opening of the Doha Metro in 2019 marking a pivotal shift from a car-dependent country to one with modern public transit. The metro system, combined with Karwa bus services, taxis, and ride-hailing apps, gives expats multiple options for getting around. However, private car ownership remains the dominant mode of transport, particularly for families and those living outside central Doha.
 
 The Doha Metro is operated by Qatar Rail and consists of three lines: the Red Line (running north-south from Lusail to Al Wakra via West Bay and Msheireb), the Green Line (running east-west from Al Riffa to Al Mansoura via Education City and Msheireb), and the Gold Line (connecting Ras Bu Abboud to Al Aziziyah via Msheireb and the National Museum). Msheireb station serves as the central interchange where all three lines converge. Fares are affordable, starting at QAR 2 (~€0.50) for a standard single journey and QAR 10 (~€2.50) for a day pass. A rechargeable travel card is available for regular commuters.

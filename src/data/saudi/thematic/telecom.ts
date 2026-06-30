@@ -6,9 +6,9 @@ export const saudiTelecom: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Mobile & Internet in Saudi Arabia: STC, Mobily, Zain & Expat Guide",
+  title: "Saudi Mobile & Internet 2026 — STC vs Mobily vs Zain",
   description:
-    "Complete guide to mobile phones and internet in Saudi Arabia for expats, covering STC, Mobily, and Zain plans, 5G coverage, fiber broadband, pricing, and how to get connected.",
+    "Compare STC, Mobily and Zain postpaid plans from SAR 100/20 GB. 5G coverage, fibre speeds, eSIM options, SIM registration with Iqama and home WiFi setup guide.",
   intro: `Saudi Arabia has one of the most advanced telecommunications infrastructures in the Middle East, with three major mobile operators and rapidly expanding 5G and fiber-optic networks. The Communications, Space, and Technology Commission (CST, formerly CITC) regulates the sector and has driven significant investment in digital infrastructure under the Vision 2030 National Transformation Program.
 
 The three main mobile operators are STC (Saudi Telecom Company), Mobily (Etihad Etisalat), and Zain Saudi Arabia. STC is the largest by subscriber base and network coverage, holding a dominant position in both mobile and fixed-line broadband. Mobily is the second-largest operator and competes aggressively on pricing and data packages. Zain, while the smallest of the three, has carved out a strong niche with competitive prepaid plans and robust 5G rollout.

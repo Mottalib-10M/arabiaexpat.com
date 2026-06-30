@@ -6,9 +6,9 @@ export const saudiHousing: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Housing & Rent in Saudi Arabia: Compounds, Apartments & Expat Guide",
+  title: "Saudi Rent Guide 2026 — Compounds, Prices & Ejar Rules",
   description:
-    "Complete guide to housing and rent in Saudi Arabia for expats, covering compounds, apartments, villas, the Ejar rental platform, and rental prices in Riyadh, Jeddah, and Dammam.",
+    "Riyadh 1-bed from SAR 2,500/month, compounds SAR 8,000-20,000. Rent estimator tool. Ejar registration, compound amenities and best areas in Riyadh and Jeddah.",
   intro: `Housing in Saudi Arabia has evolved significantly for expatriates. Traditionally, most Western expats lived in gated compounds that offered a self-contained community with amenities such as swimming pools, gyms, and social facilities. While compound living remains popular, the social reforms under Vision 2030 have opened up more options, and an increasing number of expats now choose to live in apartments or villas in regular residential neighbourhoods.
 
 The Ejar platform, launched by the Ministry of Housing, is the official rental registration system in Saudi Arabia. All residential lease agreements must be registered on Ejar, which provides legal protection for both landlords and tenants. The platform standardises rental contracts, tracks payment obligations, and is linked to Iqama renewal processes. Expats should ensure their landlord registers the tenancy on Ejar, as an unregistered lease can create problems when renewing residency permits.

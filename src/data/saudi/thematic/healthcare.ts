@@ -6,9 +6,9 @@ export const saudiHealthcare: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Healthcare in Saudi Arabia: Hospitals, Insurance & Expat Guide",
+  title: "Saudi Healthcare 2026 — CCHI Insurance & Hospitals",
   description:
-    "A comprehensive guide to healthcare in Saudi Arabia for expats, covering CCHI mandatory insurance, top hospitals in Riyadh, Jeddah, and Dammam, MOH services, and Vision 2030 health reforms.",
+    "Mandatory CCHI employer insurance for all expats. Dr Sulaiman Al Habib and Saudi German compared. MOH network, GP costs SAR 100-300 and SCFHS licensing guide.",
   intro: `Saudi Arabia operates a dual healthcare system: government-funded hospitals and clinics managed by the Ministry of Health (MOH), and a rapidly growing private healthcare sector. For expatriates, health insurance is mandatory under the Cooperative Health Insurance (CCHI) framework. Employers are legally required to provide medical insurance for all expat employees and their dependents, and proof of valid insurance is needed when renewing Iqama residency permits.
 
 The Kingdom's healthcare infrastructure has expanded significantly in recent years. Saudi Arabia now has over 500 hospitals and 2,500 primary healthcare centres across the country. Under Vision 2030, the government is investing heavily in healthcare privatisation, digital health services, and medical tourism. The National Transformation Program aims to raise the standard of care, increase private-sector participation to 35% of total healthcare spending, and develop specialised centres of excellence.

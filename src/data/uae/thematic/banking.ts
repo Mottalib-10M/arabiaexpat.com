@@ -6,9 +6,9 @@ export const uaeBanking: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Banking in the UAE: Best Banks, Accounts & Tips for Expats",
+  title: "UAE Banking 2026 — Best Expat Accounts & Transfer Fees",
   description:
-    "Everything expats need to know about banking in the UAE, including how to open an account, the best banks in Dubai and Abu Dhabi, fees, and digital banking options.",
+    "Open a UAE bank account in 3-7 days. Compare Emirates NBD, FAB, ADCB and Mashreq fees. Digital banks, credit card limits, remittance rates and WPS salary rules.",
   intro: `Opening a bank account is one of the first practical steps for any expat arriving in the UAE. You will need a local account to receive your salary (the Wages Protection System requires employers to pay via bank transfer), pay rent, set up utility direct debits, and manage day-to-day expenses. The UAE banking sector is well-developed, with a mix of large national banks, international banks, and an increasing number of digital-first options. The Central Bank of the UAE regulates all banks and ensures deposit protection up to AED 250,000 (~€62,500) per depositor per bank.
 
 To open a current account, most banks require your passport with a valid UAE residence visa, Emirates ID, a salary certificate or employment contract, and a minimum salary threshold — typically AED 3,000–5,000 (~€750–1,250) for basic accounts and AED 10,000–15,000 (~€2,500–3,750) for premium packages. Some banks now offer accounts to new arrivals before their visa is stamped, using an offer letter from the employer. The process usually takes 3–7 working days, though some digital banks can open accounts within 24 hours. Most banks offer multi-currency accounts, which are convenient for managing remittances and savings in your home currency.

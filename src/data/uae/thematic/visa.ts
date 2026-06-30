@@ -6,9 +6,9 @@ export const uaeVisa: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Visa Types: Golden Visa, Employment Visa & Residency Guide",
+  title: "UAE Visa Types 2026 — Golden, Green & Freelancer Options",
   description:
-    "Complete guide to UAE visa types for expats, including the Golden Visa, Green Visa, employment visa, freelancer visa, and free-zone options in Dubai and Abu Dhabi.",
+    "6 UAE visa types: Golden (10-yr), Green (5-yr), Employment, Freelancer, free zone. Costs from AED 3,000, eligibility rules and family sponsorship requirements.",
   intro: `The UAE offers a wide range of visa options for expatriates, from traditional employer-sponsored work visas to newer self-sponsored categories that have transformed the country's appeal for entrepreneurs, investors, and skilled professionals. Understanding which visa category best fits your situation is critical, as it affects your ability to work, sponsor dependants, open bank accounts, and access services. The UAE has undergone significant visa reforms since 2019, introducing long-term residency options that mark a shift from the traditional two-year, employer-tied model.
 
 The most significant development is the Golden Visa programme, which grants 5- or 10-year renewable residency to investors, entrepreneurs, scientists, outstanding students, and skilled professionals in fields such as medicine, engineering, technology, and the arts. Golden Visa holders enjoy key advantages: they can sponsor family members regardless of salary, remain outside the UAE for extended periods without losing residency, and are not tied to a specific employer. Eligibility typically requires either a property investment of at least AED 2 million (~€500,000), a salary of AED 30,000/month (~€7,500/month) or higher with a bachelor's degree, or demonstrated professional achievement. As of 2024, the UAE has issued over 200,000 Golden Visas.

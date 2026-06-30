@@ -6,9 +6,9 @@ export const uaeTransport: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Transport in the UAE: Metro, Taxis, Driving & Salik for Expats",
+  title: "UAE Transport 2026 — Metro, Salik Tolls & Driving Costs",
   description:
-    "Guide to getting around the UAE as an expat. Covers Dubai Metro, buses, Salik tolls, nol cards, taxis, car ownership, and public transport in Abu Dhabi.",
+    "Dubai Metro pass AED 350/month, Salik tolls AED 4 per gate, petrol AED 3.20/litre. Car insurance, nol card, Abu Dhabi buses, ride-hailing and Etihad Rail news.",
   intro: `Getting around the UAE is relatively easy, but the best option depends heavily on which emirate you live in and your daily routine. Dubai has the most developed public-transport network in the Gulf, anchored by the Dubai Metro, tram, bus system, and water taxis. Abu Dhabi, while expanding its public transport, remains more car-dependent. Between the two cities, comfortable inter-city buses run every 15–30 minutes and take around 90 minutes. Ride-hailing apps like Uber and Careem (a regional competitor acquired by Uber) are widely available and affordable throughout the UAE.
 
 Car ownership is extremely common among expats, with the UAE having one of the highest car-to-population ratios in the world. New and used cars are relatively affordable due to low import duties, and fuel prices are among the lowest globally — as of mid-2025, petrol costs around AED 3.00–3.30 (~€0.75–0.82) per litre (set monthly by the Ministry of Energy based on global oil prices). However, car ownership comes with additional costs: Salik toll charges in Dubai (AED 4 / ~€1 per gate), parking fees (AED 2–4/hour / ~€0.50–1/hour in metered zones), annual registration renewal (AED 350–500 / ~€88–125), insurance (AED 1,500–4,000/year / ~€375–1,000/year depending on the vehicle), and the inevitable wear from the region's extreme summer heat.

@@ -6,9 +6,9 @@ export const saudiTransport: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Transport in Saudi Arabia: Metro, Driving, Taxis & Expat Guide",
+  title: "Saudi Transport 2026 — Riyadh Metro, Driving & Costs",
   description:
-    "Everything expats need to know about transport in Saudi Arabia, including the Riyadh Metro, driving licences, fuel costs, ride-hailing apps, and getting around Riyadh, Jeddah, and Dammam.",
+    "Riyadh Metro spans 6 lines, 176 km. Fuel SAR 2.18/litre. Uber and Careem available. Driving licence conversion, car insurance costs and inter-city transport.",
   intro: `Saudi Arabia has traditionally been a car-dependent country, with wide highways and inexpensive fuel shaping the transport landscape. However, the Kingdom is investing heavily in public transport infrastructure as part of its Vision 2030 modernisation plan. The landmark opening of the Riyadh Metro in 2024 marked a turning point, and further projects in Jeddah and other cities are in various stages of planning and development.
 
 The historic decision to allow women to drive in June 2018 significantly expanded transport options for all residents. Ride-hailing services, particularly Uber and Careem (a regional platform acquired by Uber), have become essential parts of daily transport in Saudi cities. These apps offer convenient, affordable, and air-conditioned travel and are widely used by expats who do not own a car.

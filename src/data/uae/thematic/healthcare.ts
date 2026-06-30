@@ -6,9 +6,9 @@ export const uaeHealthcare: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Healthcare in the UAE: Hospitals, Insurance & Costs for Expats",
+  title: "UAE Healthcare 2026 — Insurance, Hospitals & Costs",
   description:
-    "A comprehensive guide to healthcare in the UAE for expats, covering mandatory insurance, top hospitals in Dubai and Abu Dhabi, costs, and how the health system works.",
+    "Mandatory insurance via DHA (Dubai) and DoH (Abu Dhabi). GP visits AED 150-400. Cleveland Clinic, Mediclinic and NMC compared. Emergency and dental coverage.",
   intro: `The UAE has one of the most advanced healthcare systems in the Middle East, with world-class hospitals, internationally accredited facilities, and a growing number of specialist centres. Healthcare is regulated at the emirate level: the Dubai Health Authority (DHA) oversees the health sector in Dubai, while the Department of Health (DoH) — formerly HAAD — regulates healthcare in Abu Dhabi. Both authorities mandate that all residents must have health insurance, making the UAE one of the few countries in the region with universal mandatory coverage for expats.
 
 Employers are legally required to provide health insurance for their employees and, in Abu Dhabi, for their dependants as well. In Dubai, employer-sponsored insurance covers the employee, and while covering dependants is strongly encouraged, it is not yet universally mandated. Insurance plans range from basic packages (covering emergency and inpatient care) to comprehensive plans that include outpatient visits, dental, maternity, and optical cover. The minimum benefits are defined by the Essential Benefits Plan (EBP) in Abu Dhabi and the Dubai Health Insurance Law. Most expats with mid-level or senior roles receive enhanced insurance that provides access to the top private hospitals.

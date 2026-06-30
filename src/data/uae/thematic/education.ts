@@ -6,9 +6,9 @@ export const uaeEducation: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "Schools & Education in the UAE: A Complete Expat Guide",
+  title: "UAE Schools 2026 — Fees, KHDA Ratings & Curricula Guide",
   description:
-    "Everything expats need to know about schools and education in the UAE, including curricula, KHDA ratings, fees, and the best schools in Dubai and Abu Dhabi.",
+    "700+ schools offering 17 curricula. Fees AED 15,000-100,000/year. KHDA and ADEK ratings, British vs IB vs American, admissions timeline and tips for parents.",
   intro: `The UAE is home to one of the most diverse and competitive private education markets in the world, with over 700 private schools serving more than 1.1 million students. Expat families can choose from a wide range of curricula including British (EYFS/GCSE/A-Level), American (US diploma/AP), International Baccalaureate (IB), Indian (CBSE and ICSE), French (CNED/AEFE), and several others including German, Japanese, and Filipino systems. The sheer variety means parents can often continue the same educational pathway their children started in another country.
 
 School quality is rigorously monitored by government bodies. In Dubai, the Knowledge and Human Development Authority (KHDA) inspects every private school annually, publishing ratings from Outstanding to Weak. In Abu Dhabi, the Abu Dhabi Department of Education and Knowledge (ADEK) performs a similar function. These public inspection reports are invaluable for parents evaluating options. Schools rated "Outstanding" or "Very Good" by KHDA tend to have long waiting lists and higher fees, so it is wise to start the admissions process early — often 12 to 18 months before the desired start date.
