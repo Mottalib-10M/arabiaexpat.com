@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { calculateGratuity, type Country, type ContractType, type TerminationType, type GratuityResult } from "../../lib/gratuity-engine";
-import { formatDetailedWithEUR } from "../../lib/format";
+import { formatCurrencyDetailed, formatDetailedWithEUR, formatEURPart } from "../../lib/format";
 import { decodeState, updateURL } from "../../lib/url-state";
 import ShareButtons from "./ShareButtons";
 
@@ -140,11 +140,12 @@ export default function GratuityCalculator({ country, currency, countryName }: P
           <div className="text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Your Estimated Gratuity</p>
             <p className="text-4xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">
-              {formatDetailedWithEUR(result.totalGratuity, currency)}
+              {formatCurrencyDetailed(result.totalGratuity, currency)}
             </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalGratuity, currency)}</p>
             {result.penalty > 0 && (
               <p className="text-sm text-red-600 dark:text-red-400 mt-1">
-                Resignation deduction: {formatDetailedWithEUR(result.penalty, currency)} ({Math.round(result.penaltyRate * 100)}%)
+                Resignation deduction: {formatCurrencyDetailed(result.penalty, currency)} ({Math.round(result.penaltyRate * 100)}%)
               </p>
             )}
           </div>
@@ -156,8 +157,9 @@ export default function GratuityCalculator({ country, currency, countryName }: P
               <div key={i} className="space-y-1">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600 dark:text-gray-400">{item.label}</span>
-                  <span className="font-medium text-gray-900 dark:text-white tabular-nums">
-                    {formatDetailedWithEUR(item.amount, currency)}
+                  <span className="text-right shrink-0 ml-2">
+                    <span className="font-medium text-gray-900 dark:text-white tabular-nums">{formatCurrencyDetailed(item.amount, currency)}</span>
+                    <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(item.amount, currency)}</span>
                   </span>
                 </div>
                 <div className="h-3 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -183,21 +185,24 @@ export default function GratuityCalculator({ country, currency, countryName }: P
                 <tr>
                   <td className="px-4 py-2 text-gray-600 dark:text-gray-400">Gross Gratuity</td>
                   <td className="px-4 py-2 text-right font-medium text-gray-900 dark:text-white tabular-nums">
-                    {formatDetailedWithEUR(result.grossGratuity, currency)}
+                    {formatCurrencyDetailed(result.grossGratuity, currency)}
+                    <span className="block text-xs text-gray-500 dark:text-gray-400 font-normal">{formatEURPart(result.grossGratuity, currency)}</span>
                   </td>
                 </tr>
                 {result.penalty > 0 && (
                   <tr>
                     <td className="px-4 py-2 text-red-600 dark:text-red-400">Resignation Deduction</td>
                     <td className="px-4 py-2 text-right font-medium text-red-600 dark:text-red-400 tabular-nums">
-                      -{formatDetailedWithEUR(result.penalty, currency)}
+                      -{formatCurrencyDetailed(result.penalty, currency)}
+                      <span className="block text-xs font-normal">-{formatEURPart(result.penalty, currency)}</span>
                     </td>
                   </tr>
                 )}
                 <tr className="font-bold">
                   <td className="px-4 py-2 text-gray-900 dark:text-white">Net Gratuity Payable</td>
                   <td className="px-4 py-2 text-right text-teal-600 dark:text-teal-400 tabular-nums">
-                    {formatDetailedWithEUR(result.totalGratuity, currency)}
+                    {formatCurrencyDetailed(result.totalGratuity, currency)}
+                    <span className="block text-xs text-gray-500 dark:text-gray-400 font-normal">{formatEURPart(result.totalGratuity, currency)}</span>
                   </td>
                 </tr>
               </tbody>

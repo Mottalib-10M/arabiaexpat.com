@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { formatWithEUR } from "../../lib/format";
+import { formatCurrency, formatEURPart } from "../../lib/format";
 
 interface Props {
   countryKey: "uae" | "qatar" | "saudi";
@@ -125,27 +125,38 @@ export default function TelecomCostEstimator({ countryKey, currency }: Props) {
       <div className="space-y-2 mb-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Mobile plan</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.mobile, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.mobile, currency)}</span>
+            <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.mobile, currency)}</span>
+          </span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Home internet</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.home === 0 ? "—" : formatWithEUR(result.home, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.home === 0 ? "\u2014" : formatCurrency(result.home, currency)}</span>
+            {result.home > 0 && <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.home, currency)}</span>}
+          </span>
         </div>
         {result.voip > 0 && (
           <div className="flex justify-between text-sm">
             <span className="text-gray-600 dark:text-gray-400">VoIP add-on (BOTIM)</span>
-            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.voip, currency)}</span>
+            <span className="text-right shrink-0 ml-2">
+              <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.voip, currency)}</span>
+              <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.voip, currency)}</span>
+            </span>
           </div>
         )}
       </div>
-      <div className="flex items-baseline justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+      <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
           <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly telecom</p>
-          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatWithEUR(result.total, currency)}</p>
+          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.total, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, currency)}</p>
         </div>
-        <div className="text-right">
+        <div className="text-right shrink-0">
           <p className="text-xs text-gray-500 dark:text-gray-400">Annual total</p>
-          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatWithEUR(result.total * 12, currency)}</p>
+          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatCurrency(result.total * 12, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total * 12, currency)}</p>
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">{countryKey === "uae" ? "UAE blocks free VoIP calls. BOTIM add-on (AED 50/mo) is included for internet calling." : "WhatsApp and VoIP calls work freely — no add-on needed."}</p>

@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { calculateSalary, type SalaryCountry, type SalaryResult } from "../../lib/salary-engine";
-import { formatDetailedWithEUR } from "../../lib/format";
+import { formatCurrencyDetailed, formatDetailedWithEUR, formatEURPart } from "../../lib/format";
 import { decodeState, updateURL } from "../../lib/url-state";
 import ShareButtons from "./ShareButtons";
 
@@ -157,26 +157,30 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
             <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Monthly Gross</p>
               <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">
-                {formatDetailedWithEUR(result.grossMonthly, currency)}
+                {formatCurrencyDetailed(result.grossMonthly, currency)}
               </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.grossMonthly, currency)}</p>
             </div>
             <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Monthly Net</p>
               <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">
-                {formatDetailedWithEUR(result.netMonthly, currency)}
+                {formatCurrencyDetailed(result.netMonthly, currency)}
               </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.netMonthly, currency)}</p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Annual Gross</p>
               <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">
-                {formatDetailedWithEUR(result.grossAnnual, currency)}
+                {formatCurrencyDetailed(result.grossAnnual, currency)}
               </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.grossAnnual, currency)}</p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Annual Net</p>
               <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">
-                {formatDetailedWithEUR(result.netAnnual, currency)}
+                {formatCurrencyDetailed(result.netAnnual, currency)}
               </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.netAnnual, currency)}</p>
             </div>
           </div>
 
@@ -196,14 +200,16 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                       {item.label}
                     </td>
                     <td className={`px-4 py-2 text-right tabular-nums font-medium ${item.type === "deduction" ? "text-red-600 dark:text-red-400" : "text-gray-900 dark:text-white"}`}>
-                      {item.type === "deduction" ? "" : ""}{formatDetailedWithEUR(Math.abs(item.amount), currency)}
+                      {formatCurrencyDetailed(Math.abs(item.amount), currency)}
+                      <span className={`block text-xs font-normal ${item.type === "deduction" ? "" : "text-gray-500 dark:text-gray-400"}`}>{formatEURPart(Math.abs(item.amount), currency)}</span>
                     </td>
                   </tr>
                 ))}
                 <tr className="font-bold">
                   <td className="px-4 py-2 text-gray-900 dark:text-white">Net Take-Home Pay</td>
                   <td className="px-4 py-2 text-right text-teal-600 dark:text-teal-400 tabular-nums">
-                    {formatDetailedWithEUR(result.netMonthly, currency)}
+                    {formatCurrencyDetailed(result.netMonthly, currency)}
+                    <span className="block text-xs text-gray-500 dark:text-gray-400 font-normal">{formatEURPart(result.netMonthly, currency)}</span>
                   </td>
                 </tr>
               </tbody>
@@ -217,9 +223,12 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
                 {result.deductions.map((d, i) => (
                   <div key={i} className="flex justify-between text-sm">
                     <span className="text-gray-600 dark:text-gray-400">{d.label}</span>
-                    <span className="tabular-nums text-gray-900 dark:text-white">
-                      {formatDetailedWithEUR(d.monthlyAmount, currency)}/mo
-                      {d.rate !== null && ` (${(d.rate * 100).toFixed(2)}%)`}
+                    <span className="text-right shrink-0 ml-2">
+                      <span className="tabular-nums text-gray-900 dark:text-white">
+                        {formatCurrencyDetailed(d.monthlyAmount, currency)}/mo
+                        {d.rate !== null && ` (${(d.rate * 100).toFixed(2)}%)`}
+                      </span>
+                      <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(d.monthlyAmount, currency)}</span>
                     </span>
                   </div>
                 ))}

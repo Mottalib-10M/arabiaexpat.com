@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { formatWithEUR } from "../../lib/format";
+import { formatCurrency, formatEURPart } from "../../lib/format";
 
 interface Props {
   countryKey: "uae" | "qatar" | "saudi";
@@ -96,21 +96,29 @@ export default function HealthcareCostEstimator({ countryKey, currency }: Props)
       <div className="space-y-2 mb-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Annual insurance premium</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.annualPremium === 0 ? "Employer-covered" : formatWithEUR(result.annualPremium, currency) + "/yr"}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.annualPremium === 0 ? "Employer-covered" : formatCurrency(result.annualPremium, currency) + "/yr"}</span>
+            {result.annualPremium > 0 && <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.annualPremium, currency)}</span>}
+          </span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Monthly out-of-pocket (copays, meds)</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.monthlyOutOfPocket, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.monthlyOutOfPocket, currency)}</span>
+            <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.monthlyOutOfPocket, currency)}</span>
+          </span>
         </div>
       </div>
-      <div className="flex items-baseline justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+      <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
           <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly healthcare</p>
-          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatWithEUR(result.totalMonthly, currency)}</p>
+          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.totalMonthly, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalMonthly, currency)}</p>
         </div>
-        <div className="text-right">
+        <div className="text-right shrink-0">
           <p className="text-xs text-gray-500 dark:text-gray-400">Annual total</p>
-          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatWithEUR(result.totalAnnual, currency)}</p>
+          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatCurrency(result.totalAnnual, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalAnnual, currency)}</p>
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Basic tier assumes employer-provided insurance. Enhanced and premium tiers include private insurance upgrade costs. Out-of-pocket covers copays, dental, and pharmacy.</p>

@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { formatWithEUR } from "../../lib/format";
+import { formatCurrency, formatEURPart } from "../../lib/format";
 
 interface Props {
   countryKey: "uae" | "qatar" | "saudi";
@@ -108,25 +108,36 @@ export default function BankingCostEstimator({ countryKey, currency }: Props) {
       <div className="space-y-2 mb-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Account maintenance</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyFee === 0 ? "Free" : formatWithEUR(result.monthlyFee, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyFee === 0 ? "Free" : formatCurrency(result.monthlyFee, currency)}</span>
+            {result.monthlyFee > 0 && <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.monthlyFee, currency)}</span>}
+          </span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Transfer fees</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyTransferCost === 0 ? "Free" : formatWithEUR(result.monthlyTransferCost, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyTransferCost === 0 ? "Free" : formatCurrency(result.monthlyTransferCost, currency)}</span>
+            {result.monthlyTransferCost > 0 && <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.monthlyTransferCost, currency)}</span>}
+          </span>
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Card fee (monthly equiv.)</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyCardFee === 0 ? "Free" : formatWithEUR(result.monthlyCardFee, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{result.monthlyCardFee === 0 ? "Free" : formatCurrency(result.monthlyCardFee, currency)}</span>
+            {result.monthlyCardFee > 0 && <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.monthlyCardFee, currency)}</span>}
+          </span>
         </div>
       </div>
-      <div className="flex items-baseline justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+      <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
           <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly banking cost</p>
-          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{result.totalMonthly === 0 ? "Free" : formatWithEUR(result.totalMonthly, currency)}</p>
+          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{result.totalMonthly === 0 ? "Free" : formatCurrency(result.totalMonthly, currency)}</p>
+          {result.totalMonthly > 0 && <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalMonthly, currency)}</p>}
         </div>
-        <div className="text-right">
+        <div className="text-right shrink-0">
           <p className="text-xs text-gray-500 dark:text-gray-400">Annual total</p>
-          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{result.totalAnnual === 0 ? "Free" : formatWithEUR(result.totalAnnual, currency)}</p>
+          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{result.totalAnnual === 0 ? "Free" : formatCurrency(result.totalAnnual, currency)}</p>
+          {result.totalAnnual > 0 && <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalAnnual, currency)}</p>}
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Premium accounts waive most fees with minimum balance requirements. Digital banks typically have zero fees. Transfer costs are for bank wire; exchange houses may be cheaper.</p>

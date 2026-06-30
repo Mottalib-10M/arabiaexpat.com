@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { formatWithEUR } from "../../lib/format";
+import { formatCurrency, formatEURPart } from "../../lib/format";
 
 interface Props {
   countryKey: "uae" | "qatar" | "saudi";
@@ -108,22 +108,32 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
       <div className="space-y-2 mb-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Primary visa{result.isAnnual ? " (annual)" : ""}</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.primary, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.primary, currency)}</span>
+            <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.primary, currency)}</span>
+          </span>
         </div>
         {result.dependentsCost > 0 && (
           <div className="flex justify-between text-sm">
             <span className="text-gray-600 dark:text-gray-400">Dependent visas</span>
-            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.dependentsCost, currency)}</span>
+            <span className="text-right shrink-0 ml-2">
+              <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.dependentsCost, currency)}</span>
+              <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.dependentsCost, currency)}</span>
+            </span>
           </div>
         )}
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Processing (medical, ID, etc.)</span>
-          <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatWithEUR(result.processing, currency)}</span>
+          <span className="text-right shrink-0 ml-2">
+            <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(result.processing, currency)}</span>
+            <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.processing, currency)}</span>
+          </span>
         </div>
       </div>
       <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
         <p className="text-xs text-gray-500 dark:text-gray-400">Estimated total cost</p>
-        <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatWithEUR(result.total, currency)}</p>
+        <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.total, currency)}</p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, currency)}</p>
       </div>
       {result.note && <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">{result.note}. Actual costs may vary. Employment visa costs are typically borne by the employer.</p>}
     </div>

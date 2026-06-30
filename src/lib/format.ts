@@ -24,6 +24,10 @@ export function formatDetailedWithEUR(amount: number, currency: string): string 
   return `${formatCurrencyDetailed(amount, currency)} (~€${toEUR(amount, currency).toLocaleString("en-US")})`;
 }
 
+export function formatEURPart(amount: number, currency: string): string {
+  return `(~€${toEUR(amount, currency).toLocaleString("en-US")})`;
+}
+
 export function formatPercent(rate: number): string {
   return `${(rate * 100).toFixed(1)}%`;
 }

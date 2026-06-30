@@ -9,7 +9,7 @@ import {
   type HealthcareTier,
   type Lifestyle,
 } from "../../lib/cost-simulator-engine";
-import { formatWithEUR, formatUSD, formatPercent } from "../../lib/format";
+import { formatWithEUR, formatCurrency, formatEURPart, formatUSD, formatPercent } from "../../lib/format";
 import { decodeState, updateURL } from "../../lib/url-state";
 import ShareButtons from "./ShareButtons";
 
@@ -163,8 +163,9 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost in {result.cityName}</p>
               <p className="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">
-                {formatWithEUR(result.total, result.currency)}
+                {formatCurrency(result.total, result.currency)}
               </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, result.currency)}</p>
             </div>
             {comparison && (
               <div className="text-right">
@@ -188,8 +189,9 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
                   <div className="flex-1 bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
                     <div className={`h-full rounded-full ${row.color}`} style={{ width: `${Math.min(pct, 100)}%` }} />
                   </div>
-                  <span className="w-24 text-right tabular-nums font-medium text-gray-900 dark:text-white">
-                    {formatWithEUR(row.value, result.currency)}
+                  <span className="w-32 text-right shrink-0">
+                    <span className="tabular-nums font-medium text-gray-900 dark:text-white">{formatCurrency(row.value, result.currency)}</span>
+                    <span className="block text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(row.value, result.currency)}</span>
                   </span>
                 </div>
               );

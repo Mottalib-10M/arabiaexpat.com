@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { formatWithEUR } from "../../lib/format";
+import { formatCurrency, formatEURPart } from "../../lib/format";
 
 interface Props {
   countryKey: "uae" | "qatar" | "saudi";
@@ -101,14 +101,16 @@ export default function TransportCostEstimator({ countryKey, currency }: Props) 
           </select>
         </div>
       </div>
-      <div className="flex items-baseline justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
+      <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
           <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost</p>
-          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatWithEUR(monthly, currency)}</p>
+          <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(monthly, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(monthly, currency)}</p>
         </div>
-        <div className="text-right">
+        <div className="text-right shrink-0">
           <p className="text-xs text-gray-500 dark:text-gray-400">Annual estimate</p>
-          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatWithEUR(monthly * 12, currency)}</p>
+          <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatCurrency(monthly * 12, currency)}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(monthly * 12, currency)}</p>
         </div>
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Includes fuel, insurance, parking, or pass costs. Ride-hailing estimates assume 20 work days/month.</p>
