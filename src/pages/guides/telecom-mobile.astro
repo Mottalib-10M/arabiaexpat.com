@@ -4,6 +4,7 @@ import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import TelecomCostEstimator from "../../components/calculators/TelecomCostEstimator";
 
 const faqs = [
   { question: "Can I keep my existing phone number when moving to the Gulf?", answer: "You cannot port your international number to a Gulf operator. However, you can keep your foreign SIM active for a transition period to receive verification codes and calls. Many expats maintain their home country number on an eSIM while using a local Gulf SIM as their primary line. Most modern smartphones support dual SIM or eSIM configurations." },
@@ -20,7 +21,7 @@ const breadcrumbs = [
 ---
 
 <GuideLayout
-  title="Mobile & Internet Gulf 2026 — Plans, Prices & eSIM"
+  title="Mobile & Internet Gulf 2026 | Plans, Prices & eSIM"
   description="Compare du, Etisalat, Ooredoo, STC and Mobily plans across 3 countries. Data from AED 100/10 GB. Home broadband, eSIM setup, VoIP rules and 5G coverage maps."
   canonical="/guides/telecom-mobile/"
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Mobile & Internet Setup for Gulf Expats 2026", "Complete guide to mobile and internet for Gulf expats.", "https://arabiaexpat.com/guides/telecom-mobile/", "2026-01-15", "2026-06-20")]}
@@ -37,7 +38,9 @@ const breadcrumbs = [
     </div>
   </div>
 
-  <p>Getting connected is one of the first priorities when arriving in the Gulf. Mobile connectivity, internet access, and understanding local telecom regulations (including VoIP restrictions) are essential for daily life. This guide covers the mobile operators, plan types, costs, eSIM options, and home broadband setup across the UAE, Qatar, and Saudi Arabia.</p>
+  <p>Getting connected is one of the first priorities when arriving in the Gulf. Mobile connectivity, internet access, and understanding local telecom regulations (including VoIP restrictions) are essential for daily life, alongside <a href="/guides/utilities-setup/" class="text-brand-600 dark:text-brand-400 hover:underline">setting up your utilities</a>. This guide covers the mobile operators, plan types, costs, eSIM options, and home broadband setup across the UAE, Qatar, and Saudi Arabia.</p>
+
+  <div class="not-prose my-8"><TelecomCostEstimator client:idle countryKey="uae" currency="AED" /></div>
 
   <h2>UAE Mobile Operators</h2>
 
@@ -63,7 +66,7 @@ const breadcrumbs = [
   <p>Ooredoo is Qatar's original telecom operator and offers the most extensive 5G network in the country. Prepaid SIM cards start from QAR 55 (~€14) and are available at Hamad International Airport, Ooredoo stores, and authorized retailers. Prepaid data packages range from QAR 50 (~€13) for 5 GB to QAR 200 (~€50) for 50 GB. Postpaid plans start from QAR 200 (~€50) per month for 20 GB and go up to QAR 500 (~€125) for unlimited data with international minutes. Ooredoo offers eSIM activation for supported devices, which can be set up through the Ooredoo app.</p>
 
   <h3>Vodafone Qatar</h3>
-  <p>Vodafone entered the Qatar market as the second operator and has grown steadily. Prepaid plans start from QAR 35 (~€9), and postpaid plans from QAR 175 (~€44). Vodafone is often competitive on international calling rates, particularly for roaming in GCC countries. Both operators provide 4G and 5G coverage across Doha and major population centers. Coverage in industrial areas and outer reaches of the country is stronger with Ooredoo.</p>
+  <p>Vodafone entered the Qatar market as the second operator and has grown steadily. Prepaid plans start from QAR 35 (~€9), and postpaid plans from QAR 175 (~€44). Vodafone is often competitive on international calling rates, particularly for roaming in GCC countries. Both operators provide 4G and 5G coverage across Doha and major population centers. Coverage in industrial areas and outer reaches of the country is stronger with Ooredoo. For more on daily life in <a href="/qatar/doha/" class="text-brand-600 dark:text-brand-400 hover:underline">Doha</a>, see our city guide.</p>
 
   <h3>VoIP in Qatar</h3>
   <p>Qatar has been progressively relaxing VoIP restrictions. As of 2026, WhatsApp voice and video calls, FaceTime, and most major VoIP applications work in Qatar without requiring a separate subscription. This is a significant quality-of-life advantage compared to the UAE for expats who frequently call family and friends internationally.</p>
@@ -80,7 +83,7 @@ const breadcrumbs = [
   <p>Zain is the third operator, offering competitive plans particularly for data-heavy users. Zain's unlimited data postpaid plan starts from SAR 200 (~€48) per month, making it attractive for heavy users. Zain's prepaid data offerings are also competitive, with frequent promotions. eSIM support is available across all three Saudi operators.</p>
 
   <h3>VoIP in Saudi Arabia</h3>
-  <p>Saudi Arabia has largely lifted VoIP restrictions. WhatsApp calls, FaceTime, Zoom, and other VoIP services work normally throughout the kingdom. This change, implemented as part of Vision 2030's push to modernize communications infrastructure, makes Saudi Arabia the most open of the three Gulf countries for internet calling as of 2026.</p>
+  <p>Saudi Arabia has largely lifted VoIP restrictions. WhatsApp calls, FaceTime, Zoom, and other VoIP services work normally throughout the kingdom. This change, implemented as part of Vision 2030's push to modernize communications infrastructure, makes Saudi Arabia the most open of the three Gulf countries for internet calling as of 2026. See our <a href="/saudi-arabia/guide/" class="text-brand-600 dark:text-brand-400 hover:underline">Saudi Arabia expat guide</a> for more on how Vision 2030 is transforming daily life.</p>
 
   <h2>eSIM and Dual SIM Setup</h2>
   <p>Most modern smartphones (iPhone 14 and later, Samsung Galaxy S21 and later, Google Pixel 6 and later) support eSIM technology, which allows you to have two active lines without a physical SIM swap. This is particularly useful for Gulf expats who want to maintain their home country number while using a local Gulf line. All major Gulf operators now support eSIM activation, which can usually be done through the operator's app or website. The eSIM can be set up before arrival if you purchase a plan online, allowing you to have local connectivity the moment you land.</p>
@@ -113,7 +116,7 @@ const breadcrumbs = [
   <p>Gulf internet connections are generally fast and reliable for streaming services. Netflix, Amazon Prime Video, Disney+, and Apple TV+ all operate in the region with localized content libraries. Some content may be restricted or censored compared to Western libraries, and certain shows or movies may not be available. VPN usage is a grey area across the Gulf: using a VPN for privacy or business purposes is generally tolerated, but using one to access blocked content or services, commit fraud, or bypass government restrictions is illegal. In the UAE, unauthorized VPN use can carry fines of AED 500,000-2,000,000 (~€125,000-500,000), though enforcement typically targets commercial violations rather than personal browsing. Gaming services including PlayStation Network, Xbox Live, and Steam operate normally across all three countries. International news websites and social media platforms (Instagram, X/Twitter, Facebook, LinkedIn, TikTok) are accessible in all three countries, though some content may be filtered.</p>
 
   <h2>Practical Tips for Setting Up</h2>
-  <p>To get connected quickly upon arriving in the Gulf, purchase a local prepaid SIM card at the airport immediately upon landing. All three countries require registration with your passport, and sometimes your visa or residency stamp. Airport kiosks for all major operators are typically open 24/7. Start with a prepaid data package sufficient for your first week, then switch to a postpaid plan once your residency is confirmed and your bank account is open. For home internet, your landlord or building management can usually advise on which provider has pre-installed connections in the building, which avoids installation delays. Installation for new connections typically takes 3-7 business days. Keep your home country mobile number active on a low-cost plan for two-factor authentication codes from banks and government services back home, and use eSIM to manage both lines on a single phone.</p>
+  <p>To get connected quickly upon arriving in the Gulf, purchase a local prepaid SIM card at the airport immediately upon landing. All three countries require registration with your passport, and sometimes your visa or residency stamp. Airport kiosks for all major operators are typically open 24/7. Start with a prepaid data package sufficient for your first week, then switch to a postpaid plan once your residency is confirmed and your <a href="/guides/banking-expats-gulf/" class="text-brand-600 dark:text-brand-400 hover:underline">bank account</a> is open. For home internet, your landlord or building management can usually advise on which provider has pre-installed connections in the building, which avoids installation delays. This is worth confirming when arranging <a href="/uae/housing/" class="text-brand-600 dark:text-brand-400 hover:underline">your housing</a>. Installation for new connections typically takes 3-7 business days. Keep your home country mobile number active on a low-cost plan for two-factor authentication codes from banks and government services back home, and use eSIM to manage both lines on a single phone.</p>
 
   <FAQAccordion faqs={faqs} />
   <SourcesBlock sources={[{ name: "UAE TDRA", url: "https://tdra.gov.ae/" }, { name: "Etisalat (e&)", url: "https://www.etisalat.ae/" }, { name: "du", url: "https://www.du.ae/" }, { name: "Ooredoo Qatar", url: "https://www.ooredoo.qa/" }, { name: "STC", url: "https://www.stc.com.sa/" }]} />

@@ -23,9 +23,14 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
 <link rel="canonical" href={fullCanonical} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-<!-- Search engine verification -->
-<meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE" />
-<meta name="msvalidate.01" content="BING_VERIFICATION_CODE" />
+<!-- Google Search Console verification -->
+{SITE.googleVerifyCode && <meta name="google-site-verification" content={SITE.googleVerifyCode} />}
+
+<!-- Bing Webmaster verification -->
+{SITE.bingVerifyCode && <meta name="msvalidate.01" content={SITE.bingVerifyCode} />}
+
+<!-- DNS prefetch for third-party scripts -->
+<link rel="dns-prefetch" href="https://www.clarity.ms" />
 
 <!-- Preload Inter font -->
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
@@ -46,7 +51,7 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content={SITE.name} />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content="en_AE" />
 <meta property="og:image:alt" content={`${title} - ${SITE.name}`} />
 
 <!-- Twitter Card -->
@@ -65,13 +70,19 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
   })();
 </script>
 
-<!-- Microsoft Clarity (deferred 3s) -->
-<script is:inline>
-  setTimeout(function() {
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window,document,"clarity","script","placeholder-clarity-id");
-  }, 3000);
-</script>
+<!-- Microsoft Clarity (deferred 3s) — only loads when clarityId is set -->
+{SITE.clarityId && SITE.clarityId !== "placeholder-clarity-id" && (
+  <script type="text/javascript" set:html={`
+    setTimeout(function(){
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;
+        t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t,y);
+      })(window,document,"clarity","script","${SITE.clarityId}");
+      clarity("set","language","en");
+      clarity("set","page_path","${Astro.url.pathname}");
+    },3000);
+  `} />
+)}

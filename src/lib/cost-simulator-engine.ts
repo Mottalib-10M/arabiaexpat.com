@@ -131,13 +131,17 @@ export function simulateCost(input: SimulatorInput): CostBreakdown | null {
     case "2br":
       housing = lerp(data.housing.twoBedroom.min, data.housing.twoBedroom.max, t);
       break;
-    case "3br":
-      housing = lerp(
-        data.housing.twoBedroom.max,
-        data.housing.familyVilla.min,
-        t
-      );
+    case "3br": {
+      // 3BR sits between the 2BR ceiling and villa floor.
+      // When twoBedroom.max > familyVilla.min (overlapping ranges),
+      // the lerp would invert and produce costs below the 2BR value.
+      // Fix: sort the bounds so low <= high, then floor at the 2BR price.
+      const threeBrLow = Math.min(data.housing.twoBedroom.max, data.housing.familyVilla.min);
+      const threeBrHigh = Math.max(data.housing.twoBedroom.max, data.housing.familyVilla.min);
+      const twoBrValue = lerp(data.housing.twoBedroom.min, data.housing.twoBedroom.max, t);
+      housing = Math.max(lerp(threeBrLow, threeBrHigh, t), twoBrValue);
       break;
+    }
     case "villa":
       housing = lerp(data.housing.familyVilla.min, data.housing.familyVilla.max, t);
       break;

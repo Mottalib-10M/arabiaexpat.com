@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /*?*
-
+Disallow: /embed/
 Sitemap: https://arabiaexpat.com/sitemap-index.xml

@@ -41,14 +41,14 @@ const breadcrumbs = [
   crossLinks={crossLinks}
 >
   <Fragment slot="simulator">
-    {page.calculator === "education" && <SchoolCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "housing" && <RentEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "transport" && <TransportCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "utilities" && <UtilitiesCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "healthcare" && <HealthcareCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "telecom" && <TelecomCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "visa" && <VisaCostEstimator client:load countryKey="qatar" currency="QAR" />}
-    {page.calculator === "banking" && <BankingCostEstimator client:load countryKey="qatar" currency="QAR" />}
+    {page.calculator === "education" && <SchoolCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "housing" && <RentEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "transport" && <TransportCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "utilities" && <UtilitiesCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "healthcare" && <HealthcareCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "telecom" && <TelecomCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "visa" && <VisaCostEstimator client:idle countryKey="qatar" currency="QAR" />}
+    {page.calculator === "banking" && <BankingCostEstimator client:idle countryKey="qatar" currency="QAR" />}
   </Fragment>
 
   <h1>{page.title}</h1>

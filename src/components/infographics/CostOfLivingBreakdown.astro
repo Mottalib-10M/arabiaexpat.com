@@ -1,0 +1,110 @@
+---
+/**
+ * CostOfLivingBreakdown - Donut/ring chart showing typical expat monthly
+ * budget breakdown by category. Accepts a city prop for labeling.
+ *
+ * @prop {string} city - Display name of the city (e.g. 'Dubai', 'Doha')
+ * @prop {string} country - 'uae' | 'qatar' | 'saudi-arabia' (for default label)
+ */
+interface Props {
+  city?: string;
+  country?: 'uae' | 'qatar' | 'saudi-arabia';
+}
+
+const { city, country = 'uae' } = Astro.props;
+
+const cityLabel = city || (country === 'qatar' ? 'Doha' : country === 'saudi-arabia' ? 'Riyadh' : 'Dubai');
+
+type Segment = { label: string; pct: number; color: string };
+
+const segments: Segment[] = [
+  { label: 'Housing', pct: 35, color: '#0D9488' },
+  { label: 'Food & Dining', pct: 20, color: '#0F766E' },
+  { label: 'Transport', pct: 15, color: '#14B8A6' },
+  { label: 'Education', pct: 15, color: '#D97706' },
+  { label: 'Healthcare', pct: 5, color: '#F59E0B' },
+  { label: 'Utilities & Telecom', pct: 5, color: '#5EEAD4' },
+  { label: 'Entertainment', pct: 5, color: '#FBBF24' },
+];
+
+/* Donut chart geometry */
+const cx = 130;
+const cy = 130;
+const outerR = 110;
+const innerR = 60;
+
+function polarToCartesian(centerX: number, centerY: number, radius: number, angleDeg: number) {
+  const rad = ((angleDeg - 90) * Math.PI) / 180;
+  return { x: centerX + radius * Math.cos(rad), y: centerY + radius * Math.sin(rad) };
+}
+
+function describeArc(startAngle: number, endAngle: number) {
+  const oStart = polarToCartesian(cx, cy, outerR, endAngle);
+  const oEnd = polarToCartesian(cx, cy, outerR, startAngle);
+  const iStart = polarToCartesian(cx, cy, innerR, startAngle);
+  const iEnd = polarToCartesian(cx, cy, innerR, endAngle);
+  const large = endAngle - startAngle > 180 ? 1 : 0;
+  return [
+    `M ${oStart.x} ${oStart.y}`,
+    `A ${outerR} ${outerR} 0 ${large} 0 ${oEnd.x} ${oEnd.y}`,
+    `L ${iStart.x} ${iStart.y}`,
+    `A ${innerR} ${innerR} 0 ${large} 1 ${iEnd.x} ${iEnd.y}`,
+    'Z',
+  ].join(' ');
+}
+
+let currentAngle = 0;
+const arcs = segments.map((seg) => {
+  const start = currentAngle;
+  const sweep = (seg.pct / 100) * 360;
+  currentAngle += sweep;
+  return { ...seg, d: describeArc(start, currentAngle) };
+});
+---
+
+<figure class="my-8 not-prose">
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 md:p-8">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-6 font-serif text-center">
+      {cityLabel}: Typical Expat Monthly Budget
+    </h3>
+
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+      {/* Donut chart */}
+      <div class="shrink-0">
+        <svg
+          viewBox="0 0 260 260"
+          width="220"
+          height="220"
+          role="img"
+          aria-label={`${cityLabel} expat cost of living breakdown: ${segments.map(s => `${s.label} ${s.pct}%`).join(', ')}`}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {arcs.map((arc) => (
+            <path d={arc.d} fill={arc.color} stroke="white" stroke-width="2" class="dark:stroke-gray-800" />
+          ))}
+          <text x={cx} y={cy - 8} text-anchor="middle" fill="#1F2937" font-size="13" font-weight="700" class="dark:fill-gray-100">
+            Monthly
+          </text>
+          <text x={cx} y={cy + 10} text-anchor="middle" fill="#1F2937" font-size="12" font-weight="500" class="dark:fill-gray-400">
+            Budget
+          </text>
+        </svg>
+      </div>
+
+      {/* Legend */}
+      <div class="space-y-2.5 w-full max-w-xs">
+        {segments.map((seg) => (
+          <div class="flex items-center gap-3">
+            <span class="shrink-0 w-3.5 h-3.5 rounded-sm" style={`background-color: ${seg.color}`} />
+            <span class="text-sm text-gray-900 dark:text-gray-100 flex-1">{seg.label}</span>
+            <span class="text-sm font-bold text-gray-900 dark:text-gray-100 tabular-nums">{seg.pct}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <figcaption class="mt-2 text-center text-xs text-gray-500 dark:text-gray-400">
+    Approximate expat monthly budget breakdown in {cityLabel} -- individual budgets may vary ({new Date().getFullYear()})
+  </figcaption>
+</figure>

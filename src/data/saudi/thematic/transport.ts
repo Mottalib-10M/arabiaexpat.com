@@ -13,7 +13,7 @@ export const saudiTransport: ThematicPageData = {
 
 The historic decision to allow women to drive in June 2018 significantly expanded transport options for all residents. Ride-hailing services, particularly Uber and Careem (a regional platform acquired by Uber), have become essential parts of daily transport in Saudi cities. These apps offer convenient, affordable, and air-conditioned travel and are widely used by expats who do not own a car.
 
-Fuel prices in Saudi Arabia remain among the lowest in the world, though gradual subsidy reforms have brought prices closer to market rates. As of 2024, petrol costs approximately SAR 2.18 (~€0.52) per litre for 91-octane fuel. Owning and operating a car is affordable compared to most countries, and many expats choose to purchase or lease a vehicle. Driving licences from many countries can be converted to a Saudi licence, though the process varies by nationality. Expats should be aware of Saudi traffic laws, including strict speed limits, seatbelt requirements, and the demerit-point system managed by Moroor (the traffic police).`,
+Fuel prices in Saudi Arabia remain among the lowest in the world, though gradual subsidy reforms have brought prices closer to market rates. As of 2026, petrol costs approximately SAR 2.18 (~€0.52) per litre for 91-octane fuel. Owning and operating a car is affordable compared to most countries, and many expats choose to purchase or lease a vehicle. Driving licences from many countries can be converted to a Saudi licence, though the process varies by nationality. Expats should be aware of Saudi traffic laws, including strict speed limits, seatbelt requirements, and the demerit-point system managed by Moroor (the traffic police).`,
   citySections: [
     {
       city: "Riyadh",
@@ -58,7 +58,7 @@ Uber and Careem operate in the Dammam-Khobar-Dhahran area, though availability m
     {
       question: "How much does fuel cost in Saudi Arabia?",
       answer:
-        "Fuel prices are set by the government and reviewed quarterly. As of 2024, 91-octane petrol costs approximately SAR 2.18 (~€0.52) per litre and 95-octane is about SAR 2.33 (~€0.56) per litre. Diesel costs approximately SAR 0.52 (~€0.12) per litre. These prices are significantly lower than most countries, making car ownership very affordable.",
+        "Fuel prices are set by the government and reviewed quarterly. As of 2026, 91-octane petrol costs approximately SAR 2.18 (~€0.52) per litre and 95-octane is about SAR 2.33 (~€0.56) per litre. Diesel costs approximately SAR 0.52 (~€0.12) per litre. These prices are significantly lower than most countries, making car ownership very affordable.",
     },
     {
       question: "Is the Riyadh Metro operational and how does it work?",

@@ -104,6 +104,7 @@ export const footerNav = {
     { label: "UAE Cost of Living", href: "/uae/cost-of-living/" },
     { label: "Qatar Cost of Living", href: "/qatar/cost-of-living/" },
     { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" },
+    { label: "Glossary", href: "/glossary/" },
   ],
   sisterSites: [
     { label: "Salary Data (taxfreesalaries.com)", href: "https://taxfreesalaries.com/" },

@@ -40,7 +40,7 @@ const originMapping: Record<string, string> = {
 const originCitySlug = originMapping[corridor.slug] || "";
 
 const faqs = [
-  { question: `What salary can a ${corridor.demonym} professional expect in ${city.name}?`, answer: `${corridor.demonym} professionals moving to ${city.name} can expect salaries ${corridor.avgSalaryRange}. Salaries in ${countryConfig.name} are tax-free for expats, significantly boosting net take-home pay compared to ${corridor.country}.` },
+  { question: `What salary can a ${corridor.demonym} professional expect in ${city.name}?`, answer: `${corridor.demonym} professionals moving to ${city.name} can expect salaries ${corridor.avgSalaryRange}. Salaries in ${countryConfig.name} are tax-free for expats, greatly boosting net take-home pay compared to ${corridor.country}.` },
   { question: `What is the cost of living in ${city.name} compared to ${corridor.country}?`, answer: `Living costs in ${city.name} are generally higher than most cities in ${corridor.country}, particularly for housing. However, the tax-free salary environment means net savings potential is typically much higher. Use the cost simulator above for a personalized comparison.` },
   { question: `How do I get a work visa for ${city.name} from ${corridor.country}?`, answer: `${corridor.visaProcess.slice(0, 300)}` },
   { question: `Is there a ${corridor.demonym} community in ${city.name}?`, answer: `Yes, the ${corridor.demonym} community in ${city.name} is well-established. ${corridor.communityResources.slice(0, 3).join(", ")} are among the available resources. Community organizations, cultural events, and social groups help newcomers settle in.` },
@@ -57,7 +57,7 @@ const breadcrumbs = [
 ---
 
 <GuideLayout
-  title={`${corridor.country} to ${city.name} 2026 — Salary, Cost & Visa`}
+  title={`${corridor.country} to ${city.name} 2026 | Salary, Cost & Visa`}
   description={`${corridor.demonym} professionals moving to ${city.name}: tax-free salary data, rent vs ${corridor.country} costs, visa steps, required documents and ${corridor.demonym} community tips.`}
   canonical={`/relocating-from/${corridor.slug}/to-${city.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
@@ -93,10 +93,10 @@ const breadcrumbs = [
   <h2>Cost of Living: {corridor.country} vs {city.name}</h2>
 
   <div class="not-prose mb-6">
-    <CostOfLivingSimulator client:load defaultCity={city.slug} defaultOrigin={originCitySlug} />
+    <CostOfLivingSimulator client:idle defaultCity={city.slug} defaultOrigin={originCitySlug} />
   </div>
 
-  <p>Use the simulator above to compare your expected monthly costs in {city.name} with your current city in {corridor.country}. Housing is typically the largest expense, followed by education (for families) and food. The tax-free salary environment means that even with higher living costs, net savings potential is usually significantly better than in {corridor.country}.</p>
+  <p>Use the simulator above to compare your expected monthly costs in {city.name} with your current city in {corridor.country}. Housing is typically the largest expense, followed by education (for families) and food. The tax-free salary environment means that even with higher living costs, net savings potential is usually much better than in {corridor.country}.</p>
 
   <h2>Visa Process for {corridor.demonym} Nationals</h2>
   <p>{corridor.visaProcess}</p>

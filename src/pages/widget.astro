@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../data/site-config';
+import { buildBreadcrumbs } from '../lib/seo';
+
+const title = 'Free Embeddable Cost of Living Widget';
+const description = 'Add a free GCC cost-of-living estimator widget to your website. Compare monthly expenses for expats across Dubai, Abu Dhabi, Doha, Riyadh, and Jeddah. Responsive design.';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Widget', url: '/widget/' },
+];
+
+const embedCode = `<iframe src="${SITE.url}/embed/" width="400" height="520" frameborder="0" style="border-radius:12px;max-width:100%"></iframe>`;
+
+const advantages = [
+  { icon: '&#10003;', text: 'Free to use on any website or blog' },
+  { icon: '&#10003;', text: 'No data collection or tracking of your visitors' },
+  { icon: '&#10003;', text: 'Auto-updates when we refresh our cost data' },
+  { icon: '&#10003;', text: 'Fully responsive design that fits any layout' },
+  { icon: '&#10003;', text: 'Validated estimates based on local market research' },
+];
+
+const schemas = [buildBreadcrumbs(breadcrumbs), {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `${SITE.url}/widget/`,
+  "isPartOf": { "@type": "WebSite", "name": SITE.name, "url": SITE.url },
+}];
+---
+
+<Layout title={title} description={description} canonical="/widget/" schemas={schemas}>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
+        {breadcrumbs.map((crumb, i) => (
+          <li class="flex items-center gap-1.5">
+            {i > 0 && <span>/</span>}
+            {i === breadcrumbs.length - 1 ? (
+              <span class="text-gray-900 dark:text-gray-100 font-medium">{crumb.name}</span>
+            ) : (
+              <a href={crumb.url} class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">{crumb.name}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4 font-serif">
+      Free Embeddable Cost of Living Widget
+    </h1>
+
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
+      Add our cost-of-living estimator to your website. Your visitors can instantly compare monthly expenses for expats across Dubai, Abu Dhabi, Doha, Riyadh, and Jeddah for singles, couples, and families.
+    </p>
+
+    <!-- Widget Preview -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-serif">Widget Preview</h2>
+      <div class="flex justify-center">
+        <iframe
+          src="/embed/"
+          width="400"
+          height="520"
+          frameborder="0"
+          style="border-radius:12px;max-width:100%;border:1px solid #e5e7eb;"
+          loading="lazy"
+          title="Cost of Living Estimator Widget Preview"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Embed Code -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-serif">Embed Code</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        Copy and paste this code into your HTML to embed the widget on your site.
+      </p>
+      <div class="relative">
+        <pre class="bg-gray-900 text-green-400 text-sm p-4 rounded-xl overflow-x-auto"><code id="embed-code">{embedCode}</code></pre>
+        <button
+          id="copy-btn"
+          class="absolute top-3 right-3 px-3 py-1.5 text-xs font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors cursor-pointer"
+        >
+          Copy Code
+        </button>
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-serif">Why Use This Widget?</h2>
+      <ul class="space-y-3">
+        {advantages.map((adv) => (
+          <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 rounded-full text-sm font-bold" set:html={adv.icon}></span>
+            <span>{adv.text}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Customization -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 font-serif">Customization</h2>
+      <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+          <li>Adjust the <code class="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-xs">width</code> and <code class="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-xs">height</code> attributes to fit your layout.</li>
+          <li>The widget is fully responsive and adapts to any container width.</li>
+          <li>Dark mode is supported automatically via the visitor's system preference.</li>
+          <li>No external dependencies are loaded. The widget is self-contained.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="mb-8">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 font-serif">Questions?</h2>
+      <p class="text-gray-600 dark:text-gray-400">
+        If you have questions about using the widget, please reach out via our
+        <a href="/contact/" class="text-teal-600 dark:text-teal-400 underline hover:no-underline">contact page</a>.
+      </p>
+    </section>
+  </article>
+</Layout>
+
+<script is:inline>
+  (function() {
+    var btn = document.getElementById('copy-btn');
+    var code = document.getElementById('embed-code');
+    if (btn && code) {
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(code.textContent || '').then(function() {
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = 'Copy Code'; }, 2000);
+        });
+      });
+    }
+  })();
+</script>

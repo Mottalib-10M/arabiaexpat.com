@@ -5,6 +5,7 @@ import { buildBreadcrumbs, buildFAQSchema, buildArticleSchema } from "../../lib/
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
 import RelatedLinks from "../../components/ui/RelatedLinks.astro";
 import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+import CostOfLivingSimulator from "../../components/calculators/CostOfLivingSimulator";
 
 export function getStaticPaths() {
   return comparisons.map((c) => ({ params: { pair: c.slug }, props: { comparison: c } }));
@@ -28,6 +29,8 @@ const schemas = [
   <h1>{c.place1} vs {c.place2}: Salary and Cost Comparison 2026</h1>
 
   <p>This side-by-side comparison covers salaries, tax rules, housing costs, daily expenses, and end-of-service gratuity between {c.place1} and {c.place2}. Use the data below to evaluate which destination fits your career and financial goals as an expat in 2026.</p>
+
+  <div class="not-prose my-8"><CostOfLivingSimulator client:idle defaultCity="dubai" /></div>
 
   <h2>Side-by-Side Comparison Table</h2>
   <div class="not-prose overflow-x-auto mb-8">

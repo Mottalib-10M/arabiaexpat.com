@@ -1,0 +1,183 @@
+---
+/**
+ * VisaProcessFlow - Simple flow chart for the typical expat visa process.
+ * Shows 5 sequential steps with connecting arrows.
+ *
+ * @prop {string} country - 'uae' | 'qatar' | 'saudi-arabia'
+ */
+interface Props {
+  country?: 'uae' | 'qatar' | 'saudi-arabia';
+}
+
+const { country = 'uae' } = Astro.props;
+
+const countryLabels: Record<string, string> = {
+  uae: 'UAE',
+  qatar: 'Qatar',
+  'saudi-arabia': 'Saudi Arabia',
+};
+
+type Step = { num: number; label: string; detail: string };
+
+const stepsMap: Record<string, Step[]> = {
+  uae: [
+    { num: 1, label: 'Job Offer', detail: 'Signed employment contract' },
+    { num: 2, label: 'Entry Permit', detail: 'Employer applies via MOHRE' },
+    { num: 3, label: 'Medical Test', detail: 'DHA/DOH approved centre' },
+    { num: 4, label: 'Emirates ID', detail: 'Biometrics at ICP centre' },
+    { num: 5, label: 'Residence Visa', detail: 'Passport stamped or e-visa' },
+  ],
+  qatar: [
+    { num: 1, label: 'Job Offer', detail: 'QCV-approved contract' },
+    { num: 2, label: 'Work Permit', detail: 'Employer applies via ADLSA' },
+    { num: 3, label: 'Medical Test', detail: 'HMC approved centre' },
+    { num: 4, label: 'Qatar ID (QID)', detail: 'Biometrics registration' },
+    { num: 5, label: 'Residence Permit', detail: 'RP card issued' },
+  ],
+  'saudi-arabia': [
+    { num: 1, label: 'Job Offer', detail: 'MHRSD-registered contract' },
+    { num: 2, label: 'Work Visa', detail: 'Employer applies via Qiwa' },
+    { num: 3, label: 'Medical Test', detail: 'MOH-approved facility' },
+    { num: 4, label: 'Iqama', detail: 'Residence permit card issued' },
+    { num: 5, label: 'Final Registration', detail: 'GOSI & Absher setup' },
+  ],
+};
+
+const steps = stepsMap[country] || stepsMap.uae;
+const label = countryLabels[country] || 'UAE';
+
+const colors = ['#0D9488', '#0F766E', '#115E59', '#D97706', '#B45309'];
+---
+
+<figure class="my-8 not-prose">
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 md:p-8">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-6 font-serif text-center">
+      {label} Expat Visa Process: Step by Step
+    </h3>
+
+    {/* Desktop: horizontal SVG flow */}
+    <div class="hidden md:block">
+      <svg
+        viewBox="0 0 900 150"
+        role="img"
+        aria-label={`${label} visa process flow: ${steps.map(s => `Step ${s.num} ${s.label}`).join(', ')}`}
+        class="w-full h-auto"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {steps.map((step, i) => {
+          const x = 20 + i * 180;
+          const boxCx = x + 55;
+          const cy = 42;
+          const color = colors[i];
+          return (
+            <g>
+              {/* Connector arrow */}
+              {i > 0 && (
+                <g>
+                  <line
+                    x1={x - 55}
+                    y1={cy}
+                    x2={x + 8}
+                    y2={cy}
+                    stroke={colors[i - 1]}
+                    stroke-width="2"
+                    stroke-dasharray="6 3"
+                  />
+                  <polygon
+                    points={`${x + 8},${cy - 5} ${x + 18},${cy} ${x + 8},${cy + 5}`}
+                    fill={colors[i - 1]}
+                  />
+                </g>
+              )}
+
+              {/* Rounded rect background */}
+              <rect
+                x={boxCx - 42}
+                y={cy - 28}
+                width="84"
+                height="56"
+                rx="12"
+                fill={color}
+                opacity="0.12"
+                stroke={color}
+                stroke-width="1.5"
+              />
+
+              {/* Step number */}
+              <circle cx={boxCx} cy={cy - 8} r="12" fill={color} />
+              <text
+                x={boxCx}
+                y={cy - 7}
+                text-anchor="middle"
+                dominant-baseline="central"
+                fill="white"
+                font-size="11"
+                font-weight="700"
+              >
+                {step.num}
+              </text>
+
+              {/* Step label in box */}
+              <text
+                x={boxCx}
+                y={cy + 16}
+                text-anchor="middle"
+                fill="#1F2937"
+                font-size="11"
+                font-weight="600"
+                class="dark:fill-gray-100"
+              >
+                {step.label}
+              </text>
+
+              {/* Detail below box */}
+              <text
+                x={boxCx}
+                y={cy + 50}
+                text-anchor="middle"
+                fill="#6B7280"
+                font-size="10"
+                class="dark:fill-gray-400"
+              >
+                {step.detail}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+
+    {/* Mobile: vertical list */}
+    <div class="md:hidden space-y-4">
+      {steps.map((step, i) => {
+        const color = colors[i];
+        return (
+          <div class="flex items-start gap-4">
+            <div class="flex flex-col items-center">
+              <div
+                class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
+                style={`background-color: ${color}`}
+              >
+                {step.num}
+              </div>
+              {i < steps.length - 1 && (
+                <div
+                  class="w-0.5 h-8 mt-1"
+                  style={`background-color: ${color}; opacity: 0.4`}
+                />
+              )}
+            </div>
+            <div class="pt-1.5">
+              <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">{step.label}</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{step.detail}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
+  <figcaption class="mt-2 text-center text-xs text-gray-500 dark:text-gray-400">
+    Typical {label} expat visa and residency process ({new Date().getFullYear()})
+  </figcaption>
+</figure>
