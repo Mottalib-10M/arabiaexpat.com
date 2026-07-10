@@ -77,6 +77,44 @@ import { mainNav } from "../../data/nav";
 
       <!-- Right side actions -->
       <div class="flex items-center gap-1.5">
+        <!-- Search button -->
+        <div class="relative">
+          <button
+            id="search-toggle"
+            type="button"
+            aria-label="Search"
+            class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          >
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+            </svg>
+          </button>
+
+          <!-- Search dropdown panel -->
+          <div id="search-panel" class="hidden absolute right-0 top-full mt-2 w-[340px] sm:w-[420px] bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 overflow-hidden">
+            <div class="p-3 border-b border-gray-100 dark:border-gray-800">
+              <div class="relative">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+                </svg>
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Search guides, countries..."
+                  autocomplete="off"
+                  class="w-full pl-9 pr-10 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                />
+                <kbd class="hidden sm:inline-flex absolute right-3 top-1/2 -translate-y-1/2 items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
+                  <span class="text-xs">&#8984;</span>K
+                </kbd>
+              </div>
+            </div>
+            <ul id="search-results" class="max-h-[360px] overflow-y-auto overscroll-contain">
+              <li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">Type to search&hellip;</li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Dark mode toggle -->
         <button
           id="theme-toggle"
@@ -146,4 +184,147 @@ import { mainNav } from "../../data/nav";
       close.classList.toggle("hidden", isHidden);
     }
   });
+
+  /* ── Client-side search ── */
+  (function() {
+    var searchIndex = [
+      { title: "Home", desc: "Your complete guide to living and working in the UAE, Qatar and Saudi Arabia.", href: "/", tags: "home gulf expat relocation" },
+      // UAE
+      { title: "UAE Expat Guide", desc: "Visa, housing, schools and cost of living in the UAE.", href: "/uae/guide/", tags: "uae emirates dubai abu dhabi guide overview" },
+      { title: "UAE Visa Guide", desc: "Golden Visa, Green Visa, employment and freelancer visa rules.", href: "/uae/visa-guide/", tags: "uae visa golden green work permit sponsorship" },
+      { title: "UAE Cost of Living", desc: "Rent, food, transport and school fee prices in Dubai and Abu Dhabi.", href: "/uae/cost-of-living/", tags: "uae cost living rent prices budget dubai" },
+      { title: "Dubai City Guide", desc: "Neighborhoods, schools, transport and lifestyle in the UAE's largest city.", href: "/uae/dubai/", tags: "dubai city guide neighborhoods" },
+      { title: "Abu Dhabi City Guide", desc: "Cultural attractions, family living and daily life in the UAE capital.", href: "/uae/abu-dhabi/", tags: "abu dhabi city guide capital" },
+      { title: "UAE Education & Schools", desc: "700+ schools, KHDA ratings, fees and curricula for expat families.", href: "/uae/education/", tags: "uae schools education khda fees curriculum" },
+      { title: "UAE Healthcare", desc: "Insurance, hospitals and medical costs for expats.", href: "/uae/healthcare/", tags: "uae healthcare insurance hospitals doctors" },
+      { title: "UAE Housing & Rent", desc: "Rent prices, areas, Ejari process and tips.", href: "/uae/housing/", tags: "uae housing rent ejari apartments villas" },
+      { title: "UAE Visa & Immigration", desc: "Emirates ID, visa types and immigration details.", href: "/uae/visa/", tags: "uae visa immigration emirates id" },
+      { title: "UAE Transport", desc: "Metro, driving, Salik tolls and ride-hailing.", href: "/uae/transport/", tags: "uae transport metro driving salik rta" },
+      { title: "UAE Banking", desc: "Bank accounts, remittances and credit cards for expats.", href: "/uae/banking/", tags: "uae banking accounts remittance credit cards" },
+      { title: "UAE Telecom", desc: "du, Etisalat, mobile plans and internet setup.", href: "/uae/telecom/", tags: "uae telecom mobile internet du etisalat" },
+      { title: "UAE Utilities", desc: "DEWA, ADDC setup, costs and tips.", href: "/uae/utilities/", tags: "uae utilities dewa addc electricity water" },
+      // Qatar
+      { title: "Qatar Expat Guide", desc: "Visa, housing, schools and cost of living in Qatar.", href: "/qatar/guide/", tags: "qatar doha guide overview" },
+      { title: "Qatar Visa Guide", desc: "Work permit, residency and family sponsorship rules.", href: "/qatar/visa-guide/", tags: "qatar visa work permit residency sponsorship" },
+      { title: "Qatar Cost of Living", desc: "Rent, groceries and prices in Doha with zero VAT.", href: "/qatar/cost-of-living/", tags: "qatar cost living rent prices doha budget" },
+      { title: "Doha City Guide", desc: "Rent, zero VAT advantage and community lifestyle in Qatar's capital.", href: "/qatar/doha/", tags: "doha city guide qatar capital" },
+      { title: "Qatar Education & Schools", desc: "Schools, fees, curricula and admissions in Qatar.", href: "/qatar/education/", tags: "qatar schools education fees curriculum" },
+      { title: "Qatar Healthcare", desc: "Hamad Medical, Sidra Medicine and insurance.", href: "/qatar/healthcare/", tags: "qatar healthcare hamad sidra insurance" },
+      { title: "Qatar Housing & Rent", desc: "Rental market, areas and lease process in Qatar.", href: "/qatar/housing/", tags: "qatar housing rent apartments villas pearl" },
+      { title: "Qatar Visa & Immigration", desc: "QID, kafala reforms and visa details.", href: "/qatar/visa/", tags: "qatar visa immigration qid kafala" },
+      { title: "Qatar Transport", desc: "Doha Metro, driving and ride-hailing.", href: "/qatar/transport/", tags: "qatar transport metro driving doha" },
+      { title: "Qatar Banking", desc: "QNB, bank accounts and remittances for expats.", href: "/qatar/banking/", tags: "qatar banking qnb accounts remittance" },
+      { title: "Qatar Telecom", desc: "Ooredoo, Vodafone, mobile plans and broadband.", href: "/qatar/telecom/", tags: "qatar telecom ooredoo vodafone mobile" },
+      { title: "Qatar Utilities", desc: "Kahramaa setup, costs and tips.", href: "/qatar/utilities/", tags: "qatar utilities kahramaa electricity water" },
+      // Saudi Arabia
+      { title: "Saudi Arabia Expat Guide", desc: "Visa, housing, jobs and Vision 2030 lifestyle.", href: "/saudi-arabia/guide/", tags: "saudi arabia ksa guide overview vision 2030" },
+      { title: "Saudi Visa Guide", desc: "Iqama, Premium Residency and work visa rules.", href: "/saudi-arabia/visa-guide/", tags: "saudi visa iqama premium residency work permit" },
+      { title: "Saudi Cost of Living", desc: "Riyadh and Jeddah rent, food and prices.", href: "/saudi-arabia/cost-of-living/", tags: "saudi cost living rent riyadh jeddah budget" },
+      { title: "Riyadh City Guide", desc: "Vision 2030 epicenter: cost of living, entertainment and jobs.", href: "/saudi-arabia/riyadh/", tags: "riyadh city guide saudi capital" },
+      { title: "Jeddah City Guide", desc: "Coastal lifestyle, industries and family living in Jeddah.", href: "/saudi-arabia/jeddah/", tags: "jeddah city guide saudi port" },
+      { title: "Saudi Education & Schools", desc: "Schools, fees, curricula and admissions in Saudi Arabia.", href: "/saudi-arabia/education/", tags: "saudi schools education fees curriculum" },
+      { title: "Saudi Healthcare", desc: "CCHI insurance, hospitals and medical costs.", href: "/saudi-arabia/healthcare/", tags: "saudi healthcare cchi insurance hospitals" },
+      { title: "Saudi Housing & Rent", desc: "Compounds, apartments and rental process.", href: "/saudi-arabia/housing/", tags: "saudi housing rent compounds villas" },
+      { title: "Saudi Visa & Immigration", desc: "Iqama, Absher and visa details.", href: "/saudi-arabia/visa/", tags: "saudi visa iqama absher immigration" },
+      { title: "Saudi Transport", desc: "Riyadh Metro, driving and ride-hailing.", href: "/saudi-arabia/transport/", tags: "saudi transport metro driving riyadh" },
+      { title: "Saudi Banking", desc: "Al Rajhi, SNB, bank accounts and remittances.", href: "/saudi-arabia/banking/", tags: "saudi banking al rajhi snb accounts" },
+      { title: "Saudi Telecom", desc: "STC, Mobily, mobile plans and broadband.", href: "/saudi-arabia/telecom/", tags: "saudi telecom stc mobily mobile internet" },
+      { title: "Saudi Utilities", desc: "SEC electricity, water setup and costs.", href: "/saudi-arabia/utilities/", tags: "saudi utilities sec electricity water" },
+      // Cross-country guides
+      { title: "Driving Licence Guide", desc: "Convert your licence or learn from scratch in UAE, Qatar and Saudi.", href: "/guides/driving-licence/", tags: "driving licence conversion rta test fees" },
+      { title: "Utilities Setup Guide", desc: "DEWA, Kahramaa and SEC registration and costs.", href: "/guides/utilities-setup/", tags: "utilities setup dewa kahramaa sec electricity water" },
+      { title: "Schools & Education Guide", desc: "Compare 700+ international schools across the Gulf.", href: "/guides/schools-education/", tags: "schools education fees khda international" },
+      { title: "Mobile & Internet Guide", desc: "Compare du, Etisalat, Ooredoo, STC plans and eSIM.", href: "/guides/telecom-mobile/", tags: "mobile internet telecom esim plans" },
+      { title: "Healthcare Guide", desc: "Insurance, hospitals and costs for Gulf expats.", href: "/guides/healthcare-expats-gulf/", tags: "healthcare insurance hospitals expat doctors" },
+      { title: "Banking Guide", desc: "Bank accounts, remittances and credit cards in the Gulf.", href: "/guides/banking-expats-gulf/", tags: "banking accounts remittance credit cards" },
+      { title: "Best Country for Expats", desc: "UAE vs Qatar vs Saudi Arabia compared for expats.", href: "/guides/best-country-for-expats-gulf/", tags: "best country comparison uae qatar saudi" },
+      { title: "All Guides", desc: "Browse all expat guides for the Gulf region.", href: "/guides/", tags: "guides index all topics" },
+      // Relocating from
+      { title: "Relocating from India", desc: "Guide for Indian expats moving to the Gulf.", href: "/relocating-from/india/", tags: "relocating india gulf move" },
+      { title: "Relocating from Pakistan", desc: "Guide for Pakistani expats moving to the Gulf.", href: "/relocating-from/pakistan/", tags: "relocating pakistan gulf move" },
+      { title: "Relocating from Philippines", desc: "Guide for Filipino expats moving to the Gulf.", href: "/relocating-from/philippines/", tags: "relocating philippines gulf move" },
+      { title: "Relocating from Egypt", desc: "Guide for Egyptian expats moving to the Gulf.", href: "/relocating-from/egypt/", tags: "relocating egypt gulf move" },
+      { title: "Relocating from Bangladesh", desc: "Guide for Bangladeshi expats moving to the Gulf.", href: "/relocating-from/bangladesh/", tags: "relocating bangladesh gulf move" },
+      { title: "Relocating from UK", desc: "Guide for British expats moving to the Gulf.", href: "/relocating-from/uk/", tags: "relocating uk british gulf move" },
+      { title: "Relocating from USA", desc: "Guide for American expats moving to the Gulf.", href: "/relocating-from/usa/", tags: "relocating usa american gulf move" },
+      { title: "Relocating from France", desc: "Guide for French expats moving to the Gulf.", href: "/relocating-from/france/", tags: "relocating france french gulf move" },
+      // Other
+      { title: "Glossary", desc: "Key terms for expats: Iqama, Emirates ID, Golden Visa, DEWA and more.", href: "/glossary/", tags: "glossary terms definitions" },
+      { title: "News", desc: "Latest GCC expat policy changes and updates.", href: "/news/", tags: "news policy updates gcc" },
+      { title: "GCC Policy Changes 2025", desc: "Golden Visa expansions, remote work permits and residency reforms.", href: "/news/gcc-expat-policy-changes-2025/", tags: "news policy golden visa remote work 2025" },
+      { title: "About", desc: "Research standards, author credentials and methodology.", href: "/about/", tags: "about author methodology" },
+      { title: "Methodology", desc: "Data sources and verification process.", href: "/methodology/", tags: "methodology data sources verification" },
+    ];
+
+    var panel = document.getElementById("search-panel");
+    var input = document.getElementById("search-input");
+    var resultsList = document.getElementById("search-results");
+    var toggleBtn = document.getElementById("search-toggle");
+
+    function openSearch() {
+      panel.classList.remove("hidden");
+      input.value = "";
+      input.focus();
+      renderResults("");
+    }
+    function closeSearch() {
+      panel.classList.add("hidden");
+    }
+    function isOpen() {
+      return !panel.classList.contains("hidden");
+    }
+
+    toggleBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      if (isOpen()) { closeSearch(); } else { openSearch(); }
+    });
+
+    panel.addEventListener("click", function(e) { e.stopPropagation(); });
+
+    document.addEventListener("click", function() { if (isOpen()) closeSearch(); });
+
+    document.addEventListener("keydown", function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        if (isOpen()) { closeSearch(); } else { openSearch(); }
+      }
+      if (e.key === "Escape" && isOpen()) { closeSearch(); }
+    });
+
+    function renderResults(query) {
+      var q = query.toLowerCase().trim();
+      if (!q) {
+        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">Type to search&hellip;</li>';
+        return;
+      }
+      var terms = q.split(/\s+/);
+      var matches = searchIndex.filter(function(item) {
+        var haystack = (item.title + " " + item.desc + " " + item.tags).toLowerCase();
+        return terms.every(function(t) { return haystack.indexOf(t) !== -1; });
+      });
+      if (!matches.length) {
+        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">No results</li>';
+        return;
+      }
+      resultsList.innerHTML = matches.slice(0, 8).map(function(item) {
+        return '<li><a href="' + item.href + '" class="flex flex-col gap-0.5 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">' +
+          '<span class="text-sm font-medium text-gray-900 dark:text-gray-100">' + escapeHtml(item.title) + '</span>' +
+          '<span class="text-xs text-gray-500 dark:text-gray-400 line-clamp-1">' + escapeHtml(item.desc) + '</span>' +
+          '</a></li>';
+      }).join("");
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    input.addEventListener("input", function() { renderResults(this.value); });
+
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        var first = resultsList.querySelector("a");
+        if (first) { window.location.href = first.getAttribute("href"); }
+      }
+    });
+  })();
 </script>
