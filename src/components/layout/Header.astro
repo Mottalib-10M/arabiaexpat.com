@@ -185,7 +185,8 @@ import { mainNav } from "../../data/nav";
     }
   });
 
-  /* ── Client-side search ── */
+  /* ── Client-side search (deferred to reduce TBT) ── */
+  (window.requestIdleCallback||function(cb){setTimeout(cb,1)})(function() {
   (function() {
     var searchIndex = [
       { title: "Home", desc: "Your complete guide to living and working in the UAE, Qatar and Saudi Arabia.", href: "/", tags: "home gulf expat relocation" },
@@ -327,4 +328,5 @@ import { mainNav } from "../../data/nav";
       }
     });
   })();
+  });
 </script>
