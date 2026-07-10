@@ -93,7 +93,7 @@ const breadcrumbs = [
   <h2>Cost of Living: {corridor.country} vs {city.name}</h2>
 
   <div class="not-prose mb-6">
-    <CostOfLivingSimulator client:idle defaultCity={city.slug} defaultOrigin={originCitySlug} />
+    <CostOfLivingSimulator client:visible defaultCity={city.slug} defaultOrigin={originCitySlug} />
   </div>
 
   <p>Use the simulator above to compare your expected monthly costs in {city.name} with your current city in {corridor.country}. Housing is typically the largest expense, followed by education (for families) and food. The tax-free salary environment means that even with higher living costs, net savings potential is usually much better than in {corridor.country}.</p>
