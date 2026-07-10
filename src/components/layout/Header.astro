@@ -8,12 +8,26 @@ import { mainNav } from "../../data/nav";
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 shrink-0 group">
-        <svg class="h-8 w-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#0D9488"/>
-          <text x="16" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="20" fill="white">D</text>
+        <svg class="h-8 w-8 sm:h-9 sm:w-9 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#D97706"/>
+              <stop offset="100%" stop-color="#B45309"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="7" fill="url(#logo-bg)"/>
+          <path d="M2,26 Q8,20 14,24 Q20,28 26,22 Q29,19.5 30,20 L30,29 L2,29 Z" fill="rgba(255,255,255,0.3)"/>
+          <path d="M2,28 Q10,22 16,26 Q22,30 30,24 L30,29 L2,29 Z" fill="rgba(255,255,255,0.2)"/>
+          <line x1="11" y1="26" x2="11" y2="14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M11,14 Q7,10 4,11" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M11,14 Q8,9 6,8" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M11,14 Q12,8 11,6" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M11,14 Q15,9 17,8" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <path d="M11,14 Q16,10 19,11" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <g fill="white"><path d="M22,18 Q22,13 25,13 Q28,13 28,18 Z"/><rect x="24" y="18" width="2" height="8" rx="0.3"/><line x1="25" y1="13" x2="25" y2="10" stroke="white" stroke-width="0.8" stroke-linecap="round"/><circle cx="25" cy="9.5" r="1" fill="white"/><circle cx="25.5" cy="9.2" r="0.7" fill="#C27803"/></g>
         </svg>
         <div class="flex flex-col leading-none">
-          <span class="text-base font-bold text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Arabia Expat</span>
+          <span class="text-base font-bold text-amber-600 dark:text-amber-400 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Arabia Expat</span>
           <span class="text-[10px] text-gray-400 dark:text-gray-500 font-medium tracking-wide">VISAS &middot; DAILY LIFE &middot; GUIDES</span>
         </div>
       </a>

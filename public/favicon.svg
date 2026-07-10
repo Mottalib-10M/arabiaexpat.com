@@ -1,4 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#0D9488"/>
-  <text x="16" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="20" fill="white">G</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Desert dunes -->
+  <path d="M2,26 Q8,20 14,24 Q20,28 26,22 Q29,19.5 30,20 L30,29 L2,29 Z" fill="rgba(255,255,255,0.3)"/>
+  <path d="M2,28 Q10,22 16,26 Q22,30 30,24 L30,29 L2,29 Z" fill="rgba(255,255,255,0.2)"/>
+  <!-- Palm tree -->
+  <line x1="11" y1="26" x2="11" y2="14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Palm fronds -->
+  <path d="M11,14 Q7,10 4,11" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M11,14 Q8,9 6,8" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M11,14 Q12,8 11,6" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M11,14 Q15,9 17,8" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <path d="M11,14 Q16,10 19,11" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- Mosque/minaret silhouette -->
+  <g fill="white">
+    <!-- Dome -->
+    <path d="M22,18 Q22,13 25,13 Q28,13 28,18 Z"/>
+    <!-- Tower -->
+    <rect x="24" y="18" width="2" height="8" rx="0.3"/>
+    <!-- Minaret spire -->
+    <line x1="25" y1="13" x2="25" y2="10" stroke="white" stroke-width="0.8" stroke-linecap="round"/>
+    <!-- Crescent -->
+    <circle cx="25" cy="9.5" r="1" fill="white"/>
+    <circle cx="25.5" cy="9.2" r="0.7" fill="#C27803"/>
+  </g>
 </svg>
