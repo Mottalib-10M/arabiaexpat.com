@@ -93,11 +93,40 @@ import { footerNav } from "../../data/nav";
     </div>
     </nav>
 
+    <!-- Newsletter -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="rounded-2xl bg-teal-600 p-6 sm:p-8 text-center">
+        <h3 class="text-lg font-bold text-white sm:text-xl">Stay updated on Gulf expat life</h3>
+        <p class="mt-1 text-sm text-white/80">Get notified when visa rules, cost of living, or relocation guides are updated. No spam.</p>
+        <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+          <input type="email" id="newsletter-email" required placeholder="you@example.com" class="w-full sm:flex-1 rounded-xl border-0 px-4 py-3 text-sm text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white/50" />
+          <button type="submit" class="w-full sm:w-auto whitespace-nowrap rounded-xl bg-white text-teal-600 font-semibold px-6 py-3 text-sm hover:bg-gray-100 transition-colors">Subscribe</button>
+        </form>
+        <p id="newsletter-msg" class="mt-2 text-sm text-white/70 hidden"></p>
+      </div>
+    </div>
+
     <!-- Bottom bar -->
-    <div class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+    <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
       <div class="text-xs text-gray-400 dark:text-gray-500">
         &copy; {SITE.year} {SITE.name}. All rights reserved.
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const msg = document.getElementById('newsletter-msg');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = (document.getElementById('newsletter-email') as HTMLInputElement)?.value;
+    if (email && msg) {
+      const subs = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
+      if (!subs.includes(email)) { subs.push(email); localStorage.setItem('newsletter_subscribers', JSON.stringify(subs)); }
+      msg.textContent = 'Thanks! You\'ll be notified of important updates.';
+      msg.classList.remove('hidden');
+      (document.getElementById('newsletter-email') as HTMLInputElement).value = '';
+    }
+  });
+</script>
