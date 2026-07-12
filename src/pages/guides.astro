@@ -40,17 +40,42 @@ const specialtyGuides = [
 ---
 
 <GuideLayout
-  title="Gulf Expat Guides 2026 | All Countries, Cities & Topics"
-  description="Browse 40+ guides on visas, driving licences, utilities, schools, healthcare and banking for UAE, Qatar and Saudi Arabia. All updated with 2026 source data."
+  title="Gulf Expat Guides 2026: All Countries, Cities & Topics"
+  description="Browse 40+ free guides on visas, driving licences, utilities, schools, banking and healthcare for UAE, Qatar and Saudi Arabia. Updated with 2026 data."
   canonical="/guides/"
   schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("Expat Guides 2026: UAE, Qatar and Saudi Arabia", "Browse all guides for Gulf expats.", "https://arabiaexpat.com/guides/", "2025-06-01", "2026-06-15")]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }]}
 >
+
+  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Relocation Stage Navigator</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Select your relocation stage and we will suggest the guides most relevant to you right now.</p>
+    <form id="stageNav" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="snStage">Your current stage</label>
+        <select id="snStage" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="research">Researching (still deciding)</option>
+          <option value="offer">Evaluating a job offer</option>
+          <option value="accepted">Accepted offer, preparing to move</option>
+          <option value="arrived">Just arrived, setting up</option>
+          <option value="settled">Living here, need specific info</option>
+        </select>
+      </div>
+      <div class="flex items-end">
+        <button type="button" onclick="(function(){var s=document.getElementById('snStage').value,guides={research:'Start with <a href=\'/guides/best-country-for-expats-gulf/\' class=\'text-teal-600 hover:underline\'>Best Country Comparison</a>, then check <a href=\'/uae/cost-of-living/\' class=\'text-teal-600 hover:underline\'>Cost of Living</a> guides and <a href=\'https://taxfreesalaries.com/salaries/\' class=\'text-teal-600 hover:underline\'>Salary Data</a>.',offer:'Review the <a href=\'/uae/visa-guide/\' class=\'text-teal-600 hover:underline\'>Visa Guide</a> for your country, check <a href=\'/uae/cost-of-living/\' class=\'text-teal-600 hover:underline\'>Cost of Living</a> to model savings, and use the <a href=\'https://taxfreesalaries.com/tools/\' class=\'text-teal-600 hover:underline\'>Salary Calculator</a>.',accepted:'Focus on <a href=\'/guides/driving-licence/\' class=\'text-teal-600 hover:underline\'>Driving Licence</a>, <a href=\'/guides/schools-education/\' class=\'text-teal-600 hover:underline\'>Schools</a> (apply now!), and your country\'s <a href=\'/uae/guide/\' class=\'text-teal-600 hover:underline\'>Comprehensive Guide</a>. Start document attestation immediately.',arrived:'Set up <a href=\'/guides/utilities-setup/\' class=\'text-teal-600 hover:underline\'>Utilities</a>, get a <a href=\'/guides/telecom-mobile/\' class=\'text-teal-600 hover:underline\'>Mobile Plan</a>, open a <a href=\'/guides/banking-expats-gulf/\' class=\'text-teal-600 hover:underline\'>Bank Account</a>, and convert your <a href=\'/guides/driving-licence/\' class=\'text-teal-600 hover:underline\'>Driving Licence</a>.',settled:'Browse by topic below or use our <a href=\'/glossary/\' class=\'text-teal-600 hover:underline\'>Glossary</a> for specific terms. Check <a href=\'/news/\' class=\'text-teal-600 hover:underline\'>News</a> for policy updates.'};document.getElementById('snResult').innerHTML=guides[s]||'';})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Get Recommendations</button>
+      </div>
+      <div id="snResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
+    </form>
+  </div>
+
   <h1>Gulf Expat Guides: Complete 2026 Resource Library</h1>
 
-  <p>This page is your central hub for all Arabia Expat resources. Researching a move to the UAE, Qatar, or Saudi Arabia? Looking for specific information on visas, driving licences, utilities, schools, healthcare, or banking? You will find the right resource below. Every guide is written with 2026 data, sourced from official government publications, and updated regularly.</p>
+  <p>This page serves as your central navigation hub for every Arabia Expat resource. Whether you are researching a potential move to the UAE, Qatar, or Saudi Arabia, comparing job offers between Gulf cities, preparing documents for a visa application, or settling into your new home and need practical setup guidance, you will find the right resource below. Every guide is written with current 2026 data, sourced from official government publications, verified against multiple independent sources, and updated on a quarterly review cycle. For salary data, gratuity calculations, and employment-specific financial tools, visit our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>.</p>
+
+  <p>Our resource library is organized to support the natural sequence of relocation decisions. Country and city guides provide the broad context you need when choosing where to go. Visa guides explain the legal process for getting there. Practical guides cover the setup tasks that await you upon arrival, from registering utilities and setting up mobile service to converting your driving licence and opening a bank account. Comparison pages put data side by side when you are weighing one destination against another. Relocation guides address the specific document requirements and cultural adjustments relevant to your nationality. Together, these resources form the most comprehensive free English-language guide to Gulf expatriate life available online.</p>
 
   <h2>Country Guides</h2>
+  <p>Our comprehensive country guides cover every aspect of expatriate life, from the initial decision to move through daily living, financial planning, and long-term residency options. Each guide is updated with 2026 regulatory data and market pricing.</p>
   <div class="not-prose grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
     {countryGuides.map((guide) => (
       <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
@@ -61,6 +86,7 @@ const specialtyGuides = [
   </div>
 
   <h2>City Guides</h2>
+  <p>City guides focus on the specific neighborhoods, costs, lifestyle, schools, healthcare, and practical details of daily life in each Gulf city. Because the experience of living in Dubai differs substantially from Abu Dhabi, and Riyadh from Jeddah, city-level guidance is essential for accurate planning.</p>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
     {cityGuides.map((guide) => (
       <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
@@ -71,6 +97,7 @@ const specialtyGuides = [
   </div>
 
   <h2>Practical Expat Guides</h2>
+  <p>These cross-country guides address the practical tasks and decisions that every Gulf expatriate faces, from getting connected and setting up utilities to choosing schools and understanding healthcare systems. Each guide covers all three countries in a single resource, making it easy to compare processes and costs.</p>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
     {topicalGuides.map((guide) => (
       <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
@@ -81,6 +108,7 @@ const specialtyGuides = [
   </div>
 
   <h2>Visa Guides</h2>
+  <p>Our visa guides provide step-by-step process documentation for every visa category in each Gulf country, including required documents, expected timelines, costs, and the digital platforms used for applications. These are updated within two weeks of any regulatory change.</p>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
     {specialtyGuides.map((guide) => (
       <a href={guide.href} class="group bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 hover:border-teal-400 dark:hover:border-teal-500 hover:shadow-md transition-all">
@@ -90,8 +118,8 @@ const specialtyGuides = [
     ))}
   </div>
 
-  <h2>Country-Specific Guides</h2>
-  <p>Deep-dive into specific topics by country, with city-by-city breakdowns and interactive cost estimators.</p>
+  <h2>Country-Specific Topic Guides</h2>
+  <p>For deep dives into specific topics within a single country, our country-specific guides provide city-by-city breakdowns, interactive cost estimators, and detailed regulatory information tailored to local requirements.</p>
   <div class="not-prose grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
     {[
       { title: "UAE Education", href: "/uae/education/", description: "Dubai and Abu Dhabi schools, curricula, fees, and KHDA ratings." },
@@ -111,12 +139,15 @@ const specialtyGuides = [
     ))}
   </div>
 
-  <h2>Relocation Guides</h2>
-  <p>Planning your move from a specific country? Our <a href="/relocating-from/india/">India</a>, <a href="/relocating-from/uk/">UK</a>, <a href="/relocating-from/usa/">USA</a>, <a href="/relocating-from/pakistan/">Pakistan</a>, <a href="/relocating-from/philippines/">Philippines</a>, and <a href="/relocating-from/france/">France</a> relocation guides cover document requirements and cultural adjustment tips specific to your nationality.</p>
+  <h2>Relocation Guides by Nationality</h2>
+  <p>Moving to the Gulf from a specific country involves unique document requirements, cultural adjustment considerations, and practical preparation steps. Our relocation guides are tailored to your home country. Whether you are moving from <a href="/relocating-from/india/">India</a>, the <a href="/relocating-from/uk/">United Kingdom</a>, the <a href="/relocating-from/usa/">United States</a>, <a href="/relocating-from/pakistan/">Pakistan</a>, the <a href="/relocating-from/philippines/">Philippines</a>, or <a href="/relocating-from/france/">France</a>, these guides cover document attestation procedures specific to your country, expected timelines, and cultural adjustment tips from professionals who have made the same transition.</p>
 
   <h2>Comparison Pages</h2>
-  <p>Not sure which Gulf country is right for you? Our comparison pages put data side by side: <a href="/compare/uae-vs-saudi-arabia/">UAE vs Saudi Arabia</a>, <a href="/compare/uae-vs-qatar/">UAE vs Qatar</a>, <a href="/compare/qatar-vs-saudi-arabia/">Qatar vs Saudi Arabia</a>, <a href="/compare/dubai-vs-abu-dhabi/">Dubai vs Abu Dhabi</a>, and <a href="/compare/dubai-vs-riyadh/">Dubai vs Riyadh</a>. Each page covers lifestyle, cost of living, and practical differences.</p>
+  <p>Deciding between Gulf countries or cities requires side-by-side data. Our comparison pages put salary data, cost-of-living figures, VAT rates, visa options, and lifestyle factors in direct juxtaposition for easy evaluation. Current comparisons include <a href="/compare/uae-vs-saudi-arabia/">UAE vs Saudi Arabia</a>, <a href="/compare/uae-vs-qatar/">UAE vs Qatar</a>, <a href="/compare/qatar-vs-saudi-arabia/">Qatar vs Saudi Arabia</a>, <a href="/compare/dubai-vs-abu-dhabi/">Dubai vs Abu Dhabi</a>, and <a href="/compare/dubai-vs-riyadh/">Dubai vs Riyadh</a>. Each page includes interactive elements that let you model scenarios with your own income and lifestyle parameters.</p>
 
   <h2>Salary and Employment Resources</h2>
-  <p>Looking for salary data, gratuity calculators, or labor law information? These topics are now covered on our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>, which specializes in Gulf employment and compensation data.</p>
+  <p>For salary benchmarking, gratuity calculators, salary breakdown tools, and detailed labor law analysis, visit our dedicated sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>. That site specializes exclusively in Gulf employment data and provides the most comprehensive free salary resource for the UAE, Qatar, and Saudi Arabia, including role-specific salary ranges, interactive financial calculators, and detailed explanations of end-of-service benefit calculations under each country's labor law.</p>
+
+  <h2>Stay Updated</h2>
+  <p>Gulf regulations change frequently. Visa rules are updated by ministerial decree, school fees adjust annually, rental markets shift with supply and demand, and tax structures can change with limited notice. Our <a href="/news/">News section</a> tracks significant policy changes as they happen. All guides are reviewed quarterly against official sources and updated to reflect current conditions. For a detailed explanation of how we collect, verify, and maintain our data, visit our <a href="/methodology/">Methodology page</a>. If you notice any information that needs updating, please <a href="/contact/">contact us</a>, as reader feedback is a valued part of our quality assurance process.</p>
 </GuideLayout>

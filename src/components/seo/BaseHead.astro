@@ -11,7 +11,8 @@ interface Props {
 }
 
 const { title, description, canonical, ogImage = SITE.ogImage, ogType = "website", noindex = false } = Astro.props;
-const fullCanonical = canonical.startsWith("http") ? canonical : `${SITE.url}${canonical}`;
+const rawCanonical = canonical.startsWith("http") ? canonical : `${SITE.url}${canonical}`;
+const fullCanonical = rawCanonical.endsWith("/") ? rawCanonical : `${rawCanonical}/`;
 const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage}`;
 ---
 

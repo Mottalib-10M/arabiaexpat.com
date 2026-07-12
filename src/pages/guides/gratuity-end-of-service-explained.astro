@@ -1,14 +1,167 @@
 ---
-const newUrl = 'https://taxfreesalaries.com/guides/gratuity-end-of-service-explained/';
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is end-of-service gratuity in the Gulf?", answer: "Gratuity is a mandatory lump-sum payment from employer to employee upon termination of employment. All three major Gulf countries (UAE, Qatar, Saudi Arabia) mandate gratuity by law. It is calculated based on basic salary and years of service, and it functions as deferred compensation since there is no pension system for expats." },
+  { question: "How does UAE gratuity differ from Saudi gratuity?", answer: "UAE: 21 days of basic salary per year (first 5 years), 30 days per year after. Saudi: 15 days per year (first 5 years), 30 days per year after. UAE gratuity is capped at 2 years of basic salary. Saudi gratuity has no explicit cap. Both use basic salary only, excluding allowances." },
+  { question: "Do I get gratuity if I resign?", answer: "In the UAE (under the 2021 law): yes, full gratuity after 1 year regardless of resignation. In Saudi Arabia: partial gratuity (1/3) after 2-5 years if resigning, 2/3 after 5-10 years, and full after 10+ years. In Qatar: full gratuity after 1 year regardless of reason for leaving." },
+  { question: "Is gratuity paid on top of my salary?", answer: "Yes. Gratuity is an additional payment made when employment ends. It is not deducted from your salary during employment. The employer is responsible for funding it entirely. It is paid as a lump sum alongside your final salary and unused leave balance." },
+  { question: "What if my employer refuses to pay gratuity?", answer: "File a complaint with the labor ministry (MoHRE in UAE, MHRSD in Saudi, MADLSA in Qatar). All three countries have dispute resolution processes that typically resolve gratuity claims within 2-6 weeks. Courts consistently rule in favor of employees with documented employment records." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "Guides", url: "https://arabiaexpat.com/guides/" },
+  { name: "Gratuity Explained", url: "https://arabiaexpat.com/guides/gratuity-end-of-service-explained/" },
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Redirecting</title>
-  <link rel="canonical" href={newUrl} />
-  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
-  <meta name="robots" content="noindex, follow" />
-</head>
-<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
-</html>
+
+<GuideLayout
+  title="Gratuity Explained 2026: UAE, Qatar & Saudi Formulas"
+  description="How end-of-service gratuity works in all 3 Gulf countries. UAE: 21/30 days formula. Saudi: 15/30 days. Qatar: 3 weeks per year. Resignation rules and caps."
+  canonical="/guides/gratuity-end-of-service-explained/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Gratuity and End-of-Service Benefits Explained 2026", "Complete gratuity guide for Gulf expats.", "https://arabiaexpat.com/guides/gratuity-end-of-service-explained/", "2025-06-01", "2026-07-01")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Gratuity Explained", url: "/guides/gratuity-end-of-service-explained/" }]}
+>
+
+<h1>Gratuity and End-of-Service Benefits Across the Gulf: UAE, Qatar, and Saudi Arabia</h1>
+
+<!-- Multi-Country Gratuity Calculator -->
+<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Multi-Country Gratuity Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Compare your gratuity entitlement across all three Gulf countries.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="mg-basic">Monthly Basic Salary</label>
+      <input type="number" id="mg-basic" value="15000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="mg-years">Years of Service</label>
+      <input type="number" id="mg-years" value="5" min="1" max="40" step="1" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div class="flex items-end">
+      <button type="button" onclick="calcMultiGrat()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate All</button>
+    </div>
+  </div>
+  <div id="mg-result" class="mt-4 hidden">
+    <div class="grid grid-cols-3 gap-3 text-center text-sm">
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">UAE</div>
+        <div class="text-lg font-bold text-teal-700 dark:text-teal-400" id="mg-uae"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Saudi Arabia</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="mg-saudi"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Qatar</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="mg-qatar"></div>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="mg-note"></p>
+  </div>
+</div>
+<script is:inline>
+function calcMultiGrat(){
+  const basic=parseFloat(document.getElementById('mg-basic').value)||0;
+  const years=parseFloat(document.getElementById('mg-years').value)||0;
+  const daily=basic/30;
+  // UAE: 21d first 5yr, 30d after, cap 2yr basic
+  let uae=0;
+  if(years<=5){uae=daily*21*years;}else{uae=daily*21*5+daily*30*(years-5);}
+  const uaeCap=basic*24;if(uae>uaeCap)uae=uaeCap;
+  // Saudi: 15d first 5yr, 30d after
+  let saudi=0;
+  if(years<=5){saudi=daily*15*years;}else{saudi=daily*15*5+daily*30*(years-5);}
+  // Qatar: 3 weeks (21d) per year, no tier
+  let qatar=daily*21*years;
+  document.getElementById('mg-uae').textContent='AED '+Math.round(uae).toLocaleString();
+  document.getElementById('mg-saudi').textContent='SAR '+Math.round(saudi).toLocaleString();
+  document.getElementById('mg-qatar').textContent='QAR '+Math.round(qatar).toLocaleString();
+  document.getElementById('mg-note').textContent='All calculations use basic salary only. UAE capped at 2 years basic. Assumes full entitlement (no resignation reduction for Saudi). At current exchange rates AED/SAR/QAR are roughly equivalent in EUR terms.';
+  document.getElementById('mg-result').classList.remove('hidden');
+}
+</script>
+
+<p>Gratuity, known formally as end-of-service benefits, is the Gulf's answer to the pension systems that exist in most Western economies. In a region where personal income tax does not exist and there are no social security contributions for expatriate workers, gratuity serves as the primary form of employer-funded deferred compensation that accumulates during your employment and is paid as a tax-free lump sum when you leave. For long-tenured professionals, gratuity can amount to hundreds of thousands of dirhams or riyals, making it one of the most financially significant aspects of a Gulf career.</p>
+
+<p>The three major Gulf employment destinations, the UAE, Saudi Arabia, and Qatar, each have their own gratuity formulas governed by distinct labor laws. The calculation methods, eligibility rules, resignation penalties, and payment timelines differ meaningfully between countries, and understanding these differences is essential when comparing job offers across the region or planning your career trajectory. This guide covers all three systems in detail, with worked examples, edge cases, and practical strategies for maximizing your entitlement.</p>
+
+<h2>UAE Gratuity: Federal Decree-Law No. 33 of 2021</h2>
+<p>The UAE's gratuity system is the most straightforward of the three. Every employee who completes at least one year of continuous service is entitled to gratuity. The formula uses a tiered daily rate based on tenure: for the first five years, 21 calendar days of basic salary per year of service; for each year beyond five, 30 calendar days. The daily rate is calculated by dividing the monthly basic salary by 30.</p>
+
+<p>The total gratuity is capped at two years of basic salary, regardless of how long you have worked. Only the basic salary component is used in the calculation, not housing allowances, transport allowances, bonuses, or any other supplementary payments. This makes the split between basic salary and allowances in your employment contract critically important for long-term financial planning.</p>
+
+<p>Under the 2021 law, there is no reduction in gratuity for employees who resign. This is a significant improvement from the previous law, which reduced gratuity by one-third for employees who resigned before completing five years of service. Today, whether you resign, are terminated, or reach the end of your contract, you receive the full calculated amount. The only exception is termination for gross misconduct under Article 44, which can forfeit the gratuity entitlement.</p>
+
+<p>Worked example: a marketing manager with a basic salary of AED 18,000 per month who works for six years. Daily rate: AED 18,000 / 30 = AED 600. First five years: 5 x 21 x AED 600 = AED 63,000. Sixth year: 1 x 30 x AED 600 = AED 18,000. Total gratuity: AED 81,000 (~EUR 20,250). Two-year cap: AED 18,000 x 24 = AED 432,000. Since AED 81,000 is well below the cap, the full amount is payable.</p>
+
+<h2>Saudi Arabia Gratuity: Saudi Labor Law</h2>
+<p>Saudi Arabia's gratuity formula is less generous than the UAE's for the first five years but matches it for longer tenures. For the first five years, the rate is 15 calendar days of basic salary per year. After five years, the rate increases to 30 calendar days per year. There is no explicit cap on total gratuity in Saudi labor law, which means long-tenured employees can accumulate very substantial amounts.</p>
+
+<p>The critical difference from the UAE is Saudi Arabia's treatment of resignation. If you resign before completing two years, you receive no gratuity. If you resign after two to five years, you receive one-third of the calculated amount. After five to ten years of service, you receive two-thirds. Only after completing ten or more years of continuous service are you entitled to the full gratuity upon resignation. If the employer terminates the contract (other than for cause), the full amount is always payable regardless of tenure length.</p>
+
+<p>This resignation penalty structure makes Saudi Arabia's gratuity system more punitive for employees who change jobs frequently. A professional who works for three different Saudi employers, five years each, would receive one-third of the gratuity from the first two (resignation) and the full amount from the third (assuming termination or non-renewal). The same professional working fifteen consecutive years with one employer would receive the full gratuity on the entire period, calculated at the higher 30-day rate for the last ten years.</p>
+
+<p>Worked example: an engineer with a basic salary of SAR 20,000 per month who works for eight years and is terminated. Daily rate: SAR 20,000 / 30 = SAR 666.67. First five years: 5 x 15 x SAR 666.67 = SAR 50,000. Remaining three years: 3 x 30 x SAR 666.67 = SAR 60,000. Total: SAR 110,000 (~EUR 26,400). If the same employee had resigned, they would receive two-thirds: SAR 73,333 (~EUR 17,600). The difference of SAR 36,667 illustrates the financial cost of resignation in Saudi Arabia for mid-tenure employees.</p>
+
+<h2>Qatar Gratuity: Qatar Labor Law No. 14 of 2004</h2>
+<p>Qatar's gratuity system is simpler than both the UAE and Saudi systems. Every employee who completes at least one year of continuous service is entitled to gratuity calculated at three weeks (21 calendar days) of basic salary per year of service. There is no tiered rate based on tenure length, no cap on total gratuity, and no reduction for resignation. The calculation uses the last drawn basic salary, not an average or historical figure.</p>
+
+<p>Qatar's approach makes gratuity calculations straightforward and predictable. The simplicity benefits employees who plan to work for defined periods, as they can calculate their exact entitlement from the outset of employment. The absence of a resignation penalty also means Qatar-based professionals have full labor mobility without financial sacrifice on their gratuity.</p>
+
+<p>Worked example: a teacher with a basic salary of QAR 12,000 per month who works for four years. Daily rate: QAR 12,000 / 30 = QAR 400. Gratuity: 4 x 21 x QAR 400 = QAR 33,600 (~EUR 8,400). This is the same amount whether the employee resigns or is terminated.</p>
+
+<h2>Side-by-Side Comparison</h2>
+<div class="not-prose overflow-x-auto mb-8">
+  <table class="w-full text-sm">
+    <thead><tr class="bg-teal-600 text-white"><th class="px-3 py-2 text-left rounded-tl-lg">Feature</th><th class="px-3 py-2 text-center">UAE</th><th class="px-3 py-2 text-center">Saudi Arabia</th><th class="px-3 py-2 text-center rounded-tr-lg">Qatar</th></tr></thead>
+    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+      <tr><td class="px-3 py-2 font-medium">First 5 years rate</td><td class="px-3 py-2 text-center">21 days/year</td><td class="px-3 py-2 text-center">15 days/year</td><td class="px-3 py-2 text-center">21 days/year</td></tr>
+      <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">After 5 years rate</td><td class="px-3 py-2 text-center">30 days/year</td><td class="px-3 py-2 text-center">30 days/year</td><td class="px-3 py-2 text-center">21 days/year</td></tr>
+      <tr><td class="px-3 py-2 font-medium">Cap</td><td class="px-3 py-2 text-center">2 years basic</td><td class="px-3 py-2 text-center">No cap</td><td class="px-3 py-2 text-center">No cap</td></tr>
+      <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">Resignation penalty</td><td class="px-3 py-2 text-center">None (2021 law)</td><td class="px-3 py-2 text-center">Yes (tiered)</td><td class="px-3 py-2 text-center">None</td></tr>
+      <tr><td class="px-3 py-2 font-medium">Min. service</td><td class="px-3 py-2 text-center">1 year</td><td class="px-3 py-2 text-center">2 years (resign)</td><td class="px-3 py-2 text-center">1 year</td></tr>
+      <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">Calculation basis</td><td class="px-3 py-2 text-center">Basic salary only</td><td class="px-3 py-2 text-center">Basic salary only</td><td class="px-3 py-2 text-center">Basic salary only</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>The UAE's Alternative Savings Scheme</h2>
+<p>In 2023, the UAE introduced an optional Alternative End-of-Service Benefits Scheme that allows employers to invest monthly gratuity accruals into regulated investment funds rather than holding the liability on their balance sheet. Participating employees can choose from conservative, balanced, and growth-oriented fund options managed by licensed administrators. The statutory minimum gratuity is guaranteed regardless of fund performance. This scheme is currently voluntary for both employers and employees, and enrollment requires mutual agreement. For employees with a time horizon of five years or more, the potential for investment returns above the statutory minimum makes this an attractive option worth discussing with your employer.</p>
+
+<h2>Maximizing Gratuity Across a Gulf Career</h2>
+<p>Several strategies apply regardless of which Gulf country you work in. First, negotiate for the highest possible basic salary relative to total compensation. Since gratuity is calculated exclusively on basic salary, a package with AED 20,000 basic and AED 5,000 housing generates significantly more gratuity than AED 15,000 basic with AED 10,000 housing, despite the same total. Second, understand the compounding effect of tenure. In the UAE and Saudi Arabia, the higher rate kicks in after five years, making the marginal gratuity per year significantly larger from year six onward. Third, if working in Saudi Arabia, factor the resignation penalty into your career planning. Staying beyond five years eliminates the one-third reduction, and staying beyond ten years removes it entirely. Fourth, maintain meticulous records of your employment contracts, salary certificates, and WPS payment records, as these are the primary evidence in any gratuity dispute. Fifth, plan the timing of your departure to maximize completed years of service, as partial years are prorated and completing even one additional month can add meaningfully to the calculation.</p>
+
+<h2>Common Disputes and How to Resolve Them</h2>
+<p>Gratuity disputes are among the most common labor complaints in all three Gulf countries. The most frequent issues are disagreements over which salary components constitute "basic salary" for calculation purposes, delays in payment beyond the statutory deadline (14 days in the UAE, end of the month in Saudi Arabia, within 7 days in Qatar), and attempts by employers to offset gratuity against supposed debts or damages. In all three countries, labor dispute resolution is accessible and generally employee-friendly. File complaints with MoHRE in the UAE, the Ministry of Human Resources and Social Development (MHRSD) in Saudi Arabia, or the Ministry of Administrative Development, Labour and Social Affairs (MADLSA) in Qatar. Mediation typically resolves disputes within two to four weeks, and if mediation fails, labor courts handle the case within two to six months.</p>
+
+<h2>Gratuity and Your Home Country Tax</h2>
+<p>Gratuity is tax-free within the Gulf, but it may be reportable or taxable in your home country depending on your tax residency status. US citizens must report worldwide income including gratuity, though it may be excludable under the Foreign Earned Income Exclusion. UK non-residents are generally not taxed on Gulf gratuity. Indian NRIs typically do not owe tax on gratuity received from foreign employers. Consult a cross-border tax advisor before your employment ends to structure the receipt and transfer of funds optimally. See our <a href="/guides/tax-free-countries-gulf/">tax-free countries guide</a> for more detail on home country obligations.</p>
+
+<h2>DIFC and ADGM: Free Zone Gratuity Rules</h2>
+<p>The Dubai International Financial Centre (DIFC) and Abu Dhabi Global Market (ADGM) operate their own employment laws that differ from UAE federal labor law in meaningful ways. In the DIFC, gratuity is calculated at 21 calendar days of basic salary for each year of the first five years of service, and 30 calendar days for each additional year, mirroring the federal formula. However, the DIFC Employment Law (DIFC Law No. 2 of 2019) includes distinct provisions around final payment timelines: employers must settle all dues, including gratuity, within 14 days of the termination date. The DIFC also permits employers to enroll in the DEWS (DIFC Employee Workplace Savings) scheme as an alternative to the traditional gratuity system. Under DEWS, employers make monthly contributions of 5.83% of basic salary (for employees with less than five years of service) or 8.33% (for those with five or more years) into regulated investment accounts managed by Zurich International Life. The employee can choose between risk profiles ranging from conservative capital protection to aggressive growth portfolios. Upon termination, the employee receives the greater of the DEWS account value or the statutory minimum gratuity, effectively providing a guaranteed floor with investment upside.</p>
+
+<p>The ADGM follows a similar structure under its Employment Regulations 2019. Gratuity accrues at 21 days of daily wage for each year of the first five years and 30 days for subsequent years, capped at two years of total remuneration. ADGM employers must pay all terminal benefits within 14 days. The ADGM has also introduced a voluntary workplace savings alternative, though adoption rates remain lower than the DIFC DEWS program. Employees working in either free zone should carefully review their employment contracts, as some employers offer enhanced gratuity terms beyond the statutory minimum as a retention incentive, particularly in financial services and legal sectors where talent competition between the two centres is intense.</p>
+
+<h2>Bahrain, Kuwait, and Oman: Gratuity in the Wider Gulf</h2>
+<p>While this guide focuses primarily on the UAE, Saudi Arabia, and Qatar, the three remaining GCC states also mandate end-of-service gratuity for expatriate employees. In Bahrain, the Labour Law for the Private Sector (Law No. 36 of 2012) entitles employees to gratuity of half a month's salary for each of the first three years of service and one full month for each subsequent year. There is no cap, and since 2023, Bahrain has expanded its Social Insurance Organisation (SIO) coverage to include certain categories of expatriate workers, creating a parallel system alongside traditional gratuity. Kuwait's Private Sector Labour Law (No. 6 of 2010) provides 15 days of remuneration for each of the first five years and one month for each year thereafter. Importantly, Kuwait uses "remuneration" rather than "basic salary," which can include regular allowances in the calculation. Kuwait caps total gratuity at 18 months of remuneration, making it one of the more restrictive systems for very long-tenured employees. Oman's Labour Law (Royal Decree 35/2003, as amended) grants 15 days of basic salary per year for the first three years and one month for each subsequent year. Oman has been gradually reforming its end-of-service benefits system as part of its broader Omanization and social protection modernization agenda.</p>
+
+<h2>Partial Year Calculations and Edge Cases</h2>
+<p>All three major Gulf countries prorate gratuity for partial years of service, calculated on a proportional basis. If you work for three years and seven months in the UAE, your gratuity covers three full years at the 21-day rate plus seven-twelfths of a year at the same rate. This prorating mechanism means that the exact timing of your departure can meaningfully affect your total entitlement. An employee who leaves after four years and eleven months receives gratuity for that entire period at the 21-day rate, while staying just one additional month (reaching five years and one month) means the extra month is calculated at the higher 30-day rate. While one month alone may not be transformative, it signals to the calculator that you have crossed the five-year threshold, and every subsequent month thereafter will also be at the 30-day rate. For employees approaching the five-year mark, negotiating an extra month or two on the contract renewal is financially worthwhile.</p>
+
+<p>Several other edge cases merit attention. Employees on unlimited contracts in the UAE (which were the standard before 2022 but have largely been converted to fixed-term contracts under the new law) retain their accrued gratuity rights regardless of contract type conversion. Employees who transfer between group companies within the same corporate structure should ensure that their continuous service is formally recognized in writing, as breaks in employment documentation can lead to disputes over total tenure. In Saudi Arabia, employees working during the probation period (which can last up to 180 days for Saudi nationals and 90 days for others) do not accrue gratuity for that period unless the contract explicitly states otherwise. Similarly, periods of unpaid leave exceeding 20 days in Qatar may not count toward continuous service for gratuity purposes, though paid annual leave and sick leave always count.</p>
+
+<h2>Strategic Career Planning: Optimizing Your Gulf Gratuity Over a Decade</h2>
+<p>For professionals who plan a multi-year Gulf career spanning two or more employers, the interaction between gratuity rules and career timing decisions can create or destroy tens of thousands of dirhams in accumulated benefits. Consider a finance professional who plans to spend ten years in the Gulf. Scenario A: five years in Saudi Arabia followed by five years in the UAE. The Saudi employer pays gratuity at 15 days per year for all five years (since resignation resets the tier), and the UAE employer pays at 21 days per year for five years. Scenario B: five years in the UAE followed by five years in Saudi Arabia, resigning from the first and being retained at the second for the full decade. The UAE employer pays full gratuity for five years at 21 days per year. If the Saudi employer keeps the professional for the full five years and terminates (or the contract expires), the gratuity is 15 days per year for all five, same as before. But if the professional stays in Saudi for ten total years, the last five are at 30 days per year and they receive full entitlement on resignation. The compounding effect of tenure in Saudi Arabia makes longer single-employer stints significantly more rewarding than frequent moves.</p>
+
+<p>Another important consideration is timing your departure relative to salary increases. Since gratuity is calculated on the last drawn basic salary, a salary increase in your final year of employment retroactively increases the gratuity for all prior years of service. A 10% salary increase in your seventh year means the entire seven years of accumulated gratuity is calculated at the higher rate. Conversely, if your employer offers you a "promotion" that restructures your package from AED 20,000 basic salary plus AED 5,000 housing allowance to AED 18,000 basic salary plus AED 7,000 housing allowance (same total but lower basic), your gratuity basis shrinks by 10% despite the same total compensation. Always scrutinize contract amendments that change the basic-to-allowance ratio, and resist any restructuring that reduces the basic salary component unless compensated elsewhere. Your basic salary is quite literally the foundation of your exit wealth from the Gulf.</p>
+
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "Saudi MHRSD", url: "https://www.hrsd.gov.sa/" }, { name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }]} />
+<RelatedLinks links={[{ label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }, { label: "Tax-Free Countries Guide", href: "/guides/tax-free-countries-gulf/" }, { label: "Banking for Expats", href: "/guides/banking-expats-gulf/" }]} />
+</GuideLayout>

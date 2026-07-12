@@ -11,7 +11,7 @@ const breadcrumbs = [
 const articles = [
   {
     title: "GCC Expat Policy Changes 2025: Golden Visas, Remote Work Permits & Residency Reforms",
-    description: "A comprehensive look at the visa and residency changes reshaping expat life across the UAE, Qatar, and Saudi Arabia in 2025 -- from expanded golden visa categories to new remote work permits and long-term residency pathways.",
+    description: "A comprehensive look at the visa and residency changes reshaping expat life across the UAE, Qatar, and Saudi Arabia in 2025, from expanded golden visa categories to new remote work permits and long-term residency pathways.",
     href: "/news/gcc-expat-policy-changes-2025/",
     date: "2025-06-27",
     readingTime: "9 min",
@@ -28,15 +28,48 @@ function formatDate(dateStr: string): string {
 ---
 
 <GuideLayout
-  title="Gulf Expat News 2026 | Visa & Policy Change Tracker"
-  description="Track visa reforms, residency changes and labour law updates across UAE, Qatar and Saudi Arabia. Golden Visa expansions, Premium Residency and kafala reforms."
+  title="Gulf Expat Policy News 2026: Visa & Law Change Tracker"
+  description="Track visa reforms, residency changes and labour law updates across UAE, Qatar and Saudi Arabia. Golden Visa expansions, Premium Residency and kafala news."
   canonical="/news/"
   schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("GCC Expat News & Policy Updates", "News and policy updates for Gulf expats.", "https://arabiaexpat.com/news/", "2025-06-27", "2025-06-27")]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "News", url: "/news/" }]}
 >
-  <h1>GCC Expat News & Policy Updates</h1>
 
-  <p>Stay informed on the latest visa changes, residency reforms, labor law updates, and policy developments affecting expatriates across the UAE, Qatar, and Saudi Arabia. Each article is researched using official government sources and updated as new regulations take effect.</p>
+  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Policy Impact Checker</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Select your situation to see which recent policy changes affect you most.</p>
+    <form id="policyImpact" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="piCountry">Your Gulf country</label>
+        <select id="piCountry" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="uae">UAE</option>
+          <option value="qatar">Qatar</option>
+          <option value="saudi">Saudi Arabia</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="piStatus">Your status</label>
+        <select id="piStatus" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="employee">Employee (employer-sponsored)</option>
+          <option value="investor">Investor / property owner</option>
+          <option value="freelance">Freelancer / self-employed</option>
+          <option value="prospect">Not yet in the Gulf</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <button type="button" onclick="(function(){var c=document.getElementById('piCountry').value,s=document.getElementById('piStatus').value,msg='';if(c==='uae'){if(s==='employee')msg='Check if you qualify for Golden Visa (AED 30,000+ salary in eligible professions). Expanded occupation list now includes AI, sustainability, and healthcare specialists.';else if(s==='investor')msg='Golden Visa property threshold maintained at AED 2M but now accepts combined properties and off-plan with 50%+ paid. Review your portfolio eligibility.';else if(s==='freelance')msg='Green Visa (5-year, self-sponsored) available with AED 360,000+ annual income. Remote Work Visa renewed at lower USD 3,000 minimum salary.';else msg='Most accessible entry points: employment visa, freelance visa through free zones, or Remote Work Visa (USD 3,000/mo minimum from foreign employer).';}else if(c==='qatar'){if(s==='employee')msg='No-Objection Certificate abolished. You can change employers freely after notice period. Check permanent residency eligibility if 10+ years resident.';else if(s==='investor')msg='Permanent residency pathway available for significant contributors. Property ownership in designated areas (The Pearl, Lusail) supports residency applications.';else if(s==='freelance')msg='QFZA freelancer permit now available for independent professionals. Enables self-sponsored residency while serving global clients from Qatar.';else msg='Work visa reforms mean faster processing and stronger worker protections. Minimum wage QAR 1,000 + housing + food allowances guaranteed.';}else{if(s==='employee')msg='Talent track for Premium Residency may offer reduced fees for specialized skills. Spouse employment rights expanded. Confirm employer Nitaqat status.';else if(s==='investor')msg='Premium Residency permanent option at SAR 800,000 grants property rights and business ownership without Saudi partner.';else if(s==='freelance')msg='Freelance visa options expanding through Saudi free zones. Vision 2030 entertainment and tech sectors creating independent contractor opportunities.';else msg='Fastest-growing opportunity market in the Gulf. Vision 2030 driving hiring across all sectors. Standard work visa via Qiwa platform takes 4-8 weeks.';}document.getElementById('piResult').innerHTML='<strong>Key developments for you:</strong><br><span class=\'text-xs text-gray-500\'>'+msg+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Impact</button>
+      </div>
+      <div id="piResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
+    </form>
+  </div>
+
+  <h1>GCC Expat News and Policy Updates</h1>
+
+  <p>The Gulf Cooperation Council countries are in a period of sustained immigration policy innovation, driven by competition for global talent and the strategic need to diversify economies beyond hydrocarbon revenues. The UAE, Qatar, and Saudi Arabia are all actively reforming their visa regimes, residency frameworks, and labor protections, creating an evolving landscape that directly affects the millions of expatriates who live and work in the region. Staying informed about these changes is not optional for Gulf expats, it is essential. A policy change can create new opportunities, such as Golden Visa eligibility for a profession that was previously excluded, or introduce new requirements, such as updated Saudization quotas that affect your employer's ability to renew your visa.</p>
+
+  <p>This news section tracks the most significant policy developments affecting Gulf expatriates, with each article researched using official government sources, legislative texts, and verified regulatory announcements. We focus on changes that have practical, measurable impact on expat life, including visa category expansions, fee adjustments, residency pathway updates, labor law amendments, and workforce nationalization program changes. Our coverage prioritizes substance over speculation, and we update articles when subsequent regulatory decisions modify or clarify initial announcements. For the full context behind each policy change, our comprehensive <a href="/uae/visa-guide/">UAE</a>, <a href="/qatar/visa-guide/">Qatar</a>, and <a href="/saudi-arabia/visa-guide/">Saudi Arabia</a> visa guides provide detailed process documentation that incorporates the latest regulatory framework.</p>
+
+  <p>The broader trend across all three countries is clear: the Gulf is moving from a purely transient workforce model toward one that accommodates, and actively encourages, long-term settlement by skilled professionals and investors. Golden Visas, Premium Residencies, permanent residency pathways, and independent work permits are reducing the traditional dependency on employer sponsorship that characterized Gulf immigration for decades. For expatriates, this shift means more options, greater mobility, and stronger legal protections than at any previous point in the region's history. The articles below document these changes as they unfold.</p>
 
   <div class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
     {articles.map((article) => (
@@ -64,4 +97,12 @@ function formatDate(dateStr: string): string {
       </a>
     ))}
   </div>
+
+  <h2>How We Track Policy Changes</h2>
+  <p>Our news coverage follows a structured monitoring and verification process. We track official government gazettes, ministry announcements, and regulatory authority publications in all three countries. When a policy change is announced, we verify the source, review the official text (in both Arabic and English where available), assess the practical impact on expatriates, and publish our analysis. We do not report on rumors, unconfirmed leaks, or speculative policy discussions. Every article on this page is based on officially published regulatory changes that have been confirmed through primary government sources.</p>
+
+  <p>Policy changes are assessed for their impact across several dimensions: who is affected (current residents, prospective applicants, specific nationalities or professions), what changes (fees, eligibility criteria, processes, timelines), when the change takes effect, and how it interacts with existing regulations. This structured analysis helps readers quickly determine whether a specific change is relevant to their situation and what action, if any, they should take. For ongoing updates and the full regulatory context behind each change, our country-specific visa guides and comprehensive expat guides are continuously updated to reflect the current framework.</p>
+
+  <h2>Subscribe to Updates</h2>
+  <p>Policy changes in the Gulf can be announced with limited advance notice, and the window to take advantage of new opportunities, or comply with new requirements, can be narrow. Bookmark this page and check back regularly, or follow our social media channels for notifications when new articles are published. For corrections, suggestions, or to report a policy change we have not yet covered, please <a href="/contact/">contact us</a>.</p>
 </GuideLayout>

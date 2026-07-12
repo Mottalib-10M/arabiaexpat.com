@@ -36,11 +36,76 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
 ---
 
 <Layout
-  title="Living in the Gulf 2026 | Visa, Housing & Schools Guide"
-  description="Plan your move to UAE, Qatar or Saudi Arabia with 2026 data on visas, rent, school fees, utilities and driving licences. Over 30M expats use these countries."
+  title="Move to the Gulf 2026: Visa, Rent, Schools & Salary"
+  description="Plan your move to UAE, Qatar or Saudi Arabia with 2026 visa requirements, rent prices, school fees and tax-free salary data. Guides for 30M+ Gulf expats."
   canonical="/"
   schemas={schemas}
 >
+  <!-- Quick Relocation Cost Estimator -->
+  <div class="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+      <div class="max-w-2xl">
+        <h2 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-3">Quick Relocation Cost Estimator</h2>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Get a rough monthly budget estimate for your Gulf move in seconds.</p>
+        <form id="relocation-estimator" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="est-country">Country</label>
+            <select id="est-country" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-2 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+              <option value="uae-dubai">UAE - Dubai</option>
+              <option value="uae-abudhabi">UAE - Abu Dhabi</option>
+              <option value="qatar">Qatar - Doha</option>
+              <option value="saudi">Saudi - Riyadh</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="est-family">Household</label>
+            <select id="est-family" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-2 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+              <option value="single">Single</option>
+              <option value="couple">Couple</option>
+              <option value="family">Family (2 kids)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="est-lifestyle">Lifestyle</label>
+            <select id="est-lifestyle" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-2 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+              <option value="budget">Budget</option>
+              <option value="mid">Mid-range</option>
+              <option value="premium">Premium</option>
+            </select>
+          </div>
+          <div class="flex items-end">
+            <button type="button" onclick="calcRelocation()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Estimate</button>
+          </div>
+        </form>
+        <div id="relocation-result" class="mt-3 text-sm text-gray-700 dark:text-gray-300 hidden">
+          <span class="font-bold text-teal-700 dark:text-teal-400" id="relocation-amount"></span>
+          <span id="relocation-detail" class="text-xs text-gray-500 dark:text-gray-400 ml-2"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script is:inline>
+  function calcRelocation(){
+    const c=document.getElementById('est-country').value;
+    const f=document.getElementById('est-family').value;
+    const l=document.getElementById('est-lifestyle').value;
+    const base={
+      'uae-dubai':{single:9500,couple:14000,family:25000},
+      'uae-abudhabi':{single:8000,couple:12000,family:22000},
+      'qatar':{single:8500,couple:13000,family:23000},
+      'saudi':{single:6500,couple:10000,family:18000}
+    };
+    const mult={budget:0.75,mid:1,premium:1.45};
+    const curr={'uae-dubai':'AED','uae-abudhabi':'AED','qatar':'QAR','saudi':'SAR'};
+    const eur={'uae-dubai':0.25,'uae-abudhabi':0.25,'qatar':0.25,'saudi':0.24};
+    const val=Math.round(base[c][f]*mult[l]);
+    const eurVal=Math.round(val*eur[c]);
+    document.getElementById('relocation-amount').textContent=curr[c]+' '+val.toLocaleString()+'/month (~€'+eurVal.toLocaleString()+')';
+    document.getElementById('relocation-detail').textContent='Includes rent, groceries, transport, utilities'+(f==='family'?' and school fees':'');
+    document.getElementById('relocation-result').classList.remove('hidden');
+  }
+  </script>
+
   <!-- Masthead -->
   <div class="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
@@ -48,7 +113,7 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
         Your complete guide to expat life in the Gulf
       </h1>
       <p class="mt-3 text-gray-500 dark:text-gray-400 max-w-2xl">
-        Visa processes, housing, schools, driving licences, utilities, and daily life in the UAE, Qatar, and Saudi Arabia. Updated June 2026.
+        Practical, data-driven guides covering visas, housing, schools, salaries, driving licences, banking, healthcare, and daily life across the UAE, Qatar, and Saudi Arabia. Built for the 30 million expatriates who call the Gulf home. Updated July 2026.
       </p>
     </div>
   </div>
@@ -132,8 +197,63 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
         <section class="mt-10">
           <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Why the Gulf in 2026</h2>
           <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
-            <p>The Gulf Cooperation Council countries attract over 30 million expatriate workers. The UAE alone hosts 8.9 million foreign residents, 88% of its total population. Saudi Arabia's Vision 2030 program has created thousands of new roles across technology, entertainment, tourism, and infrastructure. Qatar's post-World Cup economy is expanding into finance, education, and LNG production.</p>
-            <p>Setting up your life involves practical steps that differ from country to country: obtaining your residence visa, finding housing, connecting electricity and water, getting a local SIM card, opening a bank account, converting your driving licence, and enrolling children in school. Our guides walk through each step with current 2026 data.</p>
+            <p>The Gulf Cooperation Council countries host over 30 million expatriate workers and their families, forming one of the largest concentrations of migrant labor anywhere on the planet. The UAE alone is home to 8.9 million foreign residents, who represent approximately 88% of the country's total population. Saudi Arabia houses 10.4 million expats across Riyadh, Jeddah, the Eastern Province, and dozens of smaller cities now undergoing rapid transformation under the Vision 2030 program. Qatar, compact but affluent, counts 2.4 million expatriates within its borders, many of whom arrived during or after the massive infrastructure buildup for the 2022 FIFA World Cup and have stayed for the stable economy and zero-VAT environment.</p>
+
+            <p>What draws professionals to this region is a combination of financial opportunity and lifestyle that few other destinations replicate. The UAE and Qatar levy no personal income tax whatsoever, meaning your gross salary is your take-home pay. Saudi Arabia introduced a 15% Value Added Tax but still imposes zero income tax on individuals, creating a net financial advantage over virtually every European, North American, or East Asian job market. On top of tax-free salaries, most Gulf employers provide additional benefits including housing allowances (often 25-40% of the base salary), annual return flights, health insurance for employees and dependents, school fee contributions for families with children, and end-of-service gratuity payments calculated under each country's labor law. For a mid-career professional earning AED 25,000 per month in Dubai, the effective total compensation after factoring in housing, insurance, and flights can be equivalent to a pre-tax salary of over EUR 100,000 in a Western European capital, but with significantly more disposable cash each month.</p>
+
+            <p>Infrastructure across the Gulf is modern and expanding. Dubai's metro system, which opened in 2009, now carries over 200 million passengers annually and connects major residential and commercial hubs along its Red and Green lines. The Dubai Tram links the Marina and JBR waterfront to the metro network, while ride-hailing services from Careem and Uber fill the gaps. Abu Dhabi is investing in its own public transit expansion, and Riyadh's six-line metro system, the largest urban transit project under construction in the world, began operations in late 2024 with full network coverage expected by 2026. Doha's automated metro, completed for the World Cup, provides efficient coverage of the city's key corridors. Roads across all four cities are well-maintained and wide, though peak-hour traffic in Dubai on Sheikh Zayed Road and in Riyadh on the King Fahd Highway remains a daily reality for car commuters.</p>
+
+            <p>Safety is another defining characteristic. Dubai, Abu Dhabi, and Doha consistently rank in the top ten safest cities globally in surveys conducted by Numbeo and the Economist Intelligence Unit. Violent crime is extremely rare, property crime is low, and the police forces in each country are well-resourced and responsive. Public spaces, shopping malls, parks, and beaches are safe for families at all hours. This environment is particularly valued by expatriate parents, who frequently cite safety as one of their primary reasons for choosing the Gulf over other international postings.</p>
+
+            <p>Healthcare has advanced rapidly. All three countries mandate employer-provided health insurance and operate hospital networks staffed by internationally trained physicians and nurses. Cleveland Clinic Abu Dhabi, Mediclinic, and American Hospital Dubai in the UAE; Hamad Medical Corporation and Sidra Medicine in Qatar; and King Faisal Specialist Hospital and Johns Hopkins Aramco Healthcare in Saudi Arabia all meet or exceed international accreditation standards. Pharmacies are plentiful, and emergency care is available to everyone regardless of insurance status. Mental health services, once limited, have expanded notably in recent years across all three countries.</p>
+
+            <p>Education options for expat children span every major international curriculum. The UAE hosts over 700 private schools across its seven emirates, with Dubai alone offering more than 200 institutions covering British, American, International Baccalaureate, Indian CBSE and ICSE, French, German, Japanese, and Filipino programs. Qatar's approximately 300 private schools and Saudi Arabia's rapidly growing network serve a broad range of communities. School fees vary enormously, from AED 15,000 per year at budget-tier Indian curriculum schools to AED 110,000 or more at premium British and American institutions. Regulatory bodies such as KHDA in Dubai, ADEK in Abu Dhabi, and their counterparts in Doha and Riyadh publish inspection reports that help parents make informed choices based on teaching quality, student outcomes, and campus facilities.</p>
+
+            <p>Setting up your life after arrival follows a predictable sequence regardless of country. You complete your residence visa process, which includes a medical fitness test and biometric registration. You find housing and register your tenancy contract (Ejari in Dubai, Tawtheeq in Abu Dhabi, Baladiya-approved contracts in Qatar and Saudi Arabia). You connect utilities, whether that is DEWA in Dubai, ADDC in Abu Dhabi, Kahramaa in Doha, or SEC in Saudi Arabia. You open a bank account, which your employer needs for salary transfer under the Wage Protection System. You get a local mobile SIM from du or Etisalat in the UAE, Ooredoo or Vodafone in Qatar, or STC, Mobily, or Zain in Saudi Arabia. If you need to drive, you either convert your foreign licence or take driving lessons and pass a local test, depending on your nationality. Families enroll children in school, a process that should ideally begin months before arrival to secure places at preferred institutions.</p>
+
+            <p>Cultural adaptation varies by individual, but several themes are consistent. English is the lingua franca of business and daily life across the Gulf, particularly in the UAE and Qatar. Arabic is the official language everywhere, and learning basic greetings earns genuine warmth from local colleagues and neighbors. Ramadan, the Islamic holy month, changes the rhythm of daily life, with shortened work hours, restrictions on public eating during daylight, and vibrant iftar gatherings after sunset. The weekend in the UAE and Saudi Arabia runs Friday-Saturday for government and some private employers, though many private companies have shifted to Saturday-Sunday in the UAE. Qatar uses Friday-Saturday as the standard weekend. Alcohol is available in licensed venues in the UAE and Qatar, though Saudi Arabia prohibits it entirely. Dress codes are relaxed in cosmopolitan areas but conservative near mosques, government buildings, and in Saudi Arabia generally outside major cities.</p>
+
+            <p>For professionals weighing their options, the Gulf in 2026 represents a compelling combination of financial reward, career opportunity, safety, and lifestyle quality. Whether you are a software engineer considering a role in Dubai Internet City, a doctor weighing an offer from a Riyadh hospital, a teacher exploring positions at a Doha international school, or an entrepreneur looking at free zone business setup, the practical information you need is scattered across dozens of government portals, employer websites, and community forums. Our guides consolidate this information into structured, current, and actionable reference material covering every step from your first job offer to your settled daily routine. Each guide is updated regularly with 2026 data on visa rules, housing prices, school fees, utility costs, and other essentials that directly affect your quality of life and financial planning.</p>
+          </div>
+        </section>
+
+        <!-- Salary and employment section -->
+        <section class="mt-10">
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">Salary & Employment</h2>
+          <div class="divide-y divide-gray-200 dark:divide-gray-800">
+            {[
+              { title: "UAE Salary Calculator", href: "/uae/salary-calculator/", desc: "Calculate your tax-free take-home pay including housing allowance, gratuity, and employer benefits." },
+              { title: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/", desc: "End-of-service benefit estimator based on UAE labor law Article 51." },
+              { title: "UAE Labor Law Guide", href: "/uae/labor-law/", desc: "Federal Decree-Law No. 33: contracts, notice periods, termination rules, and worker protections." },
+              { title: "Gratuity & End-of-Service Explained", href: "/guides/gratuity-end-of-service-explained/", desc: "How gratuity works in UAE, Qatar, and Saudi Arabia with real examples and edge cases." },
+              { title: "Tax-Free Countries in the Gulf", href: "/guides/tax-free-countries-gulf/", desc: "Zero income tax breakdown: UAE, Qatar tax structure vs Saudi VAT and how it affects your savings." },
+            ].map((guide) => (
+              <a href={guide.href} class="flex items-center justify-between py-3 px-3 -mx-3 rounded group gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors">
+                <div>
+                  <h3 class="text-sm font-semibold text-teal-700 dark:text-teal-400 underline decoration-teal-200 dark:decoration-teal-800 underline-offset-2 group-hover:decoration-teal-500 transition-colors">{guide.title}</h3>
+                  <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">{guide.desc}</p>
+                </div>
+                <svg class="h-4 w-4 text-gray-400 dark:text-gray-500 group-hover:text-teal-600 transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <!-- Numbers & context -->
+        <section class="mt-10">
+          <h2 class="font-serif text-xl font-bold text-gray-900 dark:text-white pb-2 border-b-2 border-gray-900 dark:border-white mb-4">The Gulf in Numbers</h2>
+          <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
+            <p>The scale of expatriate presence in the Gulf is often underappreciated by those who have not lived here. In the UAE, foreign nationals outnumber citizens by roughly seven to one. This demographic reality shapes every aspect of daily life, from the languages spoken in supermarkets (English, Hindi, Urdu, Tagalog, Arabic, and Malayalam all feature prominently) to the cuisines available in neighborhood restaurants and the range of religious and cultural events celebrated throughout the year. Dubai alone hosts communities from over 200 nationalities, making it one of the most ethnically diverse cities on earth by any measure.</p>
+
+            <p>Economically, the Gulf remains a powerhouse. The UAE's GDP exceeded USD 500 billion in 2025, driven by diversification into technology, tourism, logistics, financial services, and renewable energy alongside its traditional oil and gas sector. Saudi Arabia's economy, the largest in the region, is undergoing the most ambitious transformation program in modern Middle Eastern history through Vision 2030, which has generated hundreds of billions of dollars in new infrastructure projects including the NEOM megacity, the Red Sea tourism initiative, and the Riyadh Metro. Qatar, with the highest GDP per capita in the world, continues to leverage its natural gas wealth into education, healthcare, sports, and financial services. These economic engines require skilled professionals across virtually every industry, and the demand for expatriate talent shows no sign of slowing.</p>
+
+            <p>The regulatory environment for expats has improved steadily. The UAE's introduction of Golden Visas (10-year residence for qualified professionals and investors) and Green Visas (5-year self-sponsored residence for skilled workers) has reduced the traditional dependency on employer sponsorship. Saudi Arabia's Premium Residency program offers a similar long-term pathway. Qatar's permanent residency card provides qualifying expats with access to public services on par with nationals. These programs reflect a strategic shift across the Gulf toward attracting and retaining high-value residents rather than relying solely on temporary contract labor.</p>
+
+            <p>Real estate markets across the Gulf offer options for both renters and buyers. Dubai's freehold property zones allow expats to purchase apartments and villas, with investments above AED 2 million qualifying for Golden Visa eligibility. Abu Dhabi has expanded freehold ownership to designated areas including Al Reem Island and Saadiyat Island. Qatar permits foreign ownership in specific zones like The Pearl and West Bay Lagoon. Saudi Arabia is opening property ownership to foreign investors in designated areas as part of Vision 2030 reforms. For renters, the markets are well-regulated: Dubai's RERA Rent Index provides transparency on fair market rates, and tenant protection laws across the Gulf prevent arbitrary evictions and cap rental increases.</p>
+
+            <p>Whether you are researching your first Gulf relocation or comparing offers between Dubai, Doha, and Riyadh, the guides on this site provide the specific, current data you need. Each page covers a single topic in depth, with price ranges, regulatory references, and practical step-by-step instructions that reflect conditions on the ground in 2026. Use the country guides as starting points, then drill into the specific topics that matter most to your situation, whether that is school selection, housing budgets, visa processing, banking setup, or salary benchmarking.</p>
+
+            <p>The social fabric of Gulf expat life is richer and more layered than many newcomers anticipate. Professional networking events, industry meetups, and community groups organized by nationality, alumni affiliation, or shared hobbies create avenues for building meaningful connections. Sports clubs, running groups, cycling communities, and fitness classes provide both social outlets and respite from the climate during the cooler months. Cultural events, from the Sharjah International Book Fair and Art Dubai to the Doha Film Institute's Ajyal festival and Riyadh Season's entertainment extravaganzas, offer world-class programming throughout the year. Religious communities of every faith, including Christian churches, Hindu temples, Sikh gurdwaras, and Buddhist meditation centers, operate freely across the UAE and with increasing openness in Saudi Arabia and Qatar. For families, the community around your children's school often becomes the primary social network, with parent associations, weekend sports events, and school-organized family activities forming a natural social ecosystem. Understanding that social integration requires active effort, particularly in the transient expat environment where friends frequently relocate, is an important part of preparing mentally for Gulf life.</p>
           </div>
         </section>
       </div>

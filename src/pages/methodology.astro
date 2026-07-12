@@ -11,135 +11,135 @@ const schemas = [buildBreadcrumbs(breadcrumbs)];
 ---
 
 <GuideLayout
-  title="Methodology | Data Sources & Verification for 2026"
-  description="We source visa rules from MoHRE, MADLSA and MHRSD. Rent data from Property Finder and Bayut. School fees cross-checked quarterly. Full data transparency."
+  title="Methodology: How We Verify Gulf Expat Data in 2026"
+  description="Visa rules sourced from MoHRE, MADLSA and MHRSD. Rent data from Property Finder and Bayut. School fees cross-checked quarterly. Full transparency here."
   canonical="/methodology/"
   schemas={schemas}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Methodology", url: "/methodology/" }]}
 >
+
+  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Data Freshness Checker</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">See when different categories of our data were last verified.</p>
+    <form id="dataFresh" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="dfCat">Data category</label>
+        <select id="dfCat" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="visa">Visa & immigration rules</option>
+          <option value="salary">Salary data</option>
+          <option value="rent">Rental prices</option>
+          <option value="school">School fees</option>
+          <option value="utilities">Utility tariffs</option>
+          <option value="labor">Labor law</option>
+          <option value="calculator">Calculator formulas</option>
+        </select>
+      </div>
+      <div class="flex items-end">
+        <button type="button" onclick="(function(){var c=document.getElementById('dfCat').value,data={visa:{last:'June 2026',cycle:'Within 2 weeks of any regulatory change',source:'MoHRE, MHRSD, MADLSA, ICP, MOI'},salary:{last:'May 2026',cycle:'Semi-annual (aligned with recruitment survey cycles)',source:'Bayt.com, GulfTalent, Robert Half, Hays, Michael Page'},rent:{last:'June 2026',cycle:'Quarterly',source:'Property Finder, Bayut, Qatar Living, DLD Rental Index'},school:{last:'April 2026',cycle:'Annual (aligned with academic year)',source:'KHDA, ADEK, school fee publications'},utilities:{last:'January 2026',cycle:'Annual (aligned with tariff updates)',source:'DEWA, ADDC, Kahramaa, SEC published tariffs'},labor:{last:'June 2026',cycle:'Within 2 weeks of legislative amendments',source:'Federal Decree-Law 33/2021, Saudi Labour Law M/51, Qatar Law 14/2004'},calculator:{last:'June 2026',cycle:'Immediately upon statutory formula changes',source:'Exact statutory formulas from country labor laws'}};var d=data[c];document.getElementById('dfResult').innerHTML='<strong>Last verified: '+d.last+'</strong><br><span class=\'text-xs text-gray-500\'>Update cycle: '+d.cycle+'<br>Primary source: '+d.source+'</span>';})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Freshness</button>
+      </div>
+      <div id="dfResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
+    </form>
+  </div>
+
   <h1>Our Methodology</h1>
 
-  <p><strong>Arabia Expat</strong> provides salary data, financial calculators, labour law guides, and relocation resources for expatriates working in the UAE, Qatar, and Saudi Arabia. Transparency is central to our mission. This page explains in detail how we collect, verify, and present information so that you can understand exactly where our data comes from and how our calculations work.</p>
+  <p><strong>Arabia Expat</strong> provides relocation guides, cost-of-living data, visa process documentation, and practical setup resources for expatriates working in the UAE, Qatar, and Saudi Arabia. For salary data and financial calculators, our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a> provides dedicated compensation analysis tools. Transparency about our sources, methods, and limitations is central to our mission. This page explains in detail how we collect, verify, and present information so that you can assess the reliability of what you read and verify key claims independently using the primary sources we cite.</p>
+
+  <p>The challenge of providing accurate Gulf expat information is that the regulatory environment changes frequently. Visa rules are updated by ministerial decree, sometimes with limited advance notice. Rental markets fluctuate with supply and demand dynamics. School fees adjust annually. Utility tariffs are revised when government subsidy policies change. Tax rates, as demonstrated by Saudi Arabia's VAT increase from 5% to 15% in July 2020, can shift substantially. Our methodology is designed to capture these changes systematically and incorporate them into our content within defined timeframes, ensuring that the information you encounter on Arabia Expat reflects current reality rather than outdated assumptions.</p>
 
   <h2>Government and Legal Sources</h2>
 
-  <p>All labour law content, regulatory information, and statutory formulas published on Arabia Expat are sourced directly from official government publications. We never rely on secondhand interpretations or unverified blog content for legal information. Below are the specific sources we reference for each country.</p>
+  <p>All labor law content, regulatory information, and statutory formulas published on Arabia Expat and taxfreesalaries.com are sourced directly from official government publications. We never rely on secondhand interpretations, unverified blog posts, or forum discussions for legal information. When a regulatory change is announced, we review the official Arabic-language text (where available) and the official English-language translation published by the relevant government authority before updating our content. Below are the specific legislative texts and government bodies we reference for each country.</p>
 
   <h3>UAE Sources</h3>
-
   <p>For the United Arab Emirates, our primary legal and regulatory sources include:</p>
-
   <ul>
-    <li><strong>Federal Decree-Law No. 33 of 2021:</strong> The UAE's current labour law, which governs employment contracts, working hours, leave entitlements, termination, and end-of-service gratuity calculations. Our gratuity calculator implements the exact formula specified in Articles 51 and 52 of this decree.</li>
-    <li><strong>Ministry of Human Resources and Emiratisation (MoHRE):</strong> We reference MoHRE circulars, ministerial decisions, and the Wages Protection System (WPS) guidelines for information on salary payment obligations, labour dispute resolution, and worker protections.</li>
-    <li><strong>Dubai Statistics Center:</strong> Demographic data, average salary statistics, and consumer price index data used in our cost of living analyses are sourced from published statistical reports.</li>
-    <li><strong>ICP (Federal Authority for Identity, Citizenship, Customs and Port Security):</strong> Visa categories, fees, and residency requirements are verified against official ICP publications.</li>
+    <li><strong>Federal Decree-Law No. 33 of 2021:</strong> The UAE's current labor law, effective February 2022, which governs employment contracts, working hours, leave entitlements, termination procedures, and end-of-service gratuity calculations. Our gratuity calculator implements the exact formula specified in Articles 51 and 52 of this decree, including the resignation-based reduction tiers for service under five years.</li>
+    <li><strong>Ministry of Human Resources and Emiratisation (MoHRE):</strong> MoHRE circulars, ministerial decisions, and Wages Protection System guidelines provide the basis for our information on salary payment obligations, labor dispute resolution, worker protections, and employment contract registration requirements.</li>
+    <li><strong>Federal Authority for Identity, Citizenship, Customs and Port Security (ICP):</strong> Visa categories, residency fees, Golden Visa eligibility criteria, and entry permit requirements are verified against official ICP publications and the GDRFA online services portal.</li>
+    <li><strong>Dubai Statistics Center and FCSC:</strong> Demographic data, average salary statistics, consumer price index data, and inflation metrics used in our cost-of-living analyses are sourced from published statistical reports released by these official bodies.</li>
+    <li><strong>KHDA and ADEK:</strong> School inspection reports, fee structures, and curriculum accreditation data are sourced from the Knowledge and Human Development Authority (Dubai) and the Abu Dhabi Department of Education and Knowledge (Abu Dhabi).</li>
   </ul>
 
   <h3>Qatar Sources</h3>
-
   <p>For the State of Qatar, our sources include:</p>
-
   <ul>
-    <li><strong>Labour Law No. 14 of 2004:</strong> Qatar's foundational employment legislation covering contracts, termination, and end-of-service benefits. Our Qatar gratuity calculator uses the three-week-per-year formula specified in Article 54.</li>
-    <li><strong>Ministry of Administrative Development, Labour and Social Affairs (MADLSA):</strong> We reference MADLSA publications for information on the Worker Support and Insurance Fund, the abolition of the kafala system, and current labour market reform initiatives.</li>
-    <li><strong>Law No. 17 of 2020:</strong> Qatar's non-discriminatory minimum wage legislation, which established minimum wage, food, and housing allowance requirements. We reference this law in our salary guides and calculator validations.</li>
-    <li><strong>Planning and Statistics Authority (PSA):</strong> Population data, labour force statistics, and economic indicators used in our cost of living and salary analyses.</li>
+    <li><strong>Labour Law No. 14 of 2004:</strong> Qatar's foundational employment legislation covering contracts, termination, and end-of-service benefits. Our Qatar gratuity calculator uses the three-week-per-year formula specified in Article 54, with no statutory cap on the total gratuity amount.</li>
+    <li><strong>Ministry of Administrative Development, Labour and Social Affairs (MADLSA):</strong> Publications covering the Worker Support and Insurance Fund, kafala reform implementation, electronic contract registration, and the Wage Protection System provide the basis for our labor rights information.</li>
+    <li><strong>Law No. 17 of 2020:</strong> Qatar's non-discriminatory minimum wage legislation, which established the QAR 1,000 minimum wage plus food (QAR 300) and housing (QAR 500) allowances. We reference this law in salary guides and calculator minimum thresholds.</li>
+    <li><strong>Planning and Statistics Authority (PSA):</strong> Population data, labor force statistics, economic indicators, and consumer price data inform our cost-of-living and salary analyses.</li>
+    <li><strong>Kahramaa published tariff schedules:</strong> Electricity and water rates, consumption tier breakdowns, and security deposit amounts are sourced from Kahramaa's official rate publications.</li>
   </ul>
 
   <h3>Saudi Arabia Sources</h3>
-
   <p>For the Kingdom of Saudi Arabia, our sources include:</p>
-
   <ul>
-    <li><strong>Saudi Labour Law (Royal Decree No. M/51):</strong> The primary employment legislation governing contracts, termination, and end-of-service award calculations. Our Saudi gratuity calculator implements the formula specified in Articles 84-86.</li>
-    <li><strong>Ministry of Human Resources and Social Development (MHRSD):</strong> We reference MHRSD publications for Saudization (Nitaqat) programme requirements, wage protection system guidelines, and labour dispute resolution procedures.</li>
-    <li><strong>General Organisation for Social Insurance (GOSI):</strong> Social insurance contribution rates for both Saudi and non-Saudi employees, pension calculations, and occupational hazard insurance rates are sourced from GOSI's published regulations.</li>
-    <li><strong>General Authority for Statistics (GASTAT):</strong> Labour force survey data, average wage statistics, and economic indicators inform our salary range estimates and cost of living analyses.</li>
+    <li><strong>Saudi Labour Law (Royal Decree No. M/51):</strong> The primary employment legislation governing contracts, termination, working hours, leave, and end-of-service award calculations. Our Saudi gratuity calculator implements the formula in Articles 84-86, which provides half a month's wage per year for the first five years and one full month's wage per year thereafter.</li>
+    <li><strong>Ministry of Human Resources and Social Development (MHRSD):</strong> Saudization (Nitaqat) program requirements, wage protection system guidelines, labor dispute procedures, and professional classification rules are sourced from MHRSD publications and the Qiwa platform documentation.</li>
+    <li><strong>General Organisation for Social Insurance (GOSI):</strong> Social insurance contribution rates (9.75% for Saudi nationals, 2% hazard insurance for non-Saudis paid by employer), pension calculations, and registration requirements are sourced from GOSI's published regulations.</li>
+    <li><strong>General Authority for Statistics (GASTAT):</strong> Labour force survey data, average wage statistics, consumer price indices, and economic indicators inform our salary range estimates and cost-of-living analyses.</li>
+    <li><strong>Saudi Electricity Company (SEC) and National Water Company (NWC):</strong> Published tariff schedules for residential and commercial electricity and water rates.</li>
   </ul>
 
-  <h2>Salary Data Collection</h2>
-
-  <p>Salary ranges published on Arabia Expat are compiled using a structured, multi-source methodology. We do not fabricate salary figures. Our data collection process works as follows:</p>
-
+  <h2>Cost of Living Data Collection</h2>
+  <p>Cost-of-living information is compiled from multiple verified sources and cross-referenced for consistency. The methodology for each cost category is designed to produce ranges that reflect what a typical expatriate household actually experiences, rather than theoretical minimum or maximum extremes.</p>
   <ul>
-    <li><strong>Published salary surveys:</strong> We aggregate data from established recruitment platforms and consultancies that publish annual salary guides based on actual placement data. Key sources include Bayt.com, GulfTalent, Robert Half, Hays Middle East, and Michael Page. These surveys report actual salaries from thousands of placements and employer submissions.</li>
-    <li><strong>Job posting monitoring:</strong> We analyse active job postings that include stated salary ranges across LinkedIn, Bayt.com, and employer career pages. This provides real-time market signals that complement annual survey data.</li>
-    <li><strong>Experience-level segmentation:</strong> Salary data is segmented by experience level (entry-level, mid-career, senior, and executive) using the standard experience bands defined by the survey sources. This ensures users see relevant ranges for their career stage.</li>
-    <li><strong>Cross-referencing:</strong> Each salary range is validated across at least two independent sources. Where significant discrepancies exist, we present the broader range and note the variance.</li>
-    <li><strong>Industry and role specificity:</strong> We report salaries at the individual role level rather than broad industry averages, which provides more actionable information for job seekers evaluating specific positions.</li>
+    <li><strong>Rental prices:</strong> We compile data from Property Finder, Bayut, and Qatar Living, filtering for active listings in established expatriate neighborhoods. Where available, we cross-reference with official rental index data including the Dubai Land Department Rental Index and published transaction data. We report the 25th to 75th percentile range for each property type and area, which excludes outlier listings at both extremes.</li>
+    <li><strong>Grocery and dining costs:</strong> Food cost estimates are compiled from published basket-of-goods surveys, verified against online grocery platform pricing (Carrefour, LuLu, Tamimi online), and supplemented by direct observation data. We define budget, mid-range, and premium tiers aligned with how expatriates actually shop and dine in each city.</li>
+    <li><strong>Utility costs:</strong> Electricity, water, and sewerage costs are calculated using the published tariff schedules of each provider (DEWA, ADDC, Kahramaa, SEC/NWC) applied to typical consumption levels for different apartment sizes. We account for seasonal variation, noting that air conditioning demand can double or triple electricity bills during Gulf summer months.</li>
+    <li><strong>School fees:</strong> Education costs are sourced from published fee schedules on school websites, regulatory authority publications (KHDA in Dubai, ADEK in Abu Dhabi), and direct verification with school admissions offices. We report fee ranges by curriculum type rather than individual school names to maintain generalizability.</li>
+    <li><strong>Healthcare costs:</strong> GP and specialist consultation costs reflect typical copayment amounts under standard employer-provided insurance plans. Insurance premium ranges are sourced from insurance broker publications and employer survey data.</li>
   </ul>
 
   <h2>Calculator Methodology</h2>
-
-  <p>All financial calculators on Arabia Expat run entirely in your browser. No personal financial data is ever transmitted to our servers. Each calculator implements the exact statutory formula from the relevant country's legislation.</p>
+  <p>All financial calculators on Arabia Expat and taxfreesalaries.com run entirely in your browser using client-side JavaScript. No personal financial data is transmitted to, stored on, or processed by our servers. Each calculator implements the exact statutory formula from the relevant country's legislation, with the specific legal reference cited in the calculator's documentation.</p>
 
   <h3>Gratuity Calculators</h3>
-
-  <p>End-of-service gratuity calculators apply the following statutory formulas:</p>
-
+  <p>End-of-service gratuity calculators apply statutory formulas precisely as specified in each country's labor law.</p>
   <ul>
-    <li><strong>UAE:</strong> 21 days' basic salary per year for the first five years, plus 30 days' basic salary per year thereafter. Total capped at two years' salary. Resignation-based reductions apply for service under five years, as specified in Federal Decree-Law No. 33 of 2021.</li>
-    <li><strong>Qatar:</strong> Three weeks' basic salary per year of service, no cap. Based on last drawn basic salary per Article 54 of Labour Law No. 14 of 2004.</li>
-    <li><strong>Saudi Arabia:</strong> Half month's wage per year for the first five years, plus one full month's wage per year thereafter. Wage includes basic salary plus all fixed allowances per Articles 84-86 of the Saudi Labour Law.</li>
+    <li><strong>UAE:</strong> 21 days' basic salary per year for the first five years, plus 30 days' basic salary per year thereafter, capped at two years' total salary. Resignation-based reductions for service under five years apply as specified in Federal Decree-Law No. 33 of 2021.</li>
+    <li><strong>Qatar:</strong> Three weeks' basic salary per year of service, based on last drawn basic salary, with no statutory cap on total amount. Per Article 54 of Labour Law No. 14 of 2004.</li>
+    <li><strong>Saudi Arabia:</strong> Half month's wage per year for the first five years, plus one full month's wage per year thereafter. Wage includes basic salary plus all fixed allowances. Per Articles 84-86 of the Saudi Labour Law. Resignation-based reductions apply for service under five years.</li>
   </ul>
 
   <h3>Salary Calculators</h3>
-
-  <p>Our salary calculators convert between gross and net compensation by accounting for known deductions. In the GCC, where personal income tax is zero for most employees, the primary deductions are social insurance contributions (GOSI in Saudi Arabia, applicable to Saudi nationals) and optional employer deductions. The calculators allow users to specify their package structure (basic, housing, transport) and compute the effective monthly and annual take-home pay.</p>
-
-  <h2>Cost of Living Data</h2>
-
-  <p>Cost of living information is compiled from the following sources:</p>
-
-  <ul>
-    <li><strong>Official CPI data:</strong> Consumer price index data from each country's statistical authority (GASTAT, PSA, FCSC) provides the baseline for inflation-adjusted cost comparisons.</li>
-    <li><strong>Real estate portals:</strong> Rental data is sourced from established portals (Property Finder, Bayut, Qatar Living) and cross-referenced with official rental index data where available (e.g., DLD Rental Index in Dubai).</li>
-    <li><strong>Utility and service providers:</strong> Utility costs (DEWA in Dubai, Kahramaa in Qatar, SEC in Saudi Arabia) are sourced from published tariff schedules.</li>
-    <li><strong>Retail and grocery surveys:</strong> Grocery and dining cost estimates are compiled from published surveys and verified against online grocery platform pricing.</li>
-  </ul>
+  <p>Salary calculators convert between gross and net compensation by accounting for known deductions. In the GCC, where personal income tax is zero for most employees, the primary deductions are social insurance contributions. For Saudi nationals, GOSI deductions of 9.75% of basic salary apply. For expatriate employees across all three countries, there are no salary deductions, as any applicable social insurance contributions (such as the 2% GOSI hazard insurance for non-Saudis in Saudi Arabia) are borne entirely by the employer.</p>
 
   <h2>Verification and Quality Assurance</h2>
-
-  <p>Our quality assurance process includes:</p>
-
+  <p>Our quality assurance process ensures that published information meets our accuracy standards before going live and remains accurate over time.</p>
   <ul>
-    <li><strong>Source citation:</strong> Key legal references are cited directly so readers can verify information independently.</li>
-    <li><strong>Calculator test suites:</strong> Every calculator is tested against documented scenarios, including government-published examples where available. We maintain regression tests that run whenever a formula is updated.</li>
-    <li><strong>Quarterly content review:</strong> All guides and data pages undergo a quarterly review cycle to identify outdated information, regulatory changes, and new data releases.</li>
-    <li><strong>Reader feedback:</strong> We actively encourage corrections from readers, HR professionals, and legal practitioners. Reports are investigated and corrections published within 48 hours of confirmation.</li>
+    <li><strong>Source citation:</strong> Key legal references are cited directly in our content so readers can verify information independently. Where we reference a specific article of labor law or a government platform, we provide enough detail for direct lookup.</li>
+    <li><strong>Calculator test suites:</strong> Every calculator is tested against documented scenarios, including government-published examples where available. We maintain regression tests that run whenever a formula is updated to ensure that changes do not introduce errors in edge cases.</li>
+    <li><strong>Quarterly content review:</strong> All guides and data pages undergo a systematic quarterly review to identify outdated information, incorporate regulatory changes, and update market data. Content that has changed since the last review is flagged with updated timestamps.</li>
+    <li><strong>Reader feedback integration:</strong> We actively encourage corrections from readers, HR professionals, immigration consultants, and legal practitioners. Reported issues are investigated and, when confirmed, corrections are published within 48 hours. Material corrections include a note acknowledging the update.</li>
+    <li><strong>Cross-reference checks:</strong> Where multiple sources provide data on the same topic (for example, rental prices from multiple property portals), we cross-reference for consistency and investigate significant discrepancies before publishing.</li>
   </ul>
 
   <h2>Update Schedule</h2>
-
-  <p>Content is updated on the following schedule:</p>
-
+  <p>Content is reviewed and updated on the following schedule.</p>
   <ul>
-    <li><strong>Salary data:</strong> Semi-annual updates aligned with recruitment survey cycles.</li>
-    <li><strong>Labour law content:</strong> Updated within two weeks of any published legislative amendment.</li>
-    <li><strong>Calculator formulas:</strong> Immediately updated when statutory changes affect calculations.</li>
-    <li><strong>Cost of living data:</strong> Annual updates aligned with official CPI publication schedules.</li>
-    <li><strong>Visa and immigration content:</strong> Updated as regulatory changes are announced by immigration authorities.</li>
+    <li><strong>Salary data:</strong> Semi-annual updates aligned with recruitment survey release cycles (typically Q1 and Q3).</li>
+    <li><strong>Labor law content:</strong> Updated within two weeks of any published legislative amendment or ministerial decision.</li>
+    <li><strong>Calculator formulas:</strong> Immediately updated when statutory changes affect calculation logic.</li>
+    <li><strong>Cost-of-living data:</strong> Quarterly updates for rental data, annual updates for utility tariffs and school fees.</li>
+    <li><strong>Visa and immigration content:</strong> Updated as regulatory changes are announced by immigration authorities, typically within one to two weeks of official publication.</li>
   </ul>
 
   <p>Current data reflects regulations and market conditions as of <strong>June {SITE.year}</strong>.</p>
 
   <h2>Limitations</h2>
-
-  <p>Readers should be aware of the following limitations:</p>
-
+  <p>Readers should be aware of the following limitations when using Arabia Expat content for decision-making.</p>
   <ul>
-    <li><strong>Salary ranges are indicative:</strong> Individual salaries depend on employer, negotiation, qualifications, and market conditions. Our ranges represent typical market values, not guaranteed outcomes.</li>
-    <li><strong>Not legal or financial advice:</strong> Our content is informational and educational. It does not constitute legal, tax, or financial advice. For significant financial decisions or legal disputes, consult a qualified professional in the relevant jurisdiction.</li>
-    <li><strong>Free zone differences:</strong> Free zone regulations (DIFC, ADGM, QFC) may differ from mainland law. We highlight major differences but cannot cover every zone comprehensively.</li>
-    <li><strong>Cost estimates:</strong> Cost of living figures represent typical ranges and may vary based on lifestyle choices, neighbourhood, and personal circumstances.</li>
+    <li><strong>Salary ranges are indicative:</strong> Individual salaries depend on employer, negotiation skill, qualifications, market conditions, and the specific role. Our ranges represent typical market values derived from multiple sources, not guaranteed outcomes for any individual.</li>
+    <li><strong>Not legal or financial advice:</strong> Our content is informational and educational. It does not constitute legal, tax, immigration, or financial advice. For significant financial decisions, employment disputes, or complex visa situations, consult a qualified professional licensed in the relevant jurisdiction.</li>
+    <li><strong>Free zone differences:</strong> Free zone regulations (DIFC, ADGM, QFC, DMCC, and others) may differ from mainland law on employment contracts, dispute resolution, and business registration. We highlight major differences where relevant but cannot comprehensively cover every free zone's specific regulatory framework.</li>
+    <li><strong>Cost estimates are ranges:</strong> Cost-of-living figures represent typical ranges and may vary based on personal lifestyle choices, specific neighborhood, timing, and individual circumstances. Using our interactive simulators with your own parameters provides more tailored estimates than relying on general averages.</li>
+    <li><strong>Regulatory lag:</strong> Despite our commitment to rapid updates, there may be brief periods between a regulatory change announcement and our content reflecting the change, particularly if the change is communicated in Arabic before an official English translation is available.</li>
   </ul>
 
   <h2>Independence</h2>
-
-  <p><strong>Arabia Expat</strong> is editorially independent. We are not affiliated with any employer, recruitment agency, or government entity. All content is produced independently, and advertising or affiliate relationships never influence our data, analysis, or recommendations.</p>
+  <p><strong>Arabia Expat</strong> is editorially independent. We are not affiliated with any employer, recruitment agency, government entity, or commercial interest. All content is produced independently, and advertising or affiliate relationships never influence our data, analysis, recommendations, or the ranking of any country, city, or service in our comparative content.</p>
 
   <h2>Contact</h2>
-
-  <p>For questions about our methodology or to report an inaccuracy, please visit our <a href="/contact/">contact page</a>.</p>
+  <p>For questions about our methodology, to report a data inaccuracy, or to suggest improvements to our verification processes, please visit our <a href="/contact/">contact page</a> or email <a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a>.</p>
 </GuideLayout>

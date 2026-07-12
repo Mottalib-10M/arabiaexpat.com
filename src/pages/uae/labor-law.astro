@@ -1,14 +1,169 @@
 ---
-const newUrl = 'https://taxfreesalaries.com/uae/employment-contracts/';
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the standard work week in the UAE?", answer: "The standard work week is 48 hours (8 hours/day, 6 days/week) under the law, but most private-sector companies operate Monday to Friday (40 hours). During Ramadan, working hours are reduced by 2 hours per day for all employees." },
+  { question: "What notice period is required when resigning in the UAE?", answer: "The notice period is defined in your employment contract, with a minimum of 30 days and maximum of 90 days under the law. Most contracts specify 30 days for junior roles and 60-90 days for senior positions. Both employer and employee must honor the notice period or compensate the other party." },
+  { question: "How much annual leave do UAE employees get?", answer: "Employees are entitled to 30 calendar days of paid annual leave after completing one year of service. During the first year, leave accrues at 2 days per month after completing 6 months. Public holidays (approximately 10-13 days per year) are in addition to annual leave." },
+  { question: "Can my employer hold my passport in the UAE?", answer: "No. Withholding an employee's passport is illegal under UAE law and carries criminal penalties. If your employer confiscates your passport, you can report this to MoHRE or the police. This rule is strictly enforced." },
+  { question: "What are my rights if I am terminated in the UAE?", answer: "You are entitled to: notice period compensation (if not served), end-of-service gratuity for 1+ years, outstanding salary and leave balance, a 30-day grace period to find new employment or leave the country, and the right to challenge unfair dismissal through MoHRE." },
+  { question: "Are there anti-discrimination protections in UAE labor law?", answer: "Yes. The 2021 labor law prohibits discrimination based on race, color, sex, religion, national origin, or disability. Sexual harassment in the workplace is a criminal offense. Employees can file complaints with MoHRE, and violations carry fines and potential criminal penalties." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "UAE", url: "https://arabiaexpat.com/uae/guide/" },
+  { name: "Labor Law", url: "https://arabiaexpat.com/uae/labor-law/" },
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Redirecting</title>
-  <link rel="canonical" href={newUrl} />
-  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
-  <meta name="robots" content="noindex, follow" />
-</head>
-<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
-</html>
+
+<GuideLayout
+  title="UAE Labor Law 2026: Contracts, Rights & Termination"
+  description="Guide to UAE Federal Decree-Law No. 33 of 2021. Fixed-term contracts, 30-90 day notice periods, 30 days leave, overtime pay and worker protections explained."
+  canonical="/uae/labor-law/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Labor Law 2026: Employment Rights and Contracts", "Complete guide to UAE labor law for expats.", "https://arabiaexpat.com/uae/labor-law/", "2025-06-01", "2026-07-01")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Labor Law", url: "/uae/labor-law/" }]}
+>
+
+<h1>UAE Labor Law 2026: Employment Rights, Contracts, and Protections</h1>
+
+<!-- Mini Notice Period & Leave Calculator -->
+<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Notice Period & Leave Entitlement Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Check your statutory entitlements based on your service length and contract terms.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="law-months">Months of Service</label>
+      <input type="number" id="law-months" value="18" min="1" max="600" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="law-notice">Contract Notice Period (days)</label>
+      <select id="law-notice" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+        <option value="30">30 days</option>
+        <option value="60">60 days</option>
+        <option value="90">90 days</option>
+      </select>
+    </div>
+    <div class="flex items-end">
+      <button type="button" onclick="calcLaw()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Check Entitlements</button>
+    </div>
+  </div>
+  <div id="law-result" class="mt-4 hidden">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Notice Period</div>
+        <div class="font-bold text-gray-900 dark:text-white" id="law-noticeval"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Annual Leave</div>
+        <div class="font-bold text-teal-700 dark:text-teal-400" id="law-leave"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Gratuity Eligible</div>
+        <div class="font-bold text-gray-900 dark:text-white" id="law-gratuity"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Probation Status</div>
+        <div class="font-bold text-gray-900 dark:text-white" id="law-probation"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline>
+function calcLaw(){
+  const months=parseInt(document.getElementById('law-months').value)||0;
+  const notice=parseInt(document.getElementById('law-notice').value)||30;
+  document.getElementById('law-noticeval').textContent=notice+' days';
+  if(months<6){document.getElementById('law-leave').textContent='0 days (accrues after 6 months)';}
+  else if(months<12){document.getElementById('law-leave').textContent=((months-0)*2)+' days accrued';}
+  else{document.getElementById('law-leave').textContent='30 days/year';}
+  document.getElementById('law-gratuity').textContent=months>=12?'Yes (1+ year completed)':'Not yet (need 12 months)';
+  document.getElementById('law-probation').textContent=months<=6?'May still be in probation (max 6 months)':'Probation completed';
+  document.getElementById('law-result').classList.remove('hidden');
+}
+</script>
+
+<p>The UAE's employment framework underwent its most significant overhaul in four decades when Federal Decree-Law No. 33 of 2021 came into effect in February 2022. This legislation replaced the 1980 labor law that had governed private-sector employment for over forty years, and it introduced modernized provisions on contract types, work arrangements, termination procedures, and worker protections that reflect the evolving nature of the Gulf labor market. For the 8.9 million expatriates living and working in the UAE, understanding this legal framework is not just an academic exercise: it directly affects your job security, your financial entitlements, and your options when disputes arise.</p>
+
+<p>This guide provides a comprehensive breakdown of the law's key provisions as they apply in practice during 2026, covering contracts, working hours, leave, termination, gratuity, wage protection, and the increasingly important topic of flexible and remote work arrangements. Where specific articles of the law are referenced, these refer to Federal Decree-Law No. 33 of 2021 and its implementing regulations.</p>
+
+<h2>Employment Contracts Under the New Law</h2>
+
+<p>One of the most consequential changes introduced by the 2021 law is the standardization of all private-sector employment on fixed-term contracts. Under the previous system, employers could offer either limited (fixed-term) or unlimited contracts, each with different termination rules and gratuity implications. The new law eliminates unlimited contracts entirely. All employment contracts must now be fixed-term, with a maximum duration of three years, renewable by mutual agreement. Existing unlimited contracts were required to be converted to fixed-term contracts by February 2023.</p>
+
+<p>This change has several practical implications. Fixed-term contracts provide a defined employment period, at the end of which the employer is not obligated to renew. If the contract is not renewed and the employer does not offer an alternative position, the employee receives end-of-service gratuity and a 30-day grace period to find new employment or leave the country. If both parties continue the employment relationship beyond the contract expiry without signing a new agreement, the original contract is deemed to continue on the same terms. The contract must specify the job title, duties, salary (broken down by component), working hours, leave entitlements, notice period, and any other material terms of employment.</p>
+
+<p>Probationary periods are capped at six months. During probation, either party can terminate the relationship with a written notice of 14 days. The employer cannot extend the probation period beyond six months under any circumstances. If you resign during probation, your new employer (if within the UAE) must reimburse the previous employer for any recruitment costs, unless the two employers agree otherwise. If you leave the UAE entirely during your probation period, you face a one-year restriction on obtaining a new work permit, though this restriction can be waived in specific circumstances.</p>
+
+<h2>Working Hours, Overtime, and Rest Periods</h2>
+
+<p>The standard maximum working hours under the law are eight hours per day or 48 hours per week. For certain sectors, particularly retail, hospitality, and security, daily hours can be extended to nine hours with the approval of MoHRE. During the holy month of Ramadan, working hours are reduced by two hours per day for all employees, regardless of religion. This reduction applies to the entire duration of Ramadan and is not compensated by additional hours before or after the month.</p>
+
+<p>Overtime is permitted but regulated. Any hours worked beyond the standard daily maximum must be compensated at 125% of the normal hourly rate. If overtime falls between 10 PM and 4 AM, the rate increases to 150%. Employees cannot be required to work more than two hours of overtime per day except in exceptional circumstances, and total overtime must not cause the total weekly hours to exceed an unreasonable threshold. Employers who regularly require overtime must document it and ensure compensation is properly reflected in salary payments.</p>
+
+<p>Friday is designated as the standard weekly rest day, though employers can substitute another day with MoHRE approval. Employees who work on their designated rest day are entitled to either a substitute day off or pay at 150% of the normal daily rate. In practice, most private-sector companies in the UAE operate a Monday-to-Friday schedule, with some industries (retail, hospitality, real estate) requiring weekend work on a rotational basis.</p>
+
+<h2>Leave Entitlements</h2>
+
+<p>Annual leave is set at 30 calendar days per year for employees who have completed one year of service. During the first year, leave accrues at two days per month after completing the initial six-month period. Employers cannot prevent employees from taking their annual leave, and any accrued but unused leave must be paid out in cash at the end of employment based on the basic salary rate.</p>
+
+<p>Sick leave allows employees up to 90 days per year, structured as follows: the first 15 days at full pay, the next 30 days at half pay, and the remaining 45 days without pay. A medical certificate from a licensed physician is required for sick leave of two or more days. Sick leave cannot be used during the probation period, and it does not cover chronic conditions that were known to the employer at the time of hiring unless specifically agreed in the contract.</p>
+
+<p>Maternity leave is 60 days: 45 days at full pay and 15 days at half pay. Employees can start maternity leave up to 30 days before the expected delivery date. After returning from maternity leave, employees are entitled to one or two daily breaks of 30 minutes each for nursing for six months. The 2021 law also introduced five days of paternity leave for the father, which can be taken within six months of the child's birth. Bereavement leave of five days for the death of a spouse and three days for other close relatives is also mandated.</p>
+
+<h2>Termination Rules and Notice Periods</h2>
+
+<p>Either the employer or the employee can terminate a fixed-term contract before its expiry by providing written notice in accordance with the notice period specified in the contract. The minimum notice period under the law is 30 days, and the maximum is 90 days. The contract cannot specify a notice period outside this range. During the notice period, the employee must continue working (or the employer must continue paying) unless both parties agree to waive or shorten the period. Payment in lieu of notice is permissible, calculated at the average salary for the notice period.</p>
+
+<p>If the employer terminates without cause (i.e., for business reasons rather than employee misconduct), the employee is entitled to the full notice period (or compensation in lieu), end-of-service gratuity, outstanding salary and leave balance, and a 30-day grace period to regularize their visa status. The employee is free to seek new employment during this grace period without any legal restriction. If the employer terminates for cause under Article 44, the employee loses the right to the notice period but retains gratuity rights unless the termination involves one of the specific gross misconduct offenses that forfeit gratuity.</p>
+
+<p>Employees who resign must serve their contractual notice period. If they leave without serving notice, the employer can claim compensation equivalent to the unserved notice period salary. There is no longer any distinction in gratuity entitlement between resignation and termination under the new law, which is a significant improvement for employees compared to the previous system.</p>
+
+<h2>Non-Compete Clauses</h2>
+
+<p>The 2021 law permits employers to include non-compete clauses in employment contracts, but imposes restrictions to prevent abuse. Non-compete clauses must be limited in time (maximum two years after the end of employment), geographic scope (specific to the relevant market), and must protect a legitimate business interest such as client relationships or proprietary information. If a dispute arises over a non-compete clause, the courts will evaluate whether the restriction is reasonable in scope and duration. In practice, non-compete enforcement in the UAE is more common in senior roles in financial services, technology, and consulting, and less frequently pursued for mid-level or junior positions.</p>
+
+<h2>Wage Protection and Salary Rights</h2>
+
+<p>The Wage Protection System mandates electronic salary payment through approved channels. Employers cannot pay salaries in cash, and any attempt to force employees to accept off-record payments or to sign documents acknowledging receipt of salary amounts they did not receive is illegal. If your employer asks you to sign a declaration that you received salary in a different amount than what was actually paid, refuse and report it to MoHRE. WPS records serve as legal evidence in salary disputes and are monitored by MoHRE's automated compliance system.</p>
+
+<p>Salary deductions are strictly limited under the law. Employers can deduct amounts only for repayment of loans made to the employee, installments due on employer-provided accommodation or equipment as agreed in writing, social security contributions for GCC nationals, and court-ordered deductions. The total of all deductions cannot exceed 50% of the monthly salary. Deductions for damage to company property are permitted only if the employee was negligent and the amount does not exceed five days' salary per incident, with prior written notice.</p>
+
+<h2>Flexible Work Arrangements</h2>
+
+<p>The 2021 law introduced formal recognition of flexible work patterns for the first time in UAE labor legislation. Employers can now offer part-time employment, temporary or project-based contracts, and flexible hour arrangements. Part-time employees are entitled to proportional benefits based on their working hours relative to a full-time employee. This provision has been particularly important for the growing freelance and gig economy in the UAE, and it complements the free zone freelancer visa programs available in Dubai Media City, DMCC, and other zones.</p>
+
+<p>Remote work and hybrid arrangements, which became widespread during the COVID-19 pandemic, are not specifically mandated by the law but are permitted by agreement between employer and employee. The implementing regulations require that remote work arrangements be documented in the employment contract or an addendum, specifying working hours, equipment provisions, data security requirements, and the conditions under which the employer can require a return to office-based work.</p>
+
+<h2>Anti-Discrimination and Worker Protections</h2>
+
+<p>The labor law prohibits discrimination in employment on the basis of race, color, sex, religion, national origin, social origin, or disability. This provision covers hiring, compensation, promotion, training, and termination decisions. Employers are required to provide equal pay for equal work, and complaints of discrimination can be filed with MoHRE's labor disputes division. Sexual harassment in the workplace is a criminal offense under UAE law, carrying imprisonment and fines, and victims are protected against retaliation for reporting incidents.</p>
+
+<p>Forced labor is absolutely prohibited, and the confiscation of identity documents (passports, Emirates ID) by employers is a criminal offense punishable by fines and imprisonment. Midday work bans during summer months (12:30 PM to 3:00 PM from June 15 to September 15) protect outdoor workers in construction, agriculture, and similar industries from heat-related illness. Violations of the outdoor work ban carry fines of AED 5,000 per worker per incident.</p>
+
+<h2>Dispute Resolution Process</h2>
+
+<p>The UAE provides a structured process for resolving employment disputes. The first step is filing a complaint with MoHRE, which can be done through the MOHRE app, the website, or in person at a Tasheel center. MoHRE attempts to mediate the dispute within 14 days. If mediation fails, the case is referred to the labor court. Labor court proceedings are relatively expeditious by international standards, with most cases resolved within two to six months. Employees are exempt from court fees for labor claims, which removes a financial barrier to seeking justice.</p>
+
+<p>For employees in DIFC-regulated entities, disputes are handled by the DIFC Courts, which operate under English common law and have their own Small Claims Tribunal for amounts up to USD 500,000. DIFC employment disputes are governed by DIFC Employment Law No. 2 of 2019 rather than federal labor law. ADGM has a similar independent court system for disputes involving entities registered in that financial free zone.</p>
+
+<p>Common disputes include unpaid salary or delayed salary claims, gratuity calculation disagreements, unfair termination claims, non-payment of leave or overtime compensation, and disputes over contract terms. MoHRE statistics show that the majority of complaints are resolved at the mediation stage, and employees who maintain clear documentation of their employment terms, salary records, and communications with their employer have the strongest position in dispute proceedings.</p>
+
+<h2>Emiratization and Its Impact on Expat Employment</h2>
+
+<p>The Nafis Emiratization program requires private-sector companies with 50 or more employees to increase their Emirati workforce by two percentage points annually. Companies that fail to meet targets face fines of AED 72,000 per unfilled position per year. While this policy primarily targets certain job categories such as human resources, customer service, administration, and compliance, it does not prohibit the hiring of expatriates in any role. In practice, Emiratization has had the greatest impact on generalist and entry-level positions, while specialist roles in technology, engineering, healthcare, finance, and senior management continue to be filled primarily by international professionals.</p>
+
+<p>For expat employees, the practical implication is that companies under Emiratization pressure may restructure certain roles or combine functions to create positions suitable for national candidates. Understanding your employer's Emiratization status and the categorization of your role can help you assess the long-term stability of your position. Companies in full compliance with Emiratization targets receive streamlined MoHRE services and faster work permit processing, which benefits all employees.</p>
+
+<h2>Practical Advice for UAE Employees</h2>
+
+<p>Read your employment contract thoroughly before signing and ensure it specifies all components of compensation individually. Keep copies of all employment documents including contracts, salary certificates, pay slips, and any written communications regarding your terms of employment. Download the MOHRE app and register your labor card, which allows you to verify your employment details and file complaints if needed. If your employer violates any labor law provision, document the violation with dates, evidence, and witnesses before filing a complaint. During salary negotiations, prioritize basic salary over allowances to maximize your gratuity entitlement. When resigning, submit your notice in writing (email is acceptable and provides a timestamp), and confirm the notice period start and end dates with your employer in writing to avoid disputes about the last working day.</p>
+
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "Federal Decree-Law No. 33 of 2021", url: "https://www.mohre.gov.ae/en/laws-and-regulations.aspx" }]} />
+<RelatedLinks links={[{ label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Visa Guide", href: "/uae/visa-guide/" }, { label: "UAE Expat Guide", href: "/uae/guide/" }, { label: "Gratuity Explained", href: "/guides/gratuity-end-of-service-explained/" }]} />
+</GuideLayout>

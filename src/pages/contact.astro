@@ -11,49 +11,94 @@ const schemas = [buildBreadcrumbs(breadcrumbs)];
 ---
 
 <GuideLayout
-  title="Corrections, Data Feedback & Gulf Expat Questions 2026"
-  description="Report outdated visa rules, incorrect rent prices or school fee changes. We respond within 48 hours and update content right away. Email or form available."
+  title="Contact Us: Report Errors or Submit Gulf Expat Data"
+  description="Report outdated visa rules, incorrect rent prices or school fee changes for UAE, Qatar and Saudi Arabia. We respond within 48 hours and update promptly."
   canonical="/contact/"
   schemas={schemas}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Contact", url: "/contact/" }]}
 >
+
+  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Quick Guide Finder</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Not sure where to start? Select your topic and we will point you to the right guide.</p>
+    <form id="guideFinder" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="gfTopic">What do you need help with?</label>
+        <select id="gfTopic" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="visa">Visa and residency</option>
+          <option value="cost">Cost of living</option>
+          <option value="housing">Housing and rent</option>
+          <option value="school">Schools and education</option>
+          <option value="health">Healthcare and insurance</option>
+          <option value="driving">Driving licence</option>
+          <option value="utilities">Utilities setup</option>
+          <option value="telecom">Mobile and internet</option>
+          <option value="compare">Country comparison</option>
+          <option value="salary">Salary data</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="gfCountry">Country</label>
+        <select id="gfCountry" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+          <option value="uae">UAE</option>
+          <option value="qatar">Qatar</option>
+          <option value="saudi">Saudi Arabia</option>
+          <option value="all">All / comparison</option>
+        </select>
+      </div>
+      <div class="sm:col-span-2">
+        <button type="button" onclick="(function(){var t=document.getElementById('gfTopic').value,c=document.getElementById('gfCountry').value,links={visa:{uae:'/uae/visa-guide/',qatar:'/qatar/visa-guide/',saudi:'/saudi-arabia/visa-guide/',all:'/guides/'},cost:{uae:'/uae/cost-of-living/',qatar:'/qatar/cost-of-living/',saudi:'/saudi-arabia/cost-of-living/',all:'/guides/best-country-for-expats-gulf/'},housing:{uae:'/uae/housing/',qatar:'/qatar/housing/',saudi:'/saudi-arabia/housing/',all:'/guides/'},school:{uae:'/uae/education/',qatar:'/qatar/education/',saudi:'/saudi-arabia/education/',all:'/guides/schools-education/'},health:{uae:'/uae/healthcare/',qatar:'/qatar/healthcare/',saudi:'/saudi-arabia/healthcare/',all:'/guides/healthcare-expats-gulf/'},driving:{uae:'/guides/driving-licence/',qatar:'/guides/driving-licence/',saudi:'/guides/driving-licence/',all:'/guides/driving-licence/'},utilities:{uae:'/guides/utilities-setup/',qatar:'/guides/utilities-setup/',saudi:'/guides/utilities-setup/',all:'/guides/utilities-setup/'},telecom:{uae:'/guides/telecom-mobile/',qatar:'/guides/telecom-mobile/',saudi:'/guides/telecom-mobile/',all:'/guides/telecom-mobile/'},compare:{uae:'/compare/uae-vs-saudi-arabia/',qatar:'/compare/uae-vs-qatar/',saudi:'/compare/uae-vs-saudi-arabia/',all:'/guides/best-country-for-expats-gulf/'},salary:{uae:'https://taxfreesalaries.com/uae/salaries/',qatar:'https://taxfreesalaries.com/qatar/salaries/',saudi:'https://taxfreesalaries.com/saudi-arabia/salaries/',all:'https://taxfreesalaries.com/salaries/'}};var url=links[t]?links[t][c]||'/guides/':'/guides/';document.getElementById('gfResult').innerHTML='<a href=\"'+url+'\" class=\"text-teal-600 dark:text-teal-400 font-semibold hover:underline\">Go to guide: '+url+'</a>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Find Guide</button>
+      </div>
+      <div id="gfResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
+    </form>
+  </div>
+
   <h1>Contact Us</h1>
 
-  <p>Have a question about our visa guides, daily life resources, or expat guides? The Arabia Expat team welcomes your feedback. Accuracy is our top priority, and your input helps us maintain the most reliable expat resource for the Gulf region.</p>
+  <p>The Arabia Expat team values accuracy above all else. Our guides, data tables, cost-of-living figures, and regulatory information serve tens of thousands of professionals making life-changing decisions about relocating to the Gulf. When a visa rule changes, a school adjusts its fees, a utility tariff is updated, or a rental market shifts, our content must reflect that change promptly and correctly. Your feedback is an essential part of our quality assurance process. Readers who are living and working in the Gulf, HR professionals processing visas daily, immigration consultants advising clients, and real estate agents tracking rental markets all possess frontline knowledge that helps us maintain the most accurate and current expat resource available.</p>
 
   <h2>Email Us</h2>
-
   <p>The most effective way to reach us is by email:</p>
-
   <p><strong><a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a></strong></p>
-
-  <p>We aim to respond to all enquiries within <strong>48 working hours</strong>. Messages received over weekends or public holidays will be addressed on the next working day.</p>
+  <p>We aim to respond to all enquiries within <strong>48 working hours</strong>. Messages received over weekends or GCC public holidays will be addressed on the next working day. For data corrections and regulatory updates, we prioritize faster turnaround times since these directly affect the accuracy of published content that other readers are relying upon.</p>
 
   <h2>When to Contact Us</h2>
-
+  <p>We actively seek the following types of feedback, and every substantive message receives a personal response.</p>
   <ul>
-    <li><strong>Data corrections:</strong> if you notice outdated visa requirements, incorrect school information, or inaccurate utility costs, please let us know with the specific page URL and your source reference.</li>
-    <li><strong>Regulatory updates:</strong> if a country has amended its visa rules, driving licence requirements, or utility regulations and our content does not yet reflect these changes.</li>
-    <li><strong>Content suggestions:</strong> if you would like us to cover a new topic relevant to Gulf expats.</li>
-    <li><strong>Salary and employment queries:</strong> for salary data, gratuity calculators, and labor law information, please visit our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>.</li>
+    <li><strong>Data corrections:</strong> If you notice outdated visa requirements, incorrect school fee information, inaccurate utility costs, or stale rental price data, please let us know. Include the specific page URL, the information you believe is incorrect, and if possible your source reference or firsthand knowledge. Verified corrections are published within 48 hours of confirmation, and material updates include a note acknowledging the change.</li>
+    <li><strong>Regulatory updates:</strong> If a country has amended its visa rules, labor law provisions, driving licence requirements, utility tariffs, or any other regulation that affects expatriates, and our content does not yet reflect the change, your notification helps us update faster. This is particularly valuable for changes announced in Arabic-language official gazettes that may not have received English-language coverage.</li>
+    <li><strong>Content suggestions:</strong> If there is a topic relevant to Gulf expats that we have not yet covered, or if an existing guide could benefit from additional detail on a specific aspect, we welcome suggestions. Past reader requests have led to new guides on topics including banking setup, insurance comparison, and domestic helper visa procedures.</li>
+    <li><strong>Salary and employment queries:</strong> For salary data, gratuity calculators, labor law analysis, and employment-specific questions, please visit our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>, which is dedicated to Gulf employment and compensation resources.</li>
+    <li><strong>Technical issues:</strong> If you encounter a broken link, a calculator that produces unexpected results, a display issue on mobile or desktop, or any other technical problem, please describe the issue with your browser and device type so we can investigate and resolve it.</li>
   </ul>
 
-  <h2>Frequently Asked Questions</h2>
+  <h2>What We Cannot Help With</h2>
+  <p>To ensure we set appropriate expectations and direct you to the right resources, please note the following limitations on what we can assist with.</p>
 
   <h3>Is Arabia Expat an official government resource?</h3>
-  <p>No. Arabia Expat is an independent informational website. We are not affiliated with any government ministry or employer. Our data is sourced from official government publications, recruitment platform surveys, and industry reports. For official employment matters, refer directly to <a href="https://www.mohre.gov.ae" target="_blank" rel="noopener noreferrer">MoHRE</a> (UAE), <a href="https://hrsd.gov.sa" target="_blank" rel="noopener noreferrer">MHRSD</a> (Saudi Arabia), or <a href="https://www.adlsa.gov.qa" target="_blank" rel="noopener noreferrer">MADLSA</a> (Qatar).</p>
+  <p>No. Arabia Expat is an independent informational website maintained by Mottalib Radif, MBA INSEAD. We are not affiliated with any government ministry, embassy, immigration authority, or employer. Our data is sourced from official government publications, recruitment platform surveys, property portals, and industry reports, but we are not an official source ourselves. For official employment and immigration matters, please refer directly to the relevant government authority: <a href="https://www.mohre.gov.ae" target="_blank" rel="noopener noreferrer">MoHRE</a> for the UAE, <a href="https://hrsd.gov.sa" target="_blank" rel="noopener noreferrer">MHRSD</a> for Saudi Arabia, and <a href="https://www.adlsa.gov.qa" target="_blank" rel="noopener noreferrer">MADLSA</a> for Qatar.</p>
 
   <h3>Can you help me find a job or sponsor my visa?</h3>
-  <p>Arabia Expat is an informational resource, not a recruitment agency or visa sponsor. We do not post job listings, process applications, or provide visa sponsorship. For job searches, we recommend platforms such as <a href="https://www.bayt.com" target="_blank" rel="noopener noreferrer">Bayt.com</a>, <a href="https://www.gulftalent.com" target="_blank" rel="noopener noreferrer">GulfTalent</a>, and LinkedIn. For visa matters, consult the relevant government immigration authority or a licensed immigration consultant.</p>
+  <p>Arabia Expat is an informational resource, not a recruitment agency, visa sponsor, or employment intermediary. We do not post job listings, process applications, interview candidates, or provide visa sponsorship of any kind. We do not connect job seekers with employers or facilitate placements. For job searches, we recommend established platforms including <a href="https://www.bayt.com" target="_blank" rel="noopener noreferrer">Bayt.com</a>, <a href="https://www.gulftalent.com" target="_blank" rel="noopener noreferrer">GulfTalent</a>, LinkedIn, and employer career pages. For visa matters, consult the relevant government immigration authority or engage a licensed immigration consultant in the country where you intend to work.</p>
+
+  <h3>Can you provide personalized legal or financial advice?</h3>
+  <p>No. Arabia Expat provides general informational content for educational purposes. We cannot advise on individual employment contracts, specific legal disputes, personal tax situations, or immigration cases that depend on your unique circumstances. For these matters, we strongly recommend consulting qualified professionals: employment lawyers licensed in the relevant jurisdiction, certified accountants with Gulf experience, and registered immigration consultants who can provide advice tailored to your specific situation.</p>
 
   <h3>Where can I find salary data and calculators?</h3>
-  <p>Salary data, gratuity calculators, and labor law information are now available on our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>.</p>
+  <p>Salary data, gratuity calculators, salary calculators, and detailed labor law analysis are available on our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>. That site is dedicated exclusively to Gulf employment, compensation, and labor law resources, providing more depth and more frequently updated data than we could offer as part of the broader Arabia Expat resource.</p>
+
+  <h2>Response Time Expectations</h2>
+  <p>We treat every message with respect and aim to provide genuinely helpful responses rather than automated templates. Our current response time targets are as follows.</p>
+  <ul>
+    <li><strong>Data corrections and error reports:</strong> 24 working hours for initial acknowledgment, 48 hours for investigation and response, and if the correction is confirmed, updated content published within 48 hours of confirmation.</li>
+    <li><strong>Regulatory update notifications:</strong> 24 working hours for acknowledgment and investigation. Content updates published within two weeks of official regulatory change confirmation.</li>
+    <li><strong>General enquiries and content suggestions:</strong> Within 5 working days.</li>
+    <li><strong>Technical issue reports:</strong> 48 working hours for acknowledgment and investigation.</li>
+  </ul>
 
   <h2>Disclaimer</h2>
-
-  <p>Arabia Expat does not provide personalised legal, financial, or immigration advice. The information and calculator results on this site are provided for general informational and educational purposes only. Laws and regulations change, and individual circumstances vary. For decisions involving employment contracts, end-of-service benefits, visa matters, or financial planning, we recommend consulting with qualified professionals (lawyers, accountants, immigration consultants) with expertise in the relevant country. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
+  <p>Arabia Expat does not provide personalized legal, financial, immigration, or tax advice. The information and calculator results on this site are provided for general informational and educational purposes only. Laws, regulations, and market conditions change, and individual circumstances vary. Government policies regarding visas, residency, and employment can be updated with limited notice, and there may be brief periods between a change and our content reflecting it. For decisions involving employment contracts, end-of-service benefits, visa applications, property purchases, or financial planning, we recommend consulting with qualified professionals who have expertise in the relevant country and can assess your specific situation. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers and limitations of liability.</p>
 
   <h2>About the Author</h2>
-
-  <p>Arabia Expat is founded and maintained by <strong>Mottalib Radif, MBA INSEAD</strong>. For more details about our methodology, data sources, and editorial independence, visit our <a href="/about/">About page</a>.</p>
+  <p>Arabia Expat is founded and maintained by <strong>Mottalib Radif, MBA INSEAD</strong>. Mottalib brings over a decade of experience in Gulf region career advisory, compensation analysis, and relocation planning. For comprehensive details about our research methodology, data sources, verification processes, and editorial independence, visit our <a href="/about/">About page</a> and <a href="/methodology/">Methodology page</a>.</p>
 </GuideLayout>

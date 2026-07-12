@@ -1,14 +1,149 @@
 ---
-const newUrl = 'https://taxfreesalaries.com/uae/salaries/';
+import GuideLayout from "../../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../../lib/seo";
+import FAQAccordion from "../../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is the average expat salary in the UAE in 2026?", answer: "The average expat salary varies enormously by profession and seniority. Across all sectors, the median expat salary is approximately AED 12,000-16,000 (~€3,000-4,000)/month. Technology roles average AED 18,000-30,000 (~€4,500-7,500), healthcare AED 15,000-45,000 (~€3,750-11,250), finance AED 15,000-40,000 (~€3,750-10,000), and education AED 8,000-18,000 (~€2,000-4,500). All salaries are tax-free." },
+  { question: "Which UAE sector pays the highest salaries?", answer: "Financial services in DIFC, oil and gas (ADNOC and subsidiaries), healthcare (specialist consultants), and senior technology roles pay the highest salaries. Managing directors in DIFC can earn AED 80,000-150,000+ (~€20,000-37,500+)/month. ADNOC senior engineers earn AED 35,000-55,000 (~€8,750-13,750) before allowances." },
+  { question: "Do UAE salaries include housing?", answer: "Most UAE packages include a separate housing allowance (25-35% of basic salary) or employer-provided accommodation. This is in addition to the base salary and should be factored into any compensation comparison. Some sectors, especially hospitality and construction, provide shared accommodation." },
+  { question: "How often do UAE salaries increase?", answer: "Annual salary increases in the private sector average 3-5% for standard performers and 7-12% for high performers. Promotions yield 15-25% increases. Strategic job changes every 2-3 years typically provide the largest salary jumps, as external market rates often outpace internal increment budgets." },
+  { question: "Are UAE salaries negotiable?", answer: "Yes, significantly. Initial offers typically have 10-20% negotiation room. The strongest leverage comes from competing offers, specialized skills in high-demand sectors, and willingness to negotiate on individual components (basic vs allowances, insurance tier, education allowance) rather than headline total alone." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "UAE", url: "https://arabiaexpat.com/uae/guide/" },
+  { name: "Salaries", url: "https://arabiaexpat.com/uae/salaries/" },
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Redirecting</title>
-  <link rel="canonical" href={newUrl} />
-  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
-  <meta name="robots" content="noindex, follow" />
-</head>
-<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
-</html>
+
+<GuideLayout
+  title="UAE Salaries 2026: Tax-Free Expat Pay by Role & Sector"
+  description="UAE salary benchmarks for 15+ industries. Tax-free packages from AED 6,000 to AED 100,000+/month with housing allowance data, bonuses and negotiation tips."
+  canonical="/uae/salaries/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Salaries 2026: Expat Pay by Industry and Role", "Comprehensive UAE salary guide for 2026.", "https://arabiaexpat.com/uae/salaries/", "2025-06-01", "2026-07-01")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salaries", url: "/uae/salaries/" }]}
+>
+
+<h1>UAE Salaries 2026: Comprehensive Expat Pay Guide by Industry and Role</h1>
+
+<!-- Mini Salary Comparison Tool -->
+<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Salary Lookup by Role</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Select your industry and seniority level to see typical UAE salary ranges.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-industry">Industry</label>
+      <select id="sal-industry" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+        <option value="tech">Technology</option>
+        <option value="finance">Finance / Banking</option>
+        <option value="health">Healthcare</option>
+        <option value="education">Education</option>
+        <option value="construct">Construction / Engineering</option>
+        <option value="hospitality">Hospitality / Tourism</option>
+        <option value="oil">Oil & Gas</option>
+        <option value="legal">Legal</option>
+        <option value="marketing">Marketing / Media</option>
+        <option value="hr">HR / Admin</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-level">Level</label>
+      <select id="sal-level" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+        <option value="junior">Junior (0-3 years)</option>
+        <option value="mid" selected>Mid (3-7 years)</option>
+        <option value="senior">Senior (7-12 years)</option>
+        <option value="director">Director / VP (12+ years)</option>
+      </select>
+    </div>
+    <div class="flex items-end">
+      <button type="button" onclick="lookupSal()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Look Up</button>
+    </div>
+  </div>
+  <div id="sal-lookup-result" class="mt-3 hidden text-sm">
+    <div class="bg-white dark:bg-gray-800 rounded p-4 border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Monthly Total Package Range (AED)</div>
+      <div class="text-xl font-bold text-teal-700 dark:text-teal-400" id="sal-range"></div>
+      <div class="text-xs text-gray-500 dark:text-gray-400 mt-1" id="sal-eur-range"></div>
+      <div class="text-xs text-gray-500 dark:text-gray-400 mt-1" id="sal-housing-note"></div>
+    </div>
+  </div>
+</div>
+<script is:inline>
+function lookupSal(){
+  const data={
+    tech:{junior:[8000,14000],mid:[18000,30000],senior:[30000,50000],director:[45000,80000]},
+    finance:{junior:[10000,18000],mid:[18000,35000],senior:[35000,55000],director:[50000,120000]},
+    health:{junior:[8000,15000],mid:[18000,35000],senior:[35000,55000],director:[50000,80000]},
+    education:{junior:[7000,10000],mid:[10000,16000],senior:[16000,25000],director:[25000,50000]},
+    construct:{junior:[6000,12000],mid:[12000,22000],senior:[22000,38000],director:[35000,60000]},
+    hospitality:{junior:[5000,9000],mid:[9000,16000],senior:[16000,28000],director:[28000,50000]},
+    oil:{junior:[10000,18000],mid:[20000,35000],senior:[35000,55000],director:[50000,80000]},
+    legal:{junior:[10000,18000],mid:[20000,35000],senior:[35000,60000],director:[55000,100000]},
+    marketing:{junior:[7000,12000],mid:[12000,22000],senior:[22000,35000],director:[35000,55000]},
+    hr:{junior:[6000,10000],mid:[10000,18000],senior:[18000,30000],director:[28000,50000]}
+  };
+  const ind=document.getElementById('sal-industry').value;
+  const lev=document.getElementById('sal-level').value;
+  const r=data[ind][lev];
+  document.getElementById('sal-range').textContent='AED '+r[0].toLocaleString()+' - '+r[1].toLocaleString();
+  document.getElementById('sal-eur-range').textContent='~€'+Math.round(r[0]*0.25).toLocaleString()+' - €'+Math.round(r[1]*0.25).toLocaleString()+' per month (tax-free)';
+  document.getElementById('sal-housing-note').textContent='Typically includes basic salary + housing allowance (25-35%) + transport. Excludes annual bonus and gratuity.';
+  document.getElementById('sal-lookup-result').classList.remove('hidden');
+}
+</script>
+
+<p>The UAE's tax-free salary environment transforms the economics of international careers in ways that are difficult to fully appreciate until you have lived through a pay cycle and watched your entire gross salary arrive in your bank account. No income tax, no national insurance, no social security deduction for non-GCC nationals. Combined with employer-funded housing allowances, health insurance, annual flights, and end-of-service gratuity, UAE compensation packages deliver purchasing power and savings potential that consistently outperform equivalent roles in tax-heavy markets across Europe, North America, and Australasia.</p>
+
+<p>This guide maps the salary landscape of the UAE in 2026 across every major industry and seniority level. The data reflects conditions in Dubai and Abu Dhabi, the two primary employment centers, drawing on recruitment firm surveys, WPS payment records aggregated by MoHRE, and direct market intelligence from the expat professional community. All figures represent total monthly packages (basic salary plus standard allowances) and are expressed in AED with euro equivalents.</p>
+
+<h2>Technology and Digital</h2>
+<p>The technology sector has experienced the strongest salary inflation in the UAE over the past three years, driven by national digital transformation programs, the growth of fintech in DIFC and ADGM, and competition for AI and data science talent. Junior developers and IT support professionals start at AED 8,000 to 14,000 per month (~EUR 2,000-3,500). Mid-level software engineers, DevOps specialists, and product managers earn AED 18,000 to 30,000 (~EUR 4,500-7,500). Senior engineers, architects, and engineering managers at top-tier companies command AED 30,000 to 50,000 (~EUR 7,500-12,500). VP and CTO-level positions in major tech companies or financial institutions offer AED 50,000 to 80,000+ (~EUR 12,500-20,000+).</p>
+
+<p>Specific demand areas in 2026 include artificial intelligence and machine learning (15-25% salary premium over equivalent general software roles), cybersecurity (strong demand from banking and government sectors), cloud infrastructure (AWS, Azure, and GCP specialists), and blockchain and Web3 (particularly in DIFC-registered firms). Dubai Internet City, the traditional hub for tech employment, hosts the regional offices of Google, Microsoft, Meta, Amazon, Oracle, and SAP alongside hundreds of smaller tech firms and startups. Dubai Silicon Oasis offers an alternative free zone with lower setup costs and a growing tech community.</p>
+
+<h2>Finance and Banking</h2>
+<p>The financial services sector, concentrated in DIFC and ADGM, offers some of the highest salaries in the UAE. Junior analysts and associates earn AED 10,000 to 18,000 per month (~EUR 2,500-4,500). Mid-level professionals (AVPs, managers) command AED 18,000 to 35,000 (~EUR 4,500-8,750). Senior bankers, portfolio managers, and compliance directors earn AED 35,000 to 55,000 (~EUR 8,750-13,750). Managing directors and partners at investment banks, private equity firms, and asset management companies earn AED 60,000 to 150,000+ (~EUR 15,000-37,500+), often with significant annual bonuses that can equal or exceed base salary.</p>
+
+<p>Bonus structures in DIFC-based financial institutions are notably generous. Year-end bonuses of 20 to 100% of annual base salary are common for revenue-generating roles, and carry or profit-sharing arrangements in private equity and venture capital can push total annual compensation well above the base package. Accounting and audit professionals at the Big Four firms (Deloitte, PwC, EY, KPMG, all of which have major UAE operations) earn AED 8,000 to 15,000 at associate level, AED 18,000 to 30,000 at manager level, and AED 35,000 to 60,000 at partner level.</p>
+
+<h2>Healthcare</h2>
+<p>Healthcare salaries reflect the UAE's investment in building a world-class medical infrastructure. General practitioners earn AED 15,000 to 30,000 per month (~EUR 3,750-7,500). Specialist consultants at major hospital groups command AED 35,000 to 70,000 (~EUR 8,750-17,500), with the highest end reserved for cardiac surgeons, neurologists, and oncologists at Cleveland Clinic Abu Dhabi, Mediclinic, and American Hospital Dubai. Nursing staff earn AED 6,000 to 15,000 (~EUR 1,500-3,750) depending on specialty, experience, and employer. Pharmacists earn AED 8,000 to 18,000 (~EUR 2,000-4,500). Healthcare packages typically include accommodation or a generous housing allowance, making the total value significantly higher than the cash component alone.</p>
+
+<h2>Oil, Gas, and Energy</h2>
+<p>Abu Dhabi's ADNOC and its subsidiary companies are the benchmark employers for the energy sector. Junior engineers start at AED 12,000 to 18,000 per month (~EUR 3,000-4,500). Mid-level petroleum, chemical, and mechanical engineers earn AED 20,000 to 35,000 (~EUR 5,000-8,750). Senior engineers and technical specialists command AED 35,000 to 55,000 (~EUR 8,750-13,750). Department heads and directors earn AED 50,000 to 80,000+ (~EUR 12,500-20,000+). ADNOC packages are enhanced by substantial allowances: housing at 35 to 50% of basic salary, education allowances of AED 40,000 to 70,000 per child per year, and annual bonuses of 1 to 3 months' salary. The clean energy sector, centered around Masdar in Abu Dhabi, offers competitive packages for researchers, engineers, and project managers in solar, hydrogen, and sustainability roles.</p>
+
+<h2>Education</h2>
+<p>International school teacher salaries range from AED 7,000 to 12,000 per month (~EUR 1,750-3,000) at budget-tier schools to AED 14,000 to 22,000 (~EUR 3,500-5,500) at premium institutions. Packages at top schools include furnished accommodation or equivalent housing allowance, annual flights, visa processing, and health insurance. Some premium schools offer tuition discounts of 50 to 100% for the teacher's own children, which can be worth AED 50,000 or more per year. School leadership roles (heads of department, vice principals, principals) earn AED 25,000 to 50,000+ (~EUR 6,250-12,500+). University faculty at NYU Abu Dhabi, Sorbonne Abu Dhabi, and Khalifa University earn competitive academic salaries with research funding and sabbatical provisions.</p>
+
+<h2>Construction and Real Estate</h2>
+<p>Dubai's endless development pipeline sustains strong demand for construction and engineering professionals. Project managers earn AED 18,000 to 35,000 per month (~EUR 4,500-8,750). Civil and structural engineers command AED 10,000 to 25,000 (~EUR 2,500-6,250). Senior architects earn AED 20,000 to 40,000 (~EUR 5,000-10,000). Real estate professionals in sales, leasing, and property management earn base salaries of AED 8,000 to 15,000 plus commissions that can substantially increase total earnings in active markets. Quantity surveyors, a role in consistent demand across the Gulf, earn AED 12,000 to 28,000 (~EUR 3,000-7,000).</p>
+
+<h2>Hospitality, Tourism, and Aviation</h2>
+<p>The hospitality sector spans luxury hotels, airlines, event management, and food and beverage operations. Entry-level hotel positions start at AED 4,000 to 6,000 per month, often with employer-provided accommodation and meals. Mid-management hotel roles (department heads, restaurant managers) earn AED 10,000 to 20,000 (~EUR 2,500-5,000). General managers at five-star properties command AED 35,000 to 60,000+ (~EUR 8,750-15,000+). Emirates airline cabin crew earn a base salary of approximately AED 4,000 to 6,000 supplemented by flying allowances, layover payments, and profit-sharing that can bring total monthly earnings to AED 10,000 to 18,000 depending on seniority and flight hours. Pilots at Emirates earn AED 40,000 to 80,000+ per month depending on rank and aircraft type.</p>
+
+<h2>Legal Services</h2>
+<p>The UAE legal market, particularly in DIFC (which operates under English common law), offers premium salaries for qualified lawyers. Junior associates at international law firms earn AED 12,000 to 20,000 per month (~EUR 3,000-5,000). Mid-level associates with 4 to 7 years of experience command AED 25,000 to 40,000 (~EUR 6,250-10,000). Senior associates and counsel earn AED 40,000 to 60,000 (~EUR 10,000-15,000). Partners at top-tier firms earn AED 80,000 to 150,000+ (~EUR 20,000-37,500+). In-house legal roles at major corporations and free zone authorities offer AED 20,000 to 50,000 (~EUR 5,000-12,500) depending on seniority.</p>
+
+<h2>Marketing, Media, and Communications</h2>
+<p>The marketing and media sector in the UAE has grown substantially, driven by the region's expanding digital economy and the concentration of global brand headquarters in Dubai. Junior marketing executives and social media specialists earn AED 7,000 to 12,000 per month (~EUR 1,750-3,000). Mid-level marketing managers, content strategists, and digital marketing specialists command AED 14,000 to 25,000 (~EUR 3,500-6,250). Senior directors of marketing and chief marketing officers at major companies earn AED 35,000 to 55,000 (~EUR 8,750-13,750). Dubai Media City, the free zone that hosts the regional offices of CNN, BBC, MBC, and numerous advertising agencies, is the primary hub for media professionals. Freelance rates for experienced content creators, graphic designers, and social media consultants range from AED 150 to 500 per hour depending on specialization and client profile. Public relations professionals at international agencies like Edelman, Weber Shandwick, and FleishmanHillard earn AED 12,000 to 30,000 per month at manager level.</p>
+
+<h2>Human Resources and Administration</h2>
+<p>HR and administrative roles form the backbone of corporate operations across the UAE. HR coordinators and administrators earn AED 6,000 to 10,000 per month (~EUR 1,500-2,500). HR managers with generalist or specialist expertise in compensation and benefits, talent acquisition, or organizational development command AED 15,000 to 25,000 (~EUR 3,750-6,250). HR directors and vice presidents of people operations at large multinationals earn AED 30,000 to 50,000 (~EUR 7,500-12,500). Executive assistants supporting C-suite leaders earn AED 10,000 to 20,000 depending on the seniority of the executive and the complexity of the role. Office managers and administrative leads earn AED 8,000 to 15,000. It is worth noting that Emiratization targets affect HR and administrative roles more than most other categories, so expats in these positions should be aware of the regulatory landscape and consider specializing in areas where expatriate expertise remains in high demand, such as international talent management, compensation benchmarking, or HRIS implementation.</p>
+
+<h2>Supply Chain, Logistics, and Trade</h2>
+<p>Dubai's position as a global trade and logistics hub, anchored by Jebel Ali Port (the largest in the Middle East and one of the busiest in the world), creates strong demand for supply chain professionals. Logistics coordinators and entry-level supply chain analysts earn AED 7,000 to 12,000 per month (~EUR 1,750-3,000). Supply chain managers earn AED 15,000 to 28,000 (~EUR 3,750-7,000). Senior directors of procurement, supply chain, and logistics at major trading companies, airlines, and retail groups command AED 30,000 to 50,000 (~EUR 7,500-12,500). JAFZA (Jebel Ali Free Zone) and DMCC (Dubai Multi Commodities Centre) are the primary free zones for trade-related employment. Professionals with expertise in commodity trading, customs clearance, and maritime logistics are particularly well-compensated in this market.</p>
+
+<h2>Salary Negotiation Strategies</h2>
+<p>Negotiating your UAE salary effectively requires understanding the full package structure and knowing which levers to pull. Always negotiate on total annual compensation including gratuity, not just monthly cash. Push for a higher basic salary relative to allowances, as this increases your gratuity entitlement over time. Clarify the insurance tier and whether it covers dependents. Confirm education allowance amounts and caps per child. Ask about bonus structures, performance review timing, and salary review frequency. If you hold or are eligible for a Golden Visa, leverage this as it reduces the employer's visa processing costs and administrative burden. Competing offers are the strongest negotiating tool. If you are already employed in the UAE, your current package sets the floor for negotiations with new employers.</p>
+
+<h2>Understanding Your Total Compensation Value</h2>
+<p>When assessing a UAE salary offer, most newcomers focus exclusively on the monthly cash figure and miss the substantial hidden value embedded in the full package. A systematic evaluation requires quantifying every component annually. Start with your monthly total (basic plus all allowances) multiplied by twelve. Add the annual value of flights (AED 3,000 to 15,000 per person depending on destination and class). Add the employer's annual health insurance premium, which can be worth AED 3,000 to 12,000 per person. Add the annualized gratuity accrual (approximately 5.8% of basic salary for the first five years). If your employer provides an education allowance, add that value per child. The sum of these components is your true annual compensation. For a mid-level professional earning AED 22,000 per month total cash, the additional benefits typically add AED 40,000 to 80,000 per year, making the effective annual package AED 304,000 to 344,000 rather than the AED 264,000 suggested by cash alone. This distinction matters enormously when comparing offers between Gulf employers or evaluating a Gulf move against an opportunity in a taxed market. Our <a href="/uae/salary-calculator/">salary calculator</a> helps you model these scenarios with your specific numbers.</p>
+
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "Robert Half UAE Salary Guide", url: "https://www.roberthalf.ae/" }]} />
+<RelatedLinks links={[{ label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }, { label: "Dubai Expat Guide", href: "/uae/dubai/" }]} />
+</GuideLayout>

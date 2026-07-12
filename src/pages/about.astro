@@ -12,62 +12,92 @@ const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumb
 ---
 
 <GuideLayout
-  title="Research Standards & Author Credentials Guide 2026"
-  description="How we verify visa rules, rent data and school fees using official GCC government sources. Author Mottalib Radif MBA INSEAD. Quarterly review cycle since 2024."
+  title="About Us: Gulf Expat Research by MBA INSEAD Author"
+  description="Independent expat guides verified using MoHRE, MHRSD and MADLSA sources. Author Mottalib Radif MBA INSEAD. Quarterly review cycle since 2024. No sponsors."
   canonical="/about/"
   schemas={schemas}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]}
 >
-  <h1>About Arabia Expat 2026</h1>
 
-  <p>Arabia Expat is the definitive online resource for professionals relocating to the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and up-to-date information on visa processes, housing, schools, utilities, driving licences, healthcare, and daily life across the Gulf region. For salary data and employment-specific resources, visit our sister site <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>.</p>
+  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Gulf Knowledge Quiz</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Test your knowledge of Gulf expat basics before diving into our guides.</p>
+    <form id="gulfQuiz" class="space-y-3">
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">1. Which Gulf country has zero VAT and zero income tax?</p>
+        <select id="q1" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option value="">Select...</option><option value="uae">UAE</option><option value="qatar">Qatar</option><option value="saudi">Saudi Arabia</option></select>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">2. What is the UAE's Golden Visa duration?</p>
+        <select id="q2" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option value="">Select...</option><option value="5">5 years</option><option value="10">10 years</option><option value="life">Lifetime</option></select>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">3. Which country typically has the highest savings rate for expats?</p>
+        <select id="q3" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option value="">Select...</option><option value="uae">UAE</option><option value="qatar">Qatar</option><option value="saudi">Saudi Arabia</option></select>
+      </div>
+      <button type="button" onclick="(function(){var score=0;if(document.getElementById('q1').value==='qatar')score++;if(document.getElementById('q2').value==='10')score++;if(document.getElementById('q3').value==='saudi')score++;document.getElementById('quizResult').innerHTML='<strong>Score: '+score+'/3</strong> '+(score===3?'Excellent! You know your Gulf basics.':score===2?'Good start. Our guides will fill the gaps.':'Time to explore our guides, start with the best-country comparison.');})();" class="px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Answers</button>
+      <div id="quizResult" class="text-sm text-gray-700 dark:text-gray-300 min-h-[1.5rem]"></div>
+    </form>
+  </div>
+
+  <h1>About Arabia Expat</h1>
+
+  <p>Arabia Expat is an independent informational resource built for professionals relocating to the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and regularly updated guidance on visa processes, housing, international schools, healthcare, utilities, driving licences, banking, and daily life across all three Gulf countries. For salary data, gratuity calculators, and detailed employment compensation analysis, we operate a dedicated sister site at <a href="https://taxfreesalaries.com/" target="_blank" rel="noopener">taxfreesalaries.com</a>, which specializes exclusively in Gulf employment and compensation data.</p>
+
+  <p>The Gulf region attracts millions of international professionals each year with the promise of tax-free income, career advancement, and an experience that broadens both professional skills and personal horizons. Yet the information landscape has historically been fragmented. Government websites provide official regulations but rarely explain practical implications. Expat forums offer anecdotal experiences but lack systematic verification. Recruitment agency sites present opportunities but naturally emphasize the positive. Arabia Expat exists to fill this gap with comprehensive, data-driven, independently produced content that helps professionals make well-informed decisions about one of the most significant career moves they will ever undertake.</p>
 
   <h2>Our Mission</h2>
-  <p>We believe that every professional considering a Gulf career deserves access to transparent, reliable information. Our mission is to help expats with the guides and resources they need to make informed decisions about relocating, settling in, and building a life in the Gulf. Comparing salary offers between Dubai and Riyadh, evaluating school options, understanding visa requirements, or estimating monthly costs in Doha: Arabia Expat provides the practical, data-driven guidance you need.</p>
+  <p>We believe that every professional considering a Gulf career deserves access to transparent, reliable, and actionable information. Comparing salary offers between Dubai and Riyadh involves more than headline numbers; it requires understanding housing costs, VAT differences, employer benefit structures, gratuity calculations, and long-term residency options. Evaluating school options for children demands knowledge of curriculum quality, fee structures, regulatory inspection results, and admission timelines. Understanding visa requirements means navigating attestation chains, medical testing protocols, and digital platforms specific to each country. Arabia Expat provides this depth of analysis across every major topic area, organized by country and city, and updated with current data sourced from official government publications and verified market research.</p>
+
+  <p>Our goal is not simply to inform but to equip. We design every guide, comparison page, and resource to support a specific decision. When you read our <a href="/guides/best-country-for-expats-gulf/">country comparison guide</a>, you should be able to assess which Gulf destination aligns best with your priorities. When you use our cost-of-living data, you should be able to build an accurate monthly budget before accepting a job offer. When you consult our visa guides, you should understand every step of the process, the required documents, the expected timeline, and the costs involved, before you begin.</p>
 
   <h2>About the Author</h2>
   <h3>Mottalib Radif, MBA INSEAD</h3>
-  <p>Mottalib Radif holds an MBA from INSEAD, one of the world's leading business schools, and has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, immigration policy, and cost-of-living analysis across the UAE, Qatar, and Saudi Arabia.</p>
-  <p>With firsthand experience navigating the Gulf employment market, Mottalib combines academic rigor with practical insights to create resources that genuinely help expats. His work has been cited by career consultancies, immigration advisors, and financial planners serving the Gulf expatriate community. His focus areas include salary benchmarking, visa and residency policy analysis, and comparative guides that help professionals choose the right Gulf destination for their career stage and family situation.</p>
+  <p>Mottalib Radif holds an MBA from INSEAD, one of the world's leading business schools with campuses in Fontainebleau, Singapore, and Abu Dhabi. His professional background spans management consulting, financial analysis, and digital product development, with a particular focus on the Gulf Cooperation Council economies. Over the course of more than a decade, Mottalib has advised professionals on Gulf region career transitions, compensation evaluation, and relocation planning. His research covers labor law, compensation structures, immigration policy, cost-of-living analysis, and educational systems across the UAE, Qatar, and Saudi Arabia.</p>
+
+  <p>With firsthand experience navigating the Gulf employment market, Mottalib combines academic rigor with practical insights developed through direct engagement with government services, healthcare systems, school enrollment processes, and housing markets across all three countries. His work has been referenced by career consultancies, immigration advisory firms, and financial planners serving the Gulf expatriate community. His areas of particular expertise include salary benchmarking methodologies, gratuity and end-of-service benefit calculation, visa and residency policy analysis, and the development of interactive tools that help professionals model financial scenarios before committing to a Gulf assignment. The combination of INSEAD's analytical framework, deep regional knowledge, and a commitment to data-driven accuracy underpins every piece of content published on Arabia Expat.</p>
 
   <h2>Our Methodology</h2>
-  <p>We take accuracy seriously. Our data collection and verification process includes the following steps:</p>
-  <ul>
-    <li><strong>Official government sources:</strong> All legal information, tax rates, and regulatory details are sourced from official government publications, including the UAE Ministry of Human Resources and Emiratisation (MoHRE), Saudi Ministry of Human Resources and Social Development (MHRSD), and Qatar Ministry of Administrative Development, Labour and Social Affairs (MADLSA).</li>
-    <li><strong>Salary data verification:</strong> Our salary ranges are compiled from job posting analysis across major platforms (LinkedIn, Bayt.com, GulfTalent), recruitment agency surveys, and industry reports. We cross-reference multiple sources and update data quarterly.</li>
-    <li><strong>Calculator accuracy:</strong> All financial calculators are built using the exact formulas specified in the relevant country's labor law. We test calculations against known scenarios and official examples published by government entities.</li>
-    <li><strong>Regular updates:</strong> Labor laws, visa regulations, and economic conditions change. We review and update all content at least quarterly to ensure accuracy.</li>
-    <li><strong>Peer review:</strong> Key content, particularly legal and financial information, is reviewed by professionals with relevant expertise in Gulf employment law and finance.</li>
-  </ul>
+  <p>We take accuracy seriously. Every claim, every data point, and every regulatory reference published on Arabia Expat follows a structured verification process designed to ensure that the information you rely on is current, correctly sourced, and practically useful. Our data collection and verification process includes the following steps.</p>
+
+  <p><strong>Official government sources form the foundation of all legal and regulatory content.</strong> Visa requirements, labor law provisions, residency regulations, and tax structures are sourced directly from official publications including the UAE Ministry of Human Resources and Emiratisation (MoHRE), the Saudi Ministry of Human Resources and Social Development (MHRSD), and the Qatar Ministry of Administrative Development, Labour and Social Affairs (MADLSA). We reference specific legislative texts, ministerial decisions, and official platform documentation to ensure accuracy. When regulations change, we update content within two weeks of the official publication date.</p>
+
+  <p><strong>Financial calculators implement exact statutory formulas.</strong> Every calculator on Arabia Expat and taxfreesalaries.com runs entirely in your browser using the precise mathematical formulas specified in the relevant country's labor law. We test calculations against documented scenarios and official examples published by government entities. No personal financial data is transmitted to our servers. For a detailed explanation of our calculator methodology, data sources, and quality assurance processes, see our <a href="/methodology/">Methodology page</a>.</p>
+
+  <p><strong>Cost-of-living data draws from multiple verified sources.</strong> Rental prices are compiled from established property portals (Property Finder, Bayut, Qatar Living) and cross-referenced with official rental indices where available. Grocery costs are verified against online grocery platform pricing. Utility rates are sourced from published tariff schedules. All cost data is reviewed and updated at least annually, with more frequent updates for rapidly changing categories like housing.</p>
+
+  <p><strong>Content undergoes quarterly review.</strong> Laws, regulations, and market conditions evolve, and our content must evolve with them. Every guide, comparison page, and data table is reviewed at least once per quarter to identify outdated information, reflect regulatory changes, and incorporate new data releases.</p>
 
   <h2>Editorial Independence</h2>
-  <p>Arabia Expat maintains complete editorial independence. Our content is not sponsored by recruitment agencies, employers, or government entities. We provide objective information to help professionals make their own informed decisions. Where we reference specific companies or services, it is for informational purposes only and does not constitute an endorsement.</p>
+  <p>Arabia Expat maintains complete editorial independence. Our content is not sponsored by recruitment agencies, employers, government entities, or any commercial interest. We accept no payment for favorable coverage, and advertising or affiliate relationships never influence our data, analysis, or recommendations. When we reference specific companies, products, or services, it is for informational purposes only and does not constitute an endorsement. We believe that the value of our resource depends entirely on the trust our readers place in our objectivity, and we protect that trust by maintaining an absolute separation between editorial content and any commercial considerations.</p>
 
   <h2>What We Cover</h2>
-  <p>Arabia Expat covers the full spectrum of expatriate life in the Gulf region. Our content spans the following areas:</p>
+  <p>Arabia Expat covers the full spectrum of expatriate life in the Gulf region. Our content spans the following areas, each structured to support specific decisions and practical needs.</p>
   <ul>
-    <li><strong>Country and city guides:</strong> Comprehensive overviews of life in the UAE, Qatar, and Saudi Arabia, including city-specific guides for Dubai, Abu Dhabi, Doha, Riyadh, Jeddah, and the Dammam-Khobar-Dhahran metropolitan area.</li>
-    <li><strong>Cost of living:</strong> Detailed breakdowns of housing, groceries, transport, utilities, healthcare, and education costs with specific prices in local currencies and euro equivalents.</li>
-    <li><strong>Visa and residency:</strong> Up-to-date information on work visas, dependent visas, Golden Visas, Premium Residency programs, and the documentation required for each country.</li>
-    <li><strong>Practical setup guides:</strong> Step-by-step instructions for utilities registration, driving licence conversion, mobile phone setup, banking, and other essential tasks when relocating.</li>
-    <li><strong>Country comparisons:</strong> Data-driven comparisons between Gulf countries and cities, covering salaries, VAT rates, housing costs, gratuity rules, and lifestyle factors.</li>
-    <li><strong>Relocating-from guides:</strong> Country-specific advice for professionals moving from India, Pakistan, the Philippines, Egypt, Bangladesh, the UK, the US, and France.</li>
+    <li><strong>Country and city guides:</strong> Comprehensive overviews of life in the <a href="/uae/guide/">UAE</a>, <a href="/qatar/guide/">Qatar</a>, and <a href="/saudi-arabia/guide/">Saudi Arabia</a>, plus city-specific guides for <a href="/uae/dubai/">Dubai</a>, <a href="/uae/abu-dhabi/">Abu Dhabi</a>, <a href="/qatar/doha/">Doha</a>, <a href="/saudi-arabia/riyadh/">Riyadh</a>, <a href="/saudi-arabia/jeddah/">Jeddah</a>, and the <a href="/saudi-arabia/dammam/">Dammam-Khobar-Dhahran</a> metropolitan area.</li>
+    <li><strong>Cost of living:</strong> Detailed breakdowns of housing, groceries, transport, utilities, healthcare, and education costs with specific prices in local currencies and euro equivalents for every major Gulf city.</li>
+    <li><strong>Visa and residency:</strong> Up-to-date information on work visas, dependent visas, Golden Visas, Premium Residency, permanent residency, and the documentation chain required for each country.</li>
+    <li><strong>Practical setup guides:</strong> Step-by-step instructions for <a href="/guides/utilities-setup/">utilities registration</a>, <a href="/guides/driving-licence/">driving licence conversion</a>, <a href="/guides/telecom-mobile/">mobile phone setup</a>, banking, and other essential tasks.</li>
+    <li><strong>Country comparisons:</strong> Data-driven comparisons between Gulf countries and cities, covering salaries, VAT rates, housing costs, gratuity rules, and lifestyle factors across every meaningful dimension.</li>
+    <li><strong>Relocating-from guides:</strong> Country-specific advice for professionals moving from India, Pakistan, the Philippines, Egypt, Bangladesh, the UK, the US, and France, covering document requirements, cultural adjustment, and practical preparation.</li>
   </ul>
 
   <h2>How We Differ From Other Resources</h2>
-  <p>Unlike generic expat forums or government tourism websites, Arabia Expat focuses exclusively on the practical, financial, and logistical aspects of Gulf relocation. We provide specific numbers and data points rather than vague generalizations. When we say rent in Dubai Marina costs AED 7,000-10,000 per month, that figure is based on current market analysis, not a rough estimate from years ago. We update pricing data quarterly and cite official government sources for all regulatory information. Our comparison tools allow side-by-side evaluation of different countries and cities, making it easier to assess where your salary and lifestyle preferences align best.</p>
+  <p>Unlike generic expat forums where information quality varies wildly and outdated posts persist indefinitely, Arabia Expat provides curated, verified, and regularly updated content written by a named author with documented expertise. Unlike government tourism websites that promote their country's attractions, we provide objective comparisons that acknowledge trade-offs and help you make balanced decisions. Unlike recruitment agency sites that naturally emphasize opportunities, we cover the full picture including costs, cultural adjustments, and potential challenges. When we state that rent in Dubai Marina costs AED 7,000 to AED 10,000 per month, that figure is based on current Property Finder and Bayut data, not a rough estimate from years ago. When we describe a visa process, we include specific documents, fees, timelines, and the digital platforms used at each step. This level of specificity and currency is what distinguishes Arabia Expat from general-purpose information sources.</p>
 
   <h2>Accuracy Disclaimer</h2>
-  <p>While we strive for accuracy, the information on Arabia Expat is provided for general guidance and educational purposes. It should not be considered as legal, financial, or immigration advice. Laws, regulations, and market conditions change, and individual circumstances vary. Government policies regarding visas, residency, and employment can be updated with limited notice. We recommend consulting with qualified professionals (lawyers, accountants, immigration consultants) for advice specific to your situation. All prices and salary figures represent ranges based on market research and may vary by location, timing, and individual circumstances. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
+  <p>While we strive for accuracy, the information on Arabia Expat is provided for general guidance and educational purposes. It should not be considered legal, financial, or immigration advice. Laws, regulations, and market conditions change, sometimes with limited notice, and individual circumstances vary. Government policies regarding visas, residency, and employment can be updated between our review cycles. We recommend consulting qualified professionals, including lawyers, accountants, and licensed immigration consultants, for advice specific to your situation. All prices and salary figures represent ranges based on market research and may vary by location, timing, and individual circumstances. Please review our <a href="/terms/">Terms of Use</a> for complete disclaimers.</p>
 
   <h2>Contact</h2>
-  <p>We welcome corrections, suggestions, and feedback. If you notice any inaccuracies, have updated information that could improve our content, or would like to suggest topics for future coverage, reach out at <a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a>. Maintaining accuracy is our top priority, and we take reader corrections seriously. We aim to respond to all substantive feedback within 5 business days and incorporate verified corrections into our content promptly.</p>
+  <p>We welcome corrections, suggestions, and feedback. If you notice any inaccuracies, have updated information that could improve our content, or would like to suggest topics for future coverage, reach out at <a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a>. Maintaining accuracy is our top priority, and we take reader corrections seriously. We aim to respond to all substantive feedback within 5 business days and incorporate verified corrections into our content promptly. For more information about our data sources and quality processes, visit our <a href="/methodology/">Methodology page</a>.</p>
 
   <RelatedLinks links={[
     { label: "UAE Expat Guide 2026", href: "/uae/guide/" },
     { label: "Saudi Arabia Expat Guide 2026", href: "/saudi-arabia/guide/" },
     { label: "Qatar Expat Guide 2026", href: "/qatar/guide/" },
+    { label: "Our Methodology", href: "/methodology/" },
     { label: "Privacy Policy", href: "/privacy-policy/" },
-    { label: "Terms of Use", href: "/terms/" }, { label: "All Guides", href: "/guides/" },
+    { label: "Terms of Use", href: "/terms/" },
+    { label: "All Guides", href: "/guides/" },
   ]} />
 </GuideLayout>

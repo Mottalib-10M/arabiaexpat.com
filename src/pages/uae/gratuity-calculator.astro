@@ -1,14 +1,171 @@
 ---
-const newUrl = 'https://taxfreesalaries.com/uae/gratuity-calculator/';
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "What is gratuity in the UAE?", answer: "Gratuity is an end-of-service benefit mandated by UAE labor law. It is a lump-sum payment made by the employer when an employee's contract ends, calculated based on the basic salary and length of service. It applies to all employees who complete at least one year of continuous service." },
+  { question: "How is UAE gratuity calculated?", answer: "For the first five years: 21 calendar days of basic salary per year. After five years: 30 calendar days per year. The total is capped at two years of basic salary. Only the basic salary component is used, not allowances or total package." },
+  { question: "Do I get gratuity if I resign?", answer: "Yes. Under the 2021 labor law (Federal Decree-Law No. 33), employees who resign are entitled to the full gratuity amount after completing one year of service. The previous reduction for resignation during the first five years has been eliminated for contracts under the new law." },
+  { question: "When is gratuity paid after leaving?", answer: "Employers must pay gratuity within 14 days of the employment end date. If the employer fails to pay within this period, the employee can file a complaint with MoHRE. Unpaid gratuity claims are one of the most common labor disputes resolved by MoHRE." },
+  { question: "Is gratuity taxed in the UAE?", answer: "No. Gratuity is entirely tax-free in the UAE, just like regular salary. There are no deductions of any kind from the gratuity payment. The full calculated amount is paid to the employee." },
+  { question: "What about the new savings scheme?", answer: "The UAE introduced an optional Alternative End-of-Service Benefits Scheme in 2023, allowing employers to invest gratuity contributions into approved investment funds managed by licensed providers. Employees enrolled in this scheme may earn investment returns above the statutory minimum. Participation is voluntary and agreed upon between employer and employee." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "UAE", url: "https://arabiaexpat.com/uae/guide/" },
+  { name: "Gratuity Calculator", url: "https://arabiaexpat.com/uae/gratuity-calculator/" },
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Redirecting</title>
-  <link rel="canonical" href={newUrl} />
-  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
-  <meta name="robots" content="noindex, follow" />
-</head>
-<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
-</html>
+
+<GuideLayout
+  title="UAE Gratuity Calculator 2026: End-of-Service Payout"
+  description="Calculate your UAE end-of-service gratuity based on basic salary and years worked. Covers the 2021 labor law formula, resignation rules and savings scheme."
+  canonical="/uae/gratuity-calculator/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Gratuity Calculator 2026: End-of-Service Benefits", "Calculate UAE gratuity payments.", "https://arabiaexpat.com/uae/gratuity-calculator/", "2025-06-01", "2026-07-01")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Gratuity Calculator", url: "/uae/gratuity-calculator/" }]}
+>
+
+<h1>UAE Gratuity Calculator 2026: End-of-Service Benefit Explained</h1>
+
+<!-- Mini Interactive Gratuity Calculator -->
+<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Gratuity Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Enter your basic salary and years of service to estimate your end-of-service gratuity under UAE law.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-basic">Monthly Basic Salary (AED)</label>
+      <input type="number" id="grat-basic" value="12000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-years">Years of Service</label>
+      <input type="number" id="grat-years" value="5" min="1" max="50" step="0.5" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div class="flex items-end">
+      <button type="button" onclick="calcGratuity()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate</button>
+    </div>
+  </div>
+  <div id="grat-result" class="mt-4 hidden">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Total Gratuity</div>
+        <div class="text-xl font-bold text-teal-700 dark:text-teal-400" id="grat-total"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">EUR Equivalent</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="grat-eur"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Per Year Accrual</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="grat-peryear"></div>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="grat-breakdown"></p>
+  </div>
+</div>
+<script is:inline>
+function calcGratuity(){
+  const basic=parseFloat(document.getElementById('grat-basic').value)||0;
+  const years=parseFloat(document.getElementById('grat-years').value)||0;
+  const daily=basic/30;
+  let total=0;
+  let breakdown='';
+  if(years<=5){
+    total=daily*21*years;
+    breakdown='Calculation: '+years+' years x 21 days x AED '+(daily).toFixed(2)+'/day = AED '+Math.round(total).toLocaleString();
+  }else{
+    const first5=daily*21*5;
+    const remaining=daily*30*(years-5);
+    total=first5+remaining;
+    const cap=basic*24;
+    if(total>cap){total=cap;breakdown='Calculation capped at 2 years of basic salary (AED '+cap.toLocaleString()+')';}
+    else{breakdown='First 5 years: AED '+Math.round(first5).toLocaleString()+' + Remaining '+(years-5)+' years: AED '+Math.round(remaining).toLocaleString();}
+  }
+  total=Math.round(total);
+  document.getElementById('grat-total').textContent='AED '+total.toLocaleString();
+  document.getElementById('grat-eur').textContent='~€'+Math.round(total*0.25).toLocaleString();
+  document.getElementById('grat-peryear').textContent='~AED '+Math.round(total/years).toLocaleString()+'/yr';
+  document.getElementById('grat-breakdown').textContent=breakdown;
+  document.getElementById('grat-result').classList.remove('hidden');
+}
+</script>
+
+<p>End-of-service gratuity is one of the most valuable financial benefits of working in the UAE, yet it remains one of the least understood by many expatriates. Unlike pension systems in Western countries where contributions are deducted from your salary and invested over time, UAE gratuity is an employer-funded lump-sum payment calculated based on your basic salary and length of service. It functions as a form of deferred compensation, and for long-tenured employees, it can amount to tens or even hundreds of thousands of dirhams, all of it tax-free.</p>
+
+<p>This guide covers the precise legal formula for calculating gratuity, the rules governing eligibility and payment timing, the distinction between the traditional statutory scheme and the newer optional savings alternative, and practical strategies for maximizing this benefit over the course of your UAE career.</p>
+
+<h2>The Legal Foundation: Federal Decree-Law No. 33 of 2021</h2>
+
+<p>UAE gratuity is governed by Federal Decree-Law No. 33 of 2021, which replaced the previous 1980 labor law and introduced several important changes. The new law, which took effect in February 2022, standardized employment on fixed-term contracts (maximum three years, renewable), established clearer termination procedures, and preserved the existing gratuity calculation formula while eliminating the historical penalty that reduced gratuity for employees who resigned before completing five years of service.</p>
+
+<p>Under the current law, every employee who completes at least one year of continuous service is entitled to end-of-service gratuity. There is no distinction based on whether the employee resigns, is terminated, or reaches the end of a fixed-term contract. The only exception is termination for gross misconduct as defined in Article 44 of the law, which covers offenses such as fraud, assault, deliberate damage to company property, and abandoning work for more than 20 consecutive days without valid reason. In practice, termination for cause under Article 44 is relatively rare and must be documented and reported to MoHRE.</p>
+
+<h2>The Gratuity Calculation Formula</h2>
+
+<p>The formula is straightforward but requires careful application. For the first five years of employment, gratuity is calculated at 21 calendar days of basic salary for each completed year of service. For each year of service beyond five years, the rate increases to 30 calendar days of basic salary per year. The daily rate is determined by dividing the monthly basic salary by 30, regardless of the actual number of days in the month.</p>
+
+<p>Critically, only the basic salary is used in the calculation. Housing allowances, transport allowances, bonuses, commissions, and any other supplementary payments are excluded. This is why negotiating a higher basic salary relative to allowances has a direct, compounding financial impact over time. An employee with a basic salary of AED 15,000 and a housing allowance of AED 5,000 (total AED 20,000) will receive significantly more gratuity than an employee with a basic salary of AED 10,000 and a housing allowance of AED 10,000, despite identical total monthly pay.</p>
+
+<p>The total gratuity amount is capped at two years of basic salary, regardless of tenure length. This cap becomes relevant for employees with very long service records. For an employee earning AED 15,000 basic salary per month, the cap is AED 360,000 (AED 15,000 x 24 months). Given the formula, this cap would be reached at approximately 10 years of service.</p>
+
+<h2>Worked Examples</h2>
+
+<p>Example one: an accountant with a basic salary of AED 10,000 per month who works for three years. Daily rate: AED 10,000 / 30 = AED 333.33. Gratuity: 3 years x 21 days x AED 333.33 = AED 21,000. In euro terms, that is approximately EUR 5,250.</p>
+
+<p>Example two: a senior engineer with a basic salary of AED 25,000 per month who works for eight years. Daily rate: AED 25,000 / 30 = AED 833.33. First five years: 5 x 21 x AED 833.33 = AED 87,500. Remaining three years: 3 x 30 x AED 833.33 = AED 75,000. Total gratuity: AED 162,500 (~EUR 40,625). The two-year cap for this basic salary is AED 600,000, so the full amount is payable.</p>
+
+<p>Example three: a finance director with a basic salary of AED 40,000 per month who works for twelve years. Daily rate: AED 40,000 / 30 = AED 1,333.33. First five years: 5 x 21 x AED 1,333.33 = AED 140,000. Remaining seven years: 7 x 30 x AED 1,333.33 = AED 280,000. Uncapped total: AED 420,000. Two-year cap: AED 40,000 x 24 = AED 960,000. Since AED 420,000 is below the cap, the full amount is paid, approximately EUR 105,000.</p>
+
+<h2>Partial Years and Fractional Service</h2>
+
+<p>The law provides for proportionate calculation of gratuity for partial years of service beyond the first completed year. If you work for two years and seven months, you receive gratuity for two full years plus a prorated portion for the seven months. The prorated portion is calculated as: (7/12) x the annual gratuity rate for that year of service. This means every additional month of service adds to your gratuity entitlement, providing an incentive to avoid leaving mid-contract without completing the current year of service where possible.</p>
+
+<p>Days of unpaid leave are typically excluded from the calculation of continuous service, which can marginally reduce the gratuity for employees who have taken extended unpaid leave during their tenure. However, paid annual leave, sick leave, and maternity or parental leave all count toward continuous service and do not reduce the gratuity calculation.</p>
+
+<h2>The Alternative End-of-Service Benefits Scheme</h2>
+
+<p>In 2023, the UAE introduced an optional Alternative End-of-Service Benefits Scheme that allows employers to invest monthly gratuity contributions into approved investment funds rather than holding the liability on their balance sheet. This scheme, regulated by the Securities and Commodities Authority (SCA), is designed to provide employees with potentially higher returns than the flat statutory gratuity while giving employers a more structured approach to managing end-of-service liabilities.</p>
+
+<p>Under this scheme, employers make monthly contributions equivalent to the statutory gratuity accrual (approximately 5.83% of basic salary for the first five years and 8.33% thereafter) into a fund selected by the employee from a menu of approved investment options. These options range from conservative capital-preservation funds to growth-oriented equity portfolios, allowing employees to match their investment strategy to their risk tolerance and time horizon. At the end of employment, the employee receives the fund balance, which may be higher or lower than the statutory gratuity amount depending on investment performance. However, the statutory minimum is guaranteed, meaning if the fund underperforms, the employer must top up the difference to match what the employee would have received under the traditional formula.</p>
+
+<p>Participation in the alternative scheme is entirely voluntary. Both the employer and employee must agree to enroll, and employees can opt out and revert to the traditional system. The scheme is currently offered by licensed fund administrators including Zurich International, Equiom, and Daman Investments. For employees planning to stay in the UAE for five or more years, the alternative scheme can potentially generate meaningful additional returns above the statutory minimum, particularly during periods of favorable market conditions.</p>
+
+<h2>Gratuity and Contract Termination Scenarios</h2>
+
+<p>The circumstances of your departure affect the timing but not the amount of gratuity under the current law. If your employer terminates your contract (with or without cause beyond Article 44), you receive full gratuity. If you resign after completing one year, you receive full gratuity. If your fixed-term contract expires and is not renewed, you receive full gratuity. If you are made redundant due to business closure or restructuring, you receive full gratuity plus any additional compensation mandated by the terms of the redundancy.</p>
+
+<p>The only scenario where gratuity is forfeited is termination under Article 44 for gross misconduct, and even in this case, the employer must follow specific procedural requirements including written notification and an opportunity for the employee to respond before implementing the dismissal. Employees who believe they have been wrongfully dismissed under Article 44 can challenge the decision through MoHRE's dispute resolution process and, if necessary, the labor courts.</p>
+
+<h2>Gratuity Payment Timeline and Disputes</h2>
+
+<p>Under the law, employers must pay gratuity within 14 days of the employment end date. In practice, many employers process gratuity alongside the final salary payment, which includes any outstanding leave balance and other entitlements. If your employer delays payment beyond the 14-day period, you have the right to file a complaint with MoHRE through the MOHRE app, website, or by visiting a Tasheel service center. MoHRE's mediation process typically resolves gratuity disputes within two to four weeks. If mediation fails, the case is referred to the labor court, which generally rules in the employee's favor when documentation of service and basic salary is clear.</p>
+
+<p>Common disputes arise from disagreements over the basic salary figure used in the calculation. Some employers attempt to use a lower figure by arguing that certain components of the package are classified as allowances rather than basic salary. To protect yourself, ensure your employment contract clearly specifies the basic salary as a distinct figure separate from allowances. WPS records, which document every salary payment, can be used as evidence in disputes. Keep your own records of all employment contracts, salary certificates, and pay slips throughout your tenure.</p>
+
+<h2>Gratuity and Tax Implications in Your Home Country</h2>
+
+<p>While gratuity is entirely tax-free within the UAE, it may be subject to income tax in your home country depending on your tax residency status. Citizens of the United States, for example, are subject to worldwide taxation and may need to report their UAE gratuity on their US tax return, potentially claiming the Foreign Earned Income Exclusion or Foreign Tax Credit to reduce or eliminate the liability. British citizens who maintain UK tax residency may similarly need to declare the payment. Indian citizens are generally not taxed on gratuity received from a foreign employer while working abroad, though the rules can change.</p>
+
+<p>Given the potential complexity, particularly for citizens of countries with worldwide taxation regimes, consulting a cross-border tax advisor before your UAE assignment ends is advisable. The advisor can help you structure the timing of your departure and the receipt of funds to minimize any home-country tax liability. Our <a href="/guides/banking-expats-gulf/">banking guide</a> covers the practical aspects of receiving and transferring your gratuity payment.</p>
+
+<h2>Maximizing Your Gratuity Over a Gulf Career</h2>
+
+<p>Several strategies can help you maximize the financial value of your gratuity over the course of a multi-year UAE career. First, negotiate for the highest possible basic salary relative to allowances, even if it means accepting a slightly lower total package. The compound effect of a higher basic on gratuity over five to ten years can amount to tens of thousands of dirhams. Second, try to avoid leaving an employer mid-year, as completing each full year of service maximizes the prorated calculation. If you receive a competing offer, timing your departure to coincide with a service anniversary can add thousands to your gratuity. Third, consider the alternative savings scheme if your employer offers it, particularly if your time horizon is long enough to benefit from investment returns. Fourth, if you are changing employers within the UAE, be aware that gratuity calculations reset with each new employer. Five years at Employer A followed by five years at Employer B yields two separate gratuity payments, each calculated at the 21-day rate, rather than one ten-year payment that would trigger the higher 30-day rate for the final five years. This is an important consideration when weighing job changes versus longevity at a single employer.</p>
+
+<h2>DIFC and Free Zone Gratuity Rules</h2>
+
+<p>Employees working in the Dubai International Financial Centre (DIFC) are governed by DIFC Employment Law No. 2 of 2019, which has its own gratuity provisions. Under DIFC law, gratuity is calculated at 21 calendar days of daily wage for each year of the first five years and 30 calendar days for each additional year, similar to federal law but with some differences in definition of "daily wage" and the treatment of partial years. Other free zones, including DMCC, JAFZA, and Dubai Internet City, generally follow federal labor law for gratuity calculations. If you work in a free zone, verify which employment law governs your contract and ensure the gratuity provisions are correctly stated.</p>
+
+<p>Abu Dhabi Global Market (ADGM), the financial free zone in Abu Dhabi, follows its own Employment Regulations that provide for gratuity on similar terms to federal law. ADGM employers must comply with the ADGM's Financial Services Regulatory Authority guidance on end-of-service benefits, which includes provisions for the alternative savings scheme.</p>
+
+<h2>What Happens to Gratuity If the Company Closes</h2>
+
+<p>If your employer goes bankrupt or closes operations, your gratuity is classified as a priority claim under UAE insolvency law. Employee wages and end-of-service benefits rank above most other creditor claims in the liquidation hierarchy. MoHRE and the labor courts can enforce gratuity payments even against companies in the process of winding up. In practice, the UAE government has occasionally stepped in to ensure workers receive their entitlements when major employers have faced financial difficulties, particularly in the construction sector. However, the process can be slower than normal, so maintaining your own financial records and acting quickly to register your claim with MoHRE when an employer shows signs of financial distress is important.</p>
+
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "Federal Decree-Law No. 33 of 2021", url: "https://www.mohre.gov.ae/en/laws-and-regulations.aspx" }]} />
+<RelatedLinks links={[{ label: "UAE Salary Calculator", href: "/uae/salary-calculator/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }, { label: "Gratuity Guide (All Gulf)", href: "/guides/gratuity-end-of-service-explained/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "Banking for Expats", href: "/guides/banking-expats-gulf/" }]} />
+</GuideLayout>

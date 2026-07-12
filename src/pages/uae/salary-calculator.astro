@@ -1,14 +1,186 @@
 ---
-const newUrl = 'https://taxfreesalaries.com/uae/salary-calculator/';
+import GuideLayout from "../../layouts/GuideLayout.astro";
+import { buildBreadcrumbs, buildArticleSchema, buildFAQSchema } from "../../lib/seo";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import RelatedLinks from "../../components/ui/RelatedLinks.astro";
+import SourcesBlock from "../../components/ui/SourcesBlock.astro";
+
+const faqs = [
+  { question: "Is salary really tax-free in the UAE?", answer: "Yes. The UAE does not impose personal income tax. Your gross salary equals your net take-home pay. The only deductions are voluntary ones such as pension contributions for GCC nationals or optional savings plans. A 5% VAT applies to goods and services but not to wages." },
+  { question: "What does a typical UAE salary package include?", answer: "A standard UAE package includes basic salary (60-70% of total), housing allowance (25-35%), transport allowance (AED 500-2,500/month), annual return flight tickets, 30 days annual leave, employer-funded health insurance, and end-of-service gratuity calculated under UAE labor law." },
+  { question: "How is UAE salary paid?", answer: "All employers must pay salaries through the Wage Protection System (WPS) via approved banks. Payment must be made within 15 days of the due date. Cash or off-record payments are illegal. Employees need a UAE bank account linked to their Emirates ID." },
+  { question: "What is a good salary in Dubai in 2026?", answer: "A 'good' salary depends on lifestyle and family size. For a single professional, AED 15,000-20,000 (~€3,750-5,000)/month allows comfortable living. Couples need AED 25,000+ (~€6,250+). Families with children in international schools typically need AED 35,000+ (~€8,750+) to live well." },
+  { question: "Do UAE employers pay for housing?", answer: "Most employers provide a housing allowance, typically 25-35% of total compensation. Some employers, especially in Abu Dhabi government roles and hospitality, provide company accommodation directly. The housing component is not taxed and is a major financial benefit of Gulf employment." },
+  { question: "How does UAE salary compare to UK or US after tax?", answer: "A UAE salary of AED 20,000/month (~€5,000) is equivalent to a UK salary of roughly GBP 75,000-80,000 pre-tax or a US salary of approximately USD 95,000-100,000 pre-tax, when accounting for income tax, national insurance/social security, and the absence of those deductions in the UAE." },
+];
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arabiaexpat.com/" },
+  { name: "UAE", url: "https://arabiaexpat.com/uae/guide/" },
+  { name: "Salary Calculator", url: "https://arabiaexpat.com/uae/salary-calculator/" },
+];
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Redirecting</title>
-  <link rel="canonical" href={newUrl} />
-  <meta http-equiv="refresh" content={`0;url=${newUrl}`} />
-  <meta name="robots" content="noindex, follow" />
-</head>
-<body><p>This page has moved to <a href={newUrl}>{newUrl}</a>.</p></body>
-</html>
+
+<GuideLayout
+  title="UAE Salary Calculator 2026: Tax-Free Take-Home Pay"
+  description="Calculate your UAE tax-free salary with housing allowance, gratuity and benefits. Convert AED packages to EUR, GBP and USD equivalents with 2026 rates."
+  canonical="/uae/salary-calculator/"
+  schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Salary Calculator 2026: Tax-Free Take-Home Pay", "Calculate your UAE salary package value.", "https://arabiaexpat.com/uae/salary-calculator/", "2025-06-01", "2026-07-01")]}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Salary Calculator", url: "/uae/salary-calculator/" }]}
+>
+
+<h1>UAE Salary Calculator 2026: Your Complete Tax-Free Pay Guide</h1>
+
+<!-- Mini Interactive Salary Calculator -->
+<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Quick Salary Package Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Enter your monthly basic salary to estimate your total compensation including typical UAE benefits.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-basic">Monthly Basic Salary (AED)</label>
+      <input type="number" id="sal-basic" value="15000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-housing">Housing Allowance %</label>
+      <select id="sal-housing" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+        <option value="0">None (company housing)</option>
+        <option value="25">25% of basic</option>
+        <option value="30" selected>30% of basic</option>
+        <option value="35">35% of basic</option>
+        <option value="40">40% of basic</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-transport">Transport Allowance (AED/mo)</label>
+      <input type="number" id="sal-transport" value="1500" min="0" step="250" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+    </div>
+  </div>
+  <button type="button" onclick="calcSalary()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Package</button>
+  <div id="sal-result" class="mt-4 hidden">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Monthly Total</div>
+        <div class="text-lg font-bold text-teal-700 dark:text-teal-400" id="sal-monthly"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Annual Package</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="sal-annual"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">EUR Equivalent</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="sal-eur"></div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
+        <div class="text-xs text-gray-500 dark:text-gray-400">Annual Gratuity</div>
+        <div class="text-lg font-bold text-gray-900 dark:text-white" id="sal-gratuity"></div>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="sal-note"></p>
+  </div>
+</div>
+<script is:inline>
+function calcSalary(){
+  const basic=parseFloat(document.getElementById('sal-basic').value)||0;
+  const housingPct=parseFloat(document.getElementById('sal-housing').value)||0;
+  const transport=parseFloat(document.getElementById('sal-transport').value)||0;
+  const housing=basic*(housingPct/100);
+  const monthly=basic+housing+transport;
+  const annual=monthly*12;
+  const gratuity=Math.round(basic*21/30);
+  document.getElementById('sal-monthly').textContent='AED '+monthly.toLocaleString();
+  document.getElementById('sal-annual').textContent='AED '+annual.toLocaleString();
+  document.getElementById('sal-eur').textContent='~€'+Math.round(annual*0.25).toLocaleString()+'/yr';
+  document.getElementById('sal-gratuity').textContent='AED '+gratuity.toLocaleString()+'/yr';
+  document.getElementById('sal-note').textContent='Gratuity based on 21 days basic salary per year (first 5 years). Total package is 100% tax-free. Actual gratuity accrual requires minimum 1 year of service.';
+  document.getElementById('sal-result').classList.remove('hidden');
+}
+</script>
+
+<p>The United Arab Emirates stands apart from nearly every other major employment destination in the world for one straightforward reason: there is no personal income tax. When an employer in Dubai, Abu Dhabi, Sharjah, or any other emirate offers you a salary of AED 20,000 per month, that is exactly what lands in your bank account. There are no deductions for income tax, no social security contributions for non-GCC nationals, and no municipal withholding. This single feature transforms the financial calculus of international careers, and understanding how to evaluate, negotiate, and maximize a UAE salary package is one of the most important skills for any prospective expatriate.</p>
+
+<p>This guide breaks down the complete structure of UAE compensation, explains how to compare Gulf offers against taxed salaries elsewhere, covers the Wage Protection System that governs how and when you get paid, and provides practical benchmarks across major industries and roles. Whether you are fielding your first offer from a Dubai employer or renegotiating after years in the market, the information below reflects 2026 compensation norms and regulatory requirements.</p>
+
+<h2>How UAE Salary Packages Are Structured</h2>
+
+<p>A UAE salary is rarely a single number. Compensation packages typically consist of multiple components, each serving a specific purpose and, in some cases, carrying distinct legal implications for your end-of-service benefits. The primary components are as follows.</p>
+
+<p>The basic salary forms the core of your package and usually represents 60 to 70 percent of your total monthly cash compensation. This figure is critically important because UAE labor law calculates end-of-service gratuity based exclusively on your basic salary, not on allowances or total pay. A higher basic salary means a larger gratuity payout when you leave your employer. During salary negotiations, pushing for a higher basic relative to allowances can yield significant long-term financial benefits, particularly if you plan to stay for several years.</p>
+
+<p>The housing allowance is typically the second-largest component, ranging from 25 to 40 percent of the basic salary. Some employers, particularly in Abu Dhabi's government and semi-government sectors, provide company accommodation directly rather than a cash allowance. If you receive a housing allowance, it is paid monthly as part of your salary and you arrange your own rental. If the employer provides accommodation, this benefit is separate from your cash salary and does not factor into gratuity calculations. In Dubai, where a one-bedroom apartment in areas like JLT or Business Bay costs AED 5,000 to 8,000 per month, a typical housing allowance of AED 5,000 to 7,000 for a mid-level professional covers much of the rent.</p>
+
+<p>Transport allowances range from AED 500 to 2,500 per month for most positions, with senior roles sometimes receiving a company car or higher cash allowance. This is intended to cover fuel, Salik toll charges, parking, or metro passes depending on your commuting preference. Some employers provide a one-time relocation allowance upon joining, covering shipping costs, temporary hotel accommodation, and initial setup expenses. This is typically equivalent to one to two months of basic salary.</p>
+
+<p>Annual return flights to your home country are a standard benefit under UAE labor law. Your employment contract will specify whether this covers economy, business, or first class travel, and whether it extends to dependents. Most mid-level contracts include economy flights for the employee and sponsored family members. Senior packages often include business class. The financial value of annual flights ranges from AED 2,000 for a nearby corridor (such as India or the Philippines) to AED 15,000 or more for long-haul destinations (Europe, Americas, Australia).</p>
+
+<h2>Understanding the Wage Protection System</h2>
+
+<p>The UAE's Wage Protection System, administered by the Ministry of Human Resources and Emiratisation (MoHRE), is a regulatory framework that requires all private-sector employers to pay salaries electronically through approved banks and exchange houses. The system was introduced to combat late or non-payment of wages and has become one of the most effective worker protection mechanisms in the Gulf.</p>
+
+<p>Under WPS rules, employers must transfer salaries within 15 days of the due date specified in the employment contract. If salaries are delayed beyond this period, MoHRE receives automated alerts and can investigate the employer. Repeated violations result in sanctions including suspension of new work permit issuance, fines, and potential criminal prosecution for company directors. For employees, this means a high degree of confidence that wages will be paid on time. If your salary is delayed, you have the right to file a complaint with MoHRE through the MOHRE app or by calling 600590000.</p>
+
+<p>To receive salary through WPS, you must have an active bank account with a UAE-licensed financial institution. Opening an account requires your passport, Emirates ID, visa page, and a salary certificate from your employer. Major banks serving the expat market include Emirates NBD, First Abu Dhabi Bank, ADCB, Mashreq, and RAKBANK. Digital banks like Liv by Emirates NBD, Mashreq Neo, and Wio Bank offer streamlined account opening for those who prefer mobile-first banking. Our <a href="/guides/banking-expats-gulf/">banking guide</a> covers the full process.</p>
+
+<h2>Salary Benchmarks by Industry in 2026</h2>
+
+<p>Compensation levels in the UAE vary enormously by industry, seniority, and location within the country. The following benchmarks reflect 2026 market rates for expatriate professionals in Dubai and Abu Dhabi, expressed as monthly total packages (basic plus allowances, before gratuity).</p>
+
+<p>In the technology sector, which has seen the strongest growth trajectory, junior software developers start at AED 8,000 to 14,000 per month (~EUR 2,000-3,500), while mid-level engineers command AED 18,000 to 30,000 (~EUR 4,500-7,500). Senior engineers and engineering managers at top-tier companies in DIFC or Dubai Internet City earn AED 35,000 to 55,000 (~EUR 8,750-13,750). Data scientists and AI specialists are in particular demand, with packages starting at AED 22,000 (~EUR 5,500) for experienced hires and reaching AED 60,000+ (~EUR 15,000+) for heads of department at financial institutions and large tech companies.</p>
+
+<p>Healthcare professionals are among the highest-paid expats in the UAE. General practitioners earn AED 15,000 to 30,000 per month (~EUR 3,750-7,500), while specialists and consultants at major hospital groups such as Mediclinic, Cleveland Clinic Abu Dhabi, and American Hospital Dubai command AED 35,000 to 70,000 (~EUR 8,750-17,500). Nursing staff earn AED 6,000 to 15,000 (~EUR 1,500-3,750) depending on specialty and experience, with packages typically including accommodation or a housing allowance.</p>
+
+<p>Finance professionals based in DIFC or ADGM earn premium salaries reflecting the concentration of banking, asset management, and insurance headquarters in these financial free zones. Analysts start at AED 12,000 to 20,000 (~EUR 3,000-5,000), managers earn AED 25,000 to 45,000 (~EUR 6,250-11,250), and directors and partners at major firms command AED 50,000 to 100,000+ (~EUR 12,500-25,000+), often with significant bonus structures that can add 30 to 100 percent of base salary annually.</p>
+
+<p>Education salaries for teachers at international schools range from AED 8,000 to 12,000 (~EUR 2,000-3,000) at budget-tier schools to AED 15,000 to 22,000 (~EUR 3,750-5,500) at premium institutions like GEMS Wellington, Dubai College, or Brighton College Abu Dhabi. Packages at top schools typically include furnished accommodation or a housing allowance, annual flights, and tuition discount for the teacher's own children. School leadership roles (heads of department, vice principals, principals) earn AED 25,000 to 50,000+ (~EUR 6,250-12,500+).</p>
+
+<p>Construction and engineering professionals benefit from the UAE's continuous development pipeline. Project managers earn AED 18,000 to 35,000 (~EUR 4,500-8,750), civil engineers AED 10,000 to 25,000 (~EUR 2,500-6,250), and senior architects AED 20,000 to 40,000 (~EUR 5,000-10,000). Abu Dhabi's ADNOC and its subsidiaries offer some of the most generous packages in the country for petroleum engineers and related specialties, with total compensation often reaching AED 40,000 to 60,000 (~EUR 10,000-15,000) for senior technical roles.</p>
+
+<h2>Comparing UAE Salaries to Taxed Markets</h2>
+
+<p>The true value of a UAE salary only becomes clear when compared to equivalent positions in countries with income tax. The comparison requires accounting for income tax rates, social security or national insurance contributions, and differences in employer-provided benefits.</p>
+
+<p>Consider a mid-level professional earning AED 25,000 per month in Dubai, which equals AED 300,000 per year or approximately EUR 75,000. In the UAE, this is the exact take-home amount. To receive the same EUR 75,000 after tax in the United Kingdom, you would need a gross salary of approximately GBP 108,000 (factoring in income tax at 40% marginal rate plus 2% National Insurance above the threshold). In Germany, the required gross salary would be approximately EUR 130,000 given combined income tax and social contributions of roughly 42 to 45 percent at that level. In the United States, depending on state, a gross salary of USD 105,000 to 120,000 would be needed to net the same amount after federal and state income taxes plus FICA contributions.</p>
+
+<p>Beyond the tax savings, UAE packages typically include benefits that would be additional costs in Western countries: health insurance (worth EUR 3,000 to 8,000 per year), housing allowance (not commonly provided in Western markets), annual flights (EUR 1,000 to 5,000), and end-of-service gratuity (an additional 5 to 8 percent of base salary accrued annually). When all components are factored in, a UAE package of AED 25,000 per month provides spending power comparable to a pre-tax salary of EUR 95,000 to EUR 110,000 in a typical Western European market.</p>
+
+<h2>End-of-Service Gratuity</h2>
+
+<p>Every employee who completes at least one year of continuous service with a UAE employer is entitled to an end-of-service gratuity payment upon termination, regardless of the reason for leaving. The calculation is based on the basic salary only (not total package) and follows a tiered formula defined in Federal Decree-Law No. 33 of 2021.</p>
+
+<p>For the first five years of service, the gratuity is calculated at 21 calendar days of basic salary per year. For each additional year beyond five years, the rate increases to 30 calendar days per year. The total gratuity amount is capped at two years of basic salary regardless of tenure length. For example, an employee with a basic salary of AED 15,000 per month who works for seven years would receive: five years at 21 days (AED 15,000 divided by 30, multiplied by 21, multiplied by 5 = AED 52,500) plus two years at 30 days (AED 15,000 divided by 30, multiplied by 30, multiplied by 2 = AED 30,000), totalling AED 82,500.</p>
+
+<p>This gratuity functions as a form of deferred compensation and represents a meaningful lump sum when you leave your role. For a full explanation of how gratuity works across all three Gulf countries, including edge cases and the new optional savings scheme, see our <a href="/guides/gratuity-end-of-service-explained/">gratuity guide</a>.</p>
+
+<h2>Negotiating Your UAE Salary</h2>
+
+<p>Effective salary negotiation in the UAE requires understanding the complete package structure and knowing which components to prioritize. The first rule is to always negotiate on total compensation, not just the headline basic salary. An offer of AED 20,000 basic with AED 7,000 housing allowance and AED 1,500 transport (total AED 28,500) may be better than AED 23,000 basic with AED 3,000 housing and no transport (total AED 26,000), but the second offer yields a higher gratuity at termination because gratuity is calculated on basic salary alone.</p>
+
+<p>Ask explicitly about the following during negotiation: the split between basic salary and allowances, whether housing is provided as accommodation or a cash allowance, the insurance tier (class A, B, or C, and whether it covers dependents), flight class and whether it covers family members, relocation allowance, education allowance if you have children, notice period (30 days is standard, 90 days is common for senior roles), and any non-compete or gardening leave clauses. Each of these components has a tangible financial value that should be factored into your assessment of the overall offer.</p>
+
+<p>Timing matters. The UAE recruitment market is most active from September through April, coinciding with the cooler months and the business planning cycle. Offers made during peak hiring season tend to be more competitive. If you are already employed in the UAE and changing jobs, you have leverage from not needing visa sponsorship urgently, allowing you to negotiate from a position of strength. Counter-offers from current employers are common in the UAE when a valued employee resigns, so be prepared for that dynamic if you are switching roles within the market.</p>
+
+<h2>Common Salary Deductions and Costs</h2>
+
+<p>While there is no income tax, several regular costs effectively reduce your disposable income in the UAE. The 5% Value Added Tax applies to most goods and services, adding approximately AED 400 to 1,000 per month to the budget of a typical professional household. Residential rent is VAT-exempt, which is a significant benefit. DEWA electricity and water bills in Dubai average AED 500 to 1,200 per month depending on property size and season, with summer months significantly higher due to air conditioning. Mobile phone plans cost AED 100 to 350 per month, and home internet adds AED 300 to 500. Salik road tolls accumulate AED 200 to 500 monthly for regular commuters crossing major Dubai corridors.</p>
+
+<p>For families, school fees are the most significant non-rent expense. International school tuition ranges from AED 15,000 to over AED 100,000 per child per year, and not all employers provide education allowances. When evaluating a family package, confirm whether school fees are included, what the cap is per child, and how many children are covered. A comprehensive education allowance can be worth AED 40,000 to 80,000 per year per child at the mid-to-premium tier, fundamentally changing the attractiveness of a package for families.</p>
+
+<h2>Free Zone vs Mainland Employment</h2>
+
+<p>Your employer's legal structure affects certain aspects of your compensation. Mainland companies are regulated by MoHRE and must comply with all federal labor law provisions including WPS, gratuity, and notice period rules. Free zone companies are regulated by their respective free zone authorities (DIFC, DMCC, JAFZA, etc.) and may have slightly different employment regulations, though most align closely with federal law. DIFC, as a financial free zone, has its own employment law (DIFC Law No. 2 of 2019) that differs from federal law on certain points including termination procedures and the calculation of end-of-service benefits. If you are joining a DIFC-based employer, review the DIFC-specific employment terms carefully.</p>
+
+<p>Salary benchmarking data shows that free zone employers in technology and finance hubs like DIFC, DIC, and ADGM tend to offer higher base salaries than comparable mainland positions, reflecting the competitive dynamics of these concentrated professional ecosystems. However, mainland employers sometimes offer more generous allowance packages, particularly in sectors like construction, oil and gas, and hospitality where allowances for housing, transport, and remote work assignments form a larger share of total compensation.</p>
+
+<h2>Salary Growth and Career Progression</h2>
+
+<p>Annual salary increases in the UAE private sector average 3 to 5 percent for standard performers and 7 to 12 percent for high performers in competitive sectors like technology, finance, and healthcare. Promotions typically yield 15 to 25 percent increases. The most effective way to achieve significant salary growth in the UAE is through strategic job changes every two to three years, as market rates for experienced professionals often outpace internal increment budgets. Professionals who stay with one employer for extended periods may find their salary lagging market rates by 10 to 20 percent after three to four years.</p>
+
+<p>The Golden Visa, available to professionals earning AED 30,000 or more per month with a bachelor's degree or higher, provides a structural advantage for salary negotiation. Golden Visa holders can self-sponsor their residence and are not dependent on employer sponsorship, which gives them greater flexibility to negotiate and switch employers without visa complications. This independence is increasingly valued in the UAE job market and can translate into a 5 to 10 percent premium in salary negotiations compared to candidates who require employer sponsorship.</p>
+
+<h2>Practical Steps After Receiving an Offer</h2>
+
+<p>When you receive a UAE job offer, take the following steps. First, request the full offer letter including all compensation components broken down individually. Calculate the total annual value including base, allowances, estimated bonus, flight value, insurance value, and annualized gratuity. Second, benchmark the offer against market data for your role, industry, and seniority level using salary surveys from recruitment firms like Robert Half, Michael Page, and Hays. Third, model your monthly budget using our <a href="/uae/cost-of-living/">cost-of-living guide</a> to determine how much you can save. Fourth, confirm the visa type (standard employment visa vs Golden Visa eligibility) and whether the employer will facilitate a Golden Visa application if you qualify. Fifth, negotiate on the components that matter most to your situation: families should prioritize education allowance and dependent insurance, while single professionals may focus on a higher basic salary for maximum gratuity accrual. Finally, get everything in writing. Verbal promises about bonuses, promotions, or benefits that are not documented in the employment contract have no legal standing under UAE labor law.</p>
+
+<FAQAccordion faqs={faqs} />
+<SourcesBlock sources={[{ name: "UAE MoHRE", url: "https://www.mohre.gov.ae/" }, { name: "UAE WPS", url: "https://www.mohre.gov.ae/en/services/wages-protection-system.aspx" }]} />
+<RelatedLinks links={[{ label: "UAE Gratuity Calculator", href: "/uae/gratuity-calculator/" }, { label: "UAE Cost of Living", href: "/uae/cost-of-living/" }, { label: "UAE Labor Law", href: "/uae/labor-law/" }, { label: "UAE Expat Guide", href: "/uae/guide/" }, { label: "Banking for Expats", href: "/guides/banking-expats-gulf/" }]} />
+</GuideLayout>
