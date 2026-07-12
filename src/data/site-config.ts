@@ -10,7 +10,7 @@ export const SITE = {
     bio: "Mottalib Radif holds an MBA from INSEAD and has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.",
   },
   year: 2026,
-  googleVerifyCode: "", // google-site-verification meta tag value from Google Search Console
+  googleVerifyCode: "b2YamsA61r7xK6-y3ozt05eM3ijS1Hi_Jsp9sOqANH0", // google-site-verification meta tag value from Google Search Console
   bingVerifyCode: "", // msvalidate.01 code from Bing Webmaster Tools
   clarityId: "placeholder-clarity-id",
   ogImage: "/og-default.png",
