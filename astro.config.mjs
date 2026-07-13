@@ -14,6 +14,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   redirects: {
+    "/uae/": "/uae/guide/",
+    "/qatar/": "/qatar/guide/",
+    "/saudi-arabia/": "/saudi-arabia/guide/",
     "/uae/visa-guide/": "/uae/visa/",
     "/qatar/visa-guide/": "/qatar/visa/",
     "/saudi-arabia/visa-guide/": "/saudi-arabia/visa/",
