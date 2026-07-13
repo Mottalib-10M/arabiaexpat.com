@@ -36,7 +36,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="flex items-end">
-      <button type="button" onclick="(function(){var s=parseInt(document.getElementById('rSal').value)||0,c=parseInt(document.getElementById('rLife').value),sv=s-c,r=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('rResult').innerHTML=sv>0?'<strong>Monthly savings: SAR '+sv.toLocaleString()+' (~EUR '+(sv*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+r+'%. Annual: SAR '+(sv*12).toLocaleString()+' (~EUR '+(sv*12*0.24|0).toLocaleString()+'). Zero income tax.</span>':'<span class=\'text-red-600\'>Expenses exceed salary.</span>';})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate</button>
+      <button type="button" onclick="_calcRiyadh()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate</button>
     </div>
     <div id="rResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -92,4 +92,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Riyadh Municipality", url: "https://www.alriyadh.gov.sa/" }, { name: "Vision 2030", url: "https://www.vision2030.gov.sa/" }]} />
 <RelatedLinks links={[{ label: "Saudi Expat Guide", href: "/saudi-arabia/guide/" }, { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" }, { label: "Dubai vs Riyadh", href: "/compare/dubai-vs-riyadh/" }, { label: "Saudi Arabia Visa Guide", href: "/saudi-arabia/visa-guide/" }, { label: "Jeddah City Guide", href: "/saudi-arabia/jeddah/" }]} />
+<script is:inline>
+function _calcRiyadh(){var s=parseInt(document.getElementById('rSal').value)||0,c=parseInt(document.getElementById('rLife').value),sv=s-c,r=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('rResult').innerHTML=sv>0?'<strong>Monthly savings: SAR '+sv.toLocaleString()+' (~EUR '+(sv*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+r+'%. Annual: SAR '+(sv*12).toLocaleString()+' (~EUR '+(sv*12*0.24|0).toLocaleString()+'). Zero income tax.</span>':'<span class=\'text-red-600\'>Expenses exceed salary.</span>';}
+</script>
 </GuideLayout>

@@ -41,7 +41,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-2">
-      <button type="button" onclick="(function(){var c=parseInt(document.getElementById('epComp').value),f=document.getElementById('epFam').value,groc=f==='single'?800:f==='couple'?1300:1800,util=f==='family'?500:300,trans=400,school=f==='family'?3500:0,dining=f==='single'?600:1000,misc=f==='single'?300:600,bahrain=400,total=c+groc+util+trans+school+dining+misc+bahrain;document.getElementById('epResult').innerHTML='<strong>Monthly total: SAR '+total.toLocaleString()+' (~EUR '+(total*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Rent: SAR '+c.toLocaleString()+' | Groceries: SAR '+groc.toLocaleString()+' | School (avg): SAR '+school.toLocaleString()+' | Bahrain trips: SAR '+bahrain+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Budget</button>
+      <button type="button" onclick="_calcDammam()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Budget</button>
     </div>
     <div id="epResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -102,4 +102,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Eastern Province Municipality", url: "https://www.eamana.gov.sa/" }, { name: "Saudi Aramco", url: "https://www.aramco.com/" }]} />
 <RelatedLinks links={[{ label: "Saudi Expat Guide", href: "/saudi-arabia/guide/" }, { label: "Riyadh City Guide", href: "/saudi-arabia/riyadh/" }, { label: "Jeddah City Guide", href: "/saudi-arabia/jeddah/" }, { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" }, { label: "Saudi Visa Guide", href: "/saudi-arabia/visa-guide/" }]} />
+<script is:inline>
+function _calcDammam(){var c=parseInt(document.getElementById('epComp').value),f=document.getElementById('epFam').value,groc=f==='single'?800:f==='couple'?1300:1800,util=f==='family'?500:300,trans=400,school=f==='family'?3500:0,dining=f==='single'?600:1000,misc=f==='single'?300:600,bahrain=400,total=c+groc+util+trans+school+dining+misc+bahrain;document.getElementById('epResult').innerHTML='<strong>Monthly total: SAR '+total.toLocaleString()+' (~EUR '+(total*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Rent: SAR '+c.toLocaleString()+' | Groceries: SAR '+groc.toLocaleString()+' | School (avg): SAR '+school.toLocaleString()+' | Bahrain trips: SAR '+bahrain+'</span>';}
+</script>
 </GuideLayout>

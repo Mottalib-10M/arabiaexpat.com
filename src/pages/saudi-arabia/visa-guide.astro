@@ -35,7 +35,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       <input type="number" id="svDeps" value="0" min="0" max="10" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
     </div>
     <div class="sm:col-span-2">
-      <button type="button" onclick="(function(){var t=document.getElementById('svType').value,d=parseInt(document.getElementById('svDeps').value)||0,c=0,n='';if(t==='work'){c=2500+d*1500;n='Includes visa block, GAMCA medical, Iqama issuance. Employer pays all fees.';}else if(t==='family'){c=d*1500;n='Per-dependent: medical, Iqama, processing. Applied through Absher.';}else if(t==='premAnnual'){c=100000+d*5000;n='SAR 100,000/year renewable + dependent fees. Self-sponsored.';}else{c=800000+d*5000;n='SAR 800,000 one-time permanent. Property and business rights included.';}document.getElementById('svResult').innerHTML='<strong>Estimated cost: SAR '+c.toLocaleString()+' (~EUR '+(c*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>'+n+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Estimate Cost</button>
+      <button type="button" onclick="_calcVisaGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Estimate Cost</button>
     </div>
     <div id="svResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -98,4 +98,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Absher", url: "https://www.absher.sa/" }]} />
 <RelatedLinks links={[{ label: "Saudi Expat Guide", href: "/saudi-arabia/guide/" }, { label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Saudi Labor Law", href: "/saudi-arabia/labor-law/" }, { label: "Riyadh City Guide", href: "/saudi-arabia/riyadh/" }, { label: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/" }]} />
+<script is:inline>
+function _calcVisaGuide(){var t=document.getElementById('svType').value,d=parseInt(document.getElementById('svDeps').value)||0,c=0,n='';if(t==='work'){c=2500+d*1500;n='Includes visa block, GAMCA medical, Iqama issuance. Employer pays all fees.';}else if(t==='family'){c=d*1500;n='Per-dependent: medical, Iqama, processing. Applied through Absher.';}else if(t==='premAnnual'){c=100000+d*5000;n='SAR 100,000/year renewable + dependent fees. Self-sponsored.';}else{c=800000+d*5000;n='SAR 800,000 one-time permanent. Property and business rights included.';}document.getElementById('svResult').innerHTML='<strong>Estimated cost: SAR '+c.toLocaleString()+' (~EUR '+(c*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>'+n+'</span>';}
+</script>
 </GuideLayout>

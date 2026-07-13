@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import AuthorByline from "../components/ui/AuthorByline.astro";
 import { SITE } from "../data/site-config";
 
 interface Props {
@@ -31,18 +32,10 @@ const { title, description, canonical, schemas = [], breadcrumbs, lastUpdated = 
       </ol>
     </nav>
 
-    <div class="mb-6 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-      <span>By <strong class="text-gray-700 dark:text-gray-300">{SITE.author.name}</strong>, {SITE.author.credentials}</span>
-      <span>&middot;</span>
-      <time>Updated {lastUpdated}</time>
-    </div>
-
     <div class="prose prose-lg dark:prose-invert prose-teal max-w-none prose-headings:scroll-mt-20 prose-headings:font-serif prose-a:text-teal-600 dark:prose-a:text-teal-400">
       <slot />
     </div>
 
-    <div class="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm text-gray-600 dark:text-gray-400">
-      <p>Written by {SITE.author.name}, {SITE.author.credentials} &middot; Last updated {lastUpdated}</p>
-    </div>
+    <AuthorByline date={lastUpdated} />
   </article>
 </Layout>

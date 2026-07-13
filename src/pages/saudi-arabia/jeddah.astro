@@ -41,7 +41,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-2">
-      <button type="button" onclick="(function(){var h=document.getElementById('jrHousing').value,f=document.getElementById('jrFamily').value,jR={studio:1800,['1bed']:2800,['2bed']:4500,villa:10000},rR={studio:2200,['1bed']:3500,['2bed']:5500,villa:12000},jHouse=jR[h],rHouse=rR[h],groc=f==='single'?900:f==='couple'?1400:2000,util=f==='family'?500:300,trans=500,misc=f==='single'?400:800,jTotal=jHouse+groc+util+trans+misc,rTotal=rHouse+groc+util+trans+misc;document.getElementById('jrResult').innerHTML='<strong>Jeddah: SAR '+jTotal.toLocaleString()+'/mo (~EUR '+(jTotal*0.24|0).toLocaleString()+')</strong> | <strong>Riyadh: SAR '+rTotal.toLocaleString()+'/mo (~EUR '+(rTotal*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Jeddah is typically 10-15% cheaper on housing. Both have 15% VAT. Riyadh has higher salary ceilings for Vision 2030 roles.</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Cities</button>
+      <button type="button" onclick="_calcJeddah()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Cities</button>
     </div>
     <div id="jrResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -95,4 +95,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Jeddah Municipality", url: "https://www.jeddah.gov.sa/" }, { name: "Red Sea Global", url: "https://www.redseaglobal.com/" }]} />
 <RelatedLinks links={[{ label: "Saudi Expat Guide", href: "/saudi-arabia/guide/" }, { label: "Riyadh City Guide", href: "/saudi-arabia/riyadh/" }, { label: "Dammam/Khobar Guide", href: "/saudi-arabia/dammam/" }, { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" }, { label: "Saudi Visa Guide", href: "/saudi-arabia/visa-guide/" }]} />
+<script is:inline>
+function _calcJeddah(){var h=document.getElementById('jrHousing').value,f=document.getElementById('jrFamily').value,jR={studio:1800,['1bed']:2800,['2bed']:4500,villa:10000},rR={studio:2200,['1bed']:3500,['2bed']:5500,villa:12000},jHouse=jR[h],rHouse=rR[h],groc=f==='single'?900:f==='couple'?1400:2000,util=f==='family'?500:300,trans=500,misc=f==='single'?400:800,jTotal=jHouse+groc+util+trans+misc,rTotal=rHouse+groc+util+trans+misc;document.getElementById('jrResult').innerHTML='<strong>Jeddah: SAR '+jTotal.toLocaleString()+'/mo (~EUR '+(jTotal*0.24|0).toLocaleString()+')</strong> | <strong>Riyadh: SAR '+rTotal.toLocaleString()+'/mo (~EUR '+(rTotal*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Jeddah is typically 10-15% cheaper on housing. Both have 15% VAT. Riyadh has higher salary ceilings for Vision 2030 roles.</span>';}
+</script>
 </GuideLayout>

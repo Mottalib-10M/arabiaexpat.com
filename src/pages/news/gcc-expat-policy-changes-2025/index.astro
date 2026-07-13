@@ -33,7 +33,7 @@ const breadcrumbs = [
         </select>
       </div>
       <div class="flex items-end">
-        <button type="button" onclick="(function(){var t=document.getElementById('rcType').value,data={professional:{uae:'Golden Visa: Free (salary-based, AED 30,000+/mo). 10-year renewable. Self-sponsored.',qatar:'Permanent Residency: By application (10-20 yr residence required). No fee published. Annual allocation limited.',saudi:'Premium Residency Talent Track: SAR 100,000/yr or SAR 800,000 permanent. Self-sponsored.'},investor:{uae:'Golden Visa: Free (property AED 2M+). 10-year renewable. Multiple properties combinable.',qatar:'Permanent Residency: Property in Pearl/Lusail supports application. 10+ yr residence pathway.',saudi:'Premium Residency: SAR 800,000 one-time. Full property rights and business ownership.'},entrepreneur:{uae:'Green Visa: Free (AED 360K+ annual income). 5-year self-sponsored. Or freelance via free zone.',qatar:'QFZA Freelancer Permit: Application fee varies. Self-sponsored through Qatar Free Zones.',saudi:'Freelance visa through Saudi free zones. Vision 2030 expanding independent contractor options.'}};var d=data[t];document.getElementById('rcResult').innerHTML='<strong>UAE:</strong> '+d.uae+'<br><strong>Qatar:</strong> '+d.qatar+'<br><strong>Saudi:</strong> '+d.saudi;})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Programs</button>
+        <button type="button" onclick="_calcPage()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Programs</button>
       </div>
       <div id="rcResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem] space-y-1"></div>
     </form>
@@ -115,4 +115,7 @@ const breadcrumbs = [
     { label: "Best Gulf Country for Expats", href: "/guides/best-country-for-expats-gulf/" },
     { label: "UAE Cost of Living", href: "/uae/cost-of-living/" },
   ]} />
+<script is:inline>
+function _calcPage(){var t=document.getElementById('rcType').value,data={professional:{uae:'Golden Visa: Free (salary-based, AED 30,000+/mo). 10-year renewable. Self-sponsored.',qatar:'Permanent Residency: By application (10-20 yr residence required). No fee published. Annual allocation limited.',saudi:'Premium Residency Talent Track: SAR 100,000/yr or SAR 800,000 permanent. Self-sponsored.'},investor:{uae:'Golden Visa: Free (property AED 2M+). 10-year renewable. Multiple properties combinable.',qatar:'Permanent Residency: Property in Pearl/Lusail supports application. 10+ yr residence pathway.',saudi:'Premium Residency: SAR 800,000 one-time. Full property rights and business ownership.'},entrepreneur:{uae:'Green Visa: Free (AED 360K+ annual income). 5-year self-sponsored. Or freelance via free zone.',qatar:'QFZA Freelancer Permit: Application fee varies. Self-sponsored through Qatar Free Zones.',saudi:'Freelance visa through Saudi free zones. Vision 2030 expanding independent contractor options.'}};var d=data[t];document.getElementById('rcResult').innerHTML='<strong>UAE:</strong> '+d.uae+'<br><strong>Qatar:</strong> '+d.qatar+'<br><strong>Saudi:</strong> '+d.saudi;}
+</script>
 </GuideLayout>

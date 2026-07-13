@@ -40,7 +40,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-2">
-      <button type="button" onclick="(function(){var r=parseInt(document.getElementById('qHousing').value),f=document.getElementById('qFamily').value,dep=r,groc=f==='single'?900:f==='couple'?1400:2000,util=f==='family'?500:300,trans=500,school=f==='family'?5000:0,misc=f==='single'?400:800,setup=dep+2000,monthly=r+groc+util+trans+misc+(school/12|0),total=setup+monthly;document.getElementById('qBudgetResult').innerHTML='<strong>First-month total: QAR '+total.toLocaleString()+' (~EUR '+(total*0.25|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Includes deposit QAR '+dep.toLocaleString()+' + setup QAR 2,000 + monthly expenses QAR '+(monthly).toLocaleString()+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Setup Budget</button>
+      <button type="button" onclick="_calcGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Setup Budget</button>
     </div>
     <div id="qBudgetResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -105,4 +105,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }, { name: "Qatar Foundation", url: "https://www.qf.org.qa/" }]} />
 <RelatedLinks links={[{ label: "Qatar Visa Guide", href: "/qatar/visa-guide/" }, { label: "Qatar Cost of Living", href: "/qatar/cost-of-living/" }, { label: "Doha City Guide", href: "/qatar/doha/" }, { label: "Driving Licence Guide", href: "/guides/driving-licence/" }, { label: "Utilities Setup Guide", href: "/guides/utilities-setup/" }, { label: "Schools & Education", href: "/guides/schools-education/" }, { label: "Qatar Salary Data (taxfreesalaries.com)", href: "https://taxfreesalaries.com/qatar/salaries/" }, { label: "UAE vs Qatar", href: "/compare/uae-vs-qatar/" }]} />
+<script is:inline>
+function _calcGuide(){var r=parseInt(document.getElementById('qHousing').value),f=document.getElementById('qFamily').value,dep=r,groc=f==='single'?900:f==='couple'?1400:2000,util=f==='family'?500:300,trans=500,school=f==='family'?5000:0,misc=f==='single'?400:800,setup=dep+2000,monthly=r+groc+util+trans+misc+(school/12|0),total=setup+monthly;document.getElementById('qBudgetResult').innerHTML='<strong>First-month total: QAR '+total.toLocaleString()+' (~EUR '+(total*0.25|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Includes deposit QAR '+dep.toLocaleString()+' + setup QAR 2,000 + monthly expenses QAR '+(monthly).toLocaleString()+'</span>';}
+</script>
 </GuideLayout>

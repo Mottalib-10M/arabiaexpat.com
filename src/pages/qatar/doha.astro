@@ -47,7 +47,7 @@ const breadcrumbs = [
         </select>
       </div>
       <div class="flex items-end">
-        <button type="button" onclick="(function(){var s=parseInt(document.getElementById('dSalary').value)||0,l=document.getElementById('dLifestyle').value,c=l==='budget'?5500:l==='moderate'?8000:12000,sv=s-c,r=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('dSavingsResult').innerHTML=sv>0?'<strong>Monthly savings: QAR '+sv.toLocaleString()+' (~EUR '+(sv*0.25|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+r+'% | Annual savings: QAR '+(sv*12).toLocaleString()+' (~EUR '+(sv*12*0.25|0).toLocaleString()+'). Zero tax deducted.</span>':'<span class=\'text-red-600\'>Expenses exceed salary. Consider a budget lifestyle or higher-paying role.</span>';})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate</button>
+        <button type="button" onclick="_calcDoha()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate</button>
       </div>
       <div id="dSavingsResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
@@ -114,4 +114,7 @@ const breadcrumbs = [
     { label: "Qatar Salary Calculator", href: "/qatar/salary-calculator/" },
     { label: "Qatar Cost of Living", href: "/qatar/cost-of-living/" },
   ]} />
+<script is:inline>
+function _calcDoha(){var s=parseInt(document.getElementById('dSalary').value)||0,l=document.getElementById('dLifestyle').value,c=l==='budget'?5500:l==='moderate'?8000:12000,sv=s-c,r=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('dSavingsResult').innerHTML=sv>0?'<strong>Monthly savings: QAR '+sv.toLocaleString()+' (~EUR '+(sv*0.25|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+r+'% | Annual savings: QAR '+(sv*12).toLocaleString()+' (~EUR '+(sv*12*0.25|0).toLocaleString()+'). Zero tax deducted.</span>':'<span class=\'text-red-600\'>Expenses exceed salary. Consider a budget lifestyle or higher-paying role.</span>';}
+</script>
 </GuideLayout>

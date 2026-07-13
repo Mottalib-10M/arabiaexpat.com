@@ -64,7 +64,7 @@ const breadcrumbs = [
         </select>
       </div>
       <div class="sm:col-span-3">
-        <button type="button" onclick="(function(){var p=document.getElementById('cmPriority').value,d=document.getElementById('cmDuration').value,s=document.getElementById('cmSector').value,uae=0,qa=0,ksa=0;if(p==='savings'){ksa+=3;qa+=2;uae+=1}else if(p==='lifestyle'){uae+=3;ksa+=1;qa+=1}else if(p==='career'){uae+=3;ksa+=2;qa+=1}else if(p==='family'){uae+=2;qa+=2;ksa+=1}else{qa+=3;uae+=2;ksa+=1}if(d==='short'){ksa+=2;qa+=1}else if(d==='medium'){uae+=1;ksa+=1;qa+=1}else{uae+=2}if(s==='energy'){qa+=3;ksa+=2}else if(s==='tech'){uae+=2;ksa+=2}else if(s==='finance'){uae+=3;ksa+=1}else if(s==='health'){qa+=2;ksa+=2;uae+=1}else if(s==='construction'){ksa+=3;uae+=1;qa+=1}else if(s==='education'){qa+=2;uae+=2;ksa+=1}else{uae+=3;ksa+=2}var best=uae>=qa&&uae>=ksa?'UAE':qa>=uae&&qa>=ksa?'Qatar':'Saudi Arabia',note=best==='UAE'?'Best for lifestyle, career diversity, and Golden Visa long-term residency.':best==='Qatar'?'Best for zero VAT savings, energy careers, and focused family living.':'Best for maximum savings, Vision 2030 career growth, and lowest cost of living.';document.getElementById('cmResult').innerHTML='<strong>Best match: '+best+'</strong> (UAE: '+uae+', Qatar: '+qa+', Saudi: '+ksa+')<br><span class=\'text-xs text-gray-500\'>'+note+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Find My Match</button>
+        <button type="button" onclick="_calcBestCountryForExpatsGulf()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Find My Match</button>
       </div>
       <div id="cmResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
@@ -142,4 +142,7 @@ const breadcrumbs = [
     { label: "Gulf Salary Comparison", href: "/salaries/" },
     { label: "Tax-Free Countries Guide", href: "/guides/tax-free-countries-gulf/" },
   ]} />
+<script is:inline>
+function _calcBestCountryForExpatsGulf(){var p=document.getElementById('cmPriority').value,d=document.getElementById('cmDuration').value,s=document.getElementById('cmSector').value,uae=0,qa=0,ksa=0;if(p==='savings'){ksa+=3;qa+=2;uae+=1}else if(p==='lifestyle'){uae+=3;ksa+=1;qa+=1}else if(p==='career'){uae+=3;ksa+=2;qa+=1}else if(p==='family'){uae+=2;qa+=2;ksa+=1}else{qa+=3;uae+=2;ksa+=1}if(d==='short'){ksa+=2;qa+=1}else if(d==='medium'){uae+=1;ksa+=1;qa+=1}else{uae+=2}if(s==='energy'){qa+=3;ksa+=2}else if(s==='tech'){uae+=2;ksa+=2}else if(s==='finance'){uae+=3;ksa+=1}else if(s==='health'){qa+=2;ksa+=2;uae+=1}else if(s==='construction'){ksa+=3;uae+=1;qa+=1}else if(s==='education'){qa+=2;uae+=2;ksa+=1}else{uae+=3;ksa+=2}var best=uae>=qa&&uae>=ksa?'UAE':qa>=uae&&qa>=ksa?'Qatar':'Saudi Arabia',note=best==='UAE'?'Best for lifestyle, career diversity, and Golden Visa long-term residency.':best==='Qatar'?'Best for zero VAT savings, energy careers, and focused family living.':'Best for maximum savings, Vision 2030 career growth, and lowest cost of living.';document.getElementById('cmResult').innerHTML='<strong>Best match: '+best+'</strong> (UAE: '+uae+', Qatar: '+qa+', Saudi: '+ksa+')<br><span class=\'text-xs text-gray-500\'>'+note+'</span>';}
+</script>
 </GuideLayout>

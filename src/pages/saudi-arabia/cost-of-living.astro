@@ -43,7 +43,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-3">
-      <button type="button" onclick="(function(){var s=parseInt(document.getElementById('saSalary').value)||0,city=document.getElementById('saCity').value,h=document.getElementById('saHouse').value,rent={riyadh:3500,jeddah:3000,dammam:2500},other={riyadh:4500,jeddah:4000,dammam:3500},r=h==='yes'?0:rent[city],exp=r+other[city],sv=s-exp,rate=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('saResult').innerHTML=sv>0?'<strong>Monthly savings: SAR '+sv.toLocaleString()+' (~EUR '+(sv*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+rate+'% | Expenses: SAR '+exp.toLocaleString()+' (rent: SAR '+r.toLocaleString()+' + living: SAR '+other[city].toLocaleString()+'). Annual: SAR '+(sv*12).toLocaleString()+' saved tax-free.</span>':'<span class=\'text-red-600\'>Expenses SAR '+exp.toLocaleString()+' exceed salary.</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Savings</button>
+      <button type="button" onclick="_calcCostOfLiving()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Savings</button>
     </div>
     <div id="saResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -99,4 +99,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Saudi GASTAT", url: "https://www.stats.gov.sa/" }, { name: "Saudi Electricity Company", url: "https://www.se.com.sa/" }]} />
 <RelatedLinks links={[{ label: "Saudi Salaries", href: "/saudi-arabia/salaries/" }, { label: "Riyadh Guide", href: "/saudi-arabia/riyadh/" }, { label: "Jeddah Guide", href: "/saudi-arabia/jeddah/" }, { label: "Dammam Guide", href: "/saudi-arabia/dammam/" }, { label: "UAE vs Saudi Arabia", href: "/compare/uae-vs-saudi-arabia/" }]} />
+<script is:inline>
+function _calcCostOfLiving(){var s=parseInt(document.getElementById('saSalary').value)||0,city=document.getElementById('saCity').value,h=document.getElementById('saHouse').value,rent={riyadh:3500,jeddah:3000,dammam:2500},other={riyadh:4500,jeddah:4000,dammam:3500},r=h==='yes'?0:rent[city],exp=r+other[city],sv=s-exp,rate=s>0?((sv/s)*100).toFixed(1):0;document.getElementById('saResult').innerHTML=sv>0?'<strong>Monthly savings: SAR '+sv.toLocaleString()+' (~EUR '+(sv*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Savings rate: '+rate+'% | Expenses: SAR '+exp.toLocaleString()+' (rent: SAR '+r.toLocaleString()+' + living: SAR '+other[city].toLocaleString()+'). Annual: SAR '+(sv*12).toLocaleString()+' saved tax-free.</span>':'<span class=\'text-red-600\'>Expenses SAR '+exp.toLocaleString()+' exceed salary.</span>';}
+</script>
 </GuideLayout>

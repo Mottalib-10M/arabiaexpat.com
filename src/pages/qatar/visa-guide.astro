@@ -39,7 +39,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-2">
-      <button type="button" onclick="(function(){var v=document.getElementById('visaType').value,d=document.getElementById('docStatus').value,min=0,max=0,note='';if(v==='work'){min=14;max=42;note='Standard work visa with security clearance, medical, and QID issuance.';}else if(v==='transfer'){min=14;max=28;note='Employer transfer through MADLSA after serving notice period.';}else if(v==='family'){min=3;max=10;note='Family visa via Metrash2 app once sponsor has QID and minimum salary.';}else{min=60;max=180;note='Permanent residency review with limited annual allocations.';}if(d==='partial'){min+=14;max+=21;}else if(d==='none'){min+=28;max+=42;}document.getElementById('visaResult').innerHTML='<strong>Estimated timeline: '+min+'-'+max+' days</strong><br><span class=\'text-xs text-gray-500\'>'+note+'</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Estimate Timeline</button>
+      <button type="button" onclick="_calcVisaGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Estimate Timeline</button>
     </div>
     <div id="visaResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -136,4 +136,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Qatar MOI", url: "https://portal.moi.gov.qa/" }, { name: "Qatar MADLSA", url: "https://www.adlsa.gov.qa/" }]} />
 <RelatedLinks links={[{ label: "Qatar Expat Guide", href: "/qatar/guide/" }, { label: "Qatar Salaries", href: "/qatar/salaries/" }, { label: "Qatar Labor Law", href: "/qatar/labor-law/" }, { label: "Doha City Guide", href: "/qatar/doha/" }, { label: "Best Country for Expats", href: "/guides/best-country-for-expats-gulf/" }]} />
+<script is:inline>
+function _calcVisaGuide(){var v=document.getElementById('visaType').value,d=document.getElementById('docStatus').value,min=0,max=0,note='';if(v==='work'){min=14;max=42;note='Standard work visa with security clearance, medical, and QID issuance.';}else if(v==='transfer'){min=14;max=28;note='Employer transfer through MADLSA after serving notice period.';}else if(v==='family'){min=3;max=10;note='Family visa via Metrash2 app once sponsor has QID and minimum salary.';}else{min=60;max=180;note='Permanent residency review with limited annual allocations.';}if(d==='partial'){min+=14;max+=21;}else if(d==='none'){min+=28;max+=42;}document.getElementById('visaResult').innerHTML='<strong>Estimated timeline: '+min+'-'+max+' days</strong><br><span class=\'text-xs text-gray-500\'>'+note+'</span>';}
+</script>
 </GuideLayout>

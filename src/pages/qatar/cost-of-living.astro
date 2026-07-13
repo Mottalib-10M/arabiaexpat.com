@@ -37,7 +37,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="flex items-end">
-      <button type="button" onclick="(function(){var s=parseInt(document.getElementById('vatSpend').value)||0,y=parseInt(document.getElementById('vatYears').value),uae5=s*0.05,ksa15=s*0.15,uaeTotal=uae5*12*y,ksaTotal=ksa15*12*y;document.getElementById('vatResult').innerHTML='<strong>Your Qatar zero-VAT savings:</strong><br><span class=\'text-xs\'>vs UAE (5%): QAR '+uaeTotal.toLocaleString()+' (~EUR '+(uaeTotal*0.25|0).toLocaleString()+') over '+y+' yr</span><br><span class=\'text-xs\'>vs Saudi (15%): QAR '+ksaTotal.toLocaleString()+' (~EUR '+(ksaTotal*0.25|0).toLocaleString()+') over '+y+' yr</span>';})();" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Savings</button>
+      <button type="button" onclick="_calcCostOfLiving()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Savings</button>
     </div>
     <div id="vatResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -97,4 +97,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Kahramaa Qatar", url: "https://www.km.qa/" }]} />
 <RelatedLinks links={[{ label: "Qatar Salaries", href: "/qatar/salaries/" }, { label: "Qatar Salary Calculator", href: "/qatar/salary-calculator/" }, { label: "Qatar Guide", href: "/qatar/guide/" }, { label: "Doha City Guide", href: "/qatar/doha/" }, { label: "UAE vs Qatar Cost of Living", href: "/compare/uae-vs-qatar-cost-of-living/" }]} />
+<script is:inline>
+function _calcCostOfLiving(){var s=parseInt(document.getElementById('vatSpend').value)||0,y=parseInt(document.getElementById('vatYears').value),uae5=s*0.05,ksa15=s*0.15,uaeTotal=uae5*12*y,ksaTotal=ksa15*12*y;document.getElementById('vatResult').innerHTML='<strong>Your Qatar zero-VAT savings:</strong><br><span class=\'text-xs\'>vs UAE (5%): QAR '+uaeTotal.toLocaleString()+' (~EUR '+(uaeTotal*0.25|0).toLocaleString()+') over '+y+' yr</span><br><span class=\'text-xs\'>vs Saudi (15%): QAR '+ksaTotal.toLocaleString()+' (~EUR '+(ksaTotal*0.25|0).toLocaleString()+') over '+y+' yr</span>';}
+</script>
 </GuideLayout>

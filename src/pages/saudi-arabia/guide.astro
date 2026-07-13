@@ -45,7 +45,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
       </select>
     </div>
     <div class="sm:col-span-3">
-      <button type="button" onclick="(function(){var s=parseInt(document.getElementById('spSalary').value)||0,h=parseInt(document.getElementById('spHousing').value),k=parseInt(document.getElementById('spKids').value),flights=6000,insurance=5000,annual=s*12+h*12+k+flights+insurance;document.getElementById('spResult').innerHTML='<strong>Total annual package value: SAR '+annual.toLocaleString()+' (~EUR '+(annual*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Salary: SAR '+(s*12).toLocaleString()+' + Housing: SAR '+(h*12).toLocaleString()+' + Education: SAR '+k.toLocaleString()+' + Flights: SAR 6,000 + Insurance: SAR 5,000. All tax-free.</span>';})();" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Total Package</button>
+      <button type="button" onclick="_calcGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Total Package</button>
     </div>
     <div id="spResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
@@ -108,4 +108,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <FAQAccordion faqs={faqs} />
 <SourcesBlock sources={[{ name: "Saudi MHRSD", url: "https://hrsd.gov.sa/" }, { name: "Vision 2030", url: "https://www.vision2030.gov.sa/" }]} />
 <RelatedLinks links={[{ label: "Saudi Visa Guide", href: "/saudi-arabia/visa-guide/" }, { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" }, { label: "Riyadh City Guide", href: "/saudi-arabia/riyadh/" }, { label: "Jeddah City Guide", href: "/saudi-arabia/jeddah/" }, { label: "Driving Licence Guide", href: "/guides/driving-licence/" }, { label: "Utilities Setup Guide", href: "/guides/utilities-setup/" }, { label: "Schools & Education", href: "/guides/schools-education/" }, { label: "Saudi Salary Data (taxfreesalaries.com)", href: "https://taxfreesalaries.com/saudi-arabia/salaries/" }, { label: "UAE vs Saudi Arabia", href: "/compare/uae-vs-saudi-arabia/" }]} />
+<script is:inline>
+function _calcGuide(){var s=parseInt(document.getElementById('spSalary').value)||0,h=parseInt(document.getElementById('spHousing').value),k=parseInt(document.getElementById('spKids').value),flights=6000,insurance=5000,annual=s*12+h*12+k+flights+insurance;document.getElementById('spResult').innerHTML='<strong>Total annual package value: SAR '+annual.toLocaleString()+' (~EUR '+(annual*0.24|0).toLocaleString()+')</strong><br><span class=\'text-xs text-gray-500\'>Salary: SAR '+(s*12).toLocaleString()+' + Housing: SAR '+(h*12).toLocaleString()+' + Education: SAR '+k.toLocaleString()+' + Flights: SAR 6,000 + Insurance: SAR 5,000. All tax-free.</span>';}
+</script>
 </GuideLayout>
