@@ -1,16 +1,7 @@
 ---
 import { SITE } from "../../data/site-config";
-
-interface Props {
-  date?: string;
-  readTime?: string;
-}
-
-const { date = "June 2026", readTime } = Astro.props;
 ---
 
 <p class="text-xs text-gray-500 dark:text-gray-400 mb-6">
-  By <span class="font-medium text-gray-700 dark:text-gray-300">{SITE.author.name}</span>, {SITE.author.credentials}
-  &middot; Updated {date}
-  {readTime && <span> &middot; {readTime} read</span>}
+  By <span class="font-medium text-gray-700 dark:text-gray-300">{SITE.author.name}</span>, {SITE.author.credentials} &middot; Updated June 2026
 </p>
