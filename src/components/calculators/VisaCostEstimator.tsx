@@ -135,7 +135,7 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
         <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.total, currency)}</p>
         <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, currency)}</p>
       </div>
-      {result.note && <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">{result.note}. Actual costs may vary. Employment visa costs are typically borne by the employer.</p>}
+      {result.note && <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">{result.note}. Actual costs may vary. Employment visa costs are typically borne by the employer.</p>}
     </div>
   );
 }

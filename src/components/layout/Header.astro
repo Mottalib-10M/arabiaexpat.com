@@ -9,35 +9,12 @@ import { mainNav } from "../../data/nav";
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 shrink-0 group">
         <svg class="h-8 w-8 sm:h-9 sm:w-9 shrink-0" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#D97706"/>
-              <stop offset="100%" stop-color="#B45309"/>
-            </linearGradient>
-          </defs>
-          <rect width="32" height="32" rx="7" fill="url(#logo-bg)"/>
-          <g fill="white">
-            <rect x="14" y="6" width="2.5" height="20" rx="0.5"/>
-            <polygon points="15.25,4 14,7 16.5,7"/>
-            <rect x="10" y="12" width="2.2" height="14" rx="0.3"/>
-            <polygon points="11.1,10.5 10,12.5 12.2,12.5"/>
-            <rect x="18" y="10" width="3" height="16" rx="0.5"/>
-            <rect x="18.3" y="11" width="2.4" height="1" rx="0.2" fill="#B45309" opacity="0.3"/>
-            <rect x="18.3" y="13.5" width="2.4" height="1" rx="0.2" fill="#B45309" opacity="0.3"/>
-            <rect x="18.3" y="16" width="2.4" height="1" rx="0.2" fill="#B45309" opacity="0.3"/>
-            <rect x="18.3" y="18.5" width="2.4" height="1" rx="0.2" fill="#B45309" opacity="0.3"/>
-            <path d="M23,26 L23,15 Q23,13 25,14 L27,16 L27,26 Z"/>
-            <rect x="7" y="18" width="2" height="8" rx="0.3"/>
-            <rect x="4.5" y="21" width="2" height="5" rx="0.3"/>
-            <rect x="3" y="26" width="26" height="1.5" rx="0.5" opacity="0.8"/>
-            <circle cx="6" cy="8" r="0.6" opacity="0.5"/>
-            <circle cx="26" cy="7" r="0.5" opacity="0.4"/>
-            <circle cx="8" cy="11" r="0.4" opacity="0.3"/>
-          </g>
+          <rect width="32" height="32" rx="7" fill="#D97706"/>
+          <text x="16" y="21" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="800" fill="white" letter-spacing="0.5">AE</text>
         </svg>
         <div class="flex flex-col leading-none">
           <span class="text-base font-bold text-amber-600 dark:text-amber-400 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Arabia Expat</span>
-          <span class="text-[10px] text-gray-400 dark:text-gray-500 font-medium tracking-wide">VISAS &middot; DAILY LIFE &middot; GUIDES</span>
+          <span class="text-[10px] text-gray-500 dark:text-gray-400 font-medium tracking-wide">VISAS &middot; DAILY LIFE &middot; GUIDES</span>
         </div>
       </a>
 
@@ -94,7 +71,7 @@ import { mainNav } from "../../data/nav";
           <div id="search-panel" class="hidden absolute right-0 top-full mt-2 w-[340px] sm:w-[420px] bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 overflow-hidden">
             <div class="p-3 border-b border-gray-100 dark:border-gray-800">
               <div class="relative">
-                <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                 </svg>
                 <input
@@ -102,15 +79,15 @@ import { mainNav } from "../../data/nav";
                   type="text"
                   placeholder="Search guides, countries..."
                   autocomplete="off"
-                  class="w-full pl-9 pr-10 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  class="w-full pl-9 pr-10 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 />
-                <kbd class="hidden sm:inline-flex absolute right-3 top-1/2 -translate-y-1/2 items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
+                <kbd class="hidden sm:inline-flex absolute right-3 top-1/2 -translate-y-1/2 items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
                   <span class="text-xs">&#8984;</span>K
                 </kbd>
               </div>
             </div>
             <ul id="search-results" class="max-h-[360px] overflow-y-auto overscroll-contain">
-              <li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">Type to search&hellip;</li>
+              <li class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">Type to search&hellip;</li>
             </ul>
           </div>
         </div>
@@ -295,7 +272,7 @@ import { mainNav } from "../../data/nav";
     function renderResults(query) {
       var q = query.toLowerCase().trim();
       if (!q) {
-        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">Type to search&hellip;</li>';
+        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">Type to search&hellip;</li>';
         return;
       }
       var terms = q.split(/\s+/);
@@ -304,7 +281,7 @@ import { mainNav } from "../../data/nav";
         return terms.every(function(t) { return haystack.indexOf(t) !== -1; });
       });
       if (!matches.length) {
-        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-400 dark:text-gray-500">No results</li>';
+        resultsList.innerHTML = '<li class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">No results</li>';
         return;
       }
       resultsList.innerHTML = matches.slice(0, 8).map(function(item) {

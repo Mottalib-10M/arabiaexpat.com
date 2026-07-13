@@ -121,7 +121,7 @@ export default function HealthcareCostEstimator({ countryKey, currency }: Props)
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalAnnual, currency)}</p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Basic tier assumes employer-provided insurance. Enhanced and premium tiers include private insurance upgrade costs. Out-of-pocket covers copays, dental, and pharmacy.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Basic tier assumes employer-provided insurance. Enhanced and premium tiers include private insurance upgrade costs. Out-of-pocket covers copays, dental, and pharmacy.</p>
     </div>
   );
 }

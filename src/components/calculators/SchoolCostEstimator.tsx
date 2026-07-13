@@ -99,7 +99,7 @@ export default function SchoolCostEstimator({ countryKey, currency }: Props) {
           </div>
         )}
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Estimates based on 2026 average tuition. Excludes uniforms, transport, and activity fees.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Estimates based on 2026 average tuition. Excludes uniforms, transport, and activity fees.</p>
     </div>
   );
 }

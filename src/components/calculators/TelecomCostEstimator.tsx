@@ -159,7 +159,7 @@ export default function TelecomCostEstimator({ countryKey, currency }: Props) {
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total * 12, currency)}</p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">{countryKey === "uae" ? "UAE blocks free VoIP calls. BOTIM add-on (AED 50/mo) is included for internet calling." : "WhatsApp and VoIP calls work freely — no add-on needed."}</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">{countryKey === "uae" ? "UAE blocks free VoIP calls. BOTIM add-on (AED 50/mo) is included for internet calling." : "WhatsApp and VoIP calls work freely — no add-on needed."}</p>
     </div>
   );
 }

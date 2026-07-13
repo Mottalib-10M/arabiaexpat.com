@@ -128,7 +128,7 @@ export default function UtilitiesCostEstimator({ countryKey, currency }: Props) 
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(breakdown.total * 12, currency)}</p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Summer months (May-Oct) typically add 30-50% to electricity costs due to air conditioning.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Summer months (May-Oct) typically add 30-50% to electricity costs due to air conditioning.</p>
     </div>
   );
 }

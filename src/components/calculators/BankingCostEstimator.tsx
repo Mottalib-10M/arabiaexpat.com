@@ -140,7 +140,7 @@ export default function BankingCostEstimator({ countryKey, currency }: Props) {
           {result.totalAnnual > 0 && <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalAnnual, currency)}</p>}
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Premium accounts waive most fees with minimum balance requirements. Digital banks typically have zero fees. Transfer costs are for bank wire; exchange houses may be cheaper.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Premium accounts waive most fees with minimum balance requirements. Digital banks typically have zero fees. Transfer costs are for bank wire; exchange houses may be cheaper.</p>
     </div>
   );
 }

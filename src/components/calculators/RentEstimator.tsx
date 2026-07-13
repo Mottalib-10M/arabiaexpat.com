@@ -120,7 +120,7 @@ export default function RentEstimator({ countryKey, currency }: Props) {
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(midpoint * 12, currency)}</p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Based on 2026 market averages. Actual rents vary by building, landlord, and lease terms.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Based on 2026 market averages. Actual rents vary by building, landlord, and lease terms.</p>
     </div>
   );
 }

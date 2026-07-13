@@ -198,7 +198,7 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
             })}
           </div>
 
-          <p className="text-xs text-gray-500 dark:text-gray-500">
+          <p className="text-xs text-gray-500 dark:text-gray-400">
             Estimates based on 2026 market averages. Actual costs vary by area, provider, and spending habits.
           </p>
 

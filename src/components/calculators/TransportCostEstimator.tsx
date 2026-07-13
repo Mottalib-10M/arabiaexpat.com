@@ -113,7 +113,7 @@ export default function TransportCostEstimator({ countryKey, currency }: Props) 
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(monthly * 12, currency)}</p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-500">Includes fuel, insurance, parking, or pass costs. Ride-hailing estimates assume 20 work days/month.</p>
+      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Includes fuel, insurance, parking, or pass costs. Ride-hailing estimates assume 20 work days/month.</p>
     </div>
   );
 }

@@ -209,7 +209,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
             </table>
           </div>
 
-          <div className="text-xs text-gray-500 dark:text-gray-500 space-y-1">
+          <div className="text-xs text-gray-500 dark:text-gray-400 space-y-1">
             <p><strong>Formula:</strong> {result.formula}</p>
             {result.notes.map((note, i) => (
               <p key={i}>{note}</p>

@@ -236,7 +236,7 @@ export default function SalaryCalculator({ country, currency, countryName }: Pro
             </div>
           )}
 
-          <div className="text-xs text-gray-500 dark:text-gray-500">
+          <div className="text-xs text-gray-500 dark:text-gray-400">
             <p>Effective deduction rate: {(result.effectiveTaxRate * 100).toFixed(2)}% of gross salary</p>
             {country === "qatar" && <p>Qatar has no personal income tax and no social security contributions for expatriates.</p>}
             {country === "uae" && <p>The UAE has no personal income tax. Social security applies only to UAE/GCC nationals.</p>}
