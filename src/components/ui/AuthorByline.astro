@@ -9,27 +9,8 @@ interface Props {
 const { date = "June 2026", readTime } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400 mb-6 pb-6 border-b border-gray-200 dark:border-gray-800">
-  <div class="flex items-center gap-2.5">
-    <img
-      src={SITE.author.image}
-      alt={SITE.author.name}
-      class="h-9 w-9 rounded-full bg-gray-200 dark:bg-gray-700 object-cover ring-2 ring-white dark:ring-gray-800"
-      width="36"
-      height="36"
-      loading="lazy"
-    />
-    <div class="leading-tight">
-      <div class="font-semibold text-gray-700 dark:text-gray-300 text-sm">{SITE.author.name}</div>
-      <div class="text-xs text-gray-500 dark:text-gray-400">{SITE.author.credentials}</div>
-    </div>
-  </div>
-  <span class="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
-  <time class="text-xs">Updated {date}</time>
-  {readTime && (
-    <>
-      <span class="hidden sm:inline text-gray-300 dark:text-gray-700">&middot;</span>
-      <span class="text-xs">{readTime} read</span>
-    </>
-  )}
-</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-6">
+  By <span class="font-medium text-gray-700 dark:text-gray-300">{SITE.author.name}</span>, {SITE.author.credentials}
+  &middot; Updated {date}
+  {readTime && <span> &middot; {readTime} read</span>}
+</p>
