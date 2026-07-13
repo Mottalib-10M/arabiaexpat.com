@@ -12,7 +12,7 @@ export const SITE = {
   year: 2026,
   googleVerifyCode: "b2YamsA61r7xK6-y3ozt05eM3ijS1Hi_Jsp9sOqANH0", // google-site-verification meta tag value from Google Search Console
   bingVerifyCode: "", // msvalidate.01 code from Bing Webmaster Tools
-  clarityId: "placeholder-clarity-id",
+  clarityId: "xm1ogh8k02",
   ogImage: "/og-default.png",
 } as const;
 
