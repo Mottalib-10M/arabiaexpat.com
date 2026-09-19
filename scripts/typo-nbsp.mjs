@@ -15,7 +15,8 @@
  * paramètre inséré brut (`{A.x}`) ou d'un `toFixed`, avec ou sans unité derrière. Le point reste correct en anglais et en suisse allemand (de-CH).
  * fr-CH : virgule (décision du 2026-09-18, RECETTE §4).
  * En français, signale aussi les mots écrits sans leurs accents (« fiscalite », « epargne »,
- * « interets », « a partir de ») : trouvé sur 129 guides sur 208 d'epargnemalin.fr le 2026-09-19.
+ * « interets », « a partir de ») : trouvé sur 129 guides sur 208 d'epargnemalin.fr le 2026-09-19 ;
+ * et les accents ajoutés à tort (« vià », « centrès », « succèssion »).
  *
  * Usage : node scripts/typo-nbsp.mjs [dist]         (appelé par `npm run build`)
  *         node scripts/typo-nbsp.mjs [dist] --check  (compte sans modifier, code 1 si reste)
@@ -56,8 +57,9 @@ function fix(html) {
 }
 
 // Toute décimale à point, unité ou non (« 13.18 € », « 0.5 maand », « divisé par 111.8 »),
-// sauf numéros d'articles et de documents (« art. 22.2 », « artikel 11.7a », « Mémento 2.01 ») et dates.
-const DOT_DECIMAL = /(?<![\d.,’'\w])(?<!(?:art\.?|artikel|Art\.?|§|Abs\.?|al\.|Form\.?)\s?)(?<!(?:Mémento|Merkblatt|Memento)[^\d]{0,14})(?:\d{1,3}(?:['’]\d{3})+|\d+)\.\d{1,2}(?![\d.\w])/g;
+// sauf numéros d'articles et de documents (« art. 22.2 », « artikel 11.7a », « Mémento 2.01 »), dates,
+// numéros de section (« 8.1 Responsable »), cylindrées (« 1.5 TSI ») et normes (« ECE 22.05 »).
+const DOT_DECIMAL = /(?<![\d.,’'\w])(?<!(?:art\.?|artikel|Art\.?|§|Abs\.?|al\.|Form\.?|art[ií]culos?|Art[ií]culos?|articles?|Articles?|artigos?|Artigos?)\s?)(?<!\d\.\d[\d.a-z)]*,?\s(?:y|e|et|and|und|o|ou)\s)(?<!(?:Mémento|Merkblatt|Memento)[^\d]{0,14})(?<!(?:ECE|norme|\^|Ducato|\d\.\d\d ou)\s?)(?:\d{1,3}(?:['’]\d{3})+|\d+)\.\d{1,2}(?![\d.\w])(?!\s(?:[A-Z][a-zé]|TSI|TDI|TFSI|TCe|PureTech|BlueHDi|dCi|HDi|THP|hybride|essence|diesel|ou\s\d))/g;
 function dotDecimals(html) {
   const lang = (html.match(/<html[^>]*\blang="([^"]+)"/i) || [])[1] || '';
   if (/^en|^de-CH/i.test(lang)) return { lang, hits: [] };
@@ -71,6 +73,17 @@ function dotDecimals(html) {
 // (« impots.gouv.fr ») n'est pas une faute. Minuscules seulement : l'accent sur une capitale
 // (« Epargne ») est recommandé mais toléré.
 const NO_ACCENT = /(?<![\p{L}\p{N}])(epargnes?|epargner|fiscalites?|interets?|strategies?|impots?|annees?|periodes?|detaille(?:e|s|es)?|securite|necessaires?|reel(?:le|s|les)?|deja|tres|apres|beneficiaires?|societes?|systemes?|economies?|precaution|electriques?|vehicules?|resume|credit(?:s)? immobiliers?|prelevements?|deduction|remuneration|independants?|debutants?|methodes?|categories?|reduction|generale?s?|necessite|equipe|etape|etapes|criteres?|specifique|scenario|scenarios|numero|zero|a partir|a la|a l'|au dela)(?![\p{L}\p{N}]|\.[a-z])/gu;
+// Accents ajoutés à tort par un vieux script de correction : « vià », « centrès », « Titrès »,
+// « succèssion » (1 012 occurrences sur cartegrisesimple.fr, 2026-09-19). Liste blanche des
+// vrais mots en consonne + « rès » ; « è » devant une consonne doublée n'existe pas.
+const RES_OK = new Set(['très', 'près', 'après', 'auprès', 'exprès', 'progrès', 'congrès', 'cyprès', 'crès']);
+const WRONG_ACCENT = /(?<![\p{L}])(vià|và|[\p{L}]*è(?:ss|tt|ll|nn|mm|pp|rr)[\p{L}]*|[\p{L}]*[bcdfgmnprtv]rès)(?![\p{L}])/gu;
+function wrongAccents(html) {
+  if (!/<html[^>]*\blang="fr/i.test(html)) return [];
+  const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ');
+  return (text.match(WRONG_ACCENT) || []).filter((w) => !RES_OK.has(w.toLowerCase()));
+}
+
 function missingAccents(html) {
   if (!/<html[^>]*\blang="fr/i.test(html)) return [];
   const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/https?:\/\/\S+/g, ' ');
@@ -86,6 +99,8 @@ for await (const f of walk(dist)) {
   if (CHECK) {
     const { lang, hits } = dotDecimals(html);
     if (hits.length) { dots += hits.length; dotPages.push(`${f} : ${hits.slice(0, 3).join(', ')}`); }
+    const wrong = wrongAccents(html);
+    if (wrong.length) { accents += wrong.length; accentPages.push(`${f} : accent faux ${[...new Set(wrong)].slice(0, 4).join(', ')}`); }
     const miss = missingAccents(html);
     if (miss.length) { accents += miss.length; accentPages.push(`${f} : ${[...new Set(miss)].slice(0, 4).join(', ')}`); }
   }
@@ -94,7 +109,7 @@ console.log(`typo-nbsp: ${total} espace(s) ${CHECK ? 'à corriger' : 'rendue(s) 
 if (CHECK) {
   console.log(`typo-nbsp: ${dots} décimale(s) avec un point dans une langue à virgule`);
   dotPages.slice(0, 10).forEach((l) => console.log('  ' + l));
-  console.log(`typo-nbsp: ${accents} mot(s) français sans accent`);
+  console.log(`typo-nbsp: ${accents} mot(s) français sans accent ou avec un accent faux`);
   accentPages.slice(0, 10).forEach((l) => console.log('  ' + l));
 }
 if (CHECK && (total || dots || accents)) process.exit(1);
