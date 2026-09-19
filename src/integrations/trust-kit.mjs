@@ -153,16 +153,23 @@ export default function trustKit(opts) {
             };
             html = enrichJsonLd(html, ld['@graph'][0], AUTHOR);
             html = html.replace('</head>', `<script type="application/ld+json" data-trust-kit>${JSON.stringify(ld)}</script></head>`);
-            html = /<h1[\s>]/.test(html) ? html.replace(/<h1[\s>]/, (m) => top + m)
-                 : html.includes('</header>') ? html.replace('</header>', `</header>${top}`)
+            // Juste avant le premier <h1> ; si ce <h1> est dans un îlot React (<astro-island>),
+            // avant l'îlot : React compare son rendu au HTML servi, on n'y insère jamais rien.
+            const h1 = html.search(/<h1[\s>]/);
+            if (h1 >= 0) {
+              let at = h1;
+              const open = html.lastIndexOf('<astro-island', h1);
+              if (open >= 0 && html.lastIndexOf('</astro-island>', h1) < open) at = open;
+              html = html.slice(0, at) + top + html.slice(at);
+            } else html = html.includes('</header>') ? html.replace('</header>', `</header>${top}`)
                  : html.replace(/<body[^>]*>/, (m) => m + top);
             const i = html.lastIndexOf('</footer>');
             html = i >= 0 ? html.slice(0, i) + bottom + html.slice(i) : html.replace('</body>', `${bottom}</body>`);
             html = wrapTables(html);
             // Le conteneur défilant empêche la marge du tableau de fusionner avec celle du
             // paragraphe voisin : on la reporte sur le conteneur, sinon 56 px de trou.
-            if (html.includes('class="table-scroll"'))
-              html = html.replace('</head>', '<style data-trust-kit>.table-scroll{margin:1.5em 0}.table-scroll>table{margin:0!important}</style></head>');
+            if (html.includes('<table'))
+              html = html.replace('</head>', '<style data-trust-kit>.table-scroll,.prose .overflow-x-auto{margin:1.5em 0}.table-scroll>table,.prose .overflow-x-auto>table{margin:0!important}</style></head>');
             await writeFile(f, html); done++;
           }
         }
