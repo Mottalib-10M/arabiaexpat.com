@@ -1,4 +1,5 @@
 ---
+import { fit, TITLE_RANGE, DESC_RANGE } from '../../../lib/snippet';
 import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { corridors } from "../../../data/corridors";
 import { destinationCities } from "../../../data/destination-cities";
@@ -32,11 +33,20 @@ const breadcrumbs = [
   { name: "Relocating From", url: "https://arabiaexpat.com/relocating-from/india/" },
   { name: corridor.country, url: `https://arabiaexpat.com/relocating-from/${corridor.slug}/` },
 ];
+const pageTitle = fit(`Moving to the Gulf from ${corridor.country} 2026`,
+  [': Full Relocation Checklist', ': Relocation Checklist', ': Full Checklist', ': Checklist', ''], TITLE_RANGE, 'title');
+const metaDescription = fit(`Moving to the Gulf from ${corridor.country} in 2026:`, [
+  ` visa documents, salary expectations, cost of living comparison, schools, cultural tips and ${corridor.demonym} community resources.`,
+  ` visa documents, salary expectations, cost of living comparison, cultural tips and ${corridor.demonym} community resources.`,
+  ` visa documents, salary expectations, cost comparison, schools, cultural tips and ${corridor.demonym} community resources.`,
+  ` visa documents, salary expectations, cost comparison, cultural tips and ${corridor.demonym} community resources.`,
+  ` visa documents, salary expectations, cost comparison, cultural tips and community resources.`,
+], DESC_RANGE, 'description');
 ---
 
 <GuideLayout
-  title={`Moving from ${corridor.country} to Gulf 2026 | Full Checklist`}
-  description={`Step-by-step 2026 guide for ${corridor.demonym} expats: visa documents, salary expectations, cost comparison, cultural tips and ${corridor.demonym} community resources in the Gulf.`}
+  title={pageTitle}
+  description={metaDescription}
   canonical={`/relocating-from/${corridor.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Relocating From", url: "/relocating-from/india/" }, { name: corridor.country, url: `/relocating-from/${corridor.slug}/` }]}

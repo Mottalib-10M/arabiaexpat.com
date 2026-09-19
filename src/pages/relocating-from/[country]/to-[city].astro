@@ -1,4 +1,5 @@
 ---
+import { fit, TITLE_RANGE, DESC_RANGE } from '../../../lib/snippet';
 import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { corridors } from "../../../data/corridors";
 import { destinationCities } from "../../../data/destination-cities";
@@ -54,11 +55,25 @@ const breadcrumbs = [
   { name: `From ${corridor.country}`, url: `https://arabiaexpat.com/relocating-from/${corridor.slug}/` },
   { name: `To ${city.name}`, url: `https://arabiaexpat.com/relocating-from/${corridor.slug}/to-${city.slug}/` },
 ];
+const pageTitle = fit(`Moving to ${city.name} from ${corridor.country} 2026`,
+  [': Salary, Rent and Visa Guide', ': Salary, Rent and Visa', ': Salary, Cost, Visa', ': Visa and Salary', ': Full Guide', ''], TITLE_RANGE, 'title');
+const metaDescription = fit(`${corridor.demonym} professionals moving to ${city.name}:`, [
+  ` tax-free salary data, rent and living costs compared with ${corridor.country}, visa steps, required documents and ${corridor.demonym} community tips.`,
+  ` tax-free salary data, rent and living costs compared with ${corridor.country}, visa steps, documents and ${corridor.demonym} community tips.`,
+  ` tax-free salary data, rent compared with ${corridor.country}, visa steps, required documents, schools and ${corridor.demonym} community tips.`,
+  ` tax-free salary data, rent compared with ${corridor.country}, visa steps, required documents and ${corridor.demonym} community tips.`,
+  ` tax-free salary data, rent compared with ${corridor.country}, visa steps, documents and ${corridor.demonym} community tips.`,
+  ` tax-free salary data, rent compared with ${corridor.country}, visa steps, documents and community tips.`,
+  ` tax-free salaries, rent compared with ${corridor.country}, visa steps, documents and community tips.`,
+  ` tax-free salaries, rent against ${corridor.country}, visa steps, documents and community tips.`,
+  ` salaries, rent against ${corridor.country}, visa steps, documents and community tips.`,
+  ` salaries, rent against ${corridor.country}, visa steps and community tips.`,
+], DESC_RANGE, 'description');
 ---
 
 <GuideLayout
-  title={`${corridor.country} to ${city.name} 2026 | Salary, Cost & Visa`}
-  description={`${corridor.demonym} professionals moving to ${city.name}: tax-free salary data, rent vs ${corridor.country} costs, visa steps, required documents and ${corridor.demonym} community tips.`}
+  title={pageTitle}
+  description={metaDescription}
   canonical={`/relocating-from/${corridor.slug}/to-${city.slug}/`}
   schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: `From ${corridor.country}`, url: `/relocating-from/${corridor.slug}/` }, { name: `To ${city.name}`, url: `/relocating-from/${corridor.slug}/to-${city.slug}/` }]}

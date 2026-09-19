@@ -37,3 +37,14 @@ jobs:
           local-dir: ./dist/
           server-dir: /www/
           dangerous-clean-slate: false
+
+      - name: Ping IndexNow (Bing, Yandex)
+        if: success()
+        run: |
+          KEY=434f8e28e564afd75ff290e234154507
+          URLS=$(cat dist/sitemap-*.xml | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g' | grep -v 'sitemap-')
+          echo "$URLS" | jq -R -s -c 'split("\n") | map(select(length > 0)) | _nwise(1000)' | while read -r BATCH; do
+            curl -s -o /dev/null -w "IndexNow %{http_code}\n" -X POST https://api.indexnow.org/IndexNow \
+              -H "Content-Type: application/json; charset=utf-8" \
+              -d "{\"host\":\"arabiaexpat.com\",\"key\":\"$KEY\",\"keyLocation\":\"https://arabiaexpat.com/$KEY.txt\",\"urlList\":$BATCH}" || true
+          done
