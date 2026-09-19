@@ -143,3 +143,7 @@ body {
 .dark .prose strong {
   color: #e5e7eb;
 }
+
+/* Titres longs sur mobile (RECETTE §10.3) : « Comprehensive » en prose-lg dépassait l'écran
+   de 13 à 23 px. Taille fluide + césure plutôt qu'un mot coupé au hasard. */
+.prose h1 { font-size: clamp(1.75rem, 6.5vw, 2.5rem); hyphens: auto; overflow-wrap: break-word; }

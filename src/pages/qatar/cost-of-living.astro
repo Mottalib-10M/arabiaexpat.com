@@ -23,13 +23,13 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
   <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Qatar VAT Savings Calculator</h2>
   <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">See how much Qatar's zero-VAT policy saves you compared to living in the UAE or Saudi Arabia.</p>
   <form id="vatCalc" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    <div>
+    <div class="flex flex-col justify-end">
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="vatSpend">Monthly spending on goods/services (QAR)</label>
-      <input type="number" id="vatSpend" value="6000" min="1000" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
+      <input type="number" id="vatSpend" value="6000" min="1000" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 h-10 text-sm" />
     </div>
-    <div>
+    <div class="flex flex-col justify-end">
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="vatYears">Contract duration (years)</label>
-      <select id="vatYears" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
+      <select id="vatYears" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 h-10 text-sm">
         <option value="1">1 year</option>
         <option value="2" selected>2 years</option>
         <option value="3">3 years</option>
