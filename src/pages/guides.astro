@@ -38,6 +38,15 @@ const specialtyGuides = [
   { title: "Qatar Visa Guide 2026", href: "/qatar/visa-guide/", description: "Work visa process, residence permit, and labor reform updates." },
   { title: "Saudi Arabia Visa Guide 2026", href: "/saudi-arabia/visa-guide/", description: "Iqama process, Premium Residency, and Saudization impact." },
 ];
+const faqItems = [
+  { question: "Which guide should I read before accepting a Gulf offer?", answer: "Start with the guide to gratuity and end-of-service benefits, because it is the part of an offer candidates most often misjudge, then the housing and cost-of-living guides for the city concerned. Together they turn a headline salary into a realistic picture of what you will actually save." },
+  { question: "Do these guides apply to all three Gulf countries?", answer: "The structure of pay and benefits is similar, but the detail is not. Notice periods, gratuity formulas, social insurance and visa rules all differ between the UAE, Saudi Arabia and Qatar. Each guide states which country a rule applies to and links the ministry source behind it." },
+  { question: "Are the guides aimed at new arrivals or long-term residents?", answer: "Mostly at people deciding whether to move and at those in their first year, which is when the costly mistakes happen: signing a package weighted towards allowances, underestimating school fees, or missing the attestation deadlines. Long-term residents will find the labour law and gratuity pages the most useful." },
+  { question: "How current is the information?", answer: "Each guide names the decree or ministerial decision it relies on and carries a verification date. Gulf labour law has changed substantially since 2021, and rules abolished years ago still circulate on expatriate forums, which is why we cite the text rather than repeating received wisdom." },
+  { question: "Do the guides cover family relocation?", answer: "Yes, where the rules differ for dependants: visa sponsorship of a spouse and children, mandatory health cover, and school admission timelines. Schooling is usually the binding constraint rather than housing, because the better international schools maintain waiting lists and applications are made before the family arrives." },
+  { question: "Is there a guide for leaving the Gulf?", answer: "The gratuity guide covers the financial side of departure, which is where most money is at stake, alongside the rules on final settlement and visa cancellation. Closing bank accounts, settling loans and cancelling utilities have to happen before the residence permit lapses, not after." },
+];
+const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
 ---
 
 <GuideLayout
@@ -155,4 +164,16 @@ const specialtyGuides = [
 function _calcGuides(){var s=document.getElementById('snStage').value,guides={research:'Start with <a href=\'/guides/best-country-for-expats-gulf/\' class=\'text-teal-600 hover:underline\'>Best Country Comparison</a>, then check <a href=\'/uae/cost-of-living/\' class=\'text-teal-600 hover:underline\'>Cost of Living</a> guides and <a href=\'https://taxfreesalaries.com/salaries/\' class=\'text-teal-600 hover:underline\'>Salary Data</a>.',offer:'Review the <a href=\'/uae/visa-guide/\' class=\'text-teal-600 hover:underline\'>Visa Guide</a> for your country, check <a href=\'/uae/cost-of-living/\' class=\'text-teal-600 hover:underline\'>Cost of Living</a> to model savings, and use the <a href=\'https://taxfreesalaries.com/tools/\' class=\'text-teal-600 hover:underline\'>Salary Calculator</a>.',accepted:'Focus on <a href=\'/guides/driving-licence/\' class=\'text-teal-600 hover:underline\'>Driving Licence</a>, <a href=\'/guides/schools-education/\' class=\'text-teal-600 hover:underline\'>Schools</a> (apply now!), and your country\'s <a href=\'/uae/guide/\' class=\'text-teal-600 hover:underline\'>Comprehensive Guide</a>. Start document attestation immediately.',arrived:'Set up <a href=\'/guides/utilities-setup/\' class=\'text-teal-600 hover:underline\'>Utilities</a>, get a <a href=\'/guides/telecom-mobile/\' class=\'text-teal-600 hover:underline\'>Mobile Plan</a>, open a <a href=\'/guides/banking-expats-gulf/\' class=\'text-teal-600 hover:underline\'>Bank Account</a>, and convert your <a href=\'/guides/driving-licence/\' class=\'text-teal-600 hover:underline\'>Driving Licence</a>.',settled:'Browse by topic below or use our <a href=\'/glossary/\' class=\'text-teal-600 hover:underline\'>Glossary</a> for specific terms. Check <a href=\'/news/\' class=\'text-teal-600 hover:underline\'>News</a> for policy updates.'};document.getElementById('snResult').innerHTML=guides[s]||'';}
 </script>
   <OfficialSources />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaBlock)} />
+  <section class="mx-auto max-w-3xl px-4 py-10">
+    <h2 class="mb-4 text-2xl font-bold">Frequently asked questions</h2>
+    <div class="space-y-3">
+      {faqItems.map((f) => (
+        <details class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <summary class="cursor-pointer font-semibold">{f.question}</summary>
+          <p class="mt-2 text-gray-700 dark:text-gray-300">{f.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
 </GuideLayout>

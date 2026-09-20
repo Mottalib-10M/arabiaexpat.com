@@ -35,7 +35,7 @@ For family and dependent visas, the sponsoring expat must meet a minimum salary 
     {
       question: "What is a QID and how do I get one?",
       answer:
-        "The QID (Qatar ID) is a biometric residence card issued by the Ministry of Interior. It serves as your official identification, proof of residency, and work authorisation in Qatar. To obtain a QID, your employer initiates the process by applying for your work visa. After arriving in Qatar on a temporary entry permit, you complete a medical examination (including blood tests for infectious diseases and a chest X-ray), biometric registration, and fingerprinting. The QID is typically issued within 2-4 weeks and must be renewed annually or biannually depending on the contract.",
+        "The QID (Qatar ID) is a biometric residence card issued by the Ministry of Interior. It serves as your official identification, proof of residency, and work authorisation in Qatar. To obtain a QID, your employer initiates the process by applying for your work visa. After arriving in Qatar on a temporary entry permit, you complete a medical examination (including blood tests for infectious diseases and a chest X-ray), biometric registration, and fingerprinting.",
     },
     {
       question: "Can I change jobs in Qatar without my employer's permission?",

@@ -83,6 +83,15 @@ const schemas = [
     { name: "Glossary", url: SITE.url + "/glossary/" },
   ]),
 ];
+const faqItems = [
+  { question: "What is an Iqama?", answer: "The Iqama is the Saudi residence permit, sponsored by the employer and renewed annually. It states the holder's declared profession, which governs what work is permitted, and it is required for banking, housing and healthcare. Because the employment contract is tied to its validity, expatriate contracts in Saudi Arabia are always fixed-term." },
+  { question: "What is end-of-service gratuity?", answer: "A lump sum the employer owes when an employment contract ends, calculated on the basic salary and the length of service. The UAE grants 21 days of basic pay per year for the first five years and 30 days thereafter; Qatar grants three weeks per year; Saudi Arabia a half-month then a full month." },
+  { question: "What does WPS mean?", answer: "The Wage Protection System is the electronic payroll channel through which UAE and Qatari employers must pay salaries via approved banks. It creates a record of every payment, which is what a labour court relies on in a dispute, and late or missing transfers trigger automatic penalties for the employer." },
+  { question: "What is a free zone?", answer: "An economic zone with its own commercial and, in some cases, employment regulations, such as DIFC or ADGM in the UAE. Free zone employers are often international firms benchmarking against global pay scales, and disputes are handled by the zone's own tribunal rather than the federal labour authority." },
+  { question: "What is Saudisation or Nitaqat?", answer: "Nitaqat ranks Saudi companies by the share of nationals in their workforce, from red to platinum. A low band blocks new work visas and employee transfers, and some professions are reserved for nationals outright, which means the job title on a contract determines whether an expatriate hire is possible at all." },
+  { question: "What is a no-objection certificate?", answer: "Historically a letter from a current employer allowing a worker to change jobs. Qatar abolished the requirement in 2020 and the UAE removed most of its restrictions, so an employee can now move after serving notice. The change removed the main structural brake on wage competition in both markets." },
+];
+const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
 ---
 
 <GuideLayout
@@ -150,4 +159,16 @@ const schemas = [
     <li><a href="/methodology/">Our Methodology</a></li>
   </ul>
   <OfficialSources />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaBlock)} />
+  <section class="mx-auto max-w-3xl px-4 py-10">
+    <h2 class="mb-4 text-2xl font-bold">Frequently asked questions</h2>
+    <div class="space-y-3">
+      {faqItems.map((f) => (
+        <details class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <summary class="cursor-pointer font-semibold">{f.question}</summary>
+          <p class="mt-2 text-gray-700 dark:text-gray-300">{f.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
 </GuideLayout>

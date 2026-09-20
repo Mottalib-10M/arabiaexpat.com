@@ -51,7 +51,7 @@ For international money transfers, expats in Doha can use traditional bank wire 
     {
       question: "Can I get a credit card as an expat in Qatar?",
       answer:
-        "Yes, most Qatari banks offer credit cards to expats with a valid QID and a minimum monthly salary (usually QAR 5,000-10,000 / ~€1,250-2,500 for basic cards, QAR 15,000-20,000 / ~€3,750-5,000 for premium cards). Credit limits are typically set at 2-3 times your monthly salary. Popular cards offer air miles (QNB, CBQ), cashback (Doha Bank), or lifestyle rewards (Masraf Al Rayan). Annual fees range from QAR 0 (~€0) for basic cards to QAR 1,500 (~€375) for premium metal cards. Always check the interest rate on outstanding balances, which can range from 2-3.5% per month.",
+        "Yes, most Qatari banks offer credit cards to expats with a valid QID and a minimum monthly salary (usually QAR 5,000-10,000 / ~€1,250-2,500 for basic cards, QAR 15,000-20,000 / ~€3,750-5,000 for premium cards). Credit limits are typically set at 2-3 times your monthly salary. Popular cards offer air miles (QNB, CBQ), cashback (Doha Bank), or lifestyle rewards (Masraf Al Rayan). Annual fees range from QAR 0 (~€0) for basic cards to QAR 1,500 (~€375) for premium metal cards.",
     },
     {
       question: "How can I send money abroad from Qatar?",

@@ -26,6 +26,15 @@ function formatDate(dateStr: string): string {
     day: "numeric",
   });
 }
+const faqItems = [
+  { question: "What does this section cover?", answer: "Changes that affect expatriate pay and residence: labour law amendments, visa reforms, minimum wage decisions and major salary surveys across the UAE, Saudi Arabia and Qatar. Each entry gives the date a change takes effect and links the official announcement behind it." },
+  { question: "How often is it updated?", answer: "When something material happens rather than on a schedule. Gulf regulation moves in bursts, often around national budget announcements and new labour decrees, so several entries can appear in one month and then none for a quarter. Filling the gaps with commentary would only make the real changes harder to spot." },
+  { question: "Do these changes apply to existing contracts?", answer: "Statutory minimums generally do, while contract terms more favourable than the law survive unchanged. When the UAE abolished unlimited contracts, existing ones converted automatically while preserving continuous service for gratuity purposes. Where a transition period applies, the entry states its deadline." },
+  { question: "Where can I verify an announcement?", answer: "Each entry links the responsible authority: MOHRE in the UAE, the Ministry of Human Resources and Social Development in Saudi Arabia, or the Ministry of Labour in Qatar. Those pages are the authority; this section exists to flag what changed and what it means in practice." },
+  { question: "Do you cover salary surveys as well as legal changes?", answer: "Yes, when the sample and the method are transparent enough to be worth reporting. Recruitment agency reports are useful for direction but skew towards the roles that agency fills, so each entry names the source and the sample before quoting any figure from it." },
+  { question: "Can I reuse the figures published here?", answer: "With attribution and a link to the entry concerned. We would rather see a number quoted accurately with its source than circulating stripped of the caveats that make it meaningful, particularly the distinction between advertised packages and salaries actually paid." },
+];
+const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
 ---
 
 <GuideLayout
@@ -110,4 +119,16 @@ function formatDate(dateStr: string): string {
 function _calcPage(){var c=document.getElementById('piCountry').value,s=document.getElementById('piStatus').value,msg='';if(c==='uae'){if(s==='employee')msg='Check if you qualify for Golden Visa (AED 30,000+ salary in eligible professions). Expanded occupation list now includes AI, sustainability, and healthcare specialists.';else if(s==='investor')msg='Golden Visa property threshold maintained at AED 2M but now accepts combined properties and off-plan with 50%+ paid. Review your portfolio eligibility.';else if(s==='freelance')msg='Green Visa (5-year, self-sponsored) available with AED 360,000+ annual income. Remote Work Visa renewed at lower USD 3,000 minimum salary.';else msg='Most accessible entry points: employment visa, freelance visa through free zones, or Remote Work Visa (USD 3,000/mo minimum from foreign employer).';}else if(c==='qatar'){if(s==='employee')msg='No-Objection Certificate abolished. You can change employers freely after notice period. Check permanent residency eligibility if 10+ years resident.';else if(s==='investor')msg='Permanent residency pathway available for significant contributors. Property ownership in designated areas (The Pearl, Lusail) supports residency applications.';else if(s==='freelance')msg='QFZA freelancer permit now available for independent professionals. Enables self-sponsored residency while serving global clients from Qatar.';else msg='Work visa reforms mean faster processing and stronger worker protections. Minimum wage QAR 1,000 + housing + food allowances guaranteed.';}else{if(s==='employee')msg='Talent track for Premium Residency may offer reduced fees for specialized skills. Spouse employment rights expanded. Confirm employer Nitaqat status.';else if(s==='investor')msg='Premium Residency permanent option at SAR 800,000 grants property rights and business ownership without Saudi partner.';else if(s==='freelance')msg='Freelance visa options expanding through Saudi free zones. Vision 2030 entertainment and tech sectors creating independent contractor opportunities.';else msg='Fastest-growing opportunity market in the Gulf. Vision 2030 driving hiring across all sectors. Standard work visa via Qiwa platform takes 4-8 weeks.';}document.getElementById('piResult').innerHTML='<strong>Key developments for you:</strong><br><span class=\'text-xs text-gray-500\'>'+msg+'</span>';}
 </script>
   <OfficialSources />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaBlock)} />
+  <section class="mx-auto max-w-3xl px-4 py-10">
+    <h2 class="mb-4 text-2xl font-bold">Frequently asked questions</h2>
+    <div class="space-y-3">
+      {faqItems.map((f) => (
+        <details class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <summary class="cursor-pointer font-semibold">{f.question}</summary>
+          <p class="mt-2 text-gray-700 dark:text-gray-300">{f.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
 </GuideLayout>

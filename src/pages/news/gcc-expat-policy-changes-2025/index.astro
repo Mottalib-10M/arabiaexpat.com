@@ -9,6 +9,13 @@ const breadcrumbs = [
   { name: "News", url: "https://arabiaexpat.com/news/" },
   { name: "GCC Expat Policy Changes 2025", url: "https://arabiaexpat.com/news/gcc-expat-policy-changes-2025/" },
 ];
+const faqItems = [
+  { question: "What are the most significant recent policy changes?", answer: "The abolition of the no-objection certificate in Qatar, the UAE's move to fixed-term contracts for all employees, and the expansion of Saudi Nitaqat quotas into more professions. Each changes how freely an expatriate can move between employers, which in turn affects bargaining power on pay." },
+  { question: "Do the changes make it easier to change jobs?", answer: "In Qatar and the UAE, substantially. An employee can now resign, serve notice and join another employer without the former one's consent, which was not the case before 2020. In Saudi Arabia, transfers still depend on the new employer's Nitaqat band having room for an expatriate hire." },
+  { question: "How do the reforms affect salaries?", answer: "Recruiters report faster job moves and stronger counter-offers since mobility improved, particularly for mid-level technical roles. Where an employer could previously rely on immobility, it now has to match the market, which has compressed the gap between what new joiners and existing staff are paid." },
+  { question: "What should I check in my own contract?", answer: "The notice period, the basic-to-allowance split that determines gratuity, and any clause restricting work after termination. Non-compete clauses are enforceable in the UAE within limits of time, geography and industry, and they are the most common obstacle to a planned move." },
+];
+const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
 ---
 
 <GuideLayout
@@ -118,4 +125,16 @@ const breadcrumbs = [
 <script is:inline>
 function _calcPage(){var t=document.getElementById('rcType').value,data={professional:{uae:'Golden Visa: Free (salary-based, AED 30,000+/mo). 10-year renewable. Self-sponsored.',qatar:'Permanent Residency: By application (10-20 yr residence required). No fee published. Annual allocation limited.',saudi:'Premium Residency Talent Track: SAR 100,000/yr or SAR 800,000 permanent. Self-sponsored.'},investor:{uae:'Golden Visa: Free (property AED 2M+). 10-year renewable. Multiple properties combinable.',qatar:'Permanent Residency: Property in Pearl/Lusail supports application. 10+ yr residence pathway.',saudi:'Premium Residency: SAR 800,000 one-time. Full property rights and business ownership.'},entrepreneur:{uae:'Green Visa: Free (AED 360K+ annual income). 5-year self-sponsored. Or freelance via free zone.',qatar:'QFZA Freelancer Permit: Application fee varies. Self-sponsored through Qatar Free Zones.',saudi:'Freelance visa through Saudi free zones. Vision 2030 expanding independent contractor options.'}};var d=data[t];document.getElementById('rcResult').innerHTML='<strong>UAE:</strong> '+d.uae+'<br><strong>Qatar:</strong> '+d.qatar+'<br><strong>Saudi:</strong> '+d.saudi;}
 </script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaBlock)} />
+  <section class="mx-auto max-w-3xl px-4 py-10">
+    <h2 class="mb-4 text-2xl font-bold">Frequently asked questions</h2>
+    <div class="space-y-3">
+      {faqItems.map((f) => (
+        <details class="rounded-lg border border-gray-200 p-4 dark:border-gray-700">
+          <summary class="cursor-pointer font-semibold">{f.question}</summary>
+          <p class="mt-2 text-gray-700 dark:text-gray-300">{f.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
 </GuideLayout>
