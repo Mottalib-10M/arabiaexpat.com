@@ -1,0 +1,28 @@
+---
+/**
+ * Bloc « Official sources » (RECETTE §7 : au moins trois liens publics sur une page pilier).
+ */
+interface Lien { url: string; label: string }
+interface Props { links?: Lien[] }
+
+const DEFAULT: Lien[] = [
+  { url: 'https://www.mohre.gov.ae/en/home.aspx', label: 'UAE Ministry of Human Resources and Emiratisation' },
+  { url: 'https://tax.gov.ae/en/', label: 'UAE Federal Tax Authority' },
+  { url: 'https://www.hrsd.gov.sa/en', label: 'Saudi Ministry of Human Resources and Social Development' },
+  { url: 'https://www.mol.gov.qa/en/', label: 'Qatar Ministry of Labour' },
+];
+const { links = DEFAULT } = Astro.props;
+---
+
+<section class="mx-auto max-w-3xl px-4 py-10">
+  <h2 class="mb-3 text-xl font-semibold">Official sources</h2>
+  <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">
+    The rules, salaries and thresholds quoted on this page come from the following government
+    sources, checked for 2026:
+  </p>
+  <ul class="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
+    {links.map((l) => (
+      <li><a class="underline" href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a></li>
+    ))}
+  </ul>
+</section>

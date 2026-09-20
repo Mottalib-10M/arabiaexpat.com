@@ -1,5 +1,6 @@
 ---
 import GuideLayout from "../layouts/GuideLayout.astro";
+import OfficialSources from '../components/ui/OfficialSources.astro';
 import { SITE } from "../data/site-config";
 import { buildBreadcrumbs } from "../lib/seo";
 
@@ -148,4 +149,5 @@ const schemas = [
     <li><a href="/guides/">All Guides</a></li>
     <li><a href="/methodology/">Our Methodology</a></li>
   </ul>
+  <OfficialSources />
 </GuideLayout>

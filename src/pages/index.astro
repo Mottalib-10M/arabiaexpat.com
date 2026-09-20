@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import OfficialSources from '../components/ui/OfficialSources.astro';
 import { SITE, COUNTRIES } from "../data/site-config";
 import { buildOrganizationSchema, buildWebSiteSchema, buildFAQSchema } from "../lib/seo";
 import FAQAccordion from "../components/ui/FAQAccordion.astro";
@@ -351,4 +352,5 @@ const countryExpats = { uae: "8.9M", qatar: "2.4M", saudi: "10.4M" };
       <FAQAccordion faqs={faqs} />
     </div>
   </div>
+  <OfficialSources />
 </Layout>
