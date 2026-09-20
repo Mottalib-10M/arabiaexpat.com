@@ -72,7 +72,7 @@ export function buildOrganizationSchema(): object {
     },
     sameAs: [],
     founder: {
-      "@type": "Person",
+      "@type": "Organization",
       name: SITE.author.name,
       jobTitle: SITE.author.role,
       description: SITE.author.bio,
@@ -83,7 +83,7 @@ export function buildOrganizationSchema(): object {
 export function buildPersonSchema(): object {
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "Organization",
     name: SITE.author.name,
     jobTitle: SITE.author.role,
     description: SITE.author.bio,
@@ -93,10 +93,6 @@ export function buildPersonSchema(): object {
       "@type": "Organization",
       name: SITE.name,
       url: SITE.url,
-    },
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "INSEAD",
     },
   };
 }
@@ -117,7 +113,7 @@ export function buildWebApplicationSchema(name: string, description: string, url
       priceCurrency: "USD",
     },
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: SITE.author.name,
     },
   };
@@ -159,9 +155,9 @@ export function buildArticleSchema(title: string, description: string, url: stri
     inLanguage: "en",
     image: `${SITE.url}/og-default.png`,
     author: {
-      "@type": "Person",
-      name: "Mottalib Radif",
-      jobTitle: "MBA INSEAD",
+      "@type": "Organization",
+      name: "Radif Partners",
+      jobTitle: "Éditeur de calculateurs et de guides pratiques",
     },
     publisher: {
       "@type": "Organization",
