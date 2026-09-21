@@ -6,7 +6,7 @@ export const SITE = {
     name: "Radif Partners",
     credentials: "Éditeur de calculateurs et de guides pratiques",
     role: "Founder & Enthusiast",
-    bio: "Radif Partners holds an MBA from Éditeur de calculateurs et de guides pratiques and has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.",
+    bio: "Radif Partners has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.",
   },
   year: 2026,
   googleVerifyCode: "b2YamsA61r7xK6-y3ozt05eM3ijS1Hi_Jsp9sOqANH0", // google-site-verification meta tag value from Google Search Console
