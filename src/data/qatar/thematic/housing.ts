@@ -6,7 +6,7 @@ export const qatarHousing: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Rent Guide 2026 — Doha Prices, Areas & Leases",
+  title: "Qatar Rent Guide 2026, Doha Prices, Areas & Leases",
   description:
     "Doha 1-bed from QAR 3,500/month. The Pearl, West Bay, Lusail and Al Sadd compared. Rent estimator tool, Baladiya registration, lease terms and compound options.",
   intro: `Qatar's rental market offers expats a wide range of housing options, from luxury waterfront apartments on The Pearl to affordable family villas in suburban communities like Al Wakrah. There is no property tax in Qatar, which keeps the overall cost of living slightly more manageable, though rents in premium areas remain among the highest in the Gulf. Most expats rent rather than buy, as freehold property ownership for non-Qataris is restricted to designated areas such as The Pearl, Lusail, and West Bay Lagoon.

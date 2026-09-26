@@ -6,7 +6,7 @@ export const qatarHealthcare: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Healthcare 2026 — HMC, Sidra & Insurance Guide",
+  title: "Qatar Healthcare 2026, HMC, Sidra & Insurance Guide",
   description:
     "Hamad Medical runs 12 hospitals. Sidra Medicine for women and children. Mandatory employer insurance, GP costs QAR 100-300 and QCHP registration explained.",
   intro: `Qatar's healthcare system consistently ranks among the best in the Middle East. The country spends a significant portion of its GDP on health infrastructure, and the results are visible in modern hospitals, well-trained medical staff, and short waiting times compared to many Western countries. The system is built around two pillars: the public sector managed by Hamad Medical Corporation (HMC) and the Primary Health Care Corporation (PHCC), and a growing private sector of clinics and hospitals.

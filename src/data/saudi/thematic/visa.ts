@@ -6,7 +6,7 @@ export const saudiVisa: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Visa Types 2026 — Iqama, Premium Residency & Work",
+  title: "Saudi Visa Types 2026, Iqama, Premium Residency & Work",
   description:
     "Saudi work visa via Qiwa in 4-8 weeks. Iqama explained. Premium Residency from SAR 100,000/yr. Nitaqat impact, e-visa and family sponsorship rules all covered.",
   intro: `Saudi Arabia's visa and residency system has undergone significant modernisation in recent years, though it remains one of the more structured immigration frameworks in the Gulf region. The traditional sponsorship (kafala) system ties an expat's residency to their employer, who acts as the legal sponsor. However, recent reforms, including the introduction of Premium Residency and labour mobility initiatives, have begun to loosen these restrictions and give expats greater flexibility.

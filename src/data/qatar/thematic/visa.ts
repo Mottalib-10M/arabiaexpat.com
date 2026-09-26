@@ -6,7 +6,7 @@ export const qatarVisa: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Visa Types 2026 — Work Permit, QID & Residency",
+  title: "Qatar Visa Types 2026, Work Permit, QID & Residency",
   description:
     "Qatar work visa in 2-6 weeks. QID registration, permanent residency path, QFC and QSTP free zones. Kafala abolished, no exit permit. Full 2026 process guide.",
   intro: `Qatar's visa and immigration system has undergone significant reforms in recent years, making it more flexible and worker-friendly. The country has moved away from the traditional kafala (sponsorship) system, introducing labour mobility provisions that allow workers to change jobs without employer consent after completing a probationary period. These reforms, coupled with the introduction of a non-discriminatory minimum wage and permanent residency options, have positioned Qatar as a more attractive destination for skilled professionals.

@@ -6,12 +6,12 @@ export const uaeTransport: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Transport 2026 — Metro, Salik Tolls & Driving Costs",
+  title: "UAE Transport 2026, Metro, Salik Tolls & Driving Costs",
   description:
     "Dubai Metro pass AED 350/month, Salik tolls AED 4 per gate, petrol AED 3.20/litre. Car insurance, nol card, Abu Dhabi buses, ride-hailing and Etihad Rail news.",
   intro: `Getting around the UAE is relatively easy, but the best option depends heavily on which emirate you live in and your daily routine. Dubai has the most developed public-transport network in the Gulf, anchored by the Dubai Metro, tram, bus system, and water taxis. Abu Dhabi, while expanding its public transport, remains more car-dependent. Between the two cities, comfortable inter-city buses run every 15–30 minutes and take around 90 minutes. Ride-hailing apps like Uber and Careem (a regional competitor acquired by Uber) are widely available and affordable throughout the UAE.
 
-Car ownership is extremely common among expats, with the UAE having one of the highest car-to-population ratios in the world. New and used cars are relatively affordable due to low import duties, and fuel prices are among the lowest globally — as of mid-2026, petrol costs around AED 3.00–3.30 (~€0.75–0.82) per litre (set monthly by the Ministry of Energy based on global oil prices). However, car ownership comes with additional costs: Salik toll charges in Dubai (AED 4 / ~€1 per gate), parking fees (AED 2–4/hour / ~€0.50–1/hour in metered zones), annual registration renewal (AED 350–500 / ~€88–125), insurance (AED 1,500–4,000/year / ~€375–1,000/year depending on the vehicle), and the inevitable wear from the region's extreme summer heat.
+Car ownership is extremely common among expats, with the UAE having one of the highest car-to-population ratios in the world. New and used cars are relatively affordable due to low import duties, and fuel prices are among the lowest globally, as of mid-2026, petrol costs around AED 3.00–3.30 (~€0.75–0.82) per litre (set monthly by the Ministry of Energy based on global oil prices). However, car ownership comes with additional costs: Salik toll charges in Dubai (AED 4 / ~€1 per gate), parking fees (AED 2–4/hour / ~€0.50–1/hour in metered zones), annual registration renewal (AED 350–500 / ~€88–125), insurance (AED 1,500–4,000/year / ~€375–1,000/year depending on the vehicle), and the inevitable wear from the region's extreme summer heat.
 
 Obtaining a UAE driving licence is straightforward for some nationalities and more involved for others. Holders of licences from 36 recognised countries (including the US, UK, most EU countries, Australia, Canada, and Japan) can convert their licence to a UAE one by simply passing an eye test and submitting paperwork at a traffic department or registered typing centre. All other nationalities must take driving lessons at an authorised driving school (such as Emirates Driving Institute, Belhasa, or Galadari) and pass theory, yard, and road tests. The process typically takes 2–4 months and costs AED 5,000–8,000 (~€1,250–2,000) in total.`,
   citySections: [
@@ -20,7 +20,7 @@ Obtaining a UAE driving licence is straightforward for some nationalities and mo
       slug: "dubai",
       content: `Dubai's public transport system is managed by the Roads and Transport Authority (RTA) and is one of the most modern in the region. The Dubai Metro is the backbone of the network, with two lines: the Red Line (running from Rashidiya to UAE Exchange/Expo 2020 via the airport, DIFC, Business Bay, and Dubai Marina) and the Green Line (connecting Etisalat station to Creek through Deira and Bur Dubai). The Metro is driverless, air-conditioned, and has dedicated women-and-children carriages and a Gold Class with wider seats. Fares are zone-based, ranging from AED 3 (~€0.75) to AED 8.50 (~€2.12) per trip using a nol card (AED 2–6.50 / ~€0.50–1.63 with a Silver nol).
 
-The nol card is the universal payment method for all RTA transport — Metro, buses, tram, water bus, and some parking meters. Cards come in four types: Red (disposable, single/return journeys), Silver (rechargeable, for regular users), Gold (premium, access to Gold Class carriages and seating), and Blue (personalised, auto-top-up). A Silver nol card costs AED 25 (~€6.25) (including AED 19 / ~€4.75 credit) and can be purchased at any Metro station, bus station, or online. The Dubai Tram runs along Jumeirah Beach Residence and connects to the Metro at DMCC and Sobha Realty stations, serving the Marina/JBR area.
+The nol card is the universal payment method for all RTA transport, Metro, buses, tram, water bus, and some parking meters. Cards come in four types: Red (disposable, single/return journeys), Silver (rechargeable, for regular users), Gold (premium, access to Gold Class carriages and seating), and Blue (personalised, auto-top-up). A Silver nol card costs AED 25 (~€6.25) (including AED 19 / ~€4.75 credit) and can be purchased at any Metro station, bus station, or online. The Dubai Tram runs along Jumeirah Beach Residence and connects to the Metro at DMCC and Sobha Realty stations, serving the Marina/JBR area.
 
 Dubai's Salik toll system uses automatic radio-frequency gates at eight locations across the city: Al Maktoum Bridge, Al Garhoud Bridge, Al Safa, Al Barsha, Airport Tunnel, Jebel Ali, Al Mamzar South, and Sheikh Zayed Bridge. Each crossing costs AED 4 (~€1), and a daily cap of AED 24 (~€6) applies (maximum of 6 charges per day). A Salik account requires a minimum balance of AED 100 (~€25), and the tag costs AED 50 (~€12.50). For regular commuters, toll charges can add AED 400–800 (~€100–200) per month. Taxis are metered: the flag fall is AED 5 (~€1.25) (AED 5.50 / ~€1.38 from the airport), and the rate is AED 1.96 (~€0.49) per kilometre. Ride-hailing apps (Uber, Careem) offer similar pricing with the convenience of cashless payment and upfront fare estimates.
 
@@ -33,7 +33,7 @@ For inter-city travel, the Abu Dhabi–Dubai bus (E100/E101) departs every 15–
 
 Abu Dhabi does not currently have a metro system, though plans for a light-rail or metro network have been discussed as part of the capital's long-term urban plan. As a result, most expats rely on private cars or ride-hailing services. The Darb toll-gate system was introduced in 2024, operating similarly to Dubai's Salik with automatic charges at designated gates across the city, including key bridges and highway entry points. Tolls are AED 4 (~€1) per crossing during peak hours and free or reduced during off-peak periods, with a daily cap. Abu Dhabi's taxi service is operated by TransAD and several private companies; metered fares start at AED 5 (~€1.25) (flag fall) with AED 1.83 (~€0.46) per kilometre.
 
-Parking in Abu Dhabi is managed by Mawaqif, the municipal parking system. Zones are colour-coded: premium (blue) areas in the central business district cost AED 3 (~€0.75) per hour, standard (grey) zones cost AED 2 (~€0.50) per hour, and residential (orange) permit zones require an annual permit (AED 800 / ~€200 for residents). Free parking is available in many suburban areas and during Friday and public holidays in metered zones. For expats commuting between Abu Dhabi and Dubai, the drive takes approximately 1.5 hours via Sheikh Zayed Road (E11), though traffic at peak hours — particularly near the Ghweifat or Sweihan interchange — can extend this significantly. The inter-city bus is a cost-effective alternative for daily commuters.`,
+Parking in Abu Dhabi is managed by Mawaqif, the municipal parking system. Zones are colour-coded: premium (blue) areas in the central business district cost AED 3 (~€0.75) per hour, standard (grey) zones cost AED 2 (~€0.50) per hour, and residential (orange) permit zones require an annual permit (AED 800 / ~€200 for residents). Free parking is available in many suburban areas and during Friday and public holidays in metered zones. For expats commuting between Abu Dhabi and Dubai, the drive takes approximately 1.5 hours via Sheikh Zayed Road (E11), though traffic at peak hours, particularly near the Ghweifat or Sweihan interchange, can extend this significantly. The inter-city bus is a cost-effective alternative for daily commuters.`,
     },
   ],
   faqs: [
@@ -50,7 +50,7 @@ Parking in Abu Dhabi is managed by Mawaqif, the municipal parking system. Zones 
     {
       question: "Can I convert my foreign driving licence to a UAE licence?",
       answer:
-        "Citizens of 36 countries (including the US, UK, EU, Australia, Canada, South Korea, and Japan) can convert their licence directly by passing an eye test and submitting paperwork — no driving test required. All other nationalities must attend a driving school and pass theory, yard, and road tests, which costs AED 5,000–8,000 (~€1,250–2,000) and takes 2–4 months.",
+        "Citizens of 36 countries (including the US, UK, EU, Australia, Canada, South Korea, and Japan) can convert their licence directly by passing an eye test and submitting paperwork, no driving test required. All other nationalities must attend a driving school and pass theory, yard, and road tests, which costs AED 5,000–8,000 (~€1,250–2,000) and takes 2–4 months.",
     },
     {
       question: "Is it better to own a car or use taxis in the UAE?",
@@ -65,15 +65,15 @@ Parking in Abu Dhabi is managed by Mawaqif, the municipal parking system. Zones 
   ],
   sources: [
     {
-      name: "RTA — Roads and Transport Authority (Dubai)",
+      name: "RTA, Roads and Transport Authority (Dubai)",
       url: "https://www.rta.ae",
     },
     {
-      name: "DMT — Department of Municipalities and Transport (Abu Dhabi)",
+      name: "DMT, Department of Municipalities and Transport (Abu Dhabi)",
       url: "https://www.dmt.gov.ae",
     },
     {
-      name: "Salik — Dubai Toll System",
+      name: "Salik, Dubai Toll System",
       url: "https://www.salik.ae",
     },
   ],

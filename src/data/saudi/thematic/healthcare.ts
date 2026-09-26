@@ -6,7 +6,7 @@ export const saudiHealthcare: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Healthcare 2026 — CCHI Insurance & Hospitals",
+  title: "Saudi Healthcare 2026: CCHI Insurance and Hospitals",
   description:
     "Mandatory CCHI employer insurance for all expats. Dr Sulaiman Al Habib and Saudi German compared. MOH network, GP costs SAR 100-300 and SCFHS licensing guide.",
   intro: `Saudi Arabia operates a dual healthcare system: government-funded hospitals and clinics managed by the Ministry of Health (MOH), and a rapidly growing private healthcare sector. For expatriates, health insurance is mandatory under the Cooperative Health Insurance (CCHI) framework. Employers are legally required to provide medical insurance for all expat employees and their dependents, and proof of valid insurance is needed when renewing Iqama residency permits.

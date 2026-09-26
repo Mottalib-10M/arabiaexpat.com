@@ -1,5 +1,6 @@
 ---
 import { fit, TITLE_RANGE, DESC_RANGE } from '../../../lib/snippet';
+import { resumeCorridorIndex } from "../../../lib/resume-corridor";
 import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { corridors } from "../../../data/corridors";
 import { destinationCities } from "../../../data/destination-cities";
@@ -52,6 +53,10 @@ const metaDescription = fit(`Moving to the Gulf from ${corridor.country} in 2026
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Relocating From", url: "/relocating-from/india/" }, { name: corridor.country, url: `/relocating-from/${corridor.slug}/` }]}
 >
   <h1>Relocating from {corridor.country} to the Gulf in 2026</h1>
+
+  {/* §21 : le paragraphe qu'un moteur de réponse peut reprendre, bâti sur les
+      données du pays d'origine déjà présentes sur la page. */}
+  <p>{resumeCorridorIndex(corridor)}</p>
 
   <div class="not-prose mb-6 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-2xl">
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">

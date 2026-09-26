@@ -90,7 +90,7 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
 
   return (
     <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Visa Cost Estimator — {citiesMap[countryKey]}</h3>
+      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Visa Cost Estimator, {citiesMap[countryKey]}</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <div>
           <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Visa Type</label>

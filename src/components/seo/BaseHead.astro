@@ -72,7 +72,7 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
   })();
 </script>
 
-<!-- Microsoft Clarity (deferred 3s) — only loads when clarityId is set -->
+<!-- Microsoft Clarity (deferred 3s), only loads when clarityId is set -->
 {SITE.clarityId && SITE.clarityId !== "placeholder-clarity-id" && (
   <script type="text/javascript" set:html={`
     setTimeout(function(){

@@ -1,5 +1,6 @@
 ---
 import { fit, TITLE_RANGE, DESC_RANGE } from '../../../lib/snippet';
+import { resumeCorridor, sortieCorridor } from "../../../lib/resume-corridor";
 import GuideLayout from "../../../layouts/GuideLayout.astro";
 import { corridors } from "../../../data/corridors";
 import { destinationCities } from "../../../data/destination-cities";
@@ -79,6 +80,11 @@ const metaDescription = fit(`${corridor.demonym} professionals moving to ${city.
   breadcrumbs={[{ name: "Home", url: "/" }, { name: `From ${corridor.country}`, url: `/relocating-from/${corridor.slug}/` }, { name: `To ${city.name}`, url: `/relocating-from/${corridor.slug}/to-${city.slug}/` }]}
 >
   <h1>Relocating from {corridor.country} to {city.name} in 2026</h1>
+
+  {/* §21 : le paragraphe qu'un moteur de réponse peut reprendre, bâti sur les
+      données du corridor et de la ville déjà présentes sur la page. */}
+  <p>{resumeCorridor(corridor, city)}</p>
+  <p>{sortieCorridor(corridor, city, countryConfig.name)}</p>
 
   <div class="not-prose mb-6 p-4 bg-teal-50 dark:bg-teal-900/20 rounded-lg">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">

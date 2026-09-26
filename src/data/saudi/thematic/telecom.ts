@@ -6,7 +6,7 @@ export const saudiTelecom: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Mobile & Internet 2026 — STC vs Mobily vs Zain",
+  title: "Saudi Mobile & Internet 2026, STC vs Mobily vs Zain",
   description:
     "Compare STC, Mobily and Zain postpaid plans from SAR 100/20 GB. 5G coverage, fibre speeds, eSIM options, SIM registration with Iqama and home WiFi setup guide.",
   intro: `Saudi Arabia has one of the most advanced telecommunications infrastructures in the Middle East, with three major mobile operators and rapidly expanding 5G and fiber-optic networks. The Communications, Space, and Technology Commission (CST, formerly CITC) regulates the sector and has driven significant investment in digital infrastructure under the Vision 2030 National Transformation Program.

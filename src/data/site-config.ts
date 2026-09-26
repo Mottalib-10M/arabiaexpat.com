@@ -52,3 +52,43 @@ export const COUNTRIES = {
 } as const;
 
 export type CountryKey = keyof typeof COUNTRIES;
+
+// ============================================================
+// Legal identity (RECETTE §8 and §14). The mentions required by French law, since
+// the publisher is established in France, and by the GDPR come from here and
+// nowhere else: the legal notice page, the footer and the Organization schema read
+// these fields, so a corrected address is corrected everywhere.
+// Control: check-legal.mjs.
+// ============================================================
+export interface LegalHosting { name: string; address: string; phone: string; url: string }
+export interface LegalIdentity {
+  entityName: string; legalForm: string; street: string; postalCode: string; city: string;
+  country: string; phone: string; registerLabel: string; registerNumber: string;
+  vatLabel: string; vatNumber: string; jurisdiction: string;
+  supervisoryAuthority: string; supervisoryAuthorityUrl: string; hosting: LegalHosting;
+}
+
+export const LEGAL: LegalIdentity = {
+  entityName: "Radif Partners",
+  legalForm: "",
+  street: "49 rue du Ressort",
+  postalCode: "63000",
+  city: "Clermont-Ferrand",
+  country: "France",
+  phone: "",
+  registerLabel: "Registration number",
+  registerNumber: "",
+  vatLabel: "VAT number",
+  vatNumber: "",
+  jurisdiction: "France",
+  supervisoryAuthority: "Commission nationale de l’informatique et des libertés, 3 place de Fontenoy, 75007 Paris",
+  supervisoryAuthorityUrl: "https://www.cnil.fr/",
+  hosting: {
+    name: "OVH SAS",
+    address: "2 rue Kellermann, 59100 Roubaix, France",
+    phone: "+33 9 72 10 10 07",
+    url: "https://www.ovhcloud.com",
+  },
+};
+
+export const LEGAL_REQUIRED: Array<keyof LegalIdentity> = ["entityName", "street", "postalCode", "city"];

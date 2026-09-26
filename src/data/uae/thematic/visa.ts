@@ -6,7 +6,7 @@ export const uaeVisa: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Visa Types 2026 — Golden, Green & Freelancer Options",
+  title: "UAE Visa Types 2026, Golden, Green & Freelancer Options",
   description:
     "6 UAE visa types: Golden (10-yr), Green (5-yr), Employment, Freelancer, free zone. Costs from AED 3,000, eligibility rules and family sponsorship requirements.",
   intro: `The UAE offers a wide range of visa options for expatriates, from traditional employer-sponsored work visas to newer self-sponsored categories that have transformed the country's appeal for entrepreneurs, investors, and skilled professionals. Understanding which visa category best fits your situation is critical, as it affects your ability to work, sponsor dependants, open bank accounts, and access services. The UAE has undergone significant visa reforms since 2019, introducing long-term residency options that mark a shift from the traditional two-year, employer-tied model.
@@ -29,11 +29,11 @@ Dubai's visa processing is handled through the General Directorate of Residency 
     {
       city: "Abu Dhabi",
       slug: "abu-dhabi",
-      content: `Abu Dhabi offers its own set of free zones and licensing options, with the Abu Dhabi Global Market (ADGM) being the most prominent. ADGM, located on Al Maryah Island, is a financial free zone with an independent legal framework based on English common law, similar to DIFC. It has become increasingly popular for fintech companies, asset managers, and professional-services firms. ADGM's micro and small-business licence starts from around USD 2,000/year, with visa allocations available from approximately AED 5,000 (~€1,250) each. ADGM also offers a freelancer licence for USD 1,200/year — one of the most affordable options in the UAE.
+      content: `Abu Dhabi offers its own set of free zones and licensing options, with the Abu Dhabi Global Market (ADGM) being the most prominent. ADGM, located on Al Maryah Island, is a financial free zone with an independent legal framework based on English common law, similar to DIFC. It has become increasingly popular for fintech companies, asset managers, and professional-services firms. ADGM's micro and small-business licence starts from around USD 2,000/year, with visa allocations available from approximately AED 5,000 (~€1,250) each. ADGM also offers a freelancer licence for USD 1,200/year, one of the most affordable options in the UAE.
 
 Masdar City Free Zone, located near Abu Dhabi International Airport, is tailored for companies in sustainability, clean energy, and technology sectors. It offers competitive licence packages starting from AED 11,500/year (~€2,875/year), including a shared-desk option with visa allocation. The free zone is home to the International Renewable Energy Agency (IRENA) and provides access to a community of clean-tech startups and research institutions, including the Mohamed bin Zayed University of Artificial Intelligence (MBZUAI). Other Abu Dhabi free zones include twofour54 (for media companies), Khalifa Industrial Zone Abu Dhabi (KIZAD, for manufacturing and logistics), and the Abu Dhabi Airport Free Zone (ADAFZ).
 
-For mainland business activities in Abu Dhabi, the Abu Dhabi Department of Economic Development (ADDED) issues commercial licences. Since the 2020 reform allowing 100% foreign ownership of mainland companies (removing the previous 51% local-sponsor requirement for most activities), establishing a mainland company has become more attractive. The Abu Dhabi Residents Office assists with Golden Visa applications for the emirate, and Abu Dhabi has been particularly proactive in attracting tech talent — the Hub71 programme offers subsidised office space, housing allowances, and health insurance for qualifying startups, along with expedited visa processing.
+For mainland business activities in Abu Dhabi, the Abu Dhabi Department of Economic Development (ADDED) issues commercial licences. Since the 2020 reform allowing 100% foreign ownership of mainland companies (removing the previous 51% local-sponsor requirement for most activities), establishing a mainland company has become more attractive. The Abu Dhabi Residents Office assists with Golden Visa applications for the emirate, and Abu Dhabi has been particularly proactive in attracting tech talent, the Hub71 programme offers subsidised office space, housing allowances, and health insurance for qualifying startups, along with expedited visa processing.
 
 Abu Dhabi's visa processing is managed by the Federal Authority for Identity, Citizenship, Customs and Port Security (ICP). Processing times and costs are similar to Dubai, with the entire employment-visa process taking approximately 2–3 weeks. Abu Dhabi has also introduced the Abu Dhabi Talent Visa, a variation of the Golden Visa targeted at professionals in priority sectors including healthcare, education, AI, and space technology. This visa can be applied for through the Abu Dhabi Talent Programme portal and offers expedited processing within 5 working days.`,
     },
@@ -67,15 +67,15 @@ Abu Dhabi's visa processing is managed by the Federal Authority for Identity, Ci
   ],
   sources: [
     {
-      name: "ICP — Federal Authority for Identity, Citizenship, Customs and Port Security",
+      name: "ICP, Federal Authority for Identity, Citizenship, Customs and Port Security",
       url: "https://icp.gov.ae",
     },
     {
-      name: "GDRFA — General Directorate of Residency and Foreigners Affairs (Dubai)",
+      name: "GDRFA, General Directorate of Residency and Foreigners Affairs (Dubai)",
       url: "https://www.gdrfa.gov.ae",
     },
     {
-      name: "MOHRE — Ministry of Human Resources and Emiratisation",
+      name: "MOHRE, Ministry of Human Resources and Emiratisation",
       url: "https://www.mohre.gov.ae",
     },
   ],

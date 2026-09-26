@@ -6,6 +6,8 @@ import SourcesBlock from "../components/ui/SourcesBlock.astro";
 import RelatedLinks from "../components/ui/RelatedLinks.astro";
 
 interface Props {
+  /** Paragraphe citable (RECETTE §21), rendu dans le corps. */
+  resumeCitable?: string;
   title: string;
   description: string;
   canonical: string;
@@ -29,6 +31,7 @@ const {
   sources = [],
   relatedLinks = [],
   crossLinks = [],
+  resumeCitable,
 } = Astro.props;
 ---
 
@@ -56,6 +59,10 @@ const {
     </div>
 
     <!-- Simulator slot (rendered before content) -->
+    {resumeCitable && (
+      <p class="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">{resumeCitable}</p>
+    )}
+
     <slot name="simulator" />
 
     <!-- Cross-links to same theme in other countries -->

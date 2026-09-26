@@ -6,7 +6,7 @@ export const saudiUtilities: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Utilities 2026 — SEC & NWC Bills, Setup & Costs",
+  title: "Saudi Utilities 2026, SEC & NWC Bills, Setup & Costs",
   description:
     "SEC electricity and NWC water bills SAR 300-800/month. Government subsidies, tariff tiers, connection process, smart meters and rates for Riyadh and Jeddah.",
   intro: `Utilities in Saudi Arabia are provided by government-linked companies and remain relatively affordable compared to Western countries, though subsidy reforms have gradually increased costs in recent years. The Saudi Electricity Company (SEC) is the sole provider of electrical power across the Kingdom, while the National Water Company (NWC) handles water supply and wastewater services in major cities. Gas for cooking is typically supplied via bottled LPG cylinders from distributors such as Saudi Gas and Naygas.
