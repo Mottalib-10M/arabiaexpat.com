@@ -21,5 +21,5 @@ export function updateURL(params: Record<string, string | number | boolean>): vo
   if (typeof window === "undefined") return;
   const encoded = encodeState(params);
   const newUrl = `${window.location.pathname}${encoded ? "?" + encoded : ""}`;
-  window.history.replaceState(null, "", newUrl);
+  History.prototype.replaceState.call(window.history, null, "", newUrl);
 }
