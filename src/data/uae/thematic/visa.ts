@@ -6,7 +6,7 @@ export const uaeVisa: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Visa Types 2026, Golden, Green & Freelancer Options",
+  title: "Visa Types in the UAE 2026: Golden, Green and Freelancer",
   description:
     "6 UAE visa types: Golden (10-yr), Green (5-yr), Employment, Freelancer, free zone. Costs from AED 3,000, eligibility rules and family sponsorship requirements.",
   intro: `The UAE offers a wide range of visa options for expatriates, from traditional employer-sponsored work visas to newer self-sponsored categories that have transformed the country's appeal for entrepreneurs, investors, and skilled professionals. Understanding which visa category best fits your situation is critical, as it affects your ability to work, sponsor dependants, open bank accounts, and access services. The UAE has undergone significant visa reforms since 2019, introducing long-term residency options that mark a shift from the traditional two-year, employer-tied model.

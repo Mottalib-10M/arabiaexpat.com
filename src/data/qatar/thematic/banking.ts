@@ -6,7 +6,7 @@ export const qatarBanking: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Banking 2026, Best Expat Accounts & QNB vs Doha",
+  title: "Bank Accounts in Qatar 2026: QNB vs Doha Bank, QCB Rules",
   description:
     "Open a Qatar bank account in 3-5 days with QID. Compare QNB, Commercial Bank and Doha Bank fees. WPS salary, credit cards, remittance options and QCB rules.",
   intro: `Qatar's banking sector is well-developed, tightly regulated, and dominated by a mix of conventional and Islamic financial institutions. The Qatar Central Bank (QCB) oversees all banking operations in the country and enforces strict capital adequacy, anti-money laundering, and consumer protection standards. For expats, opening a bank account in Qatar is straightforward and usually a requirement of the employment process, as salaries must be paid through the Wage Protection System (WPS).

@@ -6,7 +6,7 @@ export const qatarEducation: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Schools 2026, Fees, Education City & Admissions",
+  title: "International Schools in Qatar 2026: Fees and Education City",
   description:
     "Doha school fees QAR 20,000-65,000/year. British, American and IB curricula. Education City hosts Georgetown and Northwestern. QNSA ratings and admissions.",
   intro: `Qatar has invested heavily in building a world-class education ecosystem. The country is home to Education City, a 12-square-kilometre campus in Doha that hosts branch campuses of elite international universities including Georgetown University, Northwestern University, Carnegie Mellon University, Texas A&M, Virginia Commonwealth University, and Weill Cornell Medicine. For expat families, this means children can pursue globally recognised degrees without leaving the Gulf.

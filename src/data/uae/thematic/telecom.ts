@@ -6,7 +6,7 @@ export const uaeTelecom: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Mobile and Internet 2026: du vs Etisalat Prices",
+  title: "Mobile and Internet in the UAE 2026: du vs Etisalat Prices",
   description:
     "Compare du and Etisalat postpaid, prepaid and home broadband plans. Data from AED 100/10 GB. 5G coverage, eSIM setup, VoIP apps like BOTIM and VPN restrictions.",
   intro: `The UAE's telecommunications market is served by two main providers: Etisalat (rebranded as e& in 2022) and du (operated by Emirates Integrated Telecommunications Company). Both offer mobile, fixed-line, home broadband, and TV services, and both have extensive 5G networks covering virtually all urban areas. Unlike many countries with multiple MVNOs (mobile virtual network operators), the UAE market is effectively a duopoly, though competition between the two providers keeps prices relatively competitive by regional standards.

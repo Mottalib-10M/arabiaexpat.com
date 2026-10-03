@@ -6,7 +6,7 @@ export const uaeEducation: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Schools 2026, Fees, KHDA Ratings & Curricula Guide",
+  title: "International Schools in the UAE 2026: Fees, KHDA Ratings",
   description:
     "700+ schools offering 17 curricula. Fees AED 15,000-100,000/year. KHDA and ADEK ratings, British vs IB vs American, admissions timeline and tips for parents.",
   intro: `The UAE is home to one of the most diverse and competitive private education markets in the world, with over 700 private schools serving more than 1.1 million students. Expat families can choose from a wide range of curricula including British (EYFS/GCSE/A-Level), American (US diploma/AP), International Baccalaureate (IB), Indian (CBSE and ICSE), French (CNED/AEFE), and several others including German, Japanese, and Filipino systems. The sheer variety means parents can often continue the same educational pathway their children started in another country.

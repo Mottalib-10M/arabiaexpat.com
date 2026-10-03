@@ -6,7 +6,7 @@ export const qatarTransport: ThematicPageData = {
   countryKey: "qatar",
   countrySlug: "qatar",
   countryName: "Qatar",
-  title: "Qatar Transport 2026: Doha Metro, Taxis and Driving",
+  title: "Transport in Qatar 2026: Doha Metro, Taxis and Driving",
   description:
     "Doha Metro pass QAR 100/month on 3 lines. Karwa taxis, Uber, Lusail Tram and car costs. Fuel QAR 1.80/litre. Licence conversion from 40+ approved countries.",
   intro: `Qatar's transport infrastructure has been transformed in the past decade, with the opening of the Doha Metro in 2019 marking a pivotal shift from a car-dependent country to one with modern public transit. The metro system, combined with Karwa bus services, taxis, and ride-hailing apps, gives expats multiple options for getting around. However, private car ownership remains the dominant mode of transport, particularly for families and those living outside central Doha.

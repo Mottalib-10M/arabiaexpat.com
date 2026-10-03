@@ -6,7 +6,7 @@ export const uaeTransport: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Transport 2026, Metro, Salik Tolls & Driving Costs",
+  title: "Transport in the UAE 2026: Metro, Salik Tolls, Driving Costs",
   description:
     "Dubai Metro pass AED 350/month, Salik tolls AED 4 per gate, petrol AED 3.20/litre. Car insurance, nol card, Abu Dhabi buses, ride-hailing and Etihad Rail news.",
   intro: `Getting around the UAE is relatively easy, but the best option depends heavily on which emirate you live in and your daily routine. Dubai has the most developed public-transport network in the Gulf, anchored by the Dubai Metro, tram, bus system, and water taxis. Abu Dhabi, while expanding its public transport, remains more car-dependent. Between the two cities, comfortable inter-city buses run every 15–30 minutes and take around 90 minutes. Ride-hailing apps like Uber and Careem (a regional competitor acquired by Uber) are widely available and affordable throughout the UAE.

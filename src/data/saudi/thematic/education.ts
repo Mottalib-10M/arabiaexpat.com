@@ -6,7 +6,7 @@ export const saudiEducation: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Schools 2026, Fees, Curricula & Vision 2030 Reforms",
+  title: "International Schools in Saudi Arabia 2026: Fees, Curricula",
   description:
     "400+ international schools in Saudi. Fees SAR 15,000-65,000/year. British, American and IB curricula. MOE rules, Aramco community schools and universities.",
   intro: `Saudi Arabia's education landscape has undergone a dramatic transformation in recent years, driven largely by the Vision 2030 reform agenda. The Ministry of Education (MOE) oversees both public and private schooling, and the Kingdom now hosts more than 400 international schools catering to its large expatriate population. Public schools follow the Saudi national curriculum taught predominantly in Arabic, making international schools the primary choice for most expat families.

@@ -6,7 +6,7 @@ export const uaeHealthcare: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Healthcare 2026: Insurance, Hospitals and Costs",
+  title: "Healthcare in the UAE 2026: Insurance, Hospitals and Costs",
   description:
     "Mandatory insurance via DHA (Dubai) and DoH (Abu Dhabi). GP visits AED 150-400. Cleveland Clinic, Mediclinic and NMC compared. Emergency and dental coverage.",
   intro: `The UAE has one of the most advanced healthcare systems in the Middle East, with world-class hospitals, internationally accredited facilities, and a growing number of specialist centres. Healthcare is regulated at the emirate level: the Dubai Health Authority (DHA) oversees the health sector in Dubai, while the Department of Health (DoH), formerly HAAD, regulates healthcare in Abu Dhabi. Both authorities mandate that all residents must have health insurance, making the UAE one of the few countries in the region with universal mandatory coverage for expats.

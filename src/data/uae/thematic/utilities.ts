@@ -6,7 +6,7 @@ export const uaeUtilities: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Utilities 2026, DEWA & ADDC Bills, Setup & Costs",
+  title: "Utility Bills in the UAE 2026: DEWA and ADDC Setup, Costs",
   description:
     "DEWA deposit AED 2,000 for apartments, activation in 24-48 hours. Monthly bills AED 300-1,200. ADDC Abu Dhabi rates, district cooling and tariff tiers guide.",
   intro: `Utilities in the UAE, electricity, water, gas, and district cooling, are managed by government-owned entities, with costs that vary between emirates and by usage tier. In Dubai, the Dubai Electricity and Water Authority (DEWA) is the sole provider. In Abu Dhabi, the Abu Dhabi Distribution Company (ADDC) handles electricity and water distribution. Sharjah has SEWA (Sharjah Electricity, Water and Gas Authority), and the Northern Emirates have their own utility providers. For expats, understanding the registration process, tariff structures, and average monthly costs is important for budgeting accurately.

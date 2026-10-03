@@ -6,7 +6,7 @@ export const saudiHousing: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Rent Guide 2026, Compounds, Prices & Ejar Rules",
+  title: "Renting in Saudi Arabia 2026: Compounds, Prices, Ejar Rules",
   description:
     "Riyadh 1-bed from SAR 2,500/month, compounds SAR 8,000-20,000. Rent estimator tool. Ejar registration, compound amenities and best areas in Riyadh and Jeddah.",
   intro: `Housing in Saudi Arabia has evolved significantly for expatriates. Traditionally, most Western expats lived in gated compounds that offered a self-contained community with amenities such as swimming pools, gyms, and social facilities. While compound living remains popular, the social reforms under Vision 2030 have opened up more options, and an increasing number of expats now choose to live in apartments or villas in regular residential neighbourhoods.

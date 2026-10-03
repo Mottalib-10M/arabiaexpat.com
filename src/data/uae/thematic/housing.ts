@@ -6,7 +6,7 @@ export const uaeHousing: ThematicPageData = {
   countryKey: "uae",
   countrySlug: "uae",
   countryName: "UAE",
-  title: "UAE Rent Guide 2026, Prices, Areas & Ejari Process",
+  title: "Renting in the UAE 2026: Prices, Best Areas, Ejari Process",
   description:
     "Dubai 1-bed from AED 4,000/month, Abu Dhabi from AED 3,500. Rent estimator tool. Ejari and Tawtheeq registration, RERA rules, security deposits and best areas.",
   intro: `Finding the right home is one of the most important, and often most stressful, parts of relocating to the UAE. The rental market is large and varied, offering everything from shared studio apartments for under AED 30,000 (~€7,500) per year to luxury villas on the Palm Jumeirah exceeding AED 1,000,000 (~€250,000) annually. Most expats rent rather than buy, though freehold ownership is available to foreign nationals in designated areas in both Dubai and Abu Dhabi. Understanding the local rental process, including the legal framework, payment norms, and neighbourhood differences, is essential for making a good decision.

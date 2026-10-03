@@ -6,7 +6,7 @@ export const saudiBanking: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Banking 2026, Best Expat Accounts & SAMA Rules",
+  title: "Bank Accounts in Saudi Arabia 2026: Al Rajhi, SNB, SAMA",
   description:
     "Open a Saudi bank account with your Iqama. Compare Al Rajhi, SNB and Riyad Bank fees. SAMA rules, WPS salary system, international transfers and fintech apps.",
   intro: `Saudi Arabia's banking sector is one of the largest and most stable in the Middle East, regulated by the Saudi Central Bank (SAMA, formerly the Saudi Arabian Monetary Authority). The Kingdom is home to 12 licensed commercial banks and a growing number of digital banks and fintech platforms. For expats, opening a bank account is an essential first step upon arrival, as salary payments, rent, and most financial transactions are conducted through the banking system.

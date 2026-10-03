@@ -6,7 +6,7 @@ export const saudiTransport: ThematicPageData = {
   countryKey: "saudi",
   countrySlug: "saudi-arabia",
   countryName: "Saudi Arabia",
-  title: "Saudi Transport 2026, Riyadh Metro, Driving & Costs",
+  title: "Transport in Saudi Arabia 2026: Riyadh Metro, Driving, Costs",
   description:
     "Riyadh Metro spans 6 lines, 176 km. Fuel SAR 2.18/litre. Uber and Careem available. Driving licence conversion, car insurance costs and inter-city transport.",
   intro: `Saudi Arabia has traditionally been a car-dependent country, with wide highways and inexpensive fuel shaping the transport landscape. However, the Kingdom is investing heavily in public transport infrastructure as part of its Vision 2030 modernisation plan. The landmark opening of the Riyadh Metro in 2024 marked a turning point, and further projects in Jeddah and other cities are in various stages of planning and development.
