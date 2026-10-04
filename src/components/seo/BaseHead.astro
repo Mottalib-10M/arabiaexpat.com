@@ -88,3 +88,11 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
     },3000);
   `} />
 )}
+
+<!-- Google Analytics 4, loaded on page open like Clarity (no banner), described in /privacy-policy/ -->
+{SITE.ga4Id && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}`}></script>
+    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${SITE.ga4Id}');`} />
+  </>
+)}
