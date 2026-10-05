@@ -4,9 +4,9 @@ export const SITE = {
   description: "Your complete guide to living in the Gulf as an expat. Visa guides, daily life, housing, healthcare, schools, utilities, and relocation resources for the UAE, Qatar, and Saudi Arabia.",
   author: {
     name: "Radif Partners",
-    credentials: "Éditeur de calculateurs et de guides pratiques",
-    role: "Founder & Enthusiast",
-    bio: "Radif Partners has spent over a decade advising professionals on Gulf region career transitions. His research covers labor law, compensation structures, and immigration policy across the UAE, Qatar, and Saudi Arabia.",
+    credentials: "publisher of Gulf relocation guides",
+    role: "Publisher",
+    bio: "Radif Partners publishes Arabia Expat, a set of relocation guides and cost-of-living estimators for people moving to the UAE, Qatar, and Saudi Arabia, written from official sources such as immigration authorities, labour ministries, and utility providers.",
   },
   year: 2026,
   googleVerifyCode: "b2YamsA61r7xK6-y3ozt05eM3ijS1Hi_Jsp9sOqANH0", // google-site-verification meta tag value from Google Search Console

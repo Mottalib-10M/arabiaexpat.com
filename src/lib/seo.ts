@@ -157,7 +157,7 @@ export function buildArticleSchema(title: string, description: string, url: stri
     author: {
       "@type": "Organization",
       name: "Radif Partners",
-      jobTitle: "Éditeur de calculateurs et de guides pratiques",
+      jobTitle: "Publisher of Gulf relocation guides",
     },
     publisher: {
       "@type": "Organization",

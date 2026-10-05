@@ -67,8 +67,8 @@ const dateLisible = (iso, lang) => {
 
 const AUTHOR = {
   name: 'Radif Partners',
-  jobTitle: 'Éditeur de calculateurs et de guides pratiques',
-  knowsAbout: ['Personal finance', 'Payroll and income tax', 'Social security'],
+  jobTitle: 'Publisher of Gulf relocation and residency guides',
+  knowsAbout: ['Gulf residence visas', 'Expat cost of living', 'Relocation to the UAE, Qatar and Saudi Arabia'],
 };
 
 // Tableaux larges : conteneur défilant, sauf dans un <astro-island> (React compare son rendu
@@ -129,7 +129,10 @@ function deshallow(cwd) {
 export default function trustKit(opts) {
   const localeOf = (path) => {
     const l = (opts.i18n || []).find((x) => path.startsWith(x.prefix)) || opts;
-    return { t: TEXT[l.lang] || TEXT.en, lang: l.lang, about: l.about, method: l.method };
+    const base = TEXT[l.lang] || TEXT.en;
+    // Disclaimer propre au site (opts.disclaimer) : le texte commun reste le repli.
+    const t = l.disclaimer || opts.disclaimer ? { ...base, disclaimer: l.disclaimer || opts.disclaimer } : base;
+    return { t, lang: l.lang, about: l.about, method: l.method };
   };
   const entries = new Map();          // motif de route → fichier source
   let root = process.cwd();

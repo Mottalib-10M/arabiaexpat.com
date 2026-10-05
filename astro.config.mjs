@@ -8,7 +8,8 @@ export default defineConfig({
   site: "https://arabiaexpat.com",
   trailingSlash: "always",
   integrations: [
-    trustKit({ lang: 'en', siteUrl: 'https://arabiaexpat.com', siteName: 'Arabia Expat', founded: '2026-06-24', about: '/about/', method: '/methodology/' }),
+    trustKit({ lang: 'en', siteUrl: 'https://arabiaexpat.com', siteName: 'Arabia Expat', founded: '2026-06-24', about: '/about/', method: '/methodology/',
+               disclaimer: 'Relocation budgets and visa steps are guidance: entry and residence decisions belong to ICP, GDRFA, the Qatar Ministry of Interior or Jawazat, and fees change without notice.' }),
     react(),
     sitemap(),
   ],

@@ -106,11 +106,6 @@ export const footerNav = {
     { label: "Saudi Cost of Living", href: "/saudi-arabia/cost-of-living/" },
     { label: "Glossary", href: "/glossary/" },
   ],
-  sisterSites: [
-    { label: "Salary Data (taxfreesalaries.com)", href: "https://taxfreesalaries.com/" },
-    { label: "Business Setup (thedubaisetup.com)", href: "https://thedubaisetup.com/" },
-    { label: "Property Prices (uaepriceindex.com)", href: "https://uaepriceindex.com/" },
-  ],
   legal: [
     { label: "About", href: "/about/" },
     { label: "Methodology", href: "/methodology/" },
