@@ -11,8 +11,7 @@ export const SITE = {
   year: 2026,
   googleVerifyCode: "b2YamsA61r7xK6-y3ozt05eM3ijS1Hi_Jsp9sOqANH0", // google-site-verification meta tag value from Google Search Console
   bingVerifyCode: "", // msvalidate.01 code from Bing Webmaster Tools
-  clarityId: "xm1ogh8k02",
-  ga4Id: "G-5P80W6V4M4", // Google Analytics 4, loaded on every page like Clarity, described in /privacy-policy/
+  clarityId: "xm1ogh8k02", // Microsoft Clarity, cookieless mode (consentv2 denied), see /privacy-policy/
   ogImage: "/og-default.png",
 } as const;
 

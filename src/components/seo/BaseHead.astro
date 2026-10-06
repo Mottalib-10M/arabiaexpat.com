@@ -72,27 +72,10 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
   })();
 </script>
 
-<!-- Microsoft Clarity (deferred 3s), only loads when clarityId is set -->
+{/* Microsoft Clarity without cookies (RECETTE §15.6, 2026-10-06): no banner, no GA4.
+     consentv2 "denied" is queued BEFORE the tag, so Clarity sets no cookie (_clck, _clsk,
+     MUID, CLID), uses one identifier per page view and does not link visits. Anonymous
+     technical measurement of stability only; page content is masked (body data-clarity-mask). */}
 {SITE.clarityId && SITE.clarityId !== "placeholder-clarity-id" && (
-  <script type="text/javascript" set:html={`
-    setTimeout(function(){
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;
-        t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t,y);
-      })(window,document,"clarity","script","${SITE.clarityId}");
-      clarity("set","language","en");
-      clarity("set","page_path","${Astro.url.pathname}");
-    },3000);
-  `} />
-)}
-
-<!-- Google Analytics 4, loaded on page open like Clarity (no banner), described in /privacy-policy/ -->
-{SITE.ga4Id && (
-  <>
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}`}></script>
-    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${SITE.ga4Id}');`} />
-  </>
+  <script is:inline set:html={`(function(){window.clarity=window.clarity||function(){(window.clarity.q=window.clarity.q||[]).push(arguments);};window.clarity('consentv2',{ad_Storage:'denied',analytics_Storage:'denied'});var s=document.createElement('script');s.async=true;s.src='https://www.clarity.ms/tag/${SITE.clarityId}';document.head.appendChild(s);window.clarity('set','language','en');window.clarity('set','page_path','${Astro.url.pathname}');})();`} />
 )}
