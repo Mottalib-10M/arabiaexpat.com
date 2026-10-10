@@ -17,8 +17,17 @@ export function decodeState(search: string): Record<string, string> {
   return result;
 }
 
+// The address bar stays exactly the page URL (sitemap, canonical, trailing slash) until the
+// visitor does something: calculators call updateURL from effects that also run on mount.
+// RECETTE-SITE.md §18.1, check-url-propre.mjs.
+let interacted = false;
+if (typeof window !== "undefined") {
+  const mark = () => { interacted = true; };
+  for (const t of ["input", "change", "click", "keydown"]) document.addEventListener(t, mark, { once: true, capture: true });
+}
+
 export function updateURL(params: Record<string, string | number | boolean>): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !interacted) return;
   const encoded = encodeState(params);
   const newUrl = `${window.location.pathname}${encoded ? "?" + encoded : ""}`;
   History.prototype.replaceState.call(window.history, null, "", newUrl);
