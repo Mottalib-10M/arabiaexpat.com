@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/redirects-301.mjs && node scripts/typo-nbsp.mjs",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "astro check && node scripts/check-url-propre.mjs .",
     "test": "vitest run",
     "check:cookies": "python3 scripts/check-cookies.py ."
   },
