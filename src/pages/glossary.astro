@@ -102,16 +102,16 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
   breadcrumbs={breadcrumbs}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
+
+  <h1>Gulf Expat Glossary</h1>
+  <div data-simu class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
     <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Glossary Search</h2>
     <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Type a term or keyword to find its definition instantly.</p>
     <form id="glossarySearch" onsubmit="return false;">
       <input type="text" id="gsInput" placeholder="e.g. Golden Visa, Iqama, DEWA..." class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm" oninput="(function(){var q=document.getElementById('gsInput').value.toLowerCase().trim();var dts=document.querySelectorAll('[data-glossary-term]');var count=0;dts.forEach(function(dt){var t=dt.getAttribute('data-glossary-term').toLowerCase();var d=dt.getAttribute('data-glossary-def').toLowerCase();var match=!q||t.includes(q)||d.includes(q);dt.parentElement.style.display=match?'':'none';if(match)count++;});document.getElementById('gsCount').textContent=q?count+' term'+(count!==1?'s':'')+' found':'';})();" />
-      <span id="gsCount" class="text-xs text-gray-500 mt-1 block"></span>
+      <span data-resultat aria-live="polite" id="gsCount" class="text-xs text-gray-500 mt-1 block"></span>
     </form>
   </div>
-
-  <h1>Gulf Expat Glossary</h1>
 
   <p>Moving to the Gulf means encountering a new vocabulary of government agencies, visa categories, legal terms, digital platforms, and cultural concepts that can be bewildering for newcomers. From the Iqama that serves as your identity in Saudi Arabia to the Ejari registration that makes your Dubai tenancy contract legally binding, from the Salik toll tags on your car windshield to the GOSI contributions calculated on your paycheck, understanding these terms is not academic, it is essential for navigating daily life, managing your finances, and protecting your legal rights. This glossary provides clear, practical definitions for the most important terms that Gulf expatriates encounter, organized alphabetically and written to give you the context you need alongside the definition itself.</p>
 

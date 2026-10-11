@@ -98,13 +98,13 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
     : [];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 lg:grid lg:grid-cols-2 lg:items-start lg:gap-4 lg:space-y-0">
       <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
           Cost of Living Simulator
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div data-champs className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">City</label>
             <select value={citySlug} onChange={(e) => setCitySlug(e.target.value)} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
@@ -147,7 +147,7 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
             </select>
           </div>
 
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 sm:col-span-1 lg:col-span-2">
             <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Compare with</label>
             <select value={originSlug} onChange={(e) => setOriginSlug(e.target.value)} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
               <option value="">-- Select origin city --</option>
@@ -158,11 +158,11 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
       </div>
 
       {result && (
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 space-y-4">
+        <div data-resultat aria-live="polite" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 space-y-4">
           <div className="flex items-baseline justify-between">
             <div>
               <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost in {result.cityName}</p>
-              <p className="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">
+              <p data-chiffre className="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">
                 {formatCurrency(result.total, result.currency)}
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, result.currency)}</p>

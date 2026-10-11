@@ -19,10 +19,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Living in Jeddah 2026: Expat Salary, Red Sea Life and Rent" description="Jeddah expat salaries SAR 10,000-14,000/month tax-free. Red Sea coastal lifestyle, rent from SAR 2,000, Al Balad heritage, KAUST area and dive culture." canonical="/saudi-arabia/jeddah/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Jeddah Expat Guide 2026: Salaries, Rent and Red Sea Life", "Complete guide to living in Jeddah for expats.", "https://arabiaexpat.com/saudi-arabia/jeddah/", "2025-06-01", "2026-06-15")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Jeddah", url: "/saudi-arabia/jeddah/" }]}>
 
-<div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Jeddah vs Riyadh Cost Comparison</h2>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Compare your estimated monthly costs between Saudi Arabia's two largest cities.</p>
-  <form id="jedRiyComp" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+<h1>Jeddah Expat Guide 2026: Salaries, Red Sea Lifestyle, and Coastal Living</h1>
+<div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Jeddah vs Riyadh Cost Comparison</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Compare your estimated monthly costs between Saudi Arabia's two largest cities.</p>
+  <form id="jedRiyComp" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
     <div>
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="jrHousing">Housing type</label>
       <select id="jrHousing" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -40,14 +42,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
         <option value="family">Family with children</option>
       </select>
     </div>
-    <div class="sm:col-span-2">
+    <div class="sm:col-span-2 lg:col-span-1">
       <button type="button" onclick="_calcJeddah()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Cities</button>
     </div>
-    <div id="jrResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
+  <div data-resultat aria-live="polite" id="jrResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
 </div>
-
-<h1>Jeddah Expat Guide 2026: Salaries, Red Sea Lifestyle, and Coastal Living</h1>
 
 <p>Jeddah has always been the most cosmopolitan city in Saudi Arabia. Located on the Red Sea coast in the Hejaz region, it has served for centuries as the primary gateway for pilgrims traveling to Makkah and Madinah, giving it a diverse, multicultural character that sets it apart from any other Saudi city. With a population of approximately 4.7 million, Jeddah is the kingdom's second-largest city and its primary commercial port. Its residents include communities from across the Arab world, South and Southeast Asia, East Africa, and Europe, creating a cultural richness that is reflected in the city's food, architecture, and daily social rhythms. For expatriates in 2026, Jeddah offers a unique blend of coastal lifestyle, Red Sea outdoor recreation, competitive tax-free salaries, historical charm in the Al Balad heritage district, and proximity to transformative mega-projects including the Red Sea Global tourism development and KAUST, the King Abdullah University of Science and Technology.</p>
 

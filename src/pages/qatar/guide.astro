@@ -18,10 +18,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Moving to Qatar 2026: Expat Guide to Tax, Visa and Housing" description="Move to Doha with zero income tax and zero VAT advantage. QatarEnergy salaries, rent from QAR 3,500, Kahramaa utilities, 50+ schools and hospital guide." canonical="/qatar/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Qatar Expat Guide 2026: Living and Working in Doha", "Complete 2026 guide to life in Qatar for expats.", "https://arabiaexpat.com/qatar/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar Guide", url: "/qatar/guide/" }]}>
 
-<div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Qatar Relocation Budget Planner</h2>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Estimate your first-month setup costs for relocating to Qatar.</p>
-  <form id="qatarBudget" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+<h1>Complete Qatar Expat Guide 2026</h1>
+<div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Qatar Relocation Budget Planner</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Estimate your first-month setup costs for relocating to Qatar.</p>
+  <form id="qatarBudget" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
     <div>
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="qHousing">Housing type</label>
       <select id="qHousing" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -39,14 +41,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
         <option value="family">Family (2 children)</option>
       </select>
     </div>
-    <div class="sm:col-span-2">
+    <div class="sm:col-span-2 lg:col-span-1">
       <button type="button" onclick="_calcGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Setup Budget</button>
     </div>
-    <div id="qBudgetResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
+  <div data-resultat aria-live="polite" id="qBudgetResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
 </div>
-
-<h1>Complete Qatar Expat Guide 2026</h1>
 <p>Qatar is the wealthiest country on earth by GDP per capita and one of the most financially rewarding destinations available to expatriate professionals. Sitting on the world's third-largest natural gas reserves and serving as the planet's leading exporter of liquefied natural gas, this small peninsula state on the Arabian Gulf has parlayed its energy wealth into a modernized society with world-class infrastructure, reformed labor laws, and a concentrated job market that pays premium salaries with zero personal income tax. For professionals in energy, aviation, healthcare, education, and construction, Qatar represents an opportunity to earn, save, and build career credentials at a pace that few other countries can match.</p>
 
 <p>The 2022 FIFA World Cup left a permanent imprint on Qatar's landscape and national identity. The country spent an estimated USD 220 billion on infrastructure leading up to the tournament, including a metro system, eight stadiums, new expressways, expanded airports, and entire planned neighborhoods. That infrastructure now serves the resident population, making Doha one of the most modern and well-connected cities in the region. The post-World Cup period has also brought labor reforms that eliminated the kafala sponsorship system's most restrictive features, introduced a non-discriminatory minimum wage, and created digital platforms that streamline government services. Qatar in 2026 is a fundamentally different proposition from the Qatar of 2018, and expatriates arriving today benefit from those investments and reforms in tangible, daily ways.</p>

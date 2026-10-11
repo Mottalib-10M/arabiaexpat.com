@@ -19,10 +19,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Living in Dammam and Khobar 2026: Aramco Jobs, Compounds" description="Eastern Province salaries SAR 10,000-14,000/month tax-free. Aramco compound living, Bahrain causeway access, Half Moon Beach, rent from SAR 2,000/month." canonical="/saudi-arabia/dammam/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Dammam Khobar Expat Guide 2026: Eastern Province Life", "Complete guide to Dammam-Khobar-Dhahran for expats.", "https://arabiaexpat.com/saudi-arabia/dammam/", "2025-06-01", "2026-06-15")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia", url: "/saudi-arabia/guide/" }, { name: "Dammam/Khobar", url: "/saudi-arabia/dammam/" }]}>
 
-<div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Eastern Province Compound Budget Planner</h2>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Estimate your monthly budget for compound living in the Dammam-Khobar-Dhahran metro area.</p>
-  <form id="epBudget" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+<h1>Dammam, Khobar and Dhahran Expat Guide 2026: Saudi Arabia's Eastern Province</h1>
+<div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Eastern Province Compound Budget Planner</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Estimate your monthly budget for compound living in the Dammam-Khobar-Dhahran metro area.</p>
+  <form id="epBudget" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
     <div>
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="epComp">Compound type</label>
       <select id="epComp" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -40,14 +42,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
         <option value="family" selected>Family with children</option>
       </select>
     </div>
-    <div class="sm:col-span-2">
+    <div class="sm:col-span-2 lg:col-span-1">
       <button type="button" onclick="_calcDammam()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Budget</button>
     </div>
-    <div id="epResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
+  <div data-resultat aria-live="polite" id="epResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
 </div>
-
-<h1>Dammam, Khobar and Dhahran Expat Guide 2026: Saudi Arabia's Eastern Province</h1>
 
 <p>The Eastern Province of Saudi Arabia, anchored by the tri-city metropolitan area of Dammam, Khobar, and Dhahran, occupies a unique position in the kingdom's economy and expatriate landscape. This is where Saudi Arabia's petroleum industry was born. When American geologists discovered oil at Dammam Well No. 7 in 1938, they set in motion a chain of events that would transform a fishing village into the operational heart of the world's most valuable company. Today, Saudi Aramco's sprawling headquarters campus in Dhahran employs tens of thousands of international professionals, and the surrounding metropolitan area of approximately 2 million residents has grown into a thriving, family-friendly expat community with a character quite distinct from Riyadh or Jeddah.</p>
 

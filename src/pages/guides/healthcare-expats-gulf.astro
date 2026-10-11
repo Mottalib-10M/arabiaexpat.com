@@ -29,6 +29,43 @@ const breadcrumbs = [
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Healthcare for Expats", url: "/guides/healthcare-expats-gulf/" }]}
 >
   <h1>Healthcare for Gulf Expats 2026: Insurance, Hospitals, and Navigating the System</h1>
+  <!-- Mini Insurance Plan Comparison Tool -->
+  <div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Healthcare Cost Quick Check</h2>
+    <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Estimate your out-of-pocket healthcare costs based on your insurance tier and usage pattern.</p>
+    <div data-champs>
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3 lg:grid-cols-1">
+        <div>
+          <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-country">Country</label>
+          <select id="hc-country" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+            <option value="uae">UAE</option>
+            <option value="qatar">Qatar</option>
+            <option value="saudi">Saudi Arabia</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-tier">Insurance Tier</label>
+          <select id="hc-tier" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+            <option value="basic">Basic (employer minimum)</option>
+            <option value="enhanced" selected>Enhanced (mid-tier)</option>
+            <option value="premium">Premium (Class A / VIP)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-visits">Est. Visits/Year</label>
+          <select id="hc-visits" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+            <option value="4">Low (4 GP visits)</option>
+            <option value="8" selected>Moderate (8 visits)</option>
+            <option value="16">High (16 visits + specialist)</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button type="button" onclick="calcHC()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Estimate</button>
+        </div>
+      </div>
+    </div>
+    <div data-resultat aria-live="polite" id="hc-result" class="mt-3 hidden text-sm font-bold text-teal-700 dark:text-teal-400 lg:mt-0" ></div>
+  </div>
 
   <div class="not-prose mb-6 p-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
     <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Country-specific healthcare guides</p>
@@ -39,41 +76,6 @@ const breadcrumbs = [
     </div>
   </div>
 
-  <!-- Mini Insurance Plan Comparison Tool -->
-  <div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-    <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Healthcare Cost Quick Check</h2>
-    <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Estimate your out-of-pocket healthcare costs based on your insurance tier and usage pattern.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3">
-      <div>
-        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-country">Country</label>
-        <select id="hc-country" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-          <option value="uae">UAE</option>
-          <option value="qatar">Qatar</option>
-          <option value="saudi">Saudi Arabia</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-tier">Insurance Tier</label>
-        <select id="hc-tier" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-          <option value="basic">Basic (employer minimum)</option>
-          <option value="enhanced" selected>Enhanced (mid-tier)</option>
-          <option value="premium">Premium (Class A / VIP)</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="hc-visits">Est. Visits/Year</label>
-        <select id="hc-visits" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-          <option value="4">Low (4 GP visits)</option>
-          <option value="8" selected>Moderate (8 visits)</option>
-          <option value="16">High (16 visits + specialist)</option>
-        </select>
-      </div>
-      <div class="flex items-end">
-        <button type="button" onclick="calcHC()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Estimate</button>
-      </div>
-    </div>
-    <div id="hc-result" class="mt-3 hidden text-sm font-bold text-teal-700 dark:text-teal-400" ></div>
-  </div>
   <script is:inline>
   function calcHC(){
     const tier=document.getElementById('hc-tier').value;

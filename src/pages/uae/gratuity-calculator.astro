@@ -30,25 +30,26 @@ const breadcrumbs = [
 >
 
 <h1>UAE Gratuity Calculator 2026: End-of-Service Benefit Explained</h1>
-
 <!-- Mini Interactive Gratuity Calculator -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Gratuity Calculator</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Enter your basic salary and years of service to estimate your end-of-service gratuity under UAE law.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-basic">Monthly Basic Salary (AED)</label>
-      <input type="number" id="grat-basic" value="12000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-years">Years of Service</label>
-      <input type="number" id="grat-years" value="5" min="1" max="50" step="0.5" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
-    <div class="flex items-end">
-      <button type="button" onclick="calcGratuity()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate</button>
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Gratuity Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Enter your basic salary and years of service to estimate your end-of-service gratuity under UAE law.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-basic">Monthly Basic Salary (AED)</label>
+        <input type="number" id="grat-basic" value="12000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="grat-years">Years of Service</label>
+        <input type="number" id="grat-years" value="5" min="1" max="50" step="0.5" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div class="flex items-end">
+        <button type="button" onclick="calcGratuity()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate</button>
+      </div>
     </div>
   </div>
-  <div id="grat-result" class="mt-4 hidden">
+  <div data-resultat aria-live="polite" id="grat-result" class="mt-4 hidden lg:mt-0">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
       <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
         <div class="text-xs text-gray-500 dark:text-gray-400">Total Gratuity</div>
@@ -66,6 +67,7 @@ const breadcrumbs = [
     <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="grat-breakdown"></p>
   </div>
 </div>
+
 <script is:inline>
 function calcGratuity(){
   const basic=parseFloat(document.getElementById('grat-basic').value)||0;

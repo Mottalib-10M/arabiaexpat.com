@@ -19,10 +19,12 @@ const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumb
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "About", url: "/about/" }]}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Gulf Knowledge Quiz</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Test your knowledge of Gulf expat basics before diving into our guides.</p>
-    <form id="gulfQuiz" class="space-y-3">
+
+  <h1>About Arabia Expat</h1>
+  <div data-simu data-auto="change" class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Gulf Knowledge Quiz</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Test your knowledge of Gulf expat basics before diving into our guides.</p>
+    <form id="gulfQuiz" class="space-y-3 lg:grid-cols-1">
       <div>
         <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">1. Which Gulf country has zero VAT and zero income tax?</p>
         <select id="q1" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option value="">Select...</option><option value="uae">UAE</option><option value="qatar">Qatar</option><option value="saudi">Saudi Arabia</option></select>
@@ -36,11 +38,9 @@ const schemas = [buildPersonSchema(), buildOrganizationSchema(), buildBreadcrumb
         <select id="q3" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm"><option value="">Select...</option><option value="uae">UAE</option><option value="qatar">Qatar</option><option value="saudi">Saudi Arabia</option></select>
       </div>
       <button type="button" onclick="_calcAbout()" class="px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Answers</button>
-      <div id="quizResult" class="text-sm text-gray-700 dark:text-gray-300 min-h-[1.5rem]"></div>
     </form>
+    <div data-resultat aria-live="polite" id="quizResult" class="text-sm text-gray-700 dark:text-gray-300 min-h-[1.5rem]"></div>
   </div>
-
-  <h1>About Arabia Expat</h1>
 
   <p>Arabia Expat is an independent informational resource built for professionals relocating to the United Arab Emirates, Qatar, and Saudi Arabia. We provide free, accurate, and regularly updated guidance on visa processes, housing, international schools, healthcare, utilities, driving licences, banking, and daily life across all three Gulf countries. Our scope is the move itself and the first months on the ground: the entry permit, the medical test, the Emirates ID, iqama or Qatar ID, the tenancy contract, and the monthly budget that follows.</p>
 

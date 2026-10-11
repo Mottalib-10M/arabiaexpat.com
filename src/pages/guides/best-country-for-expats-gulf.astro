@@ -29,10 +29,12 @@ const breadcrumbs = [
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }, { name: "Best Country for Expats", url: "/guides/best-country-for-expats-gulf/" }]}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Gulf Country Match Finder</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Answer three questions to see which Gulf country best matches your priorities.</p>
-    <form id="countryMatch" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+  <h1>Best Gulf Country for Expats 2026: UAE, Qatar, or Saudi Arabia?</h1>
+  <div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Gulf Country Match Finder</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Answer three questions to see which Gulf country best matches your priorities.</p>
+    <form id="countryMatch" class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:grid-cols-1">
       <div>
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="cmPriority">Top priority</label>
         <select id="cmPriority" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -63,14 +65,12 @@ const breadcrumbs = [
           <option value="hospitality">Hospitality/Tourism</option>
         </select>
       </div>
-      <div class="sm:col-span-3">
+      <div class="sm:col-span-3 lg:col-span-1">
         <button type="button" onclick="_calcBestCountryForExpatsGulf()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Find My Match</button>
       </div>
-      <div id="cmResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
+    <div data-resultat aria-live="polite" id="cmResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </div>
-
-  <h1>Best Gulf Country for Expats 2026: UAE, Qatar, or Saudi Arabia?</h1>
 
   <p>Choosing between the UAE, Qatar, and Saudi Arabia is one of the most consequential decisions an internationally mobile professional will make in their career. All three nations offer the foundational attraction of zero personal income tax, but the similarities end there. Each country has a distinct economic structure, cost profile, cultural environment, career landscape, and long-term residency pathway. The right choice depends on a complex interplay of your profession, career stage, family situation, lifestyle preferences, and financial goals. What works brilliantly for a single technology professional focused on maximizing savings over a two-year contract may be entirely wrong for a family with three school-age children seeking a decade-long home base with strong community ties. This guide evaluates all three countries across the dimensions that matter most, using current 2026 data, so that you can make an informed decision aligned with your specific priorities.</p>
 

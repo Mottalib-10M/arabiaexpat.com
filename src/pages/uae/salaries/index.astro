@@ -29,41 +29,42 @@ const breadcrumbs = [
 >
 
 <h1>UAE Salaries 2026: Comprehensive Expat Pay Guide by Industry and Role</h1>
-
 <!-- Mini Salary Comparison Tool -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Salary Lookup by Role</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Select your industry and seniority level to see typical UAE salary ranges.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-industry">Industry</label>
-      <select id="sal-industry" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="tech">Technology</option>
-        <option value="finance">Finance / Banking</option>
-        <option value="health">Healthcare</option>
-        <option value="education">Education</option>
-        <option value="construct">Construction / Engineering</option>
-        <option value="hospitality">Hospitality / Tourism</option>
-        <option value="oil">Oil & Gas</option>
-        <option value="legal">Legal</option>
-        <option value="marketing">Marketing / Media</option>
-        <option value="hr">HR / Admin</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-level">Level</label>
-      <select id="sal-level" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="junior">Junior (0-3 years)</option>
-        <option value="mid" selected>Mid (3-7 years)</option>
-        <option value="senior">Senior (7-12 years)</option>
-        <option value="director">Director / VP (12+ years)</option>
-      </select>
-    </div>
-    <div class="flex items-end">
-      <button type="button" onclick="lookupSal()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Look Up</button>
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Salary Lookup by Role</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Select your industry and seniority level to see typical UAE salary ranges.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-industry">Industry</label>
+        <select id="sal-industry" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="tech">Technology</option>
+          <option value="finance">Finance / Banking</option>
+          <option value="health">Healthcare</option>
+          <option value="education">Education</option>
+          <option value="construct">Construction / Engineering</option>
+          <option value="hospitality">Hospitality / Tourism</option>
+          <option value="oil">Oil & Gas</option>
+          <option value="legal">Legal</option>
+          <option value="marketing">Marketing / Media</option>
+          <option value="hr">HR / Admin</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-level">Level</label>
+        <select id="sal-level" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="junior">Junior (0-3 years)</option>
+          <option value="mid" selected>Mid (3-7 years)</option>
+          <option value="senior">Senior (7-12 years)</option>
+          <option value="director">Director / VP (12+ years)</option>
+        </select>
+      </div>
+      <div class="flex items-end">
+        <button type="button" onclick="lookupSal()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Look Up</button>
+      </div>
     </div>
   </div>
-  <div id="sal-lookup-result" class="mt-3 hidden text-sm">
+  <div data-resultat aria-live="polite" id="sal-lookup-result" class="mt-3 hidden text-sm lg:mt-0">
     <div class="bg-white dark:bg-gray-800 rounded p-4 border border-gray-200 dark:border-gray-700">
       <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Monthly Total Package Range (AED)</div>
       <div class="text-xl font-bold text-teal-700 dark:text-teal-400" id="sal-range"></div>
@@ -72,6 +73,7 @@ const breadcrumbs = [
     </div>
   </div>
 </div>
+
 <script is:inline>
 function lookupSal(){
   const data={

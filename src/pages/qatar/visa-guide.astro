@@ -17,10 +17,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Qatar Visa Guide 2026: Work Permit & Residency Rules" description="Get a Qatar work visa in 2-6 weeks. No exit permit needed. Permanent residency after 10 years. Family sponsorship from QAR 10,000 salary. Kafala reforms." canonical="/qatar/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Qatar Visa Guide 2026: Work, Residency and Family Visas", "Complete Qatar visa guide for 2026.", "https://arabiaexpat.com/qatar/visa-guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Qatar", url: "/qatar/guide/" }, { name: "Visa Guide", url: "/qatar/visa-guide/" }]}>
 
-<div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Qatar Visa Timeline Estimator</h2>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Select your situation to estimate how long the Qatar visa process will take.</p>
-  <form id="visaTimeline" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+<h1>Qatar Visa Guide 2026</h1>
+<div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Qatar Visa Timeline Estimator</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Select your situation to estimate how long the Qatar visa process will take.</p>
+  <form id="visaTimeline" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
     <div>
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="visaType">Visa type</label>
       <select id="visaType" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -38,14 +40,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
         <option value="none">Not started</option>
       </select>
     </div>
-    <div class="sm:col-span-2">
+    <div class="sm:col-span-2 lg:col-span-1">
       <button type="button" onclick="_calcVisaGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Estimate Timeline</button>
     </div>
-    <div id="visaResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
+  <div data-resultat aria-live="polite" id="visaResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
 </div>
-
-<h1>Qatar Visa Guide 2026</h1>
 <p>Qatar occupies a singular position among Gulf nations when it comes to immigration policy. The tiny peninsula state, home to roughly 300,000 citizens and nearly 2.7 million total residents, has rebuilt its entire visa architecture from the ground up since 2019. What once stood as a tightly regulated kafala system, where workers depended entirely on an employer for their legal status, has been replaced by a framework that the International Labour Organization describes as the most reformed in the Arab Gulf. For the hundreds of thousands of professionals considering Qatar in 2026, understanding these changes is not merely academic. The reformed rules directly determine how quickly you can start working, how freely you can switch jobs, and whether you have a realistic path toward long-term settlement in the country.</p>
 
 <p>The motivation behind Qatar's transformation was partly external pressure, partly strategic ambition. Ahead of the 2022 FIFA World Cup, international scrutiny of labor conditions in Qatar reached a peak. The government responded not with cosmetic adjustments but with structural reform. Exit permits were abolished in January 2020, meaning workers no longer needed their employer's permission to leave the country. In September 2020, the No Objection Certificate requirement was removed, allowing employees to change sponsors after serving contractual notice. A non-discriminatory minimum wage of QAR 1,000 per month was introduced in March 2021, the first of its kind in the Gulf region. These measures, combined with the digital modernization of government services through platforms like Metrash2, have produced a visa system that is both more humane and more efficient than what existed just five years ago.</p>

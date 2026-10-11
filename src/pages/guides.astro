@@ -57,10 +57,12 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Guides", url: "/guides/" }]}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Relocation Stage Navigator</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Select your relocation stage and we will suggest the guides most relevant to you right now.</p>
-    <form id="stageNav" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+  <h1>Gulf Expat Guides: Complete 2026 Resource Library</h1>
+  <div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Relocation Stage Navigator</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Select your relocation stage and we will suggest the guides most relevant to you right now.</p>
+    <form id="stageNav" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
       <div>
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="snStage">Your current stage</label>
         <select id="snStage" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -74,11 +76,9 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
       <div class="flex items-end">
         <button type="button" onclick="_calcGuides()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Get Recommendations</button>
       </div>
-      <div id="snResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
+    <div data-resultat aria-live="polite" id="snResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </div>
-
-  <h1>Gulf Expat Guides: Complete 2026 Resource Library</h1>
 
   <p>This page serves as your central navigation hub for every Arabia Expat resource. Whether you are researching a potential move to the UAE, Qatar, or Saudi Arabia, comparing job offers between Gulf cities, preparing documents for a visa application, or settling into your new home and need practical setup guidance, you will find the right resource below. Every guide is written with current 2026 data, sourced from official government publications, verified against multiple independent sources, and updated on a quarterly review cycle. Pay questions are covered for the UAE by the <a href="/uae/salaries/">salary pages</a> and the <a href="/uae/gratuity-calculator/">gratuity calculator</a>.</p>
 

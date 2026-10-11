@@ -18,10 +18,12 @@ const schemas = [buildBreadcrumbs(breadcrumbs)];
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Methodology", url: "/methodology/" }]}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Data Freshness Checker</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">See when different categories of our data were last verified.</p>
-    <form id="dataFresh" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+  <h1>Our Methodology</h1>
+  <div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Data Freshness Checker</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">See when different categories of our data were last verified.</p>
+    <form id="dataFresh" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
       <div>
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="dfCat">Data category</label>
         <select id="dfCat" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -37,11 +39,9 @@ const schemas = [buildBreadcrumbs(breadcrumbs)];
       <div class="flex items-end">
         <button type="button" onclick="_calcMethodology()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Freshness</button>
       </div>
-      <div id="dfResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
+    <div data-resultat aria-live="polite" id="dfResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </div>
-
-  <h1>Our Methodology</h1>
 
   <p><strong>Arabia Expat</strong> provides relocation guides, cost-of-living data, visa process documentation, and practical setup resources for expatriates working in the UAE, Qatar, and Saudi Arabia. Most of what we publish concerns the steps of a move, such as the entry permit, the residence visa stamping, the national ID card, and the first tenancy, and the costs that come with each of them. Transparency about our sources, methods, and limitations is central to our mission. This page explains in detail how we collect, verify, and present information so that you can assess the reliability of what you read and verify key claims independently using the primary sources we cite.</p>
 

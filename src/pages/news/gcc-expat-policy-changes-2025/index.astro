@@ -27,10 +27,12 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
   lastUpdated="June 2025"
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Residency Program Cost Comparison</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Compare the cost of long-term residency programs across all three Gulf countries.</p>
-    <form id="resComp" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+  <h1>GCC Expat Policy Changes 2025: Golden Visas, Remote Work Permits and Residency Reforms</h1>
+  <div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Residency Program Cost Comparison</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Compare the cost of long-term residency programs across all three Gulf countries.</p>
+    <form id="resComp" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
       <div>
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="rcType">Program type</label>
         <select id="rcType" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -42,11 +44,9 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
       <div class="flex items-end">
         <button type="button" onclick="_calcPage()" class="w-full px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Compare Programs</button>
       </div>
-      <div id="rcResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem] space-y-1"></div>
     </form>
+    <div data-resultat aria-live="polite" id="rcResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem] space-y-1"></div>
   </div>
-
-  <h1>GCC Expat Policy Changes 2025: Golden Visas, Remote Work Permits and Residency Reforms</h1>
 
   <p>The Gulf Cooperation Council countries have continued their systematic overhaul of immigration and residency frameworks through 2025, competing with increasing intensity to attract and retain skilled professionals, entrepreneurs, investors, and their families. The changes documented in this article represent the most significant shift in Gulf immigration policy since the initial launch of the UAE's Golden Visa in 2019. From expanded visa categories and reduced eligibility thresholds to new freelancer permits and strengthened dependent rights, these reforms are reshaping the fundamental compact between Gulf governments and the expatriate workforce that powers their economies.</p>
 

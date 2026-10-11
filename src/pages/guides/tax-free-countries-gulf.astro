@@ -29,40 +29,41 @@ const breadcrumbs = [
 >
 
 <h1>Tax-Free Countries in the Gulf 2026: What Zero Income Tax Really Means for Expats</h1>
-
 <!-- Mini Tax Savings Calculator -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Tax Savings Calculator: Gulf vs Home Country</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Estimate how much more you take home in the Gulf compared to a taxed country.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-salary">Annual Salary (EUR)</label>
-      <input type="number" id="tax-salary" value="60000" min="10000" step="5000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Tax Savings Calculator: Gulf vs Home Country</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Estimate how much more you take home in the Gulf compared to a taxed country.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-salary">Annual Salary (EUR)</label>
+        <input type="number" id="tax-salary" value="60000" min="10000" step="5000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-country">Home Country</label>
+        <select id="tax-country" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="35">UK (~35% effective)</option>
+          <option value="42">Germany (~42% effective)</option>
+          <option value="45">France (~45% effective)</option>
+          <option value="30">USA (~30% effective)</option>
+          <option value="25">India (~25% effective)</option>
+          <option value="20">Philippines (~20% effective)</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-gulf">Gulf Country</label>
+        <select id="tax-gulf" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="5">UAE (5% VAT)</option>
+          <option value="0">Qatar (0% VAT)</option>
+          <option value="15">Saudi Arabia (15% VAT)</option>
+          <option value="5">Bahrain (5% VAT)</option>
+          <option value="5">Oman (5% VAT)</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-country">Home Country</label>
-      <select id="tax-country" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="35">UK (~35% effective)</option>
-        <option value="42">Germany (~42% effective)</option>
-        <option value="45">France (~45% effective)</option>
-        <option value="30">USA (~30% effective)</option>
-        <option value="25">India (~25% effective)</option>
-        <option value="20">Philippines (~20% effective)</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="tax-gulf">Gulf Country</label>
-      <select id="tax-gulf" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="5">UAE (5% VAT)</option>
-        <option value="0">Qatar (0% VAT)</option>
-        <option value="15">Saudi Arabia (15% VAT)</option>
-        <option value="5">Bahrain (5% VAT)</option>
-        <option value="5">Oman (5% VAT)</option>
-      </select>
-    </div>
+    <button type="button" onclick="calcTax()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Savings</button>
   </div>
-  <button type="button" onclick="calcTax()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Savings</button>
-  <div id="tax-result" class="mt-4 hidden">
+  <div data-resultat aria-live="polite" id="tax-result" class="mt-4 hidden lg:mt-0">
     <div class="grid grid-cols-3 gap-3 text-center text-sm">
       <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
         <div class="text-xs text-gray-500 dark:text-gray-400">Home Country Net</div>
@@ -80,6 +81,7 @@ const breadcrumbs = [
     <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="tax-note"></p>
   </div>
 </div>
+
 <script is:inline>
 function calcTax(){
   const sal=parseFloat(document.getElementById('tax-salary').value)||0;

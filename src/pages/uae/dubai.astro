@@ -30,38 +30,39 @@ const breadcrumbs = [
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Dubai", url: "/uae/dubai/" }]}
 >
   <h1>Dubai Expat Guide 2026: Salaries, Neighborhoods, and Daily Life</h1>
-
   <!-- Mini Dubai Budget Planner -->
-  <div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-    <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Dubai Monthly Budget Planner</h2>
-    <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Select your area and lifestyle to estimate your monthly spend in Dubai.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-      <div>
-        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="dxb-area">Neighborhood</label>
-        <select id="dxb-area" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-          <option value="marina">Dubai Marina / JBR</option>
-          <option value="downtown">Downtown / DIFC</option>
-          <option value="jlt">JLT / Business Bay</option>
-          <option value="jvc" selected>JVC / Sports City</option>
-          <option value="mirdif">Mirdif / Al Barsha</option>
-          <option value="intlcity">International City / DSO</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="dxb-size">Home Type</label>
-        <select id="dxb-size" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-          <option value="studio">Studio</option>
-          <option value="1bed" selected>1 Bedroom</option>
-          <option value="2bed">2 Bedroom</option>
-          <option value="villa">Villa (3 bed)</option>
-        </select>
-      </div>
-      <div class="flex items-end">
-        <button type="button" onclick="calcDxb()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Estimate</button>
+  <div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Dubai Monthly Budget Planner</h2>
+    <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Select your area and lifestyle to estimate your monthly spend in Dubai.</p>
+    <div data-champs>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+        <div>
+          <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="dxb-area">Neighborhood</label>
+          <select id="dxb-area" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+            <option value="marina">Dubai Marina / JBR</option>
+            <option value="downtown">Downtown / DIFC</option>
+            <option value="jlt">JLT / Business Bay</option>
+            <option value="jvc" selected>JVC / Sports City</option>
+            <option value="mirdif">Mirdif / Al Barsha</option>
+            <option value="intlcity">International City / DSO</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="dxb-size">Home Type</label>
+          <select id="dxb-size" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+            <option value="studio">Studio</option>
+            <option value="1bed" selected>1 Bedroom</option>
+            <option value="2bed">2 Bedroom</option>
+            <option value="villa">Villa (3 bed)</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button type="button" onclick="calcDxb()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Estimate</button>
+        </div>
       </div>
     </div>
-    <div id="dxb-result" class="mt-3 hidden text-sm">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+    <div data-resultat aria-live="polite" id="dxb-result" class="mt-3 hidden text-sm lg:mt-0">
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2 text-center">
         <div class="bg-white dark:bg-gray-800 rounded p-2 border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 dark:text-gray-400">Rent</div><div class="font-bold text-teal-700 dark:text-teal-400" id="dxb-rent"></div></div>
         <div class="bg-white dark:bg-gray-800 rounded p-2 border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 dark:text-gray-400">Utilities+Internet</div><div class="font-bold text-gray-900 dark:text-white" id="dxb-util"></div></div>
         <div class="bg-white dark:bg-gray-800 rounded p-2 border border-gray-200 dark:border-gray-700"><div class="text-xs text-gray-500 dark:text-gray-400">Food+Transport</div><div class="font-bold text-gray-900 dark:text-white" id="dxb-food"></div></div>
@@ -69,6 +70,7 @@ const breadcrumbs = [
       </div>
     </div>
   </div>
+
   <script is:inline>
   function calcDxb(){
     const rents={marina:{studio:5500,'1bed':8000,'2bed':12000,villa:22000},downtown:{studio:6500,'1bed':9500,'2bed':14000,villa:28000},jlt:{studio:4500,'1bed':6500,'2bed':10000,villa:18000},jvc:{studio:3500,'1bed':5500,'2bed':8000,villa:14000},mirdif:{studio:3000,'1bed':4500,'2bed':7000,villa:11000},intlcity:{studio:2500,'1bed':3500,'2bed':5500,villa:9000}};

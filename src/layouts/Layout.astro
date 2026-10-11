@@ -38,5 +38,55 @@ const { title, description, canonical, ogImage, ogType, noindex, schemas = [] } 
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+    /* Premier écran (RECETTE §5, règle du 2026-10-11).
+       1. Les simulateurs en HTML (data-simu data-auto) calculent dès l'ouverture et à chaque changement :
+          le résultat se lit sans clic. data-auto="change" (quiz) : seulement après une réponse.
+       2. Téléphone : tant que le résultat est sous l'écran, une barre collante en bas reprend le chiffre
+          clé (copié côté client, aucun texte en double dans le HTML) ; un toucher y descend. */
+    (function () {
+      function demarrer() {
+        document.querySelectorAll('[data-simu][data-auto]').forEach(function (b) {
+          var btn = b.querySelector('button[onclick]');
+          if (!btn) return;
+          var run = function () { try { btn.click(); } catch (e) {} };
+          if (b.getAttribute('data-auto') !== 'change') run();
+          b.addEventListener('change', function (e) { if (e.target !== btn) run(); });
+          b.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('input[type=number]')) run(); });
+        });
+        var r = document.querySelector('main [data-resultat]');
+        if (!r || !('IntersectionObserver' in window)) return;
+        var bar = document.createElement('button');
+        bar.type = 'button';
+        bar.setAttribute('aria-hidden', 'true');
+        bar.tabIndex = -1;
+        bar.className = 'fixed inset-x-0 bottom-0 z-40 hidden items-baseline justify-between gap-3 border-t border-teal-200 bg-teal-50 px-4 py-3 text-left shadow-lg lg:hidden dark:border-teal-800 dark:bg-gray-900';
+        var lab = document.createElement('span');
+        lab.className = 'text-sm font-medium text-gray-700 dark:text-gray-300';
+        var val = document.createElement('span');
+        val.className = 'tabular-nums text-lg font-bold text-teal-700 dark:text-teal-400';
+        bar.appendChild(lab); bar.appendChild(val);
+        bar.addEventListener('click', function () { r.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+        document.body.appendChild(bar);
+        function chiffre() {
+          var c = r.querySelector('[data-chiffre]');
+          if (!c) c = [].slice.call(r.querySelectorAll('.font-bold, strong')).find(function (e) { return /\d/.test(e.textContent); });
+          if (!c) { var t = (r.textContent || '').trim(); return t && /\d/.test(t) ? ['', t.slice(0, 60)] : null; }
+          var l = c.previousElementSibling;
+          return [l ? l.textContent.trim().slice(0, 50) : '', c.textContent.trim().slice(0, 40)];
+        }
+        var dessous = false;
+        function maj() {
+          var k = dessous ? chiffre() : null;
+          if (!k) { bar.classList.add('hidden'); bar.classList.remove('flex'); return; }
+          lab.textContent = k[0]; val.textContent = k[1];
+          bar.classList.remove('hidden'); bar.classList.add('flex');
+        }
+        new IntersectionObserver(function (en) { var e = en[0]; dessous = !e.isIntersecting && e.boundingClientRect.top > 0; maj(); }).observe(r);
+        new MutationObserver(maj).observe(r, { subtree: true, childList: true, characterData: true });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer); else demarrer();
+    })();
+    </script>
   </body>
 </html>

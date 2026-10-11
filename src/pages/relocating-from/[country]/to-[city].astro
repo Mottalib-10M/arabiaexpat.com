@@ -80,6 +80,9 @@ const metaDescription = fit(`${corridor.demonym} professionals moving to ${city.
   breadcrumbs={[{ name: "Home", url: "/" }, { name: `From ${corridor.country}`, url: `/relocating-from/${corridor.slug}/` }, { name: `To ${city.name}`, url: `/relocating-from/${corridor.slug}/to-${city.slug}/` }]}
 >
   <h1>Relocating from {corridor.country} to {city.name} in 2026</h1>
+  <div data-simu class="not-prose mb-8">
+    <CostOfLivingSimulator client:visible defaultCity={city.slug} defaultOrigin={originCitySlug} />
+  </div>
 
   {/* §21 : le paragraphe qu'un moteur de réponse peut reprendre, bâti sur les
       données du corridor et de la ville déjà présentes sur la page. */}
@@ -112,10 +115,6 @@ const metaDescription = fit(`${corridor.demonym} professionals moving to ${city.
   <p>This city-specific guide covers what you need to know about living in {city.name} as a {corridor.demonym} expat, including realistic cost comparisons, neighborhood recommendations, and practical setup steps.</p>
 
   <h2>Cost of Living: {corridor.country} vs {city.name}</h2>
-
-  <div class="not-prose mb-6">
-    <CostOfLivingSimulator client:visible defaultCity={city.slug} defaultOrigin={originCitySlug} />
-  </div>
 
   <p>Use the simulator above to compare your expected monthly costs in {city.name} with your current city in {corridor.country}. Housing is typically the largest expense, followed by education (for families) and food. The tax-free salary environment means that even with higher living costs, net savings potential is usually much better than in {corridor.country}.</p>
 

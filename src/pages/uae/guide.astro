@@ -24,37 +24,38 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <GuideLayout title="Moving to the UAE 2026: Expat Guide, Visa, Housing, Schools" description="Move to Dubai or Abu Dhabi with confidence. Tax-free salaries, Golden Visa rules, rent prices, 600+ international schools, DEWA setup and healthcare guide." canonical="/uae/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Expat Guide 2026: Working and Living in the Emirates", "Complete 2026 guide to living and working in the UAE.", "https://arabiaexpat.com/uae/guide/", "2025-01-15", "2026-07-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE Guide", url: "/uae/guide/" }]}>
 
 <h1>UAE Expat Guide 2026: The Definitive Resource for Living and Working in the Emirates</h1>
-
 <!-- Mini Expat Readiness Checker -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">UAE Expat Readiness Checker</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Estimate your monthly savings potential and key setup costs based on your situation.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-salary">Monthly Salary (AED)</label>
-      <input type="number" id="uae-salary" value="20000" min="3000" step="1000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-city">City</label>
-      <select id="uae-city" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="dubai">Dubai</option>
-        <option value="abudhabi">Abu Dhabi</option>
-        <option value="sharjah">Sharjah</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-household">Household</label>
-      <select id="uae-household" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="single">Single</option>
-        <option value="couple">Couple</option>
-        <option value="family">Family (2 kids)</option>
-      </select>
-    </div>
-    <div class="flex items-end">
-      <button type="button" onclick="calcReadiness()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Calculate</button>
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">UAE Expat Readiness Checker</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Estimate your monthly savings potential and key setup costs based on your situation.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-salary">Monthly Salary (AED)</label>
+        <input type="number" id="uae-salary" value="20000" min="3000" step="1000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-city">City</label>
+        <select id="uae-city" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="dubai">Dubai</option>
+          <option value="abudhabi">Abu Dhabi</option>
+          <option value="sharjah">Sharjah</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="uae-household">Household</label>
+        <select id="uae-household" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="single">Single</option>
+          <option value="couple">Couple</option>
+          <option value="family">Family (2 kids)</option>
+        </select>
+      </div>
+      <div class="flex items-end">
+        <button type="button" onclick="calcReadiness()" class="w-full text-sm font-semibold bg-teal-600 text-white rounded px-3 py-1.5 hover:bg-teal-700 transition-colors">Calculate</button>
+      </div>
     </div>
   </div>
-  <div id="uae-result" class="mt-4 hidden">
+  <div data-resultat aria-live="polite" id="uae-result" class="mt-4 hidden lg:mt-0">
     <div class="grid grid-cols-3 gap-3 text-center text-sm">
       <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
         <div class="text-xs text-gray-500 dark:text-gray-400">Est. Monthly Expenses</div>
@@ -71,6 +72,7 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
     </div>
   </div>
 </div>
+
 <script is:inline>
 function calcReadiness(){
   const sal=parseFloat(document.getElementById('uae-salary').value)||0;

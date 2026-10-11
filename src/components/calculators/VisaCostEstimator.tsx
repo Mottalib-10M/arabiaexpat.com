@@ -89,9 +89,9 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
   }, [countryKey, visaType, dependents]);
 
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Visa Cost Estimator, {citiesMap[countryKey]}</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+      <h3 className="lg:col-span-2 text-base font-bold text-gray-900 dark:text-white mb-3">Visa Cost Estimator, {citiesMap[countryKey]}</h3>
+      <div data-champs className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 lg:grid-cols-2">
         <div>
           <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Visa Type</label>
           <select value={visaType} onChange={(e) => setVisaType(e.target.value as VisaType)} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
@@ -105,6 +105,7 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
           </select>
         </div>
       </div>
+      <div data-resultat aria-live="polite">
       <div className="space-y-2 mb-3">
         <div className="flex justify-between text-sm">
           <span className="text-gray-600 dark:text-gray-400">Primary visa{result.isAnnual ? " (annual)" : ""}</span>
@@ -136,6 +137,7 @@ export default function VisaCostEstimator({ countryKey, currency }: Props) {
         <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, currency)}</p>
       </div>
       {result.note && <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">{result.note}. Actual costs may vary. Employment visa costs are typically borne by the employer.</p>}
+      </div>
     </div>
   );
 }

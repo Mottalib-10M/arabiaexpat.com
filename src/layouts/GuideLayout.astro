@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import { RESUMES } from "../data/resumes";
 import AuthorByline from "../components/ui/AuthorByline.astro";
 import { SITE } from "../data/site-config";
+import { apresSimulateur } from "../lib/premier-ecran";
 
 interface Props {
   /** Paragraphe citable (RECETTE §21), rendu dans le corps. */
@@ -19,11 +20,20 @@ const { title, description, canonical, schemas = [], breadcrumbs, lastUpdated = 
 // §21 : le paragraphe se trouve par le chemin quand la page ne le fournit pas.
 const resumeAffiche = resume ?? RESUMES[Astro.url.pathname]
   ?? RESUMES[Astro.url.pathname.replace(/\/$/, '') + '/'];
+// Premier écran (RECETTE §5, règle du 2026-10-11) : titre, puis le simulateur, puis le paragraphe
+// citable. Le paragraphe, rendu jusque-là avant le titre, est déplacé juste après le bloc
+// marqué data-simu (ou juste après le H1 sur une page sans simulateur). Rien n'est réécrit.
+const corps = await Astro.slots.render("default");
+const resumeHtml = resumeAffiche
+  ? `<p class="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">${resumeAffiche.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;")}</p>`
+  : "";
+const corpsFinal = apresSimulateur(corps, resumeHtml);
 ---
 
 <Layout title={title} description={description} canonical={canonical} schemas={schemas}>
-  <article class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-8">
-    <nav aria-label="Breadcrumb" class="mb-6">
+  <article class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-5 pb-8">
+    <div class="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 text-gray-500 dark:text-gray-400">
+    <nav aria-label="Breadcrumb">
       <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
         {breadcrumbs.map((crumb, i) => (
           <li class="flex items-center gap-1.5">
@@ -37,13 +47,11 @@ const resumeAffiche = resume ?? RESUMES[Astro.url.pathname]
         ))}
       </ol>
     </nav>
+    <div data-date-ici></div>
+    </div>
 
-    <div class="prose prose-lg dark:prose-invert prose-teal max-w-none prose-headings:scroll-mt-20 prose-headings:font-serif prose-a:text-teal-600 dark:prose-a:text-teal-400">
-      {resumeAffiche && (
-        <p class="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">{resumeAffiche}</p>
-      )}
-
-      <slot />
+    <div class="prose prose-lg dark:prose-invert prose-teal max-w-none prose-headings:scroll-mt-20 prose-headings:font-serif prose-h1:mb-4 prose-a:text-teal-600 dark:prose-a:text-teal-400">
+      <Fragment set:html={corpsFinal} />
     </div>
 
     <AuthorByline date={lastUpdated} />

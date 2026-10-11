@@ -18,10 +18,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 ---
 <GuideLayout title="Moving to Saudi Arabia 2026: Visa, Housing and Jobs Guide" description="Move to Saudi Arabia: zero income tax, rent 30% below Dubai and Vision 2030 giga-projects hiring. Iqama process, schools, CCHI insurance and Saudization." canonical="/saudi-arabia/guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("Saudi Arabia Expat Guide 2026: Living in the Vision Era", "Complete 2026 guide to working in Saudi Arabia.", "https://arabiaexpat.com/saudi-arabia/guide/", "2025-01-15", "2026-06-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "Saudi Arabia Guide", url: "/saudi-arabia/guide/" }]}>
 
-<div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Saudi Arabia Package Value Calculator</h2>
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Many Saudi employers offer benefits beyond salary. Enter your package details to see the total annual value.</p>
-  <form id="saudiPackage" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+<h1>Complete Saudi Arabia Expat Guide 2026</h1>
+<div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Saudi Arabia Package Value Calculator</h2>
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Many Saudi employers offer benefits beyond salary. Enter your package details to see the total annual value.</p>
+  <form id="saudiPackage" class="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:grid-cols-1">
     <div>
       <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="spSalary">Monthly basic salary (SAR)</label>
       <input type="number" id="spSalary" value="15000" min="1000" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm" />
@@ -44,14 +46,12 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
         <option value="90000">3 children (~SAR 90,000/yr)</option>
       </select>
     </div>
-    <div class="sm:col-span-3">
+    <div class="sm:col-span-3 lg:col-span-1">
       <button type="button" onclick="_calcGuide()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Calculate Total Package</button>
     </div>
-    <div id="spResult" class="sm:col-span-3 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </form>
+  <div data-resultat aria-live="polite" id="spResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
 </div>
-
-<h1>Complete Saudi Arabia Expat Guide 2026</h1>
 <p>Saudi Arabia is in the middle of the most ambitious national transformation attempt in modern history. Vision 2030, the comprehensive reform program championed by Crown Prince Mohammed bin Salman, is simultaneously reshaping the kingdom's economy, social fabric, urban landscape, and international standing. The scale of investment is staggering: over USD 1 trillion committed to mega-projects that include NEOM, a futuristic development on the Red Sea coast; The Line, a 170-kilometer linear city designed to house 9 million people; Qiddiya, an entertainment destination covering 334 square kilometers; the Red Sea tourism project spanning 28,000 square kilometers of pristine coastline; and Diriyah Gate, a cultural heritage development at the birthplace of the Saudi state. These are not conceptual proposals sitting on drawing boards. Construction cranes, work camps, and concrete foundations are visible across the kingdom's landscape, and tens of thousands of international professionals are already at work bringing these projects to reality.</p>
 
 <p>For the expatriate professional evaluating a Gulf career in 2026, Saudi Arabia's proposition has shifted dramatically from what it was even five years ago. The kingdom charges zero personal income tax on employment income, and while its 15% VAT rate is the highest in the Gulf, the substantially lower cost of living compared to the UAE means that most expats in Saudi Arabia still save more in absolute terms than their counterparts in Dubai. The social environment has transformed since 2017: cinemas have opened for the first time, concerts by major international artists draw hundreds of thousands, mixed-gender dining and entertainment are now routine, and women drive, work, and participate in public life with a freedom that would have been unimaginable a decade ago. The combination of career opportunities that are genuinely unique to this moment in history, a financial structure that rewards savings, and a society that is rapidly modernizing makes Saudi Arabia one of the most compelling destinations available to internationally mobile professionals.</p>

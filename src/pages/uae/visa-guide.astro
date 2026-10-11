@@ -18,36 +18,38 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <GuideLayout title="UAE Visa Guide 2026: Golden, Green & Work Visa Types" description="6 UAE visa types compared: Golden Visa 10-year, Green Visa 5-year, Employment and Freelancer. Costs from AED 3,000, processing times and sponsorship rules." canonical="/uae/visa-guide/" schemas={[buildBreadcrumbs(breadcrumbs), buildFAQSchema(faqs), buildArticleSchema("UAE Visa Guide 2026: Employment, Golden, Green Visas", "Complete UAE visa guide for 2026.", "https://arabiaexpat.com/uae/visa-guide/", "2025-01-15", "2026-07-01")]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Visa Guide", url: "/uae/visa-guide/" }]}>
 
 <h1>UAE Visa Guide 2026: Every Pathway to Residence Explained</h1>
-
 <!-- Mini Visa Eligibility Checker -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Quick Visa Eligibility Checker</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Answer three questions to see which UAE visa categories you likely qualify for.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-salary">Monthly Salary (AED)</label>
-      <input type="number" id="visa-salary" value="20000" min="0" step="1000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Quick Visa Eligibility Checker</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Answer three questions to see which UAE visa categories you likely qualify for.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-salary">Monthly Salary (AED)</label>
+        <input type="number" id="visa-salary" value="20000" min="0" step="1000" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-degree">Education Level</label>
+        <select id="visa-degree" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="none">No degree</option>
+          <option value="bachelor" selected>Bachelor's degree</option>
+          <option value="master">Master's or PhD</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-type">Employment Type</label>
+        <select id="visa-type" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="employed">Employed (company)</option>
+          <option value="freelance">Freelancer</option>
+          <option value="investor">Investor/Business Owner</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-degree">Education Level</label>
-      <select id="visa-degree" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="none">No degree</option>
-        <option value="bachelor" selected>Bachelor's degree</option>
-        <option value="master">Master's or PhD</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="visa-type">Employment Type</label>
-      <select id="visa-type" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="employed">Employed (company)</option>
-        <option value="freelance">Freelancer</option>
-        <option value="investor">Investor/Business Owner</option>
-      </select>
-    </div>
+    <button type="button" onclick="checkVisa()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Check Eligibility</button>
   </div>
-  <button type="button" onclick="checkVisa()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Check Eligibility</button>
-  <div id="visa-result" class="mt-4 hidden text-sm text-gray-700 dark:text-gray-300 space-y-1"></div>
+  <div data-resultat aria-live="polite" id="visa-result" class="mt-4 hidden text-sm text-gray-700 dark:text-gray-300 space-y-1 lg:mt-0"></div>
 </div>
+
 <script is:inline>
 function checkVisa(){
   const sal=parseFloat(document.getElementById('visa-salary').value)||0;

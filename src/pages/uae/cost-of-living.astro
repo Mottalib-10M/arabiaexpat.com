@@ -20,32 +20,34 @@ const breadcrumbs = [{ name: "Home", url: "https://arabiaexpat.com/" }, { name: 
 <GuideLayout title="Cost of Living in the UAE 2026: Dubai and Abu Dhabi Rent" description="Monthly budget Dubai: AED 8,000-12,000 single, AED 18,000-30,000 family. Interactive simulator comparing rent, groceries, DEWA bills and school fees 2026." canonical="/uae/cost-of-living/" schemas={[buildBreadcrumbs(breadcrumbs), buildArticleSchema("UAE Cost of Living 2026: Dubai and Abu Dhabi Prices", "Detailed UAE cost of living guide for 2026.", "https://arabiaexpat.com/uae/cost-of-living/", "2025-01-15", "2026-07-01"), buildFAQSchema(faqs)]} breadcrumbs={[{ name: "Home", url: "/" }, { name: "UAE", url: "/uae/guide/" }, { name: "Cost of Living", url: "/uae/cost-of-living/" }]}>
 
 <h1>UAE Cost of Living 2026: A Line-by-Line Guide to Dubai and Abu Dhabi Expenses</h1>
-
 <!-- Mini Monthly Budget Calculator -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Personal Budget Builder</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Customize each category to build your estimated monthly budget.</p>
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-rent">Rent (AED/mo)</label>
-      <input type="number" id="col-rent" value="6000" min="0" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Personal Budget Builder</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Customize each category to build your estimated monthly budget.</p>
+  <div data-champs>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3 lg:grid-cols-2">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-rent">Rent (AED/mo)</label>
+        <input type="number" id="col-rent" value="6000" min="0" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-food">Food & Dining (AED)</label>
+        <input type="number" id="col-food" value="2500" min="0" step="250" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-transport">Transport (AED)</label>
+        <input type="number" id="col-transport" value="800" min="0" step="100" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-school">School Fees (AED/mo)</label>
+        <input type="number" id="col-school" value="0" min="0" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
     </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-food">Food & Dining (AED)</label>
-      <input type="number" id="col-food" value="2500" min="0" step="250" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-transport">Transport (AED)</label>
-      <input type="number" id="col-transport" value="800" min="0" step="100" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="col-school">School Fees (AED/mo)</label>
-      <input type="number" id="col-school" value="0" min="0" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
+    <button type="button" onclick="calcCOL()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Total</button>
   </div>
-  <button type="button" onclick="calcCOL()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Total</button>
-  <div id="col-result" class="mt-3 hidden text-sm font-bold text-teal-700 dark:text-teal-400"></div>
+  <div data-resultat aria-live="polite" id="col-result" class="mt-3 hidden text-sm font-bold text-teal-700 dark:text-teal-400 lg:mt-0"></div>
 </div>
+
 <script is:inline>
 function calcCOL(){
   const r=parseFloat(document.getElementById('col-rent').value)||0;

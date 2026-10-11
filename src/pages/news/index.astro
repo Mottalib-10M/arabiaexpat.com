@@ -45,10 +45,12 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "News", url: "/news/" }]}
 >
 
-  <div class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl">
-    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Policy Impact Checker</h2>
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Select your situation to see which recent policy changes affect you most.</p>
-    <form id="policyImpact" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+  <h1>GCC Expat News and Policy Updates</h1>
+  <div data-simu data-auto class="not-prose my-8 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+    <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-3 lg:col-span-2">Policy Impact Checker</h2>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 lg:col-span-2">Select your situation to see which recent policy changes affect you most.</p>
+    <form id="policyImpact" class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
       <div>
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="piCountry">Your Gulf country</label>
         <select id="piCountry" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2 text-sm">
@@ -66,14 +68,12 @@ const faqSchemaBlock = { "@context": "https://schema.org", "@type": "FAQPage", m
           <option value="prospect">Not yet in the Gulf</option>
         </select>
       </div>
-      <div class="sm:col-span-2">
+      <div class="sm:col-span-2 lg:col-span-1">
         <button type="button" onclick="_calcPage()" class="w-full sm:w-auto px-5 py-2.5 bg-teal-600 text-white text-sm font-semibold rounded-lg hover:bg-teal-700 transition-colors">Check Impact</button>
       </div>
-      <div id="piResult" class="sm:col-span-2 text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
     </form>
+    <div data-resultat aria-live="polite" id="piResult" class=" text-sm text-gray-700 dark:text-gray-300 min-h-[2rem]"></div>
   </div>
-
-  <h1>GCC Expat News and Policy Updates</h1>
 
   <p>The Gulf Cooperation Council countries are in a period of sustained immigration policy innovation, driven by competition for global talent and the strategic need to diversify economies beyond hydrocarbon revenues. The UAE, Qatar, and Saudi Arabia are all actively reforming their visa regimes, residency frameworks, and labor protections, creating an evolving landscape that directly affects the millions of expatriates who live and work in the region. Staying informed about these changes is not optional for Gulf expats, it is essential. A policy change can create new opportunities, such as Golden Visa eligibility for a profession that was previously excluded, or introduce new requirements, such as updated Saudization quotas that affect your employer's ability to renew your visa.</p>
 

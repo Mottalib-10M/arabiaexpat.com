@@ -30,34 +30,35 @@ const breadcrumbs = [
 >
 
 <h1>UAE Salary Calculator 2026: Your Complete Tax-Free Pay Guide</h1>
-
 <!-- Mini Interactive Salary Calculator -->
-<div class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
-  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1">Quick Salary Package Calculator</h2>
-  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">Enter your monthly basic salary to estimate your total compensation including typical UAE benefits.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-basic">Monthly Basic Salary (AED)</label>
-      <input type="number" id="sal-basic" value="15000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+<div data-simu data-auto class="not-prose my-6 p-5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+  <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Quick Salary Package Calculator</h2>
+  <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Enter your monthly basic salary to estimate your total compensation including typical UAE benefits.</p>
+  <div data-champs>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-basic">Monthly Basic Salary (AED)</label>
+        <input type="number" id="sal-basic" value="15000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-housing">Housing Allowance %</label>
+        <select id="sal-housing" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+          <option value="0">None (company housing)</option>
+          <option value="25">25% of basic</option>
+          <option value="30" selected>30% of basic</option>
+          <option value="35">35% of basic</option>
+          <option value="40">40% of basic</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-transport">Transport Allowance (AED/mo)</label>
+        <input type="number" id="sal-transport" value="1500" min="0" step="250" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
     </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-housing">Housing Allowance %</label>
-      <select id="sal-housing" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-        <option value="0">None (company housing)</option>
-        <option value="25">25% of basic</option>
-        <option value="30" selected>30% of basic</option>
-        <option value="35">35% of basic</option>
-        <option value="40">40% of basic</option>
-      </select>
-    </div>
-    <div>
-      <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="sal-transport">Transport Allowance (AED/mo)</label>
-      <input type="number" id="sal-transport" value="1500" min="0" step="250" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
-    </div>
+    <button type="button" onclick="calcSalary()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Package</button>
   </div>
-  <button type="button" onclick="calcSalary()" class="text-sm font-semibold bg-teal-600 text-white rounded px-4 py-1.5 hover:bg-teal-700 transition-colors">Calculate Package</button>
-  <div id="sal-result" class="mt-4 hidden">
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+  <div data-resultat aria-live="polite" id="sal-result" class="mt-4 hidden lg:mt-0">
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3 text-center">
       <div class="bg-white dark:bg-gray-800 rounded p-3 border border-gray-200 dark:border-gray-700">
         <div class="text-xs text-gray-500 dark:text-gray-400">Monthly Total</div>
         <div class="text-lg font-bold text-teal-700 dark:text-teal-400" id="sal-monthly"></div>
@@ -78,6 +79,7 @@ const breadcrumbs = [
     <p class="text-xs text-gray-500 dark:text-gray-400 mt-2" id="sal-note"></p>
   </div>
 </div>
+
 <script is:inline>
 function calcSalary(){
   const basic=parseFloat(document.getElementById('sal-basic').value)||0;

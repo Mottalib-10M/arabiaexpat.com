@@ -191,7 +191,11 @@ export default function trustKit(opts) {
             // Juste avant le premier <h1> ; si ce <h1> est dans un îlot React (<astro-island>),
             // avant l'îlot : React compare son rendu au HTML servi, on n'y insère jamais rien.
             const h1 = html.search(/<h1[\s>]/);
-            if (h1 >= 0) {
+            // Premier écran (RECETTE §5, 2026-10-11) : un gabarit peut réserver la place de la date
+            // dans la rangée du fil d'Ariane ; elle n'occupe alors plus une ligne au-dessus du titre.
+            if (html.includes('<div data-date-ici></div>')) {
+              html = html.replace('<div data-date-ici></div>', top.replace('margin:0 0 0.5rem;', 'margin:0;'));
+            } else if (h1 >= 0) {
               let at = h1;
               const open = html.lastIndexOf('<astro-island', h1);
               if (open >= 0 && html.lastIndexOf('</astro-island>', h1) < open) at = open;

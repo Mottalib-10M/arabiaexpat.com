@@ -54,9 +54,9 @@ export default function SchoolCostEstimator({ countryKey, currency }: Props) {
   const totalAnnual = annualPerChild * numChildren;
 
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">School Fee Estimator</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-5">
+      <h3 className="lg:col-span-2 text-base font-bold text-gray-900 dark:text-white mb-3">School Fee Estimator</h3>
+      <div data-champs className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 lg:grid-cols-2">
         <div>
           <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Curriculum</label>
           <select value={curriculum} onChange={(e) => setCurriculum(e.target.value as Curriculum)} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
@@ -78,6 +78,7 @@ export default function SchoolCostEstimator({ countryKey, currency }: Props) {
           </select>
         </div>
       </div>
+      <div data-resultat aria-live="polite">
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
           <p className="text-xs text-gray-500 dark:text-gray-400">Annual per child</p>
@@ -100,6 +101,7 @@ export default function SchoolCostEstimator({ countryKey, currency }: Props) {
         )}
       </div>
       <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">Estimates based on 2026 average tuition. Excludes uniforms, transport, and activity fees.</p>
+      </div>
     </div>
   );
 }

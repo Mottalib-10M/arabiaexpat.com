@@ -80,7 +80,8 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 
-.prose h2 {
+/* Les encadrés not-prose (simulateurs) gardent leurs propres tailles (premier écran, 2026-10-11). */
+.prose h2:not(:where(.not-prose *)) {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
@@ -88,7 +89,7 @@ body {
   line-height: 1.3;
 }
 
-.prose h3 {
+.prose h3:not(:where(.not-prose *)) {
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
@@ -147,3 +148,8 @@ body {
 /* Titres longs sur mobile (RECETTE §10.3) : « Comprehensive » en prose-lg dépassait l'écran
    de 13 à 23 px. Taille fluide + césure plutôt qu'un mot coupé au hasard. */
 .prose h1 { font-size: clamp(1.75rem, 6.5vw, 2.5rem); hyphens: auto; overflow-wrap: break-word; }
+/* Premier écran (RECETTE §5, 2026-10-11) : titre plus serré sur ordinateur pour laisser le simulateur dans l'écran. */
+@media (min-width: 640px) { .prose h1 { font-size: 2rem; line-height: 1.2; } }
+
+/* Premier écran (RECETTE §5, règle du 2026-10-11) : le simulateur principal suit le titre de près. */
+article [data-simu] { margin-top: 1rem; }
