@@ -153,3 +153,19 @@ body {
 
 /* Premier écran (RECETTE §5, règle du 2026-10-11) : le simulateur principal suit le titre de près. */
 article [data-simu] { margin-top: 1rem; }
+
+/* Listes déroulantes : flèche dessinée par le site, à 12 px du bord, et le texte long
+   s'arrête avant (RECETTE §10.3, check-layout 12). La flèche native se collait au bord
+   et le texte butait dessus. Hors couche : passe devant les px-* de Tailwind. */
+select:not([multiple]):not([size]), select[size="1"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%236b7280' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 7.5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem 1rem;
+  padding-right: 2.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
