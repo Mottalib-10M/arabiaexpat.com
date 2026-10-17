@@ -15,6 +15,9 @@ export const SITE = {
   ogImage: "/og-default.png",
 } as const;
 
+/** Google Analytics 4, with cookies and no banner (publisher decision of 2026-10-17, RECETTE §15.6). */
+export const GA4_ID = 'G-5P80W6V4M4';
+
 export const COUNTRIES = {
   uae: {
     name: "UAE",

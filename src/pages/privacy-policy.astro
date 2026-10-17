@@ -1,6 +1,7 @@
 ---
 import GuideLayout from "../layouts/GuideLayout.astro";
 import { buildBreadcrumbs } from "../lib/seo";
+import { GA4_ID } from "../data/site-config";
 
 const breadcrumbs = [
   { name: "Home", url: "https://arabiaexpat.com/" },
@@ -10,7 +11,7 @@ const breadcrumbs = [
 
 <GuideLayout
   title="Privacy Policy: Data Collection & Cookie Details 2026"
-  description="Arabia Expat sets no cookies and stores no personal data: Gulf visa guides and cost estimators run in your browser, with cookieless Clarity stability checks."
+  description="Arabia Expat measures its audience with Google Analytics cookies, shows no ads, keeps your estimator inputs in your browser and runs cookieless Clarity checks."
   canonical="/privacy-policy/"
   schemas={[buildBreadcrumbs(breadcrumbs)]}
   breadcrumbs={[{ name: "Home", url: "/" }, { name: "Privacy Policy", url: "/privacy-policy/" }]}
@@ -18,14 +19,24 @@ const breadcrumbs = [
   <h1>Privacy Policy 2026</h1>
   <p><strong>Last updated: October 2026</strong></p>
 
-  <p>Arabia Expat (arabiaexpat.com) is published by Radif Partners. People use it to plan a move to the UAE, Qatar or Saudi Arabia: they read visa and residency guides and run estimators for rent, school fees, utilities, end-of-service gratuity or a Gulf salary. This page explains, plainly, what that involves for your privacy. The short answer: <strong>no cookie is placed on your device, and we keep no personal data about you.</strong></p>
+  <p>Arabia Expat (arabiaexpat.com) is published by Radif Partners. People use it to plan a move to the UAE, Qatar or Saudi Arabia: they read visa and residency guides and run estimators for rent, school fees, utilities, end-of-service gratuity or a Gulf salary. This page explains, plainly, what that involves for your privacy. The short answer: <strong>the figures you type stay in your browser, there is no account and no advertising, and visits are counted with Google Analytics, which sets two cookies.</strong></p>
 
   <h2>What you enter in the estimators</h2>
   <p>The amounts and choices you type into a calculator (monthly salary, years of service, number of children at school, the emirate or city you are moving to, the size of the flat) are worked out by JavaScript inside your own browser tab. They are not sent to us, not logged and not saved on your device: closing or reloading the page clears them. There is no account, no sign-up and no profile.</p>
 
-  <h2>Cookies: none</h2>
-  <p>Arabia Expat does not set any cookie, neither its own nor a third party's, and loads no advertising or audience-tracking tag. Because nothing needs your agreement, there is no cookie banner and nothing to accept or refuse.</p>
-  <p>Two small notes may be kept in your browser's local storage, only after you act: the light or dark display you chose with the theme switch, and, if you type an address into the "updates" box in the footer, that address, which stays in your own browser and is not sent to us. Clearing the site data for arabiaexpat.com removes both.</p>
+  <h2>Audience measurement with Google Analytics</h2>
+  <p>The site uses Google Analytics 4 to count visits and see which guides and estimators are useful: pages viewed, referring page, visit length, device and browser type, approximate country and city. To do so Google Analytics sets two cookies on your device: <code>_ga</code>, which tells visitors apart with a random identifier, and <code>_ga_{GA4_ID.replace("G-", "")}</code>, which keeps the state of the visit. Their lifetime is set to 13 months at most (390 days) and is not extended on each visit; Google's default is 2 years. You can object at any time, as described below.</p>
+  <ul>
+    <li><strong>IP address:</strong> Google Analytics 4 neither logs nor stores it; it only uses it at collection time to derive an approximate country and city. The page address sent to Google is stripped of its parameters.</li>
+    <li><strong>No advertising:</strong> the site shows no ads. Ad storage, ad user data, ad personalisation and Google signals are switched off, and measurement data is shared with no advertiser.</li>
+    <li><strong>Who processes it:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland, as our processor (Article 28 of the GDPR). Data may be transferred to Google LLC in the United States under the EU–U.S. Data Privacy Framework and the European Commission's standard contractual clauses.</li>
+    <li><strong>How long:</strong> 14 months at Google for visit-level and identifier-level data, then deletion; only anonymous totals remain.</li>
+    <li><strong>Legal basis:</strong> our legitimate interest in knowing which pages help readers (Article 6(1)(f) of the GDPR for visitors in the European Union; for visitors in the UAE, Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data).</li>
+    <li><strong>How to object:</strong> block or delete cookies in your browser settings, or install the <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google Analytics opt-out browser add-on</a>. Every guide and estimator works the same way.</li>
+  </ul>
+
+  <h2>Local storage</h2>
+  <p>Two small notes may be kept in your browser's local storage, only after you act: the light or dark display you chose with the theme switch, and, if you type an address into the "updates" box in the footer, that address, which stays in your own browser and is not sent to us. Clearing the site data for arabiaexpat.com removes both, along with the Google Analytics cookies.</p>
 
   <h2>Anonymous stability checks with Microsoft Clarity</h2>
   <p>To find broken pages and slow or confusing screens, we run Microsoft Clarity in its cookieless mode. Before the Clarity script starts, the site tells it that consent for storage is denied, so it places none of its cookies (<code>_clck</code>, <code>_clsk</code>, <code>MUID</code>, <code>CLID</code>). Each page view gets a fresh random identifier and separate visits are never linked to each other or to a person.</p>
@@ -41,11 +52,14 @@ const breadcrumbs = [
   <h2>Server logs and e-mail</h2>
   <p>The site is hosted by OVH SAS (2 rue Kellermann, 59100 Roubaix, France). Like any web server, it keeps short technical logs (IP address, date, page requested, browser) for security and troubleshooting, which the host deletes on its own schedule. If you write to <a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a>, we receive your address and message and use them only to reply.</p>
 
+  <h2>Recipients</h2>
+  <p>No data is sold, rented or passed on. Access is limited to the host, Google Ireland Limited for Google Analytics and Microsoft Ireland Operations Limited for Clarity, acting as processors. No advertising network operates on the site.</p>
+
   <h2>Links to official sources</h2>
   <p>Our guides link to immigration portals, labour ministries, utility providers and school regulators. Once you follow such a link, that organisation's own privacy rules apply.</p>
 
   <h2>Your rights</h2>
-  <p>Since we hold no file about our readers, there is normally nothing to access or erase, apart from an e-mail you sent us, which we delete on request. You may also contact the UAE Data Office, or the data protection authority of your country if you live in the European Union.</p>
+  <p>You have the rights of access, rectification, erasure, restriction, objection and portability (Articles 15 to 22 of the GDPR). Write to <a href="mailto:contact@arabiaexpat.com">contact@arabiaexpat.com</a>; we reply within one month. With no accounts, we usually hold no data that identifies you, and we will tell you so; an e-mail you sent us is deleted on request. You may also contact the UAE Data Office, or the data protection authority of your country if you live in the European Union.</p>
 
   <h2>Children</h2>
   <p>Arabia Expat is written for adults planning a move, such as job candidates, spouses, and parents arranging school places. Children under 16 are not its audience, and if we learn that a message came from a child we delete it.</p>

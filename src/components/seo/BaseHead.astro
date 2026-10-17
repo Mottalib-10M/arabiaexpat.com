@@ -1,5 +1,5 @@
 ---
-import { SITE } from "../../data/site-config";
+import { SITE, GA4_ID } from "../../data/site-config";
 
 interface Props {
   title: string;
@@ -32,6 +32,7 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
 
 <!-- DNS prefetch for third-party scripts -->
 <link rel="dns-prefetch" href="https://www.clarity.ms" />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
 <!-- Preload Inter font -->
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
@@ -72,7 +73,20 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
   })();
 </script>
 
-{/* Microsoft Clarity without cookies (RECETTE §15.6, 2026-10-06): no banner, no GA4.
+{/* GA4, 'none' regime (publisher decision of 2026-10-17, RECETTE §15.6): standard Google Analytics 4,
+     with cookies, NO banner. Default consent: audience measurement granted (analytics_storage
+     'granted'), advertising denied (ad_storage, ad_user_data, ad_personalization 'denied'), no
+     localStorage read. Cookies _ga and _ga_<ID> limited to 390 days (13 months at most, CNIL
+     recommendation) and not extended on each visit (cookie_update false); Google signals and ad
+     personalisation off. page_location is sent without parameters. Described in /privacy-policy/.
+     Check: scripts/check-cookies.py. */}
+{GA4_ID && (<>
+  <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',security_storage:'granted'});`} />
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+  <script is:inline set:html={`gtag('js',new Date());gtag('config','${GA4_ID}',{anonymize_ip:true,page_location:location.origin+location.pathname,cookie_expires:33696000,cookie_update:false,allow_google_signals:false,allow_ad_personalization_signals:false});`} />
+</>)}
+
+{/* Microsoft Clarity without cookies (RECETTE §15.6, 2026-10-06): no banner.
      consentv2 "denied" is queued BEFORE the tag, so Clarity sets no cookie (_clck, _clsk,
      MUID, CLID), uses one identifier per page view and does not link visits. Anonymous
      technical measurement of stability only; page content is masked (body data-clarity-mask). */}
