@@ -6,6 +6,7 @@ export interface GratuityInput {
   country: Country;
   basicSalary: number;
   yearsOfService: number;
+  /** Ignored: since Decree-Law 33/2021 all UAE contracts are fixed-term and gratuity does not depend on it. */
   contractType?: ContractType;
   terminationType: TerminationType;
 }
@@ -33,7 +34,7 @@ function dailySalary(monthlySalary: number): number {
 }
 
 function calculateUAEGratuity(input: GratuityInput): GratuityResult {
-  const { basicSalary, yearsOfService, contractType = "limited", terminationType } = input;
+  const { basicSalary, yearsOfService, terminationType } = input;
   const daily = dailySalary(basicSalary);
   const breakdown: GratuityBreakdownItem[] = [];
   let grossGratuity = 0;
@@ -84,18 +85,11 @@ function calculateUAEGratuity(input: GratuityInput): GratuityResult {
     grossGratuity = maxCap;
   }
 
-  let penaltyRate = 0;
-  if (contractType === "unlimited" && terminationType === "resignation") {
-    if (yearsOfService < 1) {
-      penaltyRate = 1;
-    } else if (yearsOfService < 3) {
-      penaltyRate = 2 / 3;
-    } else if (yearsOfService < 5) {
-      penaltyRate = 1 / 3;
-    } else {
-      penaltyRate = 0;
-    }
-  }
+  // Decree-Law 33/2021 makes every contract fixed-term and Art. 51 grants the benefit at the end
+  // of service whatever the reason for leaving: no reduction on resignation, for any contract
+  // (the one-third / two-thirds reductions of the 1980 law for unlimited contracts are gone).
+  // Correction du 2026-10-31 (audit de Sami du 2026-10-28, suite).
+  const penaltyRate = 0;
 
   const penalty = grossGratuity * penaltyRate;
   const totalGratuity = grossGratuity - penalty;
@@ -109,10 +103,10 @@ function calculateUAEGratuity(input: GratuityInput): GratuityResult {
     formula: `21 days/year x first 5 years + 30 days/year x remaining years. Max cap: 2 years salary.`,
     notes: [
       "Calculated on basic salary only (excludes allowances).",
-      "Maximum gratuity capped at 2 years of total salary.",
-      contractType === "unlimited" && terminationType === "resignation"
-        ? `Resignation penalty applied: ${Math.round(penaltyRate * 100)}% deduction.`
-        : "No resignation penalty applied.",
+      "Maximum gratuity capped at 2 years of basic wage.",
+      terminationType === "resignation"
+        ? "Resignation does not reduce gratuity under Federal Decree-Law 33/2021 (Art. 51)."
+        : "Full gratuity entitlement.",
     ],
   };
 }

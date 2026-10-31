@@ -31,3 +31,22 @@ describe("UAE gratuity (Decree-Law 33/2021, Art. 51)", () => {
     expect(uae(15_000, 40)).toBe(360_000);
   });
 });
+
+describe("UAE gratuity: no reduction on resignation (Decree-Law 33/2021, Art. 51)", () => {
+  const calc = (contractType: "limited" | "unlimited", terminationType: "employer" | "resignation", years: number) =>
+    calculateGratuity({ country: "uae", basicSalary: 12_000, yearsOfService: years, contractType, terminationType });
+  it("resignation pays the same as termination, whatever the former contract type", () => {
+    for (const years of [1, 2, 3, 4.5, 7.5]) {
+      const reference = calc("limited", "employer", years).totalGratuity;
+      expect(calc("unlimited", "resignation", years).totalGratuity).toBe(reference);
+      expect(calc("limited", "resignation", years).totalGratuity).toBe(reference);
+      expect(calc("unlimited", "resignation", years).penalty).toBe(0);
+    }
+  });
+  it("12 000 AED, 2 years, resignation from a former unlimited contract: 16 800", () => {
+    expect(calc("unlimited", "resignation", 2).totalGratuity).toBe(16_800);
+  });
+  it("still nothing before one year, even on resignation", () => {
+    expect(calc("unlimited", "resignation", 0.5).totalGratuity).toBe(0);
+  });
+});

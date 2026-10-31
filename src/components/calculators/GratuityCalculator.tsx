@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { calculateGratuity, type Country, type ContractType, type TerminationType, type GratuityResult } from "../../lib/gratuity-engine";
+import { calculateGratuity, type Country, type TerminationType, type GratuityResult } from "../../lib/gratuity-engine";
 import { formatCurrencyDetailed, formatDetailedWithEUR, formatEURPart } from "../../lib/format";
 import { decodeState, updateURL } from "../../lib/url-state";
 import ShareButtons from "./ShareButtons";
@@ -13,7 +13,6 @@ interface Props {
 export default function GratuityCalculator({ country, currency, countryName }: Props) {
   const [basicSalary, setBasicSalary] = useState<string>("");
   const [yearsOfService, setYearsOfService] = useState<string>("");
-  const [contractType, setContractType] = useState<ContractType>("limited");
   const [terminationType, setTerminationType] = useState<TerminationType>("employer");
 
   // Read URL params on mount to pre-fill values
@@ -22,9 +21,6 @@ export default function GratuityCalculator({ country, currency, countryName }: P
     const params = decodeState(window.location.search);
     if (params.salary) setBasicSalary(params.salary);
     if (params.years) setYearsOfService(params.years);
-    if (params.contract && (params.contract === "limited" || params.contract === "unlimited")) {
-      setContractType(params.contract as ContractType);
-    }
     if (params.termination && (params.termination === "employer" || params.termination === "resignation")) {
       setTerminationType(params.termination as TerminationType);
     }
@@ -38,10 +34,9 @@ export default function GratuityCalculator({ country, currency, countryName }: P
       country,
       basicSalary: salary,
       yearsOfService: years,
-      contractType,
       terminationType,
     });
-  }, [basicSalary, yearsOfService, contractType, terminationType, country]);
+  }, [basicSalary, yearsOfService, terminationType, country]);
 
   // Update URL whenever inputs change (only if salary and years are present)
   useEffect(() => {
@@ -51,10 +46,9 @@ export default function GratuityCalculator({ country, currency, countryName }: P
       years: yearsOfService,
       country,
     };
-    if (contractType !== "limited") params.contract = contractType;
     if (terminationType !== "employer") params.termination = terminationType;
     updateURL(params);
-  }, [basicSalary, yearsOfService, contractType, terminationType, country]);
+  }, [basicSalary, yearsOfService, terminationType, country]);
 
   const shareText = result
     ? `My end-of-service gratuity in ${countryName}: ${formatDetailedWithEUR(result.totalGratuity, currency)} for ${yearsOfService} years at ${formatDetailedWithEUR(parseFloat(basicSalary), currency)}/month. Calculate yours:`
@@ -103,21 +97,6 @@ export default function GratuityCalculator({ country, currency, countryName }: P
             />
           </div>
 
-          {country === "uae" && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-                Contract Type
-              </label>
-              <select
-                value={contractType}
-                onChange={(e) => setContractType(e.target.value as ContractType)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-              >
-                <option value="limited">Limited (Fixed Term)</option>
-                <option value="unlimited">Unlimited (Pre-2022)</option>
-              </select>
-            </div>
-          )}
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
