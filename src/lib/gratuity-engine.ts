@@ -38,15 +38,17 @@ function calculateUAEGratuity(input: GratuityInput): GratuityResult {
   const breakdown: GratuityBreakdownItem[] = [];
   let grossGratuity = 0;
 
-  if (yearsOfService <= 0) {
+  // Art. 51(2) Federal Decree-Law 33/2021: entitlement only after one year or more of
+  // continuous service; parts of a year count pro rata once that year is completed (Art. 51(3)).
+  if (yearsOfService < 1) {
     return {
       totalGratuity: 0,
       grossGratuity: 0,
       penalty: 0,
       penaltyRate: 0,
       breakdown: [],
-      formula: "No service period",
-      notes: ["Employee must complete at least 1 year of service to be eligible for gratuity."],
+      formula: "Not eligible: less than 1 year of continuous service",
+      notes: ["Employee must complete at least 1 year of continuous service to be eligible for gratuity (Art. 51, Federal Decree-Law 33/2021)."],
     };
   }
 
@@ -183,7 +185,7 @@ function calculateSaudiGratuity(input: GratuityInput): GratuityResult {
     breakdown,
     formula: `Half month salary x first 5 years + 1 full month salary x remaining years.`,
     notes: [
-      "Calculated on last basic salary plus housing allowance.",
+      "Calculated on the last actual wage: basic salary plus housing and other fixed allowances (Saudi Labor Law, Articles 2 and 84).",
       terminationType === "resignation"
         ? `Resignation penalty: ${Math.round(penaltyRate * 100)}% deduction.`
         : "Employer-initiated termination: full gratuity entitlement.",

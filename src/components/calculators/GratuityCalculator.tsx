@@ -72,7 +72,7 @@ export default function GratuityCalculator({ country, currency, countryName }: P
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-              Basic Monthly Salary ({currency})
+              {country === "saudi" ? `Monthly Wage: basic + housing and fixed allowances (${currency})` : `Basic Monthly Salary (${currency})`}
             </label>
             <input
               type="text" inputMode="decimal"

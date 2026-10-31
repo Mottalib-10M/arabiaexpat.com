@@ -7,7 +7,7 @@ import SourcesBlock from "../../components/ui/SourcesBlock.astro";
 
 const faqs = [
   { question: "What is end-of-service gratuity in the Gulf?", answer: "Gratuity is a mandatory lump-sum payment from employer to employee upon termination of employment. All three major Gulf countries (UAE, Qatar, Saudi Arabia) mandate gratuity by law. It is calculated based on basic salary and years of service, and it functions as deferred compensation since there is no pension system for expats." },
-  { question: "How does UAE gratuity differ from Saudi gratuity?", answer: "UAE: 21 days of basic salary per year (first 5 years), 30 days per year after. Saudi: 15 days per year (first 5 years), 30 days per year after. UAE gratuity is capped at 2 years of basic salary. Saudi gratuity has no explicit cap. Both use basic salary only, excluding allowances." },
+  { question: "How does UAE gratuity differ from Saudi gratuity?", answer: "UAE: 21 days of basic salary per year (first 5 years), 30 days per year after. Saudi: 15 days per year (first 5 years), 30 days per year after. UAE gratuity is capped at 2 years of basic salary. Saudi gratuity has no explicit cap. The UAE uses basic salary only; Saudi Arabia uses the last actual wage, which includes housing and other fixed allowances (Articles 2 and 84 of the Saudi Labor Law)." },
   { question: "Do I get gratuity if I resign?", answer: "In the UAE (under the 2021 law): yes, full gratuity after 1 year regardless of resignation. In Saudi Arabia: partial gratuity (1/3) after 2-5 years if resigning, 2/3 after 5-10 years, and full after 10+ years. In Qatar: full gratuity after 1 year regardless of reason for leaving." },
   { question: "Is gratuity paid on top of my salary?", answer: "Yes. Gratuity is an additional payment made when employment ends. It is not deducted from your salary during employment. The employer is responsible for funding it entirely. It is paid as a lump sum alongside your final salary and unused leave balance." },
   { question: "What if my employer refuses to pay gratuity?", answer: "File a complaint with the labor ministry (MoHRE in UAE, MHRSD in Saudi, MADLSA in Qatar). All three countries have dispute resolution processes that typically resolve gratuity claims within 2-6 weeks. Courts consistently rule in favor of employees with documented employment records." },
@@ -34,10 +34,14 @@ const breadcrumbs = [
   <h2 class="text-base font-bold text-gray-900 dark:text-white mb-1 lg:col-span-2">Multi-Country Gratuity Calculator</h2>
   <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 lg:col-span-2">Compare your gratuity entitlement across all three Gulf countries.</p>
   <div data-champs>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3 lg:grid-cols-1">
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3 lg:grid-cols-1">
       <div>
         <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="mg-basic">Monthly Basic Salary</label>
         <input type="number" id="mg-basic" value="15000" min="1000" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="mg-allow">Housing and other fixed monthly allowances (used for Saudi Arabia)</label>
+        <input type="number" id="mg-allow" value="0" min="0" step="500" class="w-full text-sm border border-gray-300 dark:border-gray-700 rounded px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white" />
       </div>
       <div>
         <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1" for="mg-years">Years of Service</label>
@@ -71,20 +75,22 @@ const breadcrumbs = [
 function calcMultiGrat(){
   const basic=parseFloat(document.getElementById('mg-basic').value)||0;
   const years=parseFloat(document.getElementById('mg-years').value)||0;
+  const allow=parseFloat(document.getElementById('mg-allow').value)||0;
   const daily=basic/30;
-  // UAE: 21d first 5yr, 30d after, cap 2yr basic
+  // UAE: 21d first 5yr, 30d after, cap 2yr basic, nothing before 1 year (Art. 51 Decree-Law 33/2021)
   let uae=0;
-  if(years<=5){uae=daily*21*years;}else{uae=daily*21*5+daily*30*(years-5);}
+  if(years<1){uae=0;}else if(years<=5){uae=daily*21*years;}else{uae=daily*21*5+daily*30*(years-5);}
   const uaeCap=basic*24;if(uae>uaeCap)uae=uaeCap;
-  // Saudi: 15d first 5yr, 30d after
+  // Saudi: half a month first 5yr, a month after, on the last actual wage (basic + housing and fixed allowances, Art. 2 and 84 Labor Law)
+  const sDaily=(basic+allow)/30;
   let saudi=0;
-  if(years<=5){saudi=daily*15*years;}else{saudi=daily*15*5+daily*30*(years-5);}
+  if(years<=5){saudi=sDaily*15*years;}else{saudi=sDaily*15*5+sDaily*30*(years-5);}
   // Qatar: 3 weeks (21d) per year, no tier
   let qatar=daily*21*years;
   document.getElementById('mg-uae').textContent='AED '+Math.round(uae).toLocaleString();
   document.getElementById('mg-saudi').textContent='SAR '+Math.round(saudi).toLocaleString();
   document.getElementById('mg-qatar').textContent='QAR '+Math.round(qatar).toLocaleString();
-  document.getElementById('mg-note').textContent='All calculations use basic salary only. UAE capped at 2 years basic. Assumes full entitlement (no resignation reduction for Saudi). At current exchange rates AED/SAR/QAR are roughly equivalent in EUR terms.';
+  document.getElementById('mg-note').textContent='UAE and Qatar use basic salary only; Saudi Arabia uses the actual wage (basic plus housing and other fixed allowances). UAE capped at 2 years basic, nothing before 1 year of service. Assumes full entitlement (no resignation reduction for Saudi). At current exchange rates AED/SAR/QAR are roughly equivalent in EUR terms.';
   document.getElementById('mg-result').classList.remove('hidden');
 }
 </script>
@@ -128,7 +134,7 @@ function calcMultiGrat(){
       <tr><td class="px-3 py-2 font-medium">Cap</td><td class="px-3 py-2 text-center">2 years basic</td><td class="px-3 py-2 text-center">No cap</td><td class="px-3 py-2 text-center">No cap</td></tr>
       <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">Resignation penalty</td><td class="px-3 py-2 text-center">None (2021 law)</td><td class="px-3 py-2 text-center">Yes (tiered)</td><td class="px-3 py-2 text-center">None</td></tr>
       <tr><td class="px-3 py-2 font-medium">Min. service</td><td class="px-3 py-2 text-center">1 year</td><td class="px-3 py-2 text-center">2 years (resign)</td><td class="px-3 py-2 text-center">1 year</td></tr>
-      <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">Calculation basis</td><td class="px-3 py-2 text-center">Basic salary only</td><td class="px-3 py-2 text-center">Basic salary only</td><td class="px-3 py-2 text-center">Basic salary only</td></tr>
+      <tr class="bg-gray-50 dark:bg-gray-800/50"><td class="px-3 py-2 font-medium">Calculation basis</td><td class="px-3 py-2 text-center">Basic salary only</td><td class="px-3 py-2 text-center">Actual wage (basic + housing and fixed allowances)</td><td class="px-3 py-2 text-center">Basic salary only</td></tr>
     </tbody>
   </table>
 </div>
@@ -151,7 +157,7 @@ function calcMultiGrat(){
 <p>The ADGM follows a similar structure under its Employment Regulations 2019. Gratuity accrues at 21 days of daily wage for each year of the first five years and 30 days for subsequent years, capped at two years of total remuneration. ADGM employers must pay all terminal benefits within 14 days. The ADGM has also introduced a voluntary workplace savings alternative, though adoption rates remain lower than the DIFC DEWS program. Employees working in either free zone should carefully review their employment contracts, as some employers offer enhanced gratuity terms beyond the statutory minimum as a retention incentive, particularly in financial services and legal sectors where talent competition between the two centres is intense.</p>
 
 <h2>Bahrain, Kuwait, and Oman: Gratuity in the Wider Gulf</h2>
-<p>While this guide focuses primarily on the UAE, Saudi Arabia, and Qatar, the three remaining GCC states also mandate end-of-service gratuity for expatriate employees. In Bahrain, the Labour Law for the Private Sector (Law No. 36 of 2012) entitles employees to gratuity of half a month's salary for each of the first three years of service and one full month for each subsequent year. There is no cap, and since 2023, Bahrain has expanded its Social Insurance Organisation (SIO) coverage to include certain categories of expatriate workers, creating a parallel system alongside traditional gratuity. Kuwait's Private Sector Labour Law (No. 6 of 2010) provides 15 days of remuneration for each of the first five years and one month for each year thereafter. Importantly, Kuwait uses "remuneration" rather than "basic salary," which can include regular allowances in the calculation. Kuwait caps total gratuity at 18 months of remuneration, making it one of the more restrictive systems for very long-tenured employees. Oman's Labour Law (Royal Decree 35/2003, as amended) grants 15 days of basic salary per year for the first three years and one month for each subsequent year. Oman has been gradually reforming its end-of-service benefits system as part of its broader Omanization and social protection modernization agenda.</p>
+<p>While this guide focuses primarily on the UAE, Saudi Arabia, and Qatar, the three remaining GCC states also mandate end-of-service gratuity for expatriate employees. In Bahrain, the Labour Law for the Private Sector (Law No. 36 of 2012) entitles employees to gratuity of half a month's salary for each of the first three years of service and one full month for each subsequent year. There is no cap, and since 2023, Bahrain has expanded its Social Insurance Organisation (SIO) coverage to include certain categories of expatriate workers, creating a parallel system alongside traditional gratuity. Kuwait's Private Sector Labour Law (No. 6 of 2010) provides 15 days of remuneration for each of the first five years and one month for each year thereafter. Importantly, Kuwait uses "remuneration" rather than "basic salary," which can include regular allowances in the calculation. Kuwait caps total gratuity at 18 months of remuneration, making it one of the more restrictive systems for very long-tenured employees. Oman's Labour Law (Royal Decree 53/2023, in force since July 2023) grants at least one month of the last basic wage for each year of service, part years pro rata; service before the new law is still counted under the old Royal Decree 35/2003 (15 days per year for the first three years, one month per year after). Under the Social Protection Law (Royal Decree 52/2023), a savings fund for non-Omani workers is due to replace the gratuity.</p>
 
 <h2>Partial Year Calculations and Edge Cases</h2>
 <p>All three major Gulf countries prorate gratuity for partial years of service, calculated on a proportional basis. If you work for three years and seven months in the UAE, your gratuity covers three full years at the 21-day rate plus seven-twelfths of a year at the same rate. This prorating mechanism means that the exact timing of your departure can meaningfully affect your total entitlement. An employee who leaves after four years and eleven months receives gratuity for that entire period at the 21-day rate, while staying just one additional month (reaching five years and one month) means the extra month is calculated at the higher 30-day rate. While one month alone may not be transformative, it signals to the calculator that you have crossed the five-year threshold, and every subsequent month thereafter will also be at the 30-day rate. For employees approaching the five-year mark, negotiating an extra month or two on the contract renewal is financially worthwhile.</p>
