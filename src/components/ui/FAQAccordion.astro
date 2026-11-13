@@ -1,12 +1,14 @@
 ---
 interface Props {
   faqs: { question: string; answer: string }[];
+  /** Sujet de la page, repris dans le titre de la FAQ (MASTERFACTORY §13). */
+  subject?: string;
 }
-const { faqs } = Astro.props;
+const { faqs, subject } = Astro.props;
 ---
 
 <section class="mt-12">
-  <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6">Frequently Asked Questions</h2>
+  <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-6">{subject ? `Frequently Asked Questions about ${subject}` : "Frequently Asked Questions"}</h2>
   <div class="divide-y divide-gray-200 dark:divide-gray-800">
     {faqs.map((faq, i) => (
       <details class="group">

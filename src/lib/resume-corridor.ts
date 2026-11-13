@@ -143,8 +143,10 @@ interface CorridorIndex {
 
 export function resumeCorridorIndex(c: CorridorIndex): string {
   const dest = c.popularDestinations.length;
+  const article = /^[AEIOU]/.test(c.demonym) ? 'an' : 'a';
+  const pays = /^United /.test(c.country) ? `the ${c.country}` : c.country;
   return (
-    `This page covers what a ${c.demonym} professional needs to settle before leaving for the Gulf, and ` +
+    `This page covers what ${article} ${c.demonym} professional needs to settle before moving from ${pays} to the Gulf, and ` +
     `it treats the paperwork rather than the destination as the binding constraint, because that is what ` +
     `delays arrivals. The financial case is straightforward: salaries for equivalent roles run at ` +
     `${c.avgSalaryRange}, and there is no personal income tax on employment income in any of the ` +

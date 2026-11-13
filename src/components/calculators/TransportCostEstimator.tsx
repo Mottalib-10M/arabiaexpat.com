@@ -68,6 +68,8 @@ const costData: Record<string, Record<Mode, Record<CommuteDistance, number>>> = 
   },
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function TransportCostEstimator({ countryKey, currency }: Props) {
   const countryCities = citiesMap[countryKey] || [];
   const [citySlug, setCitySlug] = useState(countryCities[0]?.slug || "");
@@ -104,7 +106,7 @@ export default function TransportCostEstimator({ countryKey, currency }: Props) 
       <div data-resultat aria-live="polite">
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly transport cost in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(monthly, currency)}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(monthly, currency)}</p>
         </div>

@@ -65,6 +65,8 @@ const remitCount: Record<RemitFreq, number> = {
   weekly: 4,
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function BankingCostEstimator({ countryKey, currency }: Props) {
   const countryCities = citiesMap[countryKey] || [];
   const [citySlug, setCitySlug] = useState(countryCities[0]?.slug || "");
@@ -131,7 +133,7 @@ export default function BankingCostEstimator({ countryKey, currency }: Props) {
       </div>
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly banking cost</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly cost of bank accounts in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{result.totalMonthly === 0 ? "Free" : formatCurrency(result.totalMonthly, currency)}</p>
           {result.totalMonthly > 0 && <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalMonthly, currency)}</p>}
         </div>

@@ -54,6 +54,9 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
   const [children, setChildren] = useState(0);
   const [lifestyle, setLifestyle] = useState<Lifestyle>("comfort");
   const [originSlug, setOriginSlug] = useState(defaultOrigin || "");
+  // Pays de la ville d'origine choisie, pour l'étiquette du résultat (« after moving to Dubai from India »).
+  const originCountryName = origins.find((o) => o.slug === originSlug)?.country;
+  const originCountry = originCountryName && /^United /.test(originCountryName) ? `the ${originCountryName}` : originCountryName;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -161,7 +164,7 @@ export default function CostOfLivingSimulator({ defaultCity, defaultOrigin }: Pr
         <div data-resultat aria-live="polite" className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 space-y-4">
           <div className="flex items-baseline justify-between">
             <div>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost in {result.cityName}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Estimated monthly cost after moving to {result.cityName}{originCountry ? ` from ${originCountry}` : ""}</p>
               <p data-chiffre className="text-2xl font-bold text-teal-600 dark:text-teal-400 tabular-nums">
                 {formatCurrency(result.total, result.currency)}
               </p>

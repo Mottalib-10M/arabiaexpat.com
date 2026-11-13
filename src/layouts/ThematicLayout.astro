@@ -94,7 +94,7 @@ const prose = "prose prose-lg dark:prose-invert prose-teal max-w-none prose-head
 
     <div class={prose} set:html={suite} />
 
-    {faqs.length > 0 && <FAQAccordion faqs={faqs} />}
+    {faqs.length > 0 && <FAQAccordion faqs={faqs} subject={title.split(/ 20\d\d/)[0]} />}
     {sources.length > 0 && <SourcesBlock sources={sources} />}
     {relatedLinks.length > 0 && <RelatedLinks links={relatedLinks} />}
 

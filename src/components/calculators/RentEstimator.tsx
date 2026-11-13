@@ -69,6 +69,8 @@ const rentData: Record<string, Record<PropertyType, Record<AreaTier, [number, nu
   },
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function RentEstimator({ countryKey, currency }: Props) {
   const countryCities = cities[countryKey] || [];
   const [citySlug, setCitySlug] = useState(countryCities[0]?.slug || "");
@@ -109,7 +111,7 @@ export default function RentEstimator({ countryKey, currency }: Props) {
       <div data-resultat aria-live="polite">
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Monthly rent range</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Monthly rent range in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">
             {formatCurrency(range[0], currency)} – {formatCurrency(range[1], currency)}
           </p>

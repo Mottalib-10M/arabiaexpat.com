@@ -55,6 +55,8 @@ const familyMultiplier: Record<FamilySize, number> = {
   family4plus: 3.5,
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function HealthcareCostEstimator({ countryKey, currency }: Props) {
   const countryCities = citiesMap[countryKey] || [];
   const [citySlug, setCitySlug] = useState(countryCities[0]?.slug || "");
@@ -112,7 +114,7 @@ export default function HealthcareCostEstimator({ countryKey, currency }: Props)
       </div>
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly healthcare</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly healthcare in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.totalMonthly, currency)}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.totalMonthly, currency)}</p>
         </div>

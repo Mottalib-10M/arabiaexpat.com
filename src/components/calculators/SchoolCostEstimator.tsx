@@ -42,6 +42,8 @@ const feeData: Record<string, Record<Curriculum, Record<Tier, number>>> = {
   },
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function SchoolCostEstimator({ countryKey, currency }: Props) {
   const [curriculum, setCurriculum] = useState<Curriculum>("british");
   const [tier, setTier] = useState<Tier>("mid");
@@ -81,7 +83,7 @@ export default function SchoolCostEstimator({ countryKey, currency }: Props) {
       <div data-resultat aria-live="polite">
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Annual per child</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Annual international school fees per child in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-gray-900 dark:text-white tabular-nums">{formatCurrency(annualPerChild, currency)}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(annualPerChild, currency)}</p>
         </div>

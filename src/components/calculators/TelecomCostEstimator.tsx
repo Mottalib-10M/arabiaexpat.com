@@ -77,6 +77,8 @@ const voipAddon: Record<string, number> = {
   dammam: 0,
 };
 
+const PAYS = { uae: "the UAE", qatar: "Qatar", saudi: "Saudi Arabia" } as const;
+
 export default function TelecomCostEstimator({ countryKey, currency }: Props) {
   const countryCities = citiesMap[countryKey] || [];
   const [citySlug, setCitySlug] = useState(countryCities[0]?.slug || "");
@@ -150,7 +152,7 @@ export default function TelecomCostEstimator({ countryKey, currency }: Props) {
       </div>
       <div className="flex items-start justify-between p-3 bg-teal-50 dark:bg-teal-900/20 rounded-lg gap-4">
         <div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly telecom</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">Total monthly mobile and internet cost in {PAYS[countryKey]}</p>
           <p className="text-lg font-bold text-teal-600 dark:text-teal-400 tabular-nums">{formatCurrency(result.total, currency)}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">{formatEURPart(result.total, currency)}</p>
         </div>
