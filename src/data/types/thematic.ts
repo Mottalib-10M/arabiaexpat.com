@@ -17,6 +17,6 @@ export interface ThematicPageData {
   faqs: { question: string; answer: string }[];
   sources: { name: string; url: string }[];
   relatedLinks: { label: string; href: string }[];
-  /** Which calculator component to show: education, housing, transport, utilities, or none */
-  calculator: "education" | "housing" | "transport" | "utilities" | null;
+  /** Which calculator component to show, or none */
+  calculator: "education" | "housing" | "transport" | "utilities" | "banking" | "healthcare" | "telecom" | "visa" | null;
 }

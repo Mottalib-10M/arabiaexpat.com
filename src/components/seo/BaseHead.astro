@@ -90,6 +90,6 @@ const fullOgImage = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage
      consentv2 "denied" is queued BEFORE the tag, so Clarity sets no cookie (_clck, _clsk,
      MUID, CLID), uses one identifier per page view and does not link visits. Anonymous
      technical measurement of stability only; page content is masked (body data-clarity-mask). */}
-{SITE.clarityId && SITE.clarityId !== "placeholder-clarity-id" && (
+{SITE.clarityId && (
   <script is:inline set:html={`(function(){window.clarity=window.clarity||function(){(window.clarity.q=window.clarity.q||[]).push(arguments);};window.clarity('consentv2',{ad_Storage:'denied',analytics_Storage:'denied'});var s=document.createElement('script');s.async=true;s.src='https://www.clarity.ms/tag/${SITE.clarityId}';document.head.appendChild(s);window.clarity('set','language','en');window.clarity('set','page_path','${Astro.url.pathname}');})();`} />
 )}

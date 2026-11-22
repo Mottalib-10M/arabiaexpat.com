@@ -2,8 +2,8 @@
 import { fit, TITLE_RANGE, DESC_RANGE } from '../../../lib/snippet';
 import { resumeCorridor, sortieCorridor } from "../../../lib/resume-corridor";
 import GuideLayout from "../../../layouts/GuideLayout.astro";
-import { corridors } from "../../../data/corridors";
-import { destinationCities } from "../../../data/destination-cities";
+import { corridors, type CorridorData } from "../../../data/corridors";
+import { destinationCities, type DestinationCity } from "../../../data/destination-cities";
 import { COUNTRIES } from "../../../data/site-config";
 import { buildBreadcrumbs, buildFAQSchema } from "../../../lib/seo";
 import RelatedLinks from "../../../components/ui/RelatedLinks.astro";
@@ -24,7 +24,7 @@ export function getStaticPaths() {
   return paths;
 }
 
-const { corridor, city } = Astro.props;
+const { corridor, city } = Astro.props as { corridor: CorridorData; city: DestinationCity };
 const countryConfig = COUNTRIES[city.countryKey];
 
 // Map corridor slugs to origin-costs slugs for simulator pre-fill

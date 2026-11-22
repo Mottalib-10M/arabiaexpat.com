@@ -9,14 +9,15 @@ echo "=== Pre-build Checks ==="
 # 1. Node version check (need >= 22 for Astro 5+)
 NODE_VERSION=$(node -v | sed 's/v//' | cut -d. -f1)
 if [ "$NODE_VERSION" -lt 22 ]; then
-  echo "FAIL: Node.js >= 22 required (found v$(node -v))"
+  echo "FAIL: Node.js >= 22 required (found $(node -v))"
   ERRORS=$((ERRORS + 1))
 else
-  echo "OK: Node.js v$(node -v)"
+  echo "OK: Node.js $(node -v)"
 fi
 
 # 2. No client:load in pages
-LOAD_COUNT=$(grep -r "client:load" src/pages/ --include="*.astro" -c 2>/dev/null || echo 0)
+# grep -rc prints one "file:count" line per file, which [ -gt ] cannot compare: count matching files instead
+LOAD_COUNT=$({ grep -rl "client:load" src/pages/ --include="*.astro" 2>/dev/null || true; } | wc -l | tr -d " ")
 if [ "$LOAD_COUNT" -gt 0 ]; then
   echo "FAIL: Found $LOAD_COUNT files with client:load (should use client:idle)"
   grep -r "client:load" src/pages/ --include="*.astro" -l
@@ -26,7 +27,7 @@ else
 fi
 
 # 3. No placeholder verification codes (arabiaexpat uses site-config.ts only)
-PLACEHOLDER_COUNT=$(grep -r "XXXX\|placeholder\|YOUR_.*_HERE" src/data/site-config.ts 2>/dev/null | grep -v "^Binary" | wc -l || echo 0)
+PLACEHOLDER_COUNT=$(grep -c "XXXX\|placeholder\|YOUR_.*_HERE" src/data/site-config.ts 2>/dev/null || true)
 if [ "$PLACEHOLDER_COUNT" -gt 0 ]; then
   echo "WARN: Found placeholder values in config"
   ERRORS=$((ERRORS + 1))
@@ -35,7 +36,7 @@ else
 fi
 
 # 4. Em dashes check (should be < 5)
-EM_COUNT=$(grep -r "—" src/pages/ --include="*.astro" -c 2>/dev/null | awk -F: '{sum+=$2} END {print sum+0}')
+EM_COUNT=$({ grep -r "—" src/pages/ --include="*.astro" -c 2>/dev/null || true; } | awk -F: '{sum+=$2} END {print sum+0}')
 if [ "$EM_COUNT" -gt 5 ]; then
   echo "WARN: Found $EM_COUNT em dashes in pages (target: < 5)"
 else

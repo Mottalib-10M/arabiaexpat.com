@@ -88,7 +88,6 @@ export function buildPersonSchema(): object {
     jobTitle: SITE.author.role,
     description: SITE.author.bio,
     url: `${SITE.url}/about/`,
-    image: `${SITE.url}${SITE.author.image}`,
     worksFor: {
       "@type": "Organization",
       name: SITE.name,
