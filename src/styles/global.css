@@ -169,3 +169,42 @@ select:not([multiple]):not([size]), select[size="1"] {
   white-space: nowrap;
   overflow: hidden;
 }
+
+/* === Charte du pays (refonte d'identité validée par l'éditeur, appliquée le 2026-11-25) ===
+   En-tête plein, bandeau héros, simulateur en carte, sections alternées, chiffres-résultats, boutons et pied
+   aux couleurs du pays ; l'échelle --color-accent-* du @theme porte la couleur forte. */
+html,body { overflow-x:clip; }
+body > header { background:#00732F !important; border-bottom:4px solid #C8102E !important; }
+body > header nav > div > a:first-child > svg { display:none; }
+body > header nav > div > a:first-child::before { content:""; width:36px; height:36px; flex:none; border-radius:8px; background:#fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGNsaXBQYXRoIGlkPSJjIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSI3Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYykiPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iIzAwNzMyRiIvPjxwYXRoIGQ9Ik0xMCA2NFYzMEMxMCAxNyAyMSA5IDMyIDNDNDMgOSA1NCAxNyA1NCAzMFY2NFoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMjEgNjRWMzRDMjEgMjYgMjYgMjAgMzIgMTVDMzggMjAgNDMgMjYgNDMgMzRWNjRaIiBmaWxsPSIjQzgxMDJFIi8+PC9nPjwvc3ZnPg==) center/32px no-repeat; }
+body > header nav > div > a:first-child span:first-child { color:#fff !important; }
+body > header nav > div > a:first-child span + span { color:#FFFFFF !important; }
+body > header nav > div > div > div > a, body > header nav > div > div > a, body > header nav button { color:#fff !important; }
+body > header nav [class*="absolute"] { background:#fff !important; } body > header nav [class*="absolute"] a { color:#0f172a !important; }
+body > header nav #mobile-menu, body > header nav [id*="mobile"] { background:#fff !important; } body > header nav [id*="mobile"] a, body > header nav [id*="mobile"] button { color:#0f172a !important; }
+body > header nav button#mobile-menu-toggle { background:transparent !important; color:#fff !important; }
+main > div:first-child, main > div[data-simu] { background:#00732F !important; border:0 !important; }
+main > div:first-child h1, main > div:first-child p { color:#fff !important; }
+main > div[data-simu] { padding-bottom:20px; }
+main > div[data-simu] > div > div > * { background:#fff; border-top:6px solid #C8102E; border-radius:14px; padding:14px; box-shadow:0 14px 34px rgba(0,0,0,.22); margin-bottom:12px; }
+main > div[data-simu] [class*="text-2xl"], main > div[data-simu] [class*="text-3xl"] { color:#00732F !important; font-size:2rem !important; }
+main > div:nth-of-type(4) { background:#E8F3EC !important; }
+main h2 { width:fit-content; border-bottom:5px solid #C8102E; padding-bottom:6px; }
+main a[class*="bg-teal"], main a[class*="bg-amber"], main button[class*="bg-teal"], main button[class*="bg-amber"] { background:#C8102E !important; color:#FFFFFF !important; }
+main a[class*="text-teal"], main a[class*="text-amber"] { color:#00732F !important; text-decoration:underline; text-decoration-color:#C8102E; }
+
+main h2 { color:#00732F !important; }
+main table thead th { color:#00732F !important; border-bottom:3px solid #C8102E !important; }
+main .prose a, main p a { color:#00732F !important; text-decoration:underline; text-decoration-color:#C8102E; text-decoration-thickness:2px; text-underline-offset:3px; }
+footer { background:#0B0B0B !important; border-top:5px solid #C8102E !important; }
+footer, footer * { color:#E5E7EB !important; border-color:rgba(255,255,255,.18) !important; }
+footer [class*="bg-white"], footer [class*="bg-gray-50"] { background:transparent !important; }
+footer [class*="bg-teal"], footer [class*="bg-amber"], footer [class*="bg-emerald"] { background:#C8102E !important; }
+footer form input { color:#111 !important; background:#fff !important; }
+a.skip-to-content { background:#00732F !important; color:#fff !important; }
+/* Mode sombre : la teinte claire et le vert de la charte ne passent pas sur fond nuit */
+.dark main > div:nth-of-type(4) { background:#0F2A1C !important; }
+.dark main a[class*="text-teal"], .dark main a[class*="text-amber"], .dark main .prose a, .dark main p a, .dark main h2, .dark main table thead th { color:#5FD38D !important; }
+.dark main > div[data-simu] > div > div > * { background:#0F1A14; }
+.dark main > div[data-simu] :is(h2,h3,[class*="text-2xl"],[class*="text-3xl"]) { color:#5FD38D !important; }
+/* === fin de la charte du pays === */
